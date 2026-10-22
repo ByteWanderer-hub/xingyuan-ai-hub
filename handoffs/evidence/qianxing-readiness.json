@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "task_id": "QXQY-READINESS-20261022",
+  "tested_at": "2026-10-22T15:06:30+00:00",
+  "implementation_base_commit": "3084d1c02ec0d094d547e61f2aa10ea7be930524",
+  "migration_source_commit": "80b07a1e396d199d0aad255d4f6b08b501429b78",
+  "environment": {
+    "platform": "Linux",
+    "python": "3.12.14",
+    "node": "v24.19.0",
+    "git": "2.51.1",
+    "windows_actual_run": false
+  },
+  "tested_files": {
+    "scripts/install_skills.py": {
+      "bytes": 19891,
+      "sha256": "b6ff4d23074ecb238d5d50482a51ae6964fa29c5c2e31604f395f24c27bf7470",
+      "git_blob_sha": "7f716a906a8530745cfef615b16f68885490af48"
+    },
+    "scripts/verify_skills.py": {
+      "bytes": 22905,
+      "sha256": "4e65189e1437008df2c658ba12dc36ca7cc3cdd1a6e618077b3bebf98f5b8d1f",
+      "git_blob_sha": "10018f125431ca530efa521fa96401a10b5edb2f"
+    },
+    "scripts/tests/test_install_skills.py": {
+      "bytes": 13539,
+      "sha256": "7477005baa6190d83d9e8d8140e6abba1a37dd0d2e5e2ac5e989d3a4eb5b4dff",
+      "git_blob_sha": "51fd0c069cda2e5ac737dea2b30463bdc26c737d"
+    },
+    "scripts/tests/test_verify_skills.py": {
+      "bytes": 14648,
+      "sha256": "4b5698077238691a5b1dc68a630551071cefdab26fd985fdcae7b6861714d727",
+      "git_blob_sha": "884348df904f330b7467514d1cac43288c929181"
+    },
+    "scripts/migration-baseline.json": {
+      "bytes": 55325,
+      "sha256": "269c3d1fe684c6400f95568922022171ea008c35f039f4be15309e7ee992f654",
+      "git_blob_sha": "99393c68f66ec56a657fae902e96119f657e6dbd"
+    },
+    "skills/qianxing-auto-delivery/SKILL.md": {
+      "bytes": 8571,
+      "sha256": "5bbe1715a3b9df928a73854137c08830258101d2f60e9f13c6ea697ad1e70352",
+      "git_blob_sha": "5e9e6a5e003a5bd89e663ec5d11a21c0a38a17ce"
+    }
+  },
+  "unit_tests": {
+    "command": "python3 -B -m unittest discover -s scripts/tests -p 'test_*.py' -v",
+    "exit_code": 0,
+    "total": 36,
+    "passed": 36,
+    "installer": 15,
+    "verifier": 21
+  },
+  "source_verification": {
+    "command": "python3 -B scripts/verify_skills.py --json",
+    "exit_code": 0,
+    "skills": 14,
+    "required_skills": 10,
+    "local_markdown_targets": 56,
+    "immutable_assets_passed": 2,
+    "image_catalog_entries": 1543
+  },
+  "skill_quick_validation": {
+    "skill": "qianxing-auto-delivery",
+    "validator": "work-skill-creator/scripts/quick_validate.py",
+    "exit_code": 0,
+    "stdout": "Skill is valid!"
+  },
+  "independent_review": {
+    "status": "no_remaining_blockers_in_reviewed_scope",
+    "confirmed_fixes": [
+      "unreadable source directory must abort inventory",
+      "caught interruption rolls back",
+      "Git UTF-8 output and unavailable-metadata fallback",
+      "strict manifest types and duplicate JSON keys",
+      "lexical installed-target/parent symlink and reparse refusal"
+    ],
+    "limits": [
+      "caught failure rollback only; no power-loss/SIGKILL atomicity guarantee",
+      "Windows reparse behavior uses simulated attributes, not Windows execution"
+    ]
+  },
+  "integration": {
+    "schema_version": 1,
+    "tested_at": "2026-10-22T15:06:30+00:00",
+    "platform": "Linux",
+    "python": "3.12.14",
+    "steps": [
+      {
+        "name": "install_preview",
+        "command": [
+          "python3",
+          "-B",
+          "$REPO/scripts/install_skills.py",
+          "--target",
+          "$INSTALL_ROOT"
+        ],
+        "exit_code": 0,
+        "stdout": "DRY RUN: $INSTALL_ROOT\nSource Git revision: 4997325ea4d097d1a72dc746312385dc789d15d2\nSource skills working-tree dirty: True\nADDED     game-design-theory (6 files)\nADDED     game-feel (2 files)\nADDED     game-ui-ux (2 files)\nADDED     level-design (2 files)\nADDED     miliastra-bb (12 files)\nADDED     miliastra-code (94 files)\nADDED     miliastra-ui (16 files)\nADDED     qianxing-agent (46 files)\nADDED     qianxing-auto-delivery (3 files)\nADDED     systematic-debugging (4 files)\nPreview only; no files written. Add --apply to install this selection.\nFile installation does not prove that Codex has discovered or executed these skills.\n"
+      },
+      {
+        "name": "install_apply",
+        "command": [
+          "python3",
+          "-B",
+          "$REPO/scripts/install_skills.py",
+          "--target",
+          "$INSTALL_ROOT",
+          "--apply"
+        ],
+        "exit_code": 0,
+        "stdout": "APPLY: $INSTALL_ROOT\nSource Git revision: 4997325ea4d097d1a72dc746312385dc789d15d2\nSource skills working-tree dirty: True\nADDED     game-design-theory (6 files)\nADDED     game-feel (2 files)\nADDED     game-ui-ux (2 files)\nADDED     level-design (2 files)\nADDED     miliastra-bb (12 files)\nADDED     miliastra-code (94 files)\nADDED     miliastra-ui (16 files)\nADDED     qianxing-agent (46 files)\nADDED     qianxing-auto-delivery (3 files)\nADDED     systematic-debugging (4 files)\nInstallation committed.\nFile installation does not prove that Codex has discovered or executed these skills.\n"
+      },
+      {
+        "name": "install_repeat",
+        "command": [
+          "python3",
+          "-B",
+          "$REPO/scripts/install_skills.py",
+          "--target",
+          "$INSTALL_ROOT",
+          "--apply"
+        ],
+        "exit_code": 0,
+        "stdout": "APPLY: $INSTALL_ROOT\nSource Git revision: 4997325ea4d097d1a72dc746312385dc789d15d2\nSource skills working-tree dirty: True\nUNCHANGED game-design-theory (6 files)\nUNCHANGED game-feel (2 files)\nUNCHANGED game-ui-ux (2 files)\nUNCHANGED level-design (2 files)\nUNCHANGED miliastra-bb (12 files)\nUNCHANGED miliastra-code (94 files)\nUNCHANGED miliastra-ui (16 files)\nUNCHANGED qianxing-agent (46 files)\nUNCHANGED qianxing-auto-delivery (3 files)\nUNCHANGED systematic-debugging (4 files)\nAlready up to date; no files written.\nFile installation does not prove that Codex has discovered or executed these skills.\n"
+      },
+      {
+        "name": "installed_verification",
+        "command": [
+          "python3",
+          "-B",
+          "$REPO/scripts/verify_skills.py",
+          "--installed",
+          "$INSTALL_ROOT",
+          "--json"
+        ],
+        "exit_code": 0,
+        "result": {
+          "status": "passed",
+          "structure_validation": "passed",
+          "asset_validation": "passed",
+          "installation": {
+            "target": "$INSTALL_ROOT",
+            "status": "passed",
+            "managed_skills": [
+              "game-design-theory",
+              "game-feel",
+              "game-ui-ux",
+              "level-design",
+              "miliastra-bb",
+              "miliastra-code",
+              "miliastra-ui",
+              "qianxing-agent",
+              "qianxing-auto-delivery",
+              "systematic-debugging"
+            ],
+            "git_revision": "4997325ea4d097d1a72dc746312385dc789d15d2",
+            "source_dirty": true
+          },
+          "local_reference_count": 56,
+          "scope": {
+            "metadata": "Required name/description scalar fields only; not a full YAML parser.",
+            "references": "SKILL.md inline/reference Markdown destinations outside code; no heading checks.",
+            "offline_selftests": "not_run",
+            "codex_discovery": "not_verified",
+            "editor_plugin": "not_verified",
+            "game_runtime": "not_verified"
+          }
+        }
+      },
+      {
+        "name": "check-lua-scope.mjs_selftest",
+        "command": [
+          "node",
+          "$INSTALL_ROOT/miliastra-code/scripts/gates/check-lua-scope.mjs",
+          "--selftest"
+        ],
+        "exit_code": 0,
+        "stdout": "PASS  块内 local 被另一个函数读（C_PANEL 型）  → error=1 warn=0\nPASS  local 声明在函数之后（curStage 型）  → error=1 warn=0\nPASS  正常的模块级 local（不该报）  → error=0 warn=0\nPASS  写到全局（该 warn，不该 error）  → error=0 warn=1\n\n自检对真实文件：board.lua error=（找不到，跳过） warn=-（2026-09-25 修完之后应该是 0；非 0 说明又退化了）\n\n自检通过 ✓\n"
+      },
+      {
+        "name": "check-lua-style.mjs_selftest",
+        "command": [
+          "node",
+          "$INSTALL_ROOT/miliastra-code/scripts/gates/check-lua-style.mjs",
+          "--selftest"
+        ],
+        "exit_code": 0,
+        "stdout": "PASS  干净样本（不该报）  → error=0 warn=0\nPASS  BOM + CRLF + TAB（三个 error）  → error=3 warn=3\nPASS  OnUpdate 没包 pcall  → error=1 warn=1\nPASS  pcall 吞错（ok 再没出现）  → error=1 warn=1\nPASS  风格噪音（单引号/分号/assert/单行if/全角）  → error=0 warn=5\nPASS  基线：与基线一致 → 无回归\nPASS  基线：某规则变多 → 算回归\nPASS  基线：某规则变少 → 只算 improved\nPASS  基线：新文件 → 必须干净\nPASS  基线：有 error → 必拦\nPASS  fix：分号：行尾删掉\nPASS  fix：分号：行中拆两行（保缩进）\nPASS  fix：分号：字符串里的绝不动\nPASS  fix：分号：注释里的绝不动\nPASS  fix：TAB → 4 空格\nPASS  fix：CRLF → LF\nPASS  fix：BOM 去掉\nPASS  fix：幂等（第二次应无改动）\nPASS  blocks：单行 if → 块\nPASS  blocks：带缩进 + 行内分号 → 多行\nPASS  blocks：`then return` 保持不动（规范允许）\nPASS  blocks：行内含注释 → 不碰（交给人）\nPASS  blocks：嵌套单行 if → 不碰\nPASS  blocks：字符串里的 if/end 不算代码\nPASS  blocks：条件/语句里的字符串 end 不误判\nPASS  blocks：展开前后关键字计数不变（写盘前的硬校验）\n\n自检通过 ✓\n"
+      },
+      {
+        "name": "lua-iron-check.mjs_selftest",
+        "command": [
+          "node",
+          "$INSTALL_ROOT/miliastra-code/scripts/gates/lua-iron-check.mjs",
+          "--selftest"
+        ],
+        "exit_code": 0,
+        "stdout": "PASS  干净样例：error 命中 0\nPASS  干净样例：R1/R2/R3/R4/R5/R10 全绿\nPASS  脏样例：R1 必须报（1 处）\nPASS  脏样例：R2 必须报（1 处）\nPASS  脏样例：R3 必须报（1 处）\nPASS  脏样例：R4 必须报（1 处）\nPASS  脏样例：R5 必须报（2 处）\nPASS  脏样例：R6 必须报（1 处）\nPASS  脏样例：R10 必须报（1 处）\nPASS  脏样例：error 命中 > 0\nPASS  半自动行存在（R7/R8/R9）\n\n自检通过 ✓\n"
+      },
+      {
+        "name": "check-ui-rules.mjs_selftest",
+        "command": [
+          "node",
+          "$INSTALL_ROOT/miliastra-ui/scripts/gates/check-ui-rules.mjs",
+          "--selftest"
+        ],
+        "exit_code": 0,
+        "stdout": "自检坏样本：命中 7 处，规则覆盖 UI2/UI3/UI4/UI6/UI5，判不了 0 处\n自检好样本：命中 0 处\n自检通过 ✓\n"
+      },
+      {
+        "name": "installed_asset_lookup",
+        "command": [
+          "node",
+          "$INSTALL_ROOT/miliastra-code/scripts/search-assets.mjs",
+          "\"assetID\":100001"
+        ],
+        "exit_code": 0,
+        "stdout": "总记录 1543 条，关键词 [\"assetID\":100001] 命中 1 条\n--- 100001 [shape_primitive/solid_square] 形状=square tintable=true preserve_aspect=false\n    拉伸=free_nonuniform; lock aspect only when a squ…\n    纯白实心正方形基础图元，无描边、无纹理，四边贴满画布。\n"
+      }
+    ],
+    "idempotent_file_count": 188,
+    "asset_lookup": {
+      "catalog_entries": 1543,
+      "queried_asset_id": 100001,
+      "expected_result_found": true
+    },
+    "source_metadata": {
+      "repo": "lizhenyu2845905433-rgb/xingyuan-ai-hub",
+      "git_revision": "4997325ea4d097d1a72dc746312385dc789d15d2",
+      "source_dirty": true
+    },
+    "passed": true
+  },
+  "provenance_note": "The local snapshot Git revision recorded by integration was created for local verification only and is not a GitHub commit. The verified upstream tree was cd8d1b51809cf3de3a8a9f51c9d70738d0216419. Bind these test results to tested_files hashes, not that temporary revision.",
+  "unverified": {
+    "codex_actual_discovery": "not_verified",
+    "windows_execution": "not_verified",
+    "editor_plugin": "not_verified",
+    "game_project_files": "not_verified",
+    "deployment_and_save": "not_verified",
+    "game_runtime": "not_verified",
+    "user_acceptance": "pending"
+  }
+}

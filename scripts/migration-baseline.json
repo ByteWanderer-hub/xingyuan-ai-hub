@@ -1,0 +1,1329 @@
+{
+  "schema_version": 1,
+  "source": {
+    "repository": "lizhenyu2845905433-rgb/qxqy_AI",
+    "commit": "80b07a1e396d199d0aad255d4f6b08b501429b78",
+    "prefix": ".agents/skills/"
+  },
+  "destination": {
+    "repository": "lizhenyu2845905433-rgb/xingyuan-ai-hub",
+    "baseline_commit": "3084d1c02ec0d094d547e61f2aa10ea7be930524",
+    "prefix": "skills/"
+  },
+  "verified_at": "2026-10-22T15:04:37Z",
+  "files": [
+    {
+      "path": "skills/game-design-theory/SKILL.md",
+      "source_path": ".agents/skills/game-design-theory/SKILL.md",
+      "git_blob_sha": "8e08e0f8bbd8c947bf7e5d9368badc09c872a339",
+      "size": 5351,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-design-theory/references/design-principles.md",
+      "source_path": ".agents/skills/game-design-theory/references/design-principles.md",
+      "git_blob_sha": "314e46c2b883fd5812b17ab022c6bf9f7dc4733d",
+      "size": 9895,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-design-theory/references/gameplay-elements.md",
+      "source_path": ".agents/skills/game-design-theory/references/gameplay-elements.md",
+      "git_blob_sha": "1528b18f8e27c611d1ebab7ae6182d09eaa48ee2",
+      "size": 7185,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-design-theory/references/player-psychology.md",
+      "source_path": ".agents/skills/game-design-theory/references/player-psychology.md",
+      "git_blob_sha": "f40351790534d587f71d8ae50815134ababd6e8a",
+      "size": 7321,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-design-theory/references/playtesting.md",
+      "source_path": ".agents/skills/game-design-theory/references/playtesting.md",
+      "git_blob_sha": "d51488538f189ed9573c46a2364a94035e656281",
+      "size": 9875,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-design-theory/references/storytelling.md",
+      "source_path": ".agents/skills/game-design-theory/references/storytelling.md",
+      "git_blob_sha": "46e0bd512e8fbd3701616ad97985b7b3e14d0619",
+      "size": 7857,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-feel/SKILL.md",
+      "source_path": ".agents/skills/game-feel/SKILL.md",
+      "git_blob_sha": "54eba4a29c87b7e9303579889eaeb26f6dac7a5a",
+      "size": 8985,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-feel/references/feedback-recipes.md",
+      "source_path": ".agents/skills/game-feel/references/feedback-recipes.md",
+      "git_blob_sha": "3ebcc3dc9f2e95caaa132af907b5f213a8acb4f4",
+      "size": 5543,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-ui-ux/SKILL.md",
+      "source_path": ".agents/skills/game-ui-ux/SKILL.md",
+      "git_blob_sha": "c84646755c3d8f2b96fd955d1d2706e911b45596",
+      "size": 8436,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/game-ui-ux/references/layout-and-flow.md",
+      "source_path": ".agents/skills/game-ui-ux/references/layout-and-flow.md",
+      "git_blob_sha": "139caf1d76828a303ba85b9446c75fa259610ea8",
+      "size": 5413,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/level-design/SKILL.md",
+      "source_path": ".agents/skills/level-design/SKILL.md",
+      "git_blob_sha": "f46ebe758c357a7e78d52f7c15ec6b9f00fe2c33",
+      "size": 7081,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/level-design/references/pacing-and-flow.md",
+      "source_path": ".agents/skills/level-design/references/pacing-and-flow.md",
+      "git_blob_sha": "62f19f71cea911dd9ea0d8ed2ed6bc04fd323cf3",
+      "size": 4500,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/SKILL.md",
+      "source_path": ".agents/skills/miliastra-bb/SKILL.md",
+      "git_blob_sha": "0d4a2b400da283b2667b5e4ac1faf13c3dbc345a",
+      "size": 3611,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/dimensions.md",
+      "source_path": ".agents/skills/miliastra-bb/references/dimensions.md",
+      "git_blob_sha": "a9294c0254058743df40550242d45ff34d19ba32",
+      "size": 11520,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/eggy-classroom-feedback-bugs.md",
+      "source_path": ".agents/skills/miliastra-bb/references/examples/eggy-classroom-feedback-bugs.md",
+      "git_blob_sha": "69f8ff0493e7cded7e2d9e8b1451263c7fecf914",
+      "size": 3953,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/export-price-hide.md",
+      "source_path": ".agents/skills/miliastra-bb/references/examples/export-price-hide.md",
+      "git_blob_sha": "ba79e8753eb93c00041d9ffad34e2d0a363245bb",
+      "size": 5579,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/tugb-doc-alignment.md",
+      "source_path": ".agents/skills/miliastra-bb/references/examples/tugb-doc-alignment.md",
+      "git_blob_sha": "6b6ff34f5bdc9bb236772adc70edad73062fe12f",
+      "size": 4533,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/yuan-biphase-flip.md",
+      "source_path": ".agents/skills/miliastra-bb/references/examples/yuan-biphase-flip.md",
+      "git_blob_sha": "b6636c17d7a2a99457dbae6dd0a1516a48a43e20",
+      "size": 6297,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/yuan-tetris-first-game.md",
+      "source_path": ".agents/skills/miliastra-bb/references/examples/yuan-tetris-first-game.md",
+      "git_blob_sha": "51991a9324f392cd9e63cb3124abc15811737f80",
+      "size": 4423,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/platforms/eggy.md",
+      "source_path": ".agents/skills/miliastra-bb/references/platforms/eggy.md",
+      "git_blob_sha": "c0e1cad117bf4335d71b378397ba1b2a294b4ed1",
+      "size": 7615,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/platforms/yuan.md",
+      "source_path": ".agents/skills/miliastra-bb/references/platforms/yuan.md",
+      "git_blob_sha": "d7ee73ed8615c73464ccc18c54cab0c22f5190cc",
+      "size": 11769,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/review-methods.md",
+      "source_path": ".agents/skills/miliastra-bb/references/review-methods.md",
+      "git_blob_sha": "efe2be9cbd96b6ffe5ab457d609c7518ff508fa8",
+      "size": 2789,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/references/templates/boundary-list-template.md",
+      "source_path": ".agents/skills/miliastra-bb/references/templates/boundary-list-template.md",
+      "git_blob_sha": "e0ce6e80386e39ffcb9761deb76cb30d35998b16",
+      "size": 4179,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-bb/scripts/mark_docx.py",
+      "source_path": ".agents/skills/miliastra-bb/scripts/mark_docx.py",
+      "git_blob_sha": "cc8d16e11fc1fa845672c225677687d022a80ab5",
+      "size": 3134,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/SKILL.md",
+      "source_path": ".agents/skills/miliastra-code/SKILL.md",
+      "git_blob_sha": "5ea943652d5f11c0a88d6b52fcd5fad6a20bb4ef",
+      "size": 6175,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/assets/Image_sample_by_id.json",
+      "source_path": ".agents/skills/miliastra-code/assets/Image_sample_by_id.json",
+      "git_blob_sha": "7aa5b7c15648220c7a91757ad862ddf2b4fd73c9",
+      "size": 5586269,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/assets/asset-catalog.md",
+      "source_path": ".agents/skills/miliastra-code/assets/asset-catalog.md",
+      "git_blob_sha": "c0ddac2d2db9619104cd0cca9b99d54cb46c8c11",
+      "size": 232393,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/assets/信号节点图_4类型整改_侦探杀_20260929.gia",
+      "source_path": ".agents/skills/miliastra-code/assets/信号节点图_4类型整改_侦探杀_20260929.gia",
+      "git_blob_sha": "f3adbdc7eceb15f71c5a1c59ff487e7631e40dac",
+      "size": 26463,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/evals/evals.json",
+      "source_path": ".agents/skills/miliastra-code/evals/evals.json",
+      "git_blob_sha": "4f79587e8cb2151e5ccc3a5ba6cb580173c2e76f",
+      "size": 4485,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/api-client-ui-outline.md",
+      "source_path": ".agents/skills/miliastra-code/references/api-client-ui-outline.md",
+      "git_blob_sha": "30d6fd9719d5f31c8d8b4962ea88888352d04b90",
+      "size": 5289,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/api-client-ui.md",
+      "source_path": ".agents/skills/miliastra-code/references/api-client-ui.md",
+      "git_blob_sha": "21f699f7be0f3b5f32f199667e25f6ccdb395d01",
+      "size": 57301,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/api-doc-sources.md",
+      "source_path": ".agents/skills/miliastra-code/references/api-doc-sources.md",
+      "git_blob_sha": "b37c808da498c510a17f6e23656a06ac9a1b9234",
+      "size": 7786,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/blackboard-to-variable-signal.md",
+      "source_path": ".agents/skills/miliastra-code/references/blackboard-to-variable-signal.md",
+      "git_blob_sha": "1ff4be8c63abe906a44ca9550823a337aa65e14b",
+      "size": 12413,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/case-detectives-6scripts.md",
+      "source_path": ".agents/skills/miliastra-code/references/case-detectives-6scripts.md",
+      "git_blob_sha": "fe68275f800df5456db57a319f22cc64ecd444ba",
+      "size": 29567,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/case-extreme-particles.md",
+      "source_path": ".agents/skills/miliastra-code/references/case-extreme-particles.md",
+      "git_blob_sha": "5281bb9f7b4d6094540e7cd5855dd2c5ac72bb9d",
+      "size": 26088,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/case-reference-control-numkey.md",
+      "source_path": ".agents/skills/miliastra-code/references/case-reference-control-numkey.md",
+      "git_blob_sha": "26e86bd48752c8490c1e108ad8f8a4956e9fa319",
+      "size": 10962,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/code-patterns.md",
+      "source_path": ".agents/skills/miliastra-code/references/code-patterns.md",
+      "git_blob_sha": "3f10a6195f74aac13a57d51ce7689c7484a624f6",
+      "size": 26678,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/code-snippets.md",
+      "source_path": ".agents/skills/miliastra-code/references/code-snippets.md",
+      "git_blob_sha": "53b1032e7112918d07a25e446fd25c4c26cefd51",
+      "size": 19183,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/compact-stream.md",
+      "source_path": ".agents/skills/miliastra-code/references/compact-stream.md",
+      "git_blob_sha": "29477e2b3d3d5921f722ebe559950f9a98944d4d",
+      "size": 8664,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/control-name-and-probe.md",
+      "source_path": ".agents/skills/miliastra-code/references/control-name-and-probe.md",
+      "git_blob_sha": "aa50bbf6199bfdb3c2ea2b18a23c4ddc6160eb61",
+      "size": 13230,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/cross-script-comm.md",
+      "source_path": ".agents/skills/miliastra-code/references/cross-script-comm.md",
+      "git_blob_sha": "0146643318a63a12b5a2e7a103a7ffe4c3c40f8b",
+      "size": 12598,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/development-guide.md",
+      "source_path": ".agents/skills/miliastra-code/references/development-guide.md",
+      "git_blob_sha": "9eaa7eba6192ef2e8ea27fbf0a0f868e50d8b84b",
+      "size": 43398,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/dialog-template-patterns.md",
+      "source_path": ".agents/skills/miliastra-code/references/dialog-template-patterns.md",
+      "git_blob_sha": "cb8b0ae2126a1b14d8004d5556def2a77ce02d5a",
+      "size": 10755,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/discipline-lua.md",
+      "source_path": ".agents/skills/miliastra-code/references/discipline-lua.md",
+      "git_blob_sha": "a7f4657a4b27b292304471f902bc05dc46f1601f",
+      "size": 9971,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/editor-setup-sop.md",
+      "source_path": ".agents/skills/miliastra-code/references/editor-setup-sop.md",
+      "git_blob_sha": "763b5b09c3c1a44681e6a4a654855606d822a163",
+      "size": 9863,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/engine-boundaries.md",
+      "source_path": ".agents/skills/miliastra-code/references/engine-boundaries.md",
+      "git_blob_sha": "2de8cee7fbd99b50f8bb88afddd66b3a371b49fc",
+      "size": 40325,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/frame-animation.md",
+      "source_path": ".agents/skills/miliastra-code/references/frame-animation.md",
+      "git_blob_sha": "b8f860d1e73c8dd913498cfacafcecbf46094bea",
+      "size": 15194,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/guardrails.md",
+      "source_path": ".agents/skills/miliastra-code/references/guardrails.md",
+      "git_blob_sha": "f35bd49980c074cda41be86b5191e7cc400aba84",
+      "size": 62749,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-01-cross-script-layer.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-01-cross-script-layer.md",
+      "git_blob_sha": "720af0fad4af69ee707d4582eb3cb0aecbe6c324",
+      "size": 2598,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-02-redraw-state-string.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-02-redraw-state-string.md",
+      "git_blob_sha": "bcf4cf27e1363cf8211345095414457c348c6bac",
+      "size": 724,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-03-onstart-fresh-start.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-03-onstart-fresh-start.md",
+      "git_blob_sha": "5e3c3c5897f5726f27787e0bda926ae8145d6215",
+      "size": 639,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-04-blackboard-single-writer.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-04-blackboard-single-writer.md",
+      "git_blob_sha": "9d69779c97df5c4a0359fb6fe1a6f7d6f8aa6c5e",
+      "size": 464,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-05-control-name-contract.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-05-control-name-contract.md",
+      "git_blob_sha": "bdf0f4963e4002361c1b533bb17e03c29dad9e78",
+      "size": 507,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-06-cursor-prerequisite.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-06-cursor-prerequisite.md",
+      "git_blob_sha": "ac69e0aa63cca898e2d2085749da85b2d97a016e",
+      "size": 2464,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-07-frame-budget.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-07-frame-budget.md",
+      "git_blob_sha": "983f486c9513455604be7f0177a2e188a340a27b",
+      "size": 2402,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-08-gameplay-untouched.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-08-gameplay-untouched.md",
+      "git_blob_sha": "34d12315a49c602fda2afb519df06d14524ccd87",
+      "size": 508,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-v1-not-visible-triage.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-v1-not-visible-triage.md",
+      "git_blob_sha": "44a87c3041aa52fb98a7aed15e7324ac11cc1d8a",
+      "size": 661,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-v2-scatter-experiment.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-v2-scatter-experiment.md",
+      "git_blob_sha": "b71313538e30a534c72cf2d65dcd7917c78bc837",
+      "size": 1196,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-v3-one-variable.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-l2/l2-v3-one-variable.md",
+      "git_blob_sha": "43acee7e9e9420ac6fa0d0c0b324c4bf55b603e2",
+      "size": 1197,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-lua.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-lua.md",
+      "git_blob_sha": "5deba08982de0c2db3972ec715c98ea3ca725f6d",
+      "size": 25255,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-visual-debug.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules-visual-debug.md",
+      "git_blob_sha": "fea1bb3679d8e418f02897f70a6e3f26eb9299ce",
+      "size": 8266,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R1-onupdate-pcall.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R1-onupdate-pcall.md",
+      "git_blob_sha": "1af6a17840f475d6bebfe35d4c4fca9249613f40",
+      "size": 889,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R10-no-onscreen-diagnostics.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R10-no-onscreen-diagnostics.md",
+      "git_blob_sha": "683ed537c1fca110e5db65235235074cd7610e9b",
+      "size": 456,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R11-file-size.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R11-file-size.md",
+      "git_blob_sha": "47bf2d82742296e85855d464ea1c31d671f23ec4",
+      "size": 392,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R12-text-height.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R12-text-height.md",
+      "git_blob_sha": "e3d3ed5b6f469b0b2d1201e7f4fc4980cb29377d",
+      "size": 1985,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R13-simulator-before-deploy.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R13-simulator-before-deploy.md",
+      "git_blob_sha": "517106440615cec42eddb1dd5d9a1d8f9433b6c9",
+      "size": 1217,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R14-action-type-fidelity.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R14-action-type-fidelity.md",
+      "git_blob_sha": "e1606631b964f3a715a5ade785a2a4173987412a",
+      "size": 2582,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R2-no-global-leak.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R2-no-global-leak.md",
+      "git_blob_sha": "5002d6eae0c43971e1e109a6190f31c637771166",
+      "size": 536,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R3-declare-before-use.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R3-declare-before-use.md",
+      "git_blob_sha": "f6c93d7e99b1f1abfe431a2e0aef7f05065cee66",
+      "size": 1079,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R4-pcall-failure-route.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R4-pcall-failure-route.md",
+      "git_blob_sha": "b1375c21c0ad9d59f2d897adcc5ba4b5a9552cc1",
+      "size": 900,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R5-file-format.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R5-file-format.md",
+      "git_blob_sha": "77c8cbe91530e829855c92ece5f83607add95732",
+      "size": 576,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R6-no-assert.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R6-no-assert.md",
+      "git_blob_sha": "2572c156855caad096814a8cbc75ca4ccfb609d8",
+      "size": 562,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R7-log-contract.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R7-log-contract.md",
+      "git_blob_sha": "d42f27cf639bdfeeab1b4ea37e2c4f4b2430521c",
+      "size": 594,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R8-handover-values.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R8-handover-values.md",
+      "git_blob_sha": "736732ed659e95a3c5659c1e4da41c7aa90e1944",
+      "size": 972,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R9-build-artifacts.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/R9-build-artifacts.md",
+      "git_blob_sha": "e92a7b55fc49522d60ca00ca8f8c04a97ab0f745",
+      "size": 1026,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V1-asset-vs-template-id.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/V1-asset-vs-template-id.md",
+      "git_blob_sha": "b2c9a5d0fda66d5cb2ace3e169f23bae5251413d",
+      "size": 602,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V2-no-sanitize-composite.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/V2-no-sanitize-composite.md",
+      "git_blob_sha": "18bcac7416d42d4a5ca3e96a6e6b91e0e37b3f4d",
+      "size": 835,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V3-geometry-official-api.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/V3-geometry-official-api.md",
+      "git_blob_sha": "24c586b55b71e0a0e8c403db24207dde7c7b536c",
+      "size": 423,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V4-parent-center-offset.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/V4-parent-center-offset.md",
+      "git_blob_sha": "f8639da761f6e3e5efc1898102cbd2d7143bd290",
+      "size": 495,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V5-sibling-order.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/V5-sibling-order.md",
+      "git_blob_sha": "e7af3fdff54ea37f4f93ae9371727b3f7df5fbfc",
+      "size": 508,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V6-canvas-instance-findable.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/V6-canvas-instance-findable.md",
+      "git_blob_sha": "58e0c47b2f8838ff32d57e87a823e5c56ac4da74",
+      "size": 1370,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V7-instantiate-timing.md",
+      "source_path": ".agents/skills/miliastra-code/references/iron-rules/V7-instantiate-timing.md",
+      "git_blob_sha": "bdb26fbfae3a6cb9e97fac84498273442d7147ac",
+      "size": 449,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/lua-style.md",
+      "source_path": ".agents/skills/miliastra-code/references/lua-style.md",
+      "git_blob_sha": "f65168b72092b4e976cb956b94e2825d3e0f248b",
+      "size": 19057,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/node-graph-capabilities.md",
+      "source_path": ".agents/skills/miliastra-code/references/node-graph-capabilities.md",
+      "git_blob_sha": "77186a897b286e271cf219a3ff4c8199433d13cb",
+      "size": 8990,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/pixel-reconstruction.md",
+      "source_path": ".agents/skills/miliastra-code/references/pixel-reconstruction.md",
+      "git_blob_sha": "24359c15097c42f7d45469587d6b7ce910356533",
+      "size": 31005,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/plugin-toolbox.md",
+      "source_path": ".agents/skills/miliastra-code/references/plugin-toolbox.md",
+      "git_blob_sha": "e57d22464e66f68ae7cc66f52ff8d2e17edd5033",
+      "size": 15312,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/project-architecture-assessment.md",
+      "source_path": ".agents/skills/miliastra-code/references/project-architecture-assessment.md",
+      "git_blob_sha": "78cee37c2a37d213347e7984fa4db82beaf9faff",
+      "size": 20559,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/style-remediation-workflow.md",
+      "source_path": ".agents/skills/miliastra-code/references/style-remediation-workflow.md",
+      "git_blob_sha": "72c512159677a5e0ba1a48c81a0d08b38567a79d",
+      "size": 10579,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/ui-interaction-reliability.md",
+      "source_path": ".agents/skills/miliastra-code/references/ui-interaction-reliability.md",
+      "git_blob_sha": "eaeea13755b9aee5b4c820b910d451fdcd7e1b77",
+      "size": 7249,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/usage-guide/千星沙箱客户端脚本使用指南.md",
+      "source_path": ".agents/skills/miliastra-code/references/usage-guide/千星沙箱客户端脚本使用指南.md",
+      "git_blob_sha": "94fd7a78d22b53ee68398ce86ab204d1c10dfd3e",
+      "size": 15381,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/variables-and-signals.md",
+      "source_path": ".agents/skills/miliastra-code/references/variables-and-signals.md",
+      "git_blob_sha": "3c9a48f4e69f0c334b778125ae096c6e4daa2441",
+      "size": 6301,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/vfx-particles-and-budget.md",
+      "source_path": ".agents/skills/miliastra-code/references/vfx-particles-and-budget.md",
+      "git_blob_sha": "f8044fe824589c452fa8d69f8fb2981478dcb37b",
+      "size": 17729,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/references/千星奇域_客户端控件与按键实测.md",
+      "source_path": ".agents/skills/miliastra-code/references/千星奇域_客户端控件与按键实测.md",
+      "git_blob_sha": "1c200585271abc62807e77806b9e01cfe78b2d51",
+      "size": 17061,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/README.md",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/README.md",
+      "git_blob_sha": "a3a36a6c7f0440be3f11d9564163e771ad14e601",
+      "size": 5988,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/_paths.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/_paths.mjs",
+      "git_blob_sha": "58fcec7af87ae94d931cad9c4573b6082877ab68",
+      "size": 12211,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/build-mage-battle.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/build-mage-battle.mjs",
+      "git_blob_sha": "0e8ea52f4f213f4dbc8f875fc89374208667fef7",
+      "size": 24048,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/build-main.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/build-main.mjs",
+      "git_blob_sha": "b95f3511e39dcd4a87fe0be663f5e09dbb342d96",
+      "size": 9006,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/build-shuangxiang.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/build-shuangxiang.mjs",
+      "git_blob_sha": "abb23c6c5ffdce79f900c79e71f5ba3e6fa3139b",
+      "size": 8964,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/check-lua-scope.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/check-lua-scope.mjs",
+      "git_blob_sha": "a22fc2dfedb149bf78d6c2d558f45dc891e5f7c1",
+      "size": 18634,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/check-lua-style.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/check-lua-style.mjs",
+      "git_blob_sha": "b9e3c361f20a8625e1872bfeb32179c1f91341bc",
+      "size": 39416,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/check-script-attach.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/check-script-attach.mjs",
+      "git_blob_sha": "dd9fc0c8977ff8e1efbbcff078d3667007d870ac",
+      "size": 9793,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/check-shuangxiang-audit.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/check-shuangxiang-audit.mjs",
+      "git_blob_sha": "cff68aa8a8a8d5ec7dee32e91360ee83c06788a7",
+      "size": 11748,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/check-ui-contract.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/check-ui-contract.mjs",
+      "git_blob_sha": "9bf8e0d1d96f7e1cd08b29cbc5b7a246f496b5c1",
+      "size": 25977,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/check.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/check.mjs",
+      "git_blob_sha": "f827bc269f4c8cdf16d51583966ae07584699379",
+      "size": 14784,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/gate.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/gate.mjs",
+      "git_blob_sha": "0111877ee9b2b3c554223768662bf1e990791190",
+      "size": 9367,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/gil-clientui.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/gil-clientui.mjs",
+      "git_blob_sha": "03cc51de974afc7ce0c0a9e72bb893e7fa0f1779",
+      "size": 10354,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/lua-iron-check.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/lua-iron-check.mjs",
+      "git_blob_sha": "0ca8c35e4fc190527af4383d20c6d91dcf8ca364",
+      "size": 20603,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/lualint.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/lualint.mjs",
+      "git_blob_sha": "8fdbe8ee1a3517ce089c5a7a15a957e935daaf95",
+      "size": 8563,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/scan-binary-api.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/scan-binary-api.mjs",
+      "git_blob_sha": "29affe5762428f77bb8c2b6b3289a29737291288",
+      "size": 2624,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/scan-docs.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/scan-docs.mjs",
+      "git_blob_sha": "254dc08c1140027d7c733019d324703bb74a3021",
+      "size": 1731,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/scan-gil-ids.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/scan-gil-ids.mjs",
+      "git_blob_sha": "6e50abf13b27840b3ccd8b58800655695cd97b67",
+      "size": 2631,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/scan-lua-globals.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/scan-lua-globals.mjs",
+      "git_blob_sha": "b5c86eef8b274914498599d87a4eb9c5e49c1681",
+      "size": 6153,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/snapshot-lua-project.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/snapshot-lua-project.mjs",
+      "git_blob_sha": "f6679c214c2cd016ee1555443efa4e729a21577d",
+      "size": 13977,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/ui-theme.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/gates/ui-theme.mjs",
+      "git_blob_sha": "0a28e0fb65d534b8da056b266881854bc2ab7d99",
+      "size": 8710,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/scaffold-game.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/scaffold-game.mjs",
+      "git_blob_sha": "e9730f0f0c9183522ded7d78bf32dcf47989d4f9",
+      "size": 10998,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/search-assets.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/search-assets.mjs",
+      "git_blob_sha": "4097b4c501ccfed8d390d19bb00221429c6fe094",
+      "size": 3775,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/varjson/excel-to-json.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/varjson/excel-to-json.mjs",
+      "git_blob_sha": "7db2bbc00b3252118f57a7ecfe935f1fe5c656f0",
+      "size": 16140,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/varjson/probe-gil-vars.mjs",
+      "source_path": ".agents/skills/miliastra-code/scripts/varjson/probe-gil-vars.mjs",
+      "git_blob_sha": "155385485a065b8109f718cef1a888a8041a488a",
+      "size": 6677,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/SKILL.md",
+      "source_path": ".agents/skills/miliastra-ui/SKILL.md",
+      "git_blob_sha": "f502af341278e06443fcf364786e07848cdc9c10",
+      "size": 4091,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/asset-search.md",
+      "source_path": ".agents/skills/miliastra-ui/references/asset-search.md",
+      "git_blob_sha": "2318fde1f5d779b224bcec07bf7b782648ec6e0a",
+      "size": 6279,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/case-detectives-ui.md",
+      "source_path": ".agents/skills/miliastra-ui/references/case-detectives-ui.md",
+      "git_blob_sha": "40a13c2bee878c9a71fa44386f63af713cf86646",
+      "size": 20303,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/design-guide.md",
+      "source_path": ".agents/skills/miliastra-ui/references/design-guide.md",
+      "git_blob_sha": "1d52ba789cfc675b3de674a5acddb96d164bbd0f",
+      "size": 42028,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/grid-calculator.md",
+      "source_path": ".agents/skills/miliastra-ui/references/grid-calculator.md",
+      "git_blob_sha": "fdff79fa1dda39785743ba84146f71c2f33483e9",
+      "size": 6220,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI1-token-table.md",
+      "source_path": ".agents/skills/miliastra-ui/references/iron-rules/UI1-token-table.md",
+      "git_blob_sha": "4f2a4211993e1df2fdb3d0b9ce3552e728fdf457",
+      "size": 1507,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI2-grid-scale.md",
+      "source_path": ".agents/skills/miliastra-ui/references/iron-rules/UI2-grid-scale.md",
+      "git_blob_sha": "f766fdaf51c33d54695d45d4f87f7416b90a8868",
+      "size": 1544,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI3-font-scale.md",
+      "source_path": ".agents/skills/miliastra-ui/references/iron-rules/UI3-font-scale.md",
+      "git_blob_sha": "e872657e815a365d5cc107f35e84e3f7c34ad226",
+      "size": 1706,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI4-semantic-color.md",
+      "source_path": ".agents/skills/miliastra-ui/references/iron-rules/UI4-semantic-color.md",
+      "git_blob_sha": "849110e26b17e0d485ba497c4e977f810a1b4fb7",
+      "size": 1657,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI5-layer-order.md",
+      "source_path": ".agents/skills/miliastra-ui/references/iron-rules/UI5-layer-order.md",
+      "git_blob_sha": "4331eb817bb86aea6e9d19733c391d9030075a02",
+      "size": 2060,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI6-asset-and-states.md",
+      "source_path": ".agents/skills/miliastra-ui/references/iron-rules/UI6-asset-and-states.md",
+      "git_blob_sha": "655f7359bd6de7786313bb9bc20f1549b1aeda53",
+      "size": 2589,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/procedural-background.md",
+      "source_path": ".agents/skills/miliastra-ui/references/procedural-background.md",
+      "git_blob_sha": "23bff5be2f7c81d5a01ec3c04ac6e7c7db3e7992",
+      "size": 6465,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/ui-data-ownership.md",
+      "source_path": ".agents/skills/miliastra-ui/references/ui-data-ownership.md",
+      "git_blob_sha": "dc39bd8a459169772c13bf7fded243111c7258b5",
+      "size": 5802,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/references/visual-check.md",
+      "source_path": ".agents/skills/miliastra-ui/references/visual-check.md",
+      "git_blob_sha": "4d91d020aa096f0ba4961496db196194ece4218c",
+      "size": 5116,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/scripts/gates/README.md",
+      "source_path": ".agents/skills/miliastra-ui/scripts/gates/README.md",
+      "git_blob_sha": "9fabfdaa86fd385b815b9b13094594b1581b678e",
+      "size": 3202,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/miliastra-ui/scripts/gates/check-ui-rules.mjs",
+      "source_path": ".agents/skills/miliastra-ui/scripts/gates/check-ui-rules.mjs",
+      "git_blob_sha": "74f5d922cf931d8756ea1afef52a5436eafea661",
+      "size": 11032,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/SKILL.md",
+      "source_path": ".agents/skills/qianxing-agent/SKILL.md",
+      "git_blob_sha": "f2236611fc5fbe48d21eeead2bda036911649873",
+      "size": 2140,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/00-索引.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/00-索引.md",
+      "git_blob_sha": "159c744d0f061522f37391a083a35e721bdae0d8",
+      "size": 6820,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/01-总纲.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/01-总纲.md",
+      "git_blob_sha": "f9735088af569d3888347cddf5f072c4f17bf444",
+      "size": 2141,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/02-零-开始工作前必须遵守的约束.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/02-零-开始工作前必须遵守的约束.md",
+      "git_blob_sha": "14eed23d0cc0b1bb44361fbedb4129f8775635e9",
+      "size": 8570,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/03-一-采用以下编辑器约束.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/03-一-采用以下编辑器约束.md",
+      "git_blob_sha": "27805425203b472945fa809eef9d3cea6ee460da",
+      "size": 3540,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/04-二-子-Agent-使用规范.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/04-二-子-Agent-使用规范.md",
+      "git_blob_sha": "77d86dff8b55dd57088d4385617cda19e36015b9",
+      "size": 32329,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/05-三-角色与边界.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/05-三-角色与边界.md",
+      "git_blob_sha": "04492c3c7685d38c38bf0288e42df4c58ad82620",
+      "size": 1460,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/06-四-编写流程.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/06-四-编写流程.md",
+      "git_blob_sha": "b1ddbe4a282b13318581ff9fae80357deabdbaf7",
+      "size": 3256,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/07-五-开工前的追问规则.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/07-五-开工前的追问规则.md",
+      "git_blob_sha": "2ff0182b4f894ea9bec6e9882a5439bd3e698a73",
+      "size": 6854,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/08-六-施前要求创作者完成以下内容.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/08-六-施前要求创作者完成以下内容.md",
+      "git_blob_sha": "918b1829d44a1b9aea75a7c926027f3d9ad0a28d",
+      "size": 14505,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/09-七-实施前检查目录中的-API-文档.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/09-七-实施前检查目录中的-API-文档.md",
+      "git_blob_sha": "b1f85d46a04d3dc37be5c8babeb1efade07695c7",
+      "size": 8076,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/10-八-布局-设计稿严格模式与多端适配.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/10-八-布局-设计稿严格模式与多端适配.md",
+      "git_blob_sha": "9d4f83a1c0ef5913658ffa6fd59df5650fee82c7",
+      "size": 27827,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/11-九-运行期规则-状态机-启动-控件与输入.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/11-九-运行期规则-状态机-启动-控件与输入.md",
+      "git_blob_sha": "85dd9c8ef44ee2b87d905b3226c0ac6958ae2690",
+      "size": 24932,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/12-十-错误边界-日志与证据口径.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/12-十-错误边界-日志与证据口径.md",
+      "git_blob_sha": "239c3da824c92f0893a1a46263e247d4240fcbb6",
+      "size": 9970,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/13-十一-编写前的自查与交付说明.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/13-十一-编写前的自查与交付说明.md",
+      "git_blob_sha": "67777e946f0a62ea8af134e8b6f8defc786706c7",
+      "size": 9072,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/14-十二-补充-默认布局基准与自适应的边界.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/14-十二-补充-默认布局基准与自适应的边界.md",
+      "git_blob_sha": "0a8d1e8d33fbc962893aea90ca33a532578b0eca",
+      "size": 701,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/15-十三-代码目录与多文件-require-规范.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/15-十三-代码目录与多文件-require-规范.md",
+      "git_blob_sha": "8f6fc3712debcdc7c478a932ccbc476af0753504",
+      "size": 7266,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/16-十四-玩家可见文本规范.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/16-十四-玩家可见文本规范.md",
+      "git_blob_sha": "49f6247b24ff2ff69166eabdbc9dce99f6460e5f",
+      "size": 3684,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/千星AGENT_代码_提示词.md",
+      "source_path": ".agents/skills/qianxing-agent/references/code/千星AGENT_代码_提示词.md",
+      "git_blob_sha": "b8b36a2d011ea68f69e60bc93c49cdfd211a6249",
+      "size": 164183,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/00-索引.md",
+      "source_path": ".agents/skills/qianxing-agent/references/create/00-索引.md",
+      "git_blob_sha": "f1464485ac3727a90d9bec83f6c4630379c26130",
+      "size": 2073,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/01-总纲.md",
+      "source_path": ".agents/skills/qianxing-agent/references/create/01-总纲.md",
+      "git_blob_sha": "5040dff5998091c765ab6f65582d05c47f4359aa",
+      "size": 814,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/02-一-关于「千星奇域」.md",
+      "source_path": ".agents/skills/qianxing-agent/references/create/02-一-关于「千星奇域」.md",
+      "git_blob_sha": "04d3ef255935fef3833cf73807786c208381e1ed",
+      "size": 4598,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/03-二-工作内容.md",
+      "source_path": ".agents/skills/qianxing-agent/references/create/03-二-工作内容.md",
+      "git_blob_sha": "c22787ddbf1bdac3a8c2fae0fc318c39c192e603",
+      "size": 27804,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/04-三-子-Agent-使用规范.md",
+      "source_path": ".agents/skills/qianxing-agent/references/create/04-三-子-Agent-使用规范.md",
+      "git_blob_sha": "db4aa84de07e393c50a6de9b036d8fa2cd6f3f34",
+      "size": 5263,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/05-四-任务约束.md",
+      "source_path": ".agents/skills/qianxing-agent/references/create/05-四-任务约束.md",
+      "git_blob_sha": "7a49d5c8599ba79711e93e3a367cfdf73d980d6a",
+      "size": 11615,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/千星AGENT_创作_提示词.md",
+      "source_path": ".agents/skills/qianxing-agent/references/create/千星AGENT_创作_提示词.md",
+      "git_blob_sha": "9444531d3ef9482f04423fbd4468d6e67764742a",
+      "size": 50094,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/00-索引.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/00-索引.md",
+      "git_blob_sha": "a52513b0fef76171a144bfe09e5ad44a6f7cb597",
+      "size": 5793,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/01-总纲.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/01-总纲.md",
+      "git_blob_sha": "784fbe1754e736d7aea88aa2b1bfdbfd70ba50cb",
+      "size": 2191,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/02-零-开始工作前必须遵守的约束.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/02-零-开始工作前必须遵守的约束.md",
+      "git_blob_sha": "0f6a14b3c4853a4560b469c4031767cf5daa1b5a",
+      "size": 6461,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/03-一-采用以下编辑器约束.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/03-一-采用以下编辑器约束.md",
+      "git_blob_sha": "4fe8f4c574738cbda4ad3f4bbc2c3bb0ea91895d",
+      "size": 3778,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/04-二-子-Agent-使用规范.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/04-二-子-Agent-使用规范.md",
+      "git_blob_sha": "4310e74c1d0c343111bf95c16d3fac4a8a003fcc",
+      "size": 22630,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/05-三-角色与边界.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/05-三-角色与边界.md",
+      "git_blob_sha": "d55aeb63e1f5658c12682f7a2287eba55dda4118",
+      "size": 1435,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/06-四-修复流程.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/06-四-修复流程.md",
+      "git_blob_sha": "64ac742fcadeace1421e6996470c279d9d0706e3",
+      "size": 7652,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/07-五-开工前的追问规则.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/07-五-开工前的追问规则.md",
+      "git_blob_sha": "0ccb97379baffdb57364b65af95ea04b814bc7a6",
+      "size": 3346,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/08-六-配置与身份信息-不向用户索取-只从文件核对.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/08-六-配置与身份信息-不向用户索取-只从文件核对.md",
+      "git_blob_sha": "b51927dfc014b610ef2371daf46017b99af84d93",
+      "size": 7182,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/09-七-实施前检查目录中的-API-文档.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/09-七-实施前检查目录中的-API-文档.md",
+      "git_blob_sha": "bdeae856ceb6002034b5090274198635739d5b7b",
+      "size": 4855,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/10-八-布局类故障的定位依据-锚定与多端.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/10-八-布局类故障的定位依据-锚定与多端.md",
+      "git_blob_sha": "74aecbf44cd35cec63de1f5bf0450b3a104a3206",
+      "size": 9692,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/11-九-运行期规则-状态机-启动-控件与输入.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/11-九-运行期规则-状态机-启动-控件与输入.md",
+      "git_blob_sha": "0a681b4a5d9a28842893f94edbe8027684de3628",
+      "size": 26588,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/12-十-Bug-案例库与诊断总索引.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/12-十-Bug-案例库与诊断总索引.md",
+      "git_blob_sha": "e1a17f31f9c59020b3b23d2b218bd34f54831c4b",
+      "size": 26045,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/13-十一-错误边界-日志与证据口径.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/13-十一-错误边界-日志与证据口径.md",
+      "git_blob_sha": "780cd00c278e67057a5fc6e985194280b38ef231",
+      "size": 8479,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/14-十二-修复报告与自查.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/14-十二-修复报告与自查.md",
+      "git_blob_sha": "943ffbd16fae3476272f46a9f5ac5dc5eaa9a460",
+      "size": 11583,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/15-十三-与-Code-流程的协同.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/15-十三-与-Code-流程的协同.md",
+      "git_blob_sha": "cceef15e714b766fb0e8629941527ea5b1354f74",
+      "size": 1827,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/千星AGENT_修复_提示词.md",
+      "source_path": ".agents/skills/qianxing-agent/references/fix/千星AGENT_修复_提示词.md",
+      "git_blob_sha": "e537ecdac4a86e30ec20d2067f7baa67fa6b9a6e",
+      "size": 143744,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/role-code.md",
+      "source_path": ".agents/skills/qianxing-agent/references/role-code.md",
+      "git_blob_sha": "aa9569e40fbb2fdc543371aec59745d4d006b448",
+      "size": 13669,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/role-create.md",
+      "source_path": ".agents/skills/qianxing-agent/references/role-create.md",
+      "git_blob_sha": "4c07de6097a7a7f5dc04c6ebffbf18be7c21efe0",
+      "size": 2905,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-agent/references/role-fix.md",
+      "source_path": ".agents/skills/qianxing-agent/references/role-fix.md",
+      "git_blob_sha": "349bb42ab07d826bb47dc5015f7a4668cdfbb2f6",
+      "size": 12093,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-auto-delivery/SKILL.md",
+      "source_path": ".agents/skills/qianxing-auto-delivery/SKILL.md",
+      "git_blob_sha": "06bba9650294a0336b8638d14efad81fd4427486",
+      "size": 8266,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-auto-delivery/agents/openai.yaml",
+      "source_path": ".agents/skills/qianxing-auto-delivery/agents/openai.yaml",
+      "git_blob_sha": "b93700b541b9802dc498150793c126edd0b24eaf",
+      "size": 397,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/qianxing-auto-delivery/references/verification.md",
+      "source_path": ".agents/skills/qianxing-auto-delivery/references/verification.md",
+      "git_blob_sha": "9896b115cee94dd8ebfb69a953e0810d42ff2d2b",
+      "size": 3600,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/systematic-debugging/LICENSE",
+      "source_path": ".agents/skills/systematic-debugging/LICENSE",
+      "git_blob_sha": "abf0390320aa14406af7a520b9b0739fdda9bf08",
+      "size": 1070,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/systematic-debugging/SKILL.md",
+      "source_path": ".agents/skills/systematic-debugging/SKILL.md",
+      "git_blob_sha": "211a528d7fc8b3e61c83d318e54810d8629959ac",
+      "size": 3247,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/systematic-debugging/UPSTREAM.json",
+      "source_path": ".agents/skills/systematic-debugging/UPSTREAM.json",
+      "git_blob_sha": "7ba915e4b822d94260b5664004dd86d19dc15ebd",
+      "size": 2182,
+      "mode": "100644"
+    },
+    {
+      "path": "skills/systematic-debugging/references/techniques.md",
+      "source_path": ".agents/skills/systematic-debugging/references/techniques.md",
+      "git_blob_sha": "9e7fa4a3ae347f29bf2502be27a6668c20445284",
+      "size": 2278,
+      "mode": "100644"
+    }
+  ],
+  "immutable_assets": [
+    "skills/miliastra-code/assets/Image_sample_by_id.json",
+    "skills/miliastra-code/assets/信号节点图_4类型整改_侦探杀_20260929.gia"
+  ]
+}

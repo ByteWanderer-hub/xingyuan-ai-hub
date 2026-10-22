@@ -1,3 +1,7 @@
 # ChatGPT ↔ Codex 任务交接
 
-在 `active/` 新建任务文件，引用 `templates/task-request.md`。执行结果按 `templates/task-result.md` 填写。交接是基于 Git 文件的显式协作，不代表两端自动实时同步。
+先读 [活动任务索引](active/README.md)，同一主题接续已有记录；新主题使用 [任务请求模板](templates/task-request.md)，结果按 [任务结果模板](templates/task-result.md) 更新同一主题记录。无需为每轮反馈重复建立任务书。
+
+每个主题顶部保留更新时间、当前状态、依据版本和下一步。分别记录实现、离线验证、客户端发现、部署/存盘和用户验收，未运行项目明确注明原因。机器可读回执可存放在 `evidence/` 并从主题记录引用。
+
+交接基于 Git 文件显式协作；续做前先读取当前版本，不代表 ChatGPT 与 Codex 自动实时同步记忆。
