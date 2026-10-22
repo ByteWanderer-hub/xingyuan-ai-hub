@@ -1,0 +1,6 @@
+interface:
+  display_name: "千星自动交付"
+  short_description: "复用同一主题接续任务，按需委派与审查，完成验证返修及授权内交付"
+  default_prompt: "使用 $qianxing-auto-delivery 按已确认范围接续同一主题任务，由主聊天按需实施、委派和审查，完成必要验证、返修及授权内交付。"
+policy:
+  allow_implicit_invocation: true
