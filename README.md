@@ -65,3 +65,7 @@ Codex 的技能发现位置参考[官方技能文档](https://learn.chatgpt.com/
 4. ChatGPT 读取结果进行复核，更新知识需用户确认。
 
 > 注意：GitHub 充当共享资料源，不会自动同步 ChatGPT 内部记忆、插件或 Codex 技能安装。严禁提交凭据及私人聊天全文。
+
+## 已选工具接入
+
+MarkItDown、Superpowers、LocalSend、Open-LLM-VTuber、Aseprite 已纳入[接入清单](handoffs/active/tool-adoption.md)。目前完成接入准备，电脑安装与运行验证待执行；应用与模型不存放在技能目录。
