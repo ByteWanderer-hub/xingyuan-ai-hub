@@ -1,0 +1,4 @@
+interface:
+  display_name: "星愿技能入口"
+  short_description: "按中英文关键词定位星愿资料库技能、专项参考与明确的能力缺口"
+  default_prompt: "请用 $xingyuan-router 根据我的任务选择对应技能并继续处理。"

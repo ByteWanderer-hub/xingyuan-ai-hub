@@ -1,5 +1,7 @@
 # miliastra-bb 案例：不显示价格（前端隐藏 + 后端 VO 剔除）
 
+> 历史案例：下文七步、固定对话、逐工单审批、当时工具可用性和路径仅描述原案例。当前流程以 [技能入口](../../SKILL.md) 与 [分析方法](../review-methods.md) 为准，复用已有范围和授权；实现手段增加字段/组件不自动等于新增需求。
+
 > 🔗 **联动**：需求边界方法论 → `miliastra-bb/SKILL.md`（七步 + 固定对话格式）｜ 平台落地 → 按平台适配文件交接（蛋仔 `miliastra-bb/references/platforms/eggy.md` → `lua-eggy-*` 五技能；千星 `miliastra-bb/references/platforms/yuan.md` → `miliastra-code`）｜ 全景地图 → `../../../EGGY-SKILLS-MAP.md`
 >
 > ⚠️ **本案例来自 Java/Vue 域**（海外站需求文档），保留它是为了演示**方法论**（七步流程 / 联动交接 / 方案级产出 / 防 AI 违规）；里面的 `code-java` / `code-vue` 是当时的交接对象，**落地时请按 `miliastra-bb/references/platforms/<平台>.md` 的交接表换成本平台的落地技能**。

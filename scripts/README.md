@@ -5,7 +5,7 @@
 ## 安装与更新
 
 ```bash
-python3 -B scripts/install_skills.py                 # 只预览，默认 10 项迁入技能
+python3 -B scripts/install_skills.py                 # 只预览，默认 11 项（统一入口 + 10 项迁入技能）
 python3 -B scripts/install_skills.py --apply         # 写入本仓库 .agents/skills
 python3 -B scripts/install_skills.py --scope user    # 预览 ~/.agents/skills
 python3 -B scripts/install_skills.py --scope user --apply
@@ -18,7 +18,7 @@ python3 -B scripts/install_skills.py --skill miliastra-code --skill miliastra-ui
 python3 -B scripts/install_skills.py --all
 ```
 
-`--target` 覆盖 `--scope` 的默认路径。`--all` 包含仓库全部 14 项技能；默认的 10 项见 [技能索引](../skills/README.md)。所有写入都需要 `--apply`。源文件及来源版本信息均未变化时，重复安装不写入文件；仅来源版本信息变化时可更新安装清单。
+`--target` 覆盖 `--scope` 的默认路径。`--all` 包含仓库全部 15 项技能；默认的 11 项见 [技能索引](../skills/README.md)。所有写入都需要 `--apply`。源文件及来源版本信息均未变化时，重复安装不写入文件；仅来源版本信息变化时可更新安装清单。
 
 安装器在目标中维护 `.xingyuan-ai-hub-install.json`，记录仓库、Git revision、技能源是否有未提交改动以及逐文件 SHA-256。每次更新先验证所有已管理技能：本地修改、删除、额外文件/目录、未管理同名目录、符号链接或损坏清单都会中止写入。无关技能目录保留；不提供强制覆盖选项。要保留本地修改，应先将修改合并回 `skills/` 真源，再由人处理旧副本冲突。
 

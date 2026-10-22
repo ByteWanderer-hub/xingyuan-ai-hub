@@ -21,6 +21,7 @@ from dataclasses import dataclass
 REPOSITORY = "lizhenyu2845905433-rgb/xingyuan-ai-hub"
 MANIFEST_NAME = ".xingyuan-ai-hub-install.json"
 DEFAULT_SKILLS = (
+    "xingyuan-router",
     "game-design-theory", "game-feel", "game-ui-ux", "level-design",
     "miliastra-bb", "miliastra-code", "miliastra-ui", "qianxing-agent",
     "qianxing-auto-delivery", "systematic-debugging",

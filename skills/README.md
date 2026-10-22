@@ -2,12 +2,22 @@
 
 每项技能的维护真源位于 `skills/<skill-name>/SKILL.md`。按任务读取需要的技能，通过 [安装器](../scripts/README.md) 生成客户端副本；不要同时手改 `skills/` 与 `.agents/skills/`。
 
-## 默认安装：千星奇域
+## 统一入口
 
-共 10 项、187 个文件，完整来源与校验见 [迁移状态](QIANXING_MIGRATION_STATUS.md)。
+优先使用 [xingyuan-router](xingyuan-router/SKILL.md)，按中英文关键词定位技能并继续任务。索引覆盖原有 14 项技能；查询脚本只推荐，不自动执行。
+
+```bash
+python3 skills/xingyuan-router/scripts/route.py "千星 UI 素材"
+python3 skills/xingyuan-router/scripts/route.py "输入缓冲" --platform qianxing
+```
+
+## 默认安装：入口 + 千星奇域
+
+默认共 11 项（入口 + 10 项千星技能）。原迁移基线为 10 项、187 个文件，整理后的文件数以当前安装器为准；完整来源与校验见 [迁移状态](QIANXING_MIGRATION_STATUS.md)。
 
 | 技能 | 入口 |
 | --- | --- |
+| xingyuan-router | [SKILL.md](xingyuan-router/SKILL.md) |
 | game-design-theory | [SKILL.md](game-design-theory/SKILL.md) |
 | game-feel | [SKILL.md](game-feel/SKILL.md) |
 | game-ui-ux | [SKILL.md](game-ui-ux/SKILL.md) |
@@ -21,6 +31,6 @@
 
 ## 按需安装
 
-另保留 `code-review`、`skill-manager`、`roblox-luau-expert`、`roblox-security-audit`。可用 `--skill 名称` 单独选择，或 `--all` 安装全部 14 项；Roblox 技能仅在相关任务中启用。
+另保留 `code-review`、`skill-manager`、`roblox-luau-expert`、`roblox-security-audit`。可用 `--skill 名称` 单独选择，或 `--all` 安装全部 15 项；Roblox 技能仅在相关任务中启用。
 
 文件完整和安装副本一致，不代表客户端已发现或编辑器已可用。工程专用脚本、素材在引擎中的可用性和插件能力仍以目标工程验证为准；当前待办见 [千星就绪检查](../handoffs/active/qianxing-readiness.md)。

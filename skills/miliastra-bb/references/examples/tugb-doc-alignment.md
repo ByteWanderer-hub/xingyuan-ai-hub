@@ -1,5 +1,7 @@
 # 案例：团标文档对齐（标准草案 × 碳计量存证平台）
 
+> 历史案例：下文七步、固定对话、逐工单审批、当时工具可用性和路径仅描述原案例。当前流程以 [技能入口](../../SKILL.md) 与 [分析方法](../review-methods.md) 为准，复用已有范围和授权；实现手段增加字段/组件不自动等于新增需求。
+
 > 🔗 **联动**：需求边界方法论 → `miliastra-bb/SKILL.md`（专项场景「文档对齐」+ 四态判定）｜ 官方契约对照 → 按平台适配文件（蛋仔 `lua-eggy-se-manual`；千星 `miliastra-code/references/api-client-ui.md`）｜ 全景地图 → `../../../EGGY-SKILLS-MAP.md`
 >
 > ⚠️ **Java 域案例**（保留作方法论参考）：UGC 域很少用到「团标对齐」，若真遇到"平台规范按项目提意见"，方法论照用，只是证据按 `miliastra-bb/references/platforms/<平台>.md` 换（蛋仔 = `main.lua` / 蛋码 / 场景清单 / 官方手册页；千星 = `levelScript.lua` / 控件模板 / 图片资产 / API 文档）。另：本机**无可用 Python**，`scripts/mark_docx.py` 跑不了，需先补 Node 版标注器。

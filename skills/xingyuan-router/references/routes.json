@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "name": "miliastra-code",
+      "purpose": "千星脚本、API、节点图与工程实现",
+      "platform": "qianxing",
+      "keywords": [
+        "千星脚本",
+        "lua",
+        "levelscript",
+        "api",
+        "节点图",
+        "变量",
+        "信号",
+        "黑板",
+        "require",
+        "部署",
+        "存盘",
+        "gil",
+        "gia",
+        "对话",
+        "打字机"
+      ]
+    },
+    {
+      "name": "miliastra-ui",
+      "purpose": "千星 UI 布局与官方素材检索",
+      "platform": "qianxing",
+      "keywords": [
+        "ui",
+        "界面",
+        "布局",
+        "素材",
+        "图标",
+        "图片",
+        "音效",
+        "音乐",
+        "特效素材",
+        "imageid",
+        "模板",
+        "遮罩",
+        "拖拽",
+        "光标"
+      ]
+    },
+    {
+      "name": "miliastra-bb",
+      "purpose": "UGC 需求边界与验收",
+      "platform": "ugc",
+      "keywords": [
+        "需求分析",
+        "需求边界",
+        "范围不清",
+        "需求梳理",
+        "需求评审",
+        "复刻需求",
+        "验收标准"
+      ]
+    },
+    {
+      "name": "qianxing-agent",
+      "purpose": "选择实现、创作、修复角色工作流",
+      "platform": "qianxing",
+      "keywords": [
+        "角色工作流",
+        "角色提示词",
+        "实现工程师",
+        "游戏设计师",
+        "修复工程师",
+        "创作提示词"
+      ]
+    },
+    {
+      "name": "qianxing-auto-delivery",
+      "purpose": "自主交付、接续与调度",
+      "platform": "qianxing",
+      "keywords": [
+        "自动交付",
+        "自主派工",
+        "继续工作流",
+        "接续任务",
+        "持续交付"
+      ]
+    },
+    {
+      "name": "game-design-theory",
+      "purpose": "玩法、动机、叙事与试玩设计",
+      "platform": "general",
+      "keywords": [
+        "游戏设计",
+        "玩法设计",
+        "玩家心理",
+        "玩家动机",
+        "好玩",
+        "叙事",
+        "剧情设计",
+        "试玩设计",
+        "平衡性",
+        "game design"
+      ]
+    },
+    {
+      "name": "level-design",
+      "purpose": "白盒、关卡动线、节奏与可达性",
+      "platform": "general",
+      "keywords": [
+        "关卡设计",
+        "关卡布局",
+        "白盒",
+        "灰盒",
+        "动线",
+        "节奏",
+        "遭遇战",
+        "关键路径",
+        "跳跃距离",
+        "blockout",
+        "level design"
+      ]
+    },
+    {
+      "name": "game-feel",
+      "purpose": "已有动作的打击感与反馈",
+      "platform": "general",
+      "keywords": [
+        "打击感",
+        "手感",
+        "顿帧",
+        "屏幕震动",
+        "镜头震动",
+        "缓动",
+        "挤压拉伸",
+        "反馈润色",
+        "hit stop",
+        "hit-stop",
+        "screen shake",
+        "juice",
+        "game feel"
+      ]
+    },
+    {
+      "name": "game-ui-ux",
+      "purpose": "跨平台 HUD、导航、适配与界面流程",
+      "platform": "general",
+      "keywords": [
+        "ui",
+        "hud",
+        "血条",
+        "主菜单",
+        "暂停菜单",
+        "背包界面",
+        "安全区",
+        "宽高比",
+        "多端适配",
+        "焦点导航",
+        "手柄导航",
+        "界面流程"
+      ]
+    },
+    {
+      "name": "systematic-debugging",
+      "purpose": "故障复现、取证与根因分析",
+      "platform": "general",
+      "keywords": [
+        "报错",
+        "故障",
+        "没效果",
+        "不生效",
+        "偶发",
+        "测试失败",
+        "排错",
+        "排障",
+        "调试",
+        "根因",
+        "bug",
+        "debug",
+        "没反应",
+        "不能点",
+        "点不了"
+      ]
+    },
+    {
+      "name": "code-review",
+      "purpose": "代码变更审查",
+      "platform": "general",
+      "keywords": [
+        "代码审查",
+        "代码评审",
+        "审查代码",
+        "review",
+        "回归风险"
+      ]
+    },
+    {
+      "name": "skill-manager",
+      "purpose": "技能去重、合并与维护",
+      "platform": "general",
+      "keywords": [
+        "技能整理",
+        "整理技能",
+        "技能合并",
+        "合并技能",
+        "技能去重",
+        "重复技能",
+        "技能维护",
+        "技能文档",
+        "资料库整理",
+        "星缘资料库",
+        "星愿资料库",
+        "重复的技能",
+        "重复技能文档"
+      ]
+    },
+    {
+      "name": "roblox-luau-expert",
+      "purpose": "Roblox Luau 与双端边界",
+      "platform": "roblox",
+      "keywords": [
+        "roblox",
+        "luau",
+        "runcontext",
+        "remoteevent",
+        "remotefunction",
+        "datastore"
+      ]
+    },
+    {
+      "name": "roblox-security-audit",
+      "purpose": "Roblox 服务端校验与反作弊",
+      "platform": "roblox",
+      "keywords": [
+        "反作弊",
+        "安全审计",
+        "远程事件校验",
+        "防刷",
+        "漏洞",
+        "exploit"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "keywords": [
+        "土狼时间",
+        "郊狼时间",
+        "coyote time",
+        "输入缓冲",
+        "跳跃缓冲",
+        "input buffer",
+        "jump buffer"
+      ],
+      "message": "本库没有 platformer/input-systems 专项技能；game-feel 仅涉及反馈，不能冒充移动与输入机制实现。先确认目标引擎 API，再实现并验证。"
+    },
+    {
+      "keywords": [
+        "gia",
+        "gil",
+        "rea"
+      ],
+      "message": "本库有节点图/插件能力参考，但未包含名为 rea 的技能或通用 GIA 地图生成器；需核对目标工程工具与模板，不能仅凭路由承诺生成或解析成功。"
+    }
+  ]
+}

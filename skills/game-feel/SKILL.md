@@ -11,6 +11,9 @@ description: >
 
 # Game feel (juice)
 
+> 本文中的其他引擎/类型技能名称是外部参考，不代表本库已安装。先通过 `xingyuan-router` 核对实际技能；缺失时报告缺口，按当前平台已核实 API 推进可执行部分。Godot/Unity 示例不能直接当作千星 API。
+
+
 The difference between a mechanic that *works* and one that feels *good* is feedback: the
 layered, slightly-exaggerated response an action provokes. This skill covers the engine-
 neutral techniques — screen shake, hit-stop, easing, squash & stretch, knockback, and stacked

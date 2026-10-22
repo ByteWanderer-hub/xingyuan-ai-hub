@@ -1,0 +1,1067 @@
+{
+  "baseline": "3b28edeb76052cfb2f6d98958cb8577033ec46f9",
+  "date": "2026-10-23",
+  "comparisons": [
+    {
+      "original": "skills/qianxing-agent/references/code/千星AGENT_代码_提示词.md",
+      "original_sha256": "036d2b0c88f57b21bd61124fa3d595e028abb14ef37c74ffcb85ca7485abb376",
+      "original_bytes": 164183,
+      "chapters": [
+        {
+          "path": "skills/qianxing-agent/references/code/01-总纲.md",
+          "sha256": "6efbae1b8197599e4696879d37893143bc0afe7716857afe0305417903978a76"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/02-零-开始工作前必须遵守的约束.md",
+          "sha256": "9b5b77749cb4ff3f78d4c61b3e59079a80ec192339b4d172d68241e7f42b96aa"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/03-一-采用以下编辑器约束.md",
+          "sha256": "e54707b1a2c2f04e6c48626d380341b0ea904d1827668971eb60b1b2640308f0"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/04-二-子-Agent-使用规范.md",
+          "sha256": "2125de7392de34f323f3823cce389c23a4560c1d5ffaeabfdb285d5fe328897d"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/05-三-角色与边界.md",
+          "sha256": "cef69aea35525e73d44351601630fc026f680aeb371a46715d636ed824d09656"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/06-四-编写流程.md",
+          "sha256": "37e3e0f756954e035346d117d4f705c33a9daf87159fe013e2e40e3278d4728b"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/07-五-开工前的追问规则.md",
+          "sha256": "b07f48a926078036f1d04e00be6d718589f143c38fc46f542ee9b137386201b5"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/08-六-施前要求创作者完成以下内容.md",
+          "sha256": "588874b570796ddd903db48ff46ca014111eeaba591ecb363d655aaebfae575d"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/09-七-实施前检查目录中的-API-文档.md",
+          "sha256": "7ff8b6e1a39a7e6f96a52f6ec675a768e5c7b31f0aa5e0d3ff90fc1f1d71b66d"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/10-八-布局-设计稿严格模式与多端适配.md",
+          "sha256": "7f06b859e6a6954ea4249ee249b13cd36cef4bee63ac76c51c9544ea27164ce6"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/11-九-运行期规则-状态机-启动-控件与输入.md",
+          "sha256": "7251cc4c2da98bd5e70d060c04275f26acca52559ad3692adbd011762f228783"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/12-十-错误边界-日志与证据口径.md",
+          "sha256": "dbf4d093e799616eab76c3267dc8a1046d2d4395e3f0af918b3dc2680ea149b3"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/13-十一-编写前的自查与交付说明.md",
+          "sha256": "6a862edd93edbfe3238c0359fe979cb335a11b82a9b96c834bfaf87a208571ef"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/14-十二-补充-默认布局基准与自适应的边界.md",
+          "sha256": "1a68172725c2a47fe528d302f9b84e014eafc0706b9d12b66186bbff8e4c090b"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/15-十三-代码目录与多文件-require-规范.md",
+          "sha256": "66febbcffc40466f8fdd9436a83a949e5b78776466fb9225bbf31b190155ef7a"
+        },
+        {
+          "path": "skills/qianxing-agent/references/code/16-十四-玩家可见文本规范.md",
+          "sha256": "60f1e17e4a602b8b881513bfdd6131d206a0095f1009bfa70af857ad06d6f846"
+        }
+      ],
+      "nonempty_lines": 1440,
+      "ordered_nonempty_lines_equal": true
+    },
+    {
+      "original": "skills/qianxing-agent/references/create/千星AGENT_创作_提示词.md",
+      "original_sha256": "cf8f0e952e742ab2c775e4050549c0fbcfe71d776e883620c6aecf6710b69541",
+      "original_bytes": 50094,
+      "chapters": [
+        {
+          "path": "skills/qianxing-agent/references/create/01-总纲.md",
+          "sha256": "fede33beb7de1744cb491f1c386b2e441957dab46002017ee28fe937a72a54a8"
+        },
+        {
+          "path": "skills/qianxing-agent/references/create/02-一-关于「千星奇域」.md",
+          "sha256": "e25092f0caaf0fefa65bc114554c291e5c6b28706490f6c5684bee02f701b4af"
+        },
+        {
+          "path": "skills/qianxing-agent/references/create/03-二-工作内容.md",
+          "sha256": "4c7f105158b2cf7c4cd187a5935973e85c4a97bf2c731dc51955f7d475b71ec3"
+        },
+        {
+          "path": "skills/qianxing-agent/references/create/04-三-子-Agent-使用规范.md",
+          "sha256": "088349e502d43377b24583b4adf1e185b79b40e5ce8a571c67570e223391bea2"
+        },
+        {
+          "path": "skills/qianxing-agent/references/create/05-四-任务约束.md",
+          "sha256": "9914673fcf0460d48b228917b1dbe9288bd7c7bfc968eaf8d9e91d7f66fe822a"
+        }
+      ],
+      "nonempty_lines": 396,
+      "ordered_nonempty_lines_equal": true
+    },
+    {
+      "original": "skills/qianxing-agent/references/fix/千星AGENT_修复_提示词.md",
+      "original_sha256": "e9d05fd6ce994e68dde1c5498778b9731da140c866fac38b67c86899306d177f",
+      "original_bytes": 143744,
+      "chapters": [
+        {
+          "path": "skills/qianxing-agent/references/fix/01-总纲.md",
+          "sha256": "d6eaf80ccaa4b1588f4e55a7060cf144ca6465977b82b0401cd3994cfacfb518"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/02-零-开始工作前必须遵守的约束.md",
+          "sha256": "fff5f1fa0a289ad8628c01e4c5fa5a9a0e3a7dd8b5d633ba797332333f31668c"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/03-一-采用以下编辑器约束.md",
+          "sha256": "b99a58acae993b333fbe5640dd41fc8946246a7026ddc357ab90325bfc39647d"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/04-二-子-Agent-使用规范.md",
+          "sha256": "76ecf4b7153a36c0783a1e0dd54c7f23c1d818d0ede0e9c4915fc66a38fda624"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/05-三-角色与边界.md",
+          "sha256": "22b3f38dacd3e7f0ea317e455b0f5f52c7ed97154a58715cd5473c7d6f3e053e"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/06-四-修复流程.md",
+          "sha256": "01176d85b533047eaf1becd0023a303db0b593f45e6d7bac6658dbef5ef528c9"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/07-五-开工前的追问规则.md",
+          "sha256": "df5b9ccd606b80d71e115cf3227b23d1c2f672a476e4d0f25bba25a478fa7137"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/08-六-配置与身份信息-不向用户索取-只从文件核对.md",
+          "sha256": "dc7b32a0e0afc77b22b971ed556b0082b3e91a1aeb8183d30e54d3f5ece4e885"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/09-七-实施前检查目录中的-API-文档.md",
+          "sha256": "8e7393f786fbe313f2bc868480b8efc57cedfb7e142c537f19029c75b1d77e26"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/10-八-布局类故障的定位依据-锚定与多端.md",
+          "sha256": "a37e696c9bfeefad0a9ae58fd5f7b87e3d0f36034cb2f54fb6ba7e2efc69c6c9"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/11-九-运行期规则-状态机-启动-控件与输入.md",
+          "sha256": "5e9b066ad2f6663e6087a2037b67bb32c604dbe5dd6bcb3f294fd95831ac22bf"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/12-十-Bug-案例库与诊断总索引.md",
+          "sha256": "6c0c7f89a3c6af708c4af1df70a6f5d6d896612d8c96991f9597417edc553a40"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/13-十一-错误边界-日志与证据口径.md",
+          "sha256": "8b9f45d884d4575258abcc4d62bb0162936bbb22c6c3ec232713f9cd6e1e9284"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/14-十二-修复报告与自查.md",
+          "sha256": "eaeec044ac9eeeb071c6e6d7d632f4279c4a313478b811f73d4bf81c33052fb9"
+        },
+        {
+          "path": "skills/qianxing-agent/references/fix/15-十三-与-Code-流程的协同.md",
+          "sha256": "c0e31f39c67ab22a583c880adeaea217a4be9c8df0222560ba97b78ac8a32a39"
+        }
+      ],
+      "nonempty_lines": 1202,
+      "ordered_nonempty_lines_equal": true
+    }
+  ],
+  "rule_sections": [
+    {
+      "source": "skills/miliastra-code/references/iron-rules-lua.md",
+      "heading": "R10",
+      "canonical": "skills/miliastra-code/references/iron-rules/R10-no-onscreen-diagnostics.md",
+      "removed_body_sha256": "0df2fd3519260ba8e03c09c549f22e2d7abc7819dff607450dc77882636c4e9d",
+      "body_nonempty_lines": 3,
+      "fully_covered": true
+    },
+    {
+      "source": "skills/miliastra-code/references/iron-rules-lua.md",
+      "heading": "L2-02",
+      "canonical": "skills/miliastra-code/references/iron-rules-l2/l2-02-redraw-state-string.md",
+      "removed_body_sha256": "8b8d8c5d75ada1fa45cd4c5a8461aee9f95a7034ceeb355d7801ea41af8f8223",
+      "body_nonempty_lines": 3,
+      "fully_covered": true
+    },
+    {
+      "source": "skills/miliastra-code/references/iron-rules-lua.md",
+      "heading": "L2-03",
+      "canonical": "skills/miliastra-code/references/iron-rules-l2/l2-03-onstart-fresh-start.md",
+      "removed_body_sha256": "bc59f93ce89ef7d23793ac7583b7404f3633605e5bb5611c1fb42a1838be06c3",
+      "body_nonempty_lines": 3,
+      "fully_covered": true
+    },
+    {
+      "source": "skills/miliastra-code/references/iron-rules-lua.md",
+      "heading": "L2-04",
+      "canonical": "skills/miliastra-code/references/iron-rules-l2/l2-04-blackboard-single-writer.md",
+      "removed_body_sha256": "2726eafff11dd38b0c36cb3617d30d62b5d4a272da5276fc0b160fc56aee2fb5",
+      "body_nonempty_lines": 2,
+      "fully_covered": true
+    },
+    {
+      "source": "skills/miliastra-code/references/iron-rules-visual-debug.md",
+      "heading": "L2-V1",
+      "canonical": "skills/miliastra-code/references/iron-rules-l2/l2-v1-not-visible-triage.md",
+      "removed_body_sha256": "c450a1116e92764f8b7a951b6a6fc384e49c70a64b3ffbcedc8cc17202596d65",
+      "body_nonempty_lines": 5,
+      "fully_covered": true
+    },
+    {
+      "source": "skills/miliastra-code/references/iron-rules-visual-debug.md",
+      "heading": "L2-V2",
+      "canonical": "skills/miliastra-code/references/iron-rules-l2/l2-v2-scatter-experiment.md",
+      "removed_body_sha256": "16d71c377f48b3cc8595f6b8e40f6bf0c7e2f7b7c953112a7ee139c030018785",
+      "body_nonempty_lines": 8,
+      "fully_covered": true
+    },
+    {
+      "source": "skills/miliastra-code/references/iron-rules-visual-debug.md",
+      "heading": "L2-V3",
+      "canonical": "skills/miliastra-code/references/iron-rules-l2/l2-v3-one-variable.md",
+      "removed_body_sha256": "eb0d24f31308d4316e5139528c8f243a86990d3365d90051131faa718b8335a7",
+      "body_nonempty_lines": 2,
+      "fully_covered": true
+    }
+  ],
+  "review_scope": {
+    "skill_entries": 14,
+    "markdown_documents_in_skill_packages": 159,
+    "narrative_full_read": 158,
+    "asset_catalog_programmatically_checked": 1,
+    "asset_catalog_rows": 1543,
+    "asset_catalog_unique_ids": 1543,
+    "excluded": [
+      "Executable scripts were not all re-audited; the request was skill documentation.",
+      "Large JSON and binary GIA assets were not downloaded or revalidated; the commit preserves their original Git blobs."
+    ]
+  },
+  "read_inventory": [
+    {
+      "path": "skills/code-review/SKILL.md",
+      "git_blob_sha": "c5f01483fa36fb0e9e8f689dfb13511639cf2ad7",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-design-theory/SKILL.md",
+      "git_blob_sha": "8e08e0f8bbd8c947bf7e5d9368badc09c872a339",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-design-theory/references/design-principles.md",
+      "git_blob_sha": "314e46c2b883fd5812b17ab022c6bf9f7dc4733d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-design-theory/references/gameplay-elements.md",
+      "git_blob_sha": "1528b18f8e27c611d1ebab7ae6182d09eaa48ee2",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-design-theory/references/player-psychology.md",
+      "git_blob_sha": "f40351790534d587f71d8ae50815134ababd6e8a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-design-theory/references/playtesting.md",
+      "git_blob_sha": "d51488538f189ed9573c46a2364a94035e656281",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-design-theory/references/storytelling.md",
+      "git_blob_sha": "46e0bd512e8fbd3701616ad97985b7b3e14d0619",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-feel/SKILL.md",
+      "git_blob_sha": "54eba4a29c87b7e9303579889eaeb26f6dac7a5a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-feel/references/feedback-recipes.md",
+      "git_blob_sha": "3ebcc3dc9f2e95caaa132af907b5f213a8acb4f4",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-ui-ux/SKILL.md",
+      "git_blob_sha": "c84646755c3d8f2b96fd955d1d2706e911b45596",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/game-ui-ux/references/layout-and-flow.md",
+      "git_blob_sha": "139caf1d76828a303ba85b9446c75fa259610ea8",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/level-design/SKILL.md",
+      "git_blob_sha": "f46ebe758c357a7e78d52f7c15ec6b9f00fe2c33",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/level-design/references/pacing-and-flow.md",
+      "git_blob_sha": "62f19f71cea911dd9ea0d8ed2ed6bc04fd323cf3",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/SKILL.md",
+      "git_blob_sha": "0d4a2b400da283b2667b5e4ac1faf13c3dbc345a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/dimensions.md",
+      "git_blob_sha": "a9294c0254058743df40550242d45ff34d19ba32",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/eggy-classroom-feedback-bugs.md",
+      "git_blob_sha": "69f8ff0493e7cded7e2d9e8b1451263c7fecf914",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/export-price-hide.md",
+      "git_blob_sha": "ba79e8753eb93c00041d9ffad34e2d0a363245bb",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/tugb-doc-alignment.md",
+      "git_blob_sha": "6b6ff34f5bdc9bb236772adc70edad73062fe12f",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/yuan-biphase-flip.md",
+      "git_blob_sha": "b6636c17d7a2a99457dbae6dd0a1516a48a43e20",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/examples/yuan-tetris-first-game.md",
+      "git_blob_sha": "51991a9324f392cd9e63cb3124abc15811737f80",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/platforms/eggy.md",
+      "git_blob_sha": "c0e1cad117bf4335d71b378397ba1b2a294b4ed1",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/platforms/yuan.md",
+      "git_blob_sha": "d7ee73ed8615c73464ccc18c54cab0c22f5190cc",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/review-methods.md",
+      "git_blob_sha": "efe2be9cbd96b6ffe5ab457d609c7518ff508fa8",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-bb/references/templates/boundary-list-template.md",
+      "git_blob_sha": "e0ce6e80386e39ffcb9761deb76cb30d35998b16",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/SKILL.md",
+      "git_blob_sha": "5ea943652d5f11c0a88d6b52fcd5fad6a20bb4ef",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/assets/asset-catalog.md",
+      "git_blob_sha": "c0ddac2d2db9619104cd0cca9b99d54cb46c8c11",
+      "method": "data rows and unique IDs checked"
+    },
+    {
+      "path": "skills/miliastra-code/references/api-client-ui-outline.md",
+      "git_blob_sha": "30d6fd9719d5f31c8d8b4962ea88888352d04b90",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/api-client-ui.md",
+      "git_blob_sha": "21f699f7be0f3b5f32f199667e25f6ccdb395d01",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/api-doc-sources.md",
+      "git_blob_sha": "b37c808da498c510a17f6e23656a06ac9a1b9234",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/blackboard-to-variable-signal.md",
+      "git_blob_sha": "1ff4be8c63abe906a44ca9550823a337aa65e14b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/case-detectives-6scripts.md",
+      "git_blob_sha": "fe68275f800df5456db57a319f22cc64ecd444ba",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/case-extreme-particles.md",
+      "git_blob_sha": "5281bb9f7b4d6094540e7cd5855dd2c5ac72bb9d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/case-reference-control-numkey.md",
+      "git_blob_sha": "26e86bd48752c8490c1e108ad8f8a4956e9fa319",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/code-patterns.md",
+      "git_blob_sha": "3f10a6195f74aac13a57d51ce7689c7484a624f6",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/code-snippets.md",
+      "git_blob_sha": "53b1032e7112918d07a25e446fd25c4c26cefd51",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/compact-stream.md",
+      "git_blob_sha": "29477e2b3d3d5921f722ebe559950f9a98944d4d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/control-name-and-probe.md",
+      "git_blob_sha": "aa50bbf6199bfdb3c2ea2b18a23c4ddc6160eb61",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/cross-script-comm.md",
+      "git_blob_sha": "0146643318a63a12b5a2e7a103a7ffe4c3c40f8b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/development-guide.md",
+      "git_blob_sha": "9eaa7eba6192ef2e8ea27fbf0a0f868e50d8b84b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/dialog-template-patterns.md",
+      "git_blob_sha": "cb8b0ae2126a1b14d8004d5556def2a77ce02d5a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/discipline-lua.md",
+      "git_blob_sha": "a7f4657a4b27b292304471f902bc05dc46f1601f",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/editor-setup-sop.md",
+      "git_blob_sha": "763b5b09c3c1a44681e6a4a654855606d822a163",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/engine-boundaries.md",
+      "git_blob_sha": "2de8cee7fbd99b50f8bb88afddd66b3a371b49fc",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/frame-animation.md",
+      "git_blob_sha": "b8f860d1e73c8dd913498cfacafcecbf46094bea",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/guardrails.md",
+      "git_blob_sha": "f35bd49980c074cda41be86b5191e7cc400aba84",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-01-cross-script-layer.md",
+      "git_blob_sha": "720af0fad4af69ee707d4582eb3cb0aecbe6c324",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-02-redraw-state-string.md",
+      "git_blob_sha": "bcf4cf27e1363cf8211345095414457c348c6bac",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-03-onstart-fresh-start.md",
+      "git_blob_sha": "5e3c3c5897f5726f27787e0bda926ae8145d6215",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-04-blackboard-single-writer.md",
+      "git_blob_sha": "9d69779c97df5c4a0359fb6fe1a6f7d6f8aa6c5e",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-05-control-name-contract.md",
+      "git_blob_sha": "bdf0f4963e4002361c1b533bb17e03c29dad9e78",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-06-cursor-prerequisite.md",
+      "git_blob_sha": "ac69e0aa63cca898e2d2085749da85b2d97a016e",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-07-frame-budget.md",
+      "git_blob_sha": "983f486c9513455604be7f0177a2e188a340a27b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-08-gameplay-untouched.md",
+      "git_blob_sha": "34d12315a49c602fda2afb519df06d14524ccd87",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-v1-not-visible-triage.md",
+      "git_blob_sha": "44a87c3041aa52fb98a7aed15e7324ac11cc1d8a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-v2-scatter-experiment.md",
+      "git_blob_sha": "b71313538e30a534c72cf2d65dcd7917c78bc837",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-l2/l2-v3-one-variable.md",
+      "git_blob_sha": "43acee7e9e9420ac6fa0d0c0b324c4bf55b603e2",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-lua.md",
+      "git_blob_sha": "5deba08982de0c2db3972ec715c98ea3ca725f6d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules-visual-debug.md",
+      "git_blob_sha": "fea1bb3679d8e418f02897f70a6e3f26eb9299ce",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R1-onupdate-pcall.md",
+      "git_blob_sha": "1af6a17840f475d6bebfe35d4c4fca9249613f40",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R10-no-onscreen-diagnostics.md",
+      "git_blob_sha": "683ed537c1fca110e5db65235235074cd7610e9b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R11-file-size.md",
+      "git_blob_sha": "47bf2d82742296e85855d464ea1c31d671f23ec4",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R12-text-height.md",
+      "git_blob_sha": "e3d3ed5b6f469b0b2d1201e7f4fc4980cb29377d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R13-simulator-before-deploy.md",
+      "git_blob_sha": "517106440615cec42eddb1dd5d9a1d8f9433b6c9",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R14-action-type-fidelity.md",
+      "git_blob_sha": "e1606631b964f3a715a5ade785a2a4173987412a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R2-no-global-leak.md",
+      "git_blob_sha": "5002d6eae0c43971e1e109a6190f31c637771166",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R3-declare-before-use.md",
+      "git_blob_sha": "f6c93d7e99b1f1abfe431a2e0aef7f05065cee66",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R4-pcall-failure-route.md",
+      "git_blob_sha": "b1375c21c0ad9d59f2d897adcc5ba4b5a9552cc1",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R5-file-format.md",
+      "git_blob_sha": "77c8cbe91530e829855c92ece5f83607add95732",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R6-no-assert.md",
+      "git_blob_sha": "2572c156855caad096814a8cbc75ca4ccfb609d8",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R7-log-contract.md",
+      "git_blob_sha": "d42f27cf639bdfeeab1b4ea37e2c4f4b2430521c",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R8-handover-values.md",
+      "git_blob_sha": "736732ed659e95a3c5659c1e4da41c7aa90e1944",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/R9-build-artifacts.md",
+      "git_blob_sha": "e92a7b55fc49522d60ca00ca8f8c04a97ab0f745",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V1-asset-vs-template-id.md",
+      "git_blob_sha": "b2c9a5d0fda66d5cb2ace3e169f23bae5251413d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V2-no-sanitize-composite.md",
+      "git_blob_sha": "18bcac7416d42d4a5ca3e96a6e6b91e0e37b3f4d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V3-geometry-official-api.md",
+      "git_blob_sha": "24c586b55b71e0a0e8c403db24207dde7c7b536c",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V4-parent-center-offset.md",
+      "git_blob_sha": "f8639da761f6e3e5efc1898102cbd2d7143bd290",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V5-sibling-order.md",
+      "git_blob_sha": "e7af3fdff54ea37f4f93ae9371727b3f7df5fbfc",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V6-canvas-instance-findable.md",
+      "git_blob_sha": "58e0c47b2f8838ff32d57e87a823e5c56ac4da74",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/iron-rules/V7-instantiate-timing.md",
+      "git_blob_sha": "bdb26fbfae3a6cb9e97fac84498273442d7147ac",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/lua-style.md",
+      "git_blob_sha": "f65168b72092b4e976cb956b94e2825d3e0f248b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/node-graph-capabilities.md",
+      "git_blob_sha": "77186a897b286e271cf219a3ff4c8199433d13cb",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/pixel-reconstruction.md",
+      "git_blob_sha": "24359c15097c42f7d45469587d6b7ce910356533",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/plugin-toolbox.md",
+      "git_blob_sha": "e57d22464e66f68ae7cc66f52ff8d2e17edd5033",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/project-architecture-assessment.md",
+      "git_blob_sha": "78cee37c2a37d213347e7984fa4db82beaf9faff",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/style-remediation-workflow.md",
+      "git_blob_sha": "72c512159677a5e0ba1a48c81a0d08b38567a79d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/ui-interaction-reliability.md",
+      "git_blob_sha": "eaeea13755b9aee5b4c820b910d451fdcd7e1b77",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/usage-guide/千星沙箱客户端脚本使用指南.md",
+      "git_blob_sha": "94fd7a78d22b53ee68398ce86ab204d1c10dfd3e",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/variables-and-signals.md",
+      "git_blob_sha": "3c9a48f4e69f0c334b778125ae096c6e4daa2441",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/vfx-particles-and-budget.md",
+      "git_blob_sha": "f8044fe824589c452fa8d69f8fb2981478dcb37b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/references/千星奇域_客户端控件与按键实测.md",
+      "git_blob_sha": "1c200585271abc62807e77806b9e01cfe78b2d51",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-code/scripts/gates/README.md",
+      "git_blob_sha": "a3a36a6c7f0440be3f11d9564163e771ad14e601",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/SKILL.md",
+      "git_blob_sha": "f502af341278e06443fcf364786e07848cdc9c10",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/asset-search.md",
+      "git_blob_sha": "2318fde1f5d779b224bcec07bf7b782648ec6e0a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/case-detectives-ui.md",
+      "git_blob_sha": "40a13c2bee878c9a71fa44386f63af713cf86646",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/design-guide.md",
+      "git_blob_sha": "1d52ba789cfc675b3de674a5acddb96d164bbd0f",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/grid-calculator.md",
+      "git_blob_sha": "fdff79fa1dda39785743ba84146f71c2f33483e9",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI1-token-table.md",
+      "git_blob_sha": "4f2a4211993e1df2fdb3d0b9ce3552e728fdf457",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI2-grid-scale.md",
+      "git_blob_sha": "f766fdaf51c33d54695d45d4f87f7416b90a8868",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI3-font-scale.md",
+      "git_blob_sha": "e872657e815a365d5cc107f35e84e3f7c34ad226",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI4-semantic-color.md",
+      "git_blob_sha": "849110e26b17e0d485ba497c4e977f810a1b4fb7",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI5-layer-order.md",
+      "git_blob_sha": "4331eb817bb86aea6e9d19733c391d9030075a02",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/iron-rules/UI6-asset-and-states.md",
+      "git_blob_sha": "655f7359bd6de7786313bb9bc20f1549b1aeda53",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/procedural-background.md",
+      "git_blob_sha": "23bff5be2f7c81d5a01ec3c04ac6e7c7db3e7992",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/ui-data-ownership.md",
+      "git_blob_sha": "dc39bd8a459169772c13bf7fded243111c7258b5",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/references/visual-check.md",
+      "git_blob_sha": "4d91d020aa096f0ba4961496db196194ece4218c",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/miliastra-ui/scripts/gates/README.md",
+      "git_blob_sha": "9fabfdaa86fd385b815b9b13094594b1581b678e",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/SKILL.md",
+      "git_blob_sha": "f2236611fc5fbe48d21eeead2bda036911649873",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/00-索引.md",
+      "git_blob_sha": "159c744d0f061522f37391a083a35e721bdae0d8",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/01-总纲.md",
+      "git_blob_sha": "f9735088af569d3888347cddf5f072c4f17bf444",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/02-零-开始工作前必须遵守的约束.md",
+      "git_blob_sha": "14eed23d0cc0b1bb44361fbedb4129f8775635e9",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/03-一-采用以下编辑器约束.md",
+      "git_blob_sha": "27805425203b472945fa809eef9d3cea6ee460da",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/04-二-子-Agent-使用规范.md",
+      "git_blob_sha": "77d86dff8b55dd57088d4385617cda19e36015b9",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/05-三-角色与边界.md",
+      "git_blob_sha": "04492c3c7685d38c38bf0288e42df4c58ad82620",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/06-四-编写流程.md",
+      "git_blob_sha": "b1ddbe4a282b13318581ff9fae80357deabdbaf7",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/07-五-开工前的追问规则.md",
+      "git_blob_sha": "2ff0182b4f894ea9bec6e9882a5439bd3e698a73",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/08-六-施前要求创作者完成以下内容.md",
+      "git_blob_sha": "918b1829d44a1b9aea75a7c926027f3d9ad0a28d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/09-七-实施前检查目录中的-API-文档.md",
+      "git_blob_sha": "b1f85d46a04d3dc37be5c8babeb1efade07695c7",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/10-八-布局-设计稿严格模式与多端适配.md",
+      "git_blob_sha": "9d4f83a1c0ef5913658ffa6fd59df5650fee82c7",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/11-九-运行期规则-状态机-启动-控件与输入.md",
+      "git_blob_sha": "85dd9c8ef44ee2b87d905b3226c0ac6958ae2690",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/12-十-错误边界-日志与证据口径.md",
+      "git_blob_sha": "239c3da824c92f0893a1a46263e247d4240fcbb6",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/13-十一-编写前的自查与交付说明.md",
+      "git_blob_sha": "67777e946f0a62ea8af134e8b6f8defc786706c7",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/14-十二-补充-默认布局基准与自适应的边界.md",
+      "git_blob_sha": "0a8d1e8d33fbc962893aea90ca33a532578b0eca",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/15-十三-代码目录与多文件-require-规范.md",
+      "git_blob_sha": "8f6fc3712debcdc7c478a932ccbc476af0753504",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/16-十四-玩家可见文本规范.md",
+      "git_blob_sha": "49f6247b24ff2ff69166eabdbc9dce99f6460e5f",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/code/千星AGENT_代码_提示词.md",
+      "git_blob_sha": "b8b36a2d011ea68f69e60bc93c49cdfd211a6249",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/00-索引.md",
+      "git_blob_sha": "f1464485ac3727a90d9bec83f6c4630379c26130",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/01-总纲.md",
+      "git_blob_sha": "5040dff5998091c765ab6f65582d05c47f4359aa",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/02-一-关于「千星奇域」.md",
+      "git_blob_sha": "04d3ef255935fef3833cf73807786c208381e1ed",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/03-二-工作内容.md",
+      "git_blob_sha": "c22787ddbf1bdac3a8c2fae0fc318c39c192e603",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/04-三-子-Agent-使用规范.md",
+      "git_blob_sha": "db4aa84de07e393c50a6de9b036d8fa2cd6f3f34",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/05-四-任务约束.md",
+      "git_blob_sha": "7a49d5c8599ba79711e93e3a367cfdf73d980d6a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/create/千星AGENT_创作_提示词.md",
+      "git_blob_sha": "9444531d3ef9482f04423fbd4468d6e67764742a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/00-索引.md",
+      "git_blob_sha": "a52513b0fef76171a144bfe09e5ad44a6f7cb597",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/01-总纲.md",
+      "git_blob_sha": "784fbe1754e736d7aea88aa2b1bfdbfd70ba50cb",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/02-零-开始工作前必须遵守的约束.md",
+      "git_blob_sha": "0f6a14b3c4853a4560b469c4031767cf5daa1b5a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/03-一-采用以下编辑器约束.md",
+      "git_blob_sha": "4fe8f4c574738cbda4ad3f4bbc2c3bb0ea91895d",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/04-二-子-Agent-使用规范.md",
+      "git_blob_sha": "4310e74c1d0c343111bf95c16d3fac4a8a003fcc",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/05-三-角色与边界.md",
+      "git_blob_sha": "d55aeb63e1f5658c12682f7a2287eba55dda4118",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/06-四-修复流程.md",
+      "git_blob_sha": "64ac742fcadeace1421e6996470c279d9d0706e3",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/07-五-开工前的追问规则.md",
+      "git_blob_sha": "0ccb97379baffdb57364b65af95ea04b814bc7a6",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/08-六-配置与身份信息-不向用户索取-只从文件核对.md",
+      "git_blob_sha": "b51927dfc014b610ef2371daf46017b99af84d93",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/09-七-实施前检查目录中的-API-文档.md",
+      "git_blob_sha": "bdeae856ceb6002034b5090274198635739d5b7b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/10-八-布局类故障的定位依据-锚定与多端.md",
+      "git_blob_sha": "74aecbf44cd35cec63de1f5bf0450b3a104a3206",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/11-九-运行期规则-状态机-启动-控件与输入.md",
+      "git_blob_sha": "0a681b4a5d9a28842893f94edbe8027684de3628",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/12-十-Bug-案例库与诊断总索引.md",
+      "git_blob_sha": "e1a17f31f9c59020b3b23d2b218bd34f54831c4b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/13-十一-错误边界-日志与证据口径.md",
+      "git_blob_sha": "780cd00c278e67057a5fc6e985194280b38ef231",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/14-十二-修复报告与自查.md",
+      "git_blob_sha": "943ffbd16fae3476272f46a9f5ac5dc5eaa9a460",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/15-十三-与-Code-流程的协同.md",
+      "git_blob_sha": "cceef15e714b766fb0e8629941527ea5b1354f74",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/fix/千星AGENT_修复_提示词.md",
+      "git_blob_sha": "e537ecdac4a86e30ec20d2067f7baa67fa6b9a6e",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/role-code.md",
+      "git_blob_sha": "aa9569e40fbb2fdc543371aec59745d4d006b448",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/role-create.md",
+      "git_blob_sha": "4c07de6097a7a7f5dc04c6ebffbf18be7c21efe0",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-agent/references/role-fix.md",
+      "git_blob_sha": "349bb42ab07d826bb47dc5015f7a4668cdfbb2f6",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-auto-delivery/SKILL.md",
+      "git_blob_sha": "5e9e6a5e003a5bd89e663ec5d11a21c0a38a17ce",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/qianxing-auto-delivery/references/verification.md",
+      "git_blob_sha": "9896b115cee94dd8ebfb69a953e0810d42ff2d2b",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/roblox-luau-expert/SKILL.md",
+      "git_blob_sha": "26106b13fb37b9dcd9ae2ad1b6abb98c308c3a48",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/roblox-security-audit/SKILL.md",
+      "git_blob_sha": "cfdfa1fbe2e8f20583bf041a049abf58924d342a",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/skill-manager/SKILL.md",
+      "git_blob_sha": "dcdf1dd52c60f508597167d9a80299eeebfe043c",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/systematic-debugging/SKILL.md",
+      "git_blob_sha": "211a528d7fc8b3e61c83d318e54810d8629959ac",
+      "method": "full document read"
+    },
+    {
+      "path": "skills/systematic-debugging/references/techniques.md",
+      "git_blob_sha": "9e7fa4a3ae347f29bf2502be27a6668c20445284",
+      "method": "full document read"
+    }
+  ],
+  "validation": {
+    "unit_tests": {
+      "passed": 48,
+      "installer": 15,
+      "verifier": 21,
+      "router": 12
+    },
+    "router_install": "isolated single-skill installation succeeded; four files; missing adjacent skills correctly report available=false",
+    "forward_routing": "7 realistic requests evaluated; negative-platform and natural-language maintenance misses fixed and regression-tested",
+    "review": "independent read-only review found no remaining blockers in router/role links/default installation/document boundaries",
+    "limitations": [
+      "Actual Codex skill discovery not verified",
+      "Windows/editor/plugin/game runtime not verified",
+      "No full repository asset verification in this partial text snapshot"
+    ]
+  },
+  "verification": {
+    "changed_markdown_local_targets_checked": 124,
+    "missing_targets": [],
+    "skill_metadata_checked": 15,
+    "canonical_chapters_unchanged": 36,
+    "scope": "path existence against fetched baseline Git tree plus new local files; not anchors, remote URLs, engine APIs or full binary asset validation"
+  }
+}

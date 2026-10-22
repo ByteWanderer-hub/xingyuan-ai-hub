@@ -164,26 +164,12 @@ Players need positive reinforcement, especially early on.
 4. Gradually increase challenge
 5. Player already invested, sees increased difficulty as surmountable
 
-### Learning Through Rewards
+### Teaching and tutorials
 
-**Prince of Persia approach**:
-- First breakaway floor is non-lethal
-- Spikes introduced in survivable situations
-- Later encounters less forgiving, but player has learned
-
-**Half-Life approach**:
-- Safe, interesting introduction
-- Time to learn controls without dying
-- Tutorial level exists but isn't required—main game also teaches
-
-### Tutorial Levels
-
-Problems:
-- Often not fun to play
-- Players skip them to reach "real game"
-- Can't replace making early game itself easy
-
-**Solution**: Tutorial for players who want it, but design early game to be forgiving regardless.
+For safe learning spaces, the Prince of Persia / Half-Life examples, and optional
+tutorials, read [Teaching the Player](design-principles.md#teaching-the-player).
+Keep early rewards tied to learning and progress; maintain the teaching method in
+that single reference rather than copying it here.
 
 ---
 

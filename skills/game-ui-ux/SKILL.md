@@ -11,6 +11,9 @@ description: >
 
 # Game UI/UX
 
+> 本文中的其他引擎/类型技能名称是外部参考，不代表本库已安装。先通过 `xingyuan-router` 核对实际技能；缺失时报告缺口，按当前平台已核实 API 推进可执行部分。Godot/Unity 示例不能直接当作千星 API。
+
+
 Build HUDs and menus that stay correct on a phone, an ultrawide monitor, and a TV across a
 gamepad and a mouse. This skill owns the engine-neutral UI architecture — responsive layout,
 scaling, focus navigation, screen flow, and how UI talks to game state — and defers the

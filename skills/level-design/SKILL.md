@@ -10,6 +10,9 @@ description: >
 
 # Level design
 
+> 本文中的其他引擎/类型技能名称是外部参考，不代表本库已安装。先通过 `xingyuan-router` 核对实际技能；缺失时报告缺口，按当前平台已核实 API 推进可执行部分。Godot/Unity 示例不能直接当作千星 API。
+
+
 A level is a **sequence of intentional experiences** delivered through space.
 Good level design is a *process*: define the metrics movement is built on, block
 out geometry with primitives, play it, then dress it — never the reverse. This
