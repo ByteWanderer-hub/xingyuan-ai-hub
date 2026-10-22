@@ -1,0 +1,72 @@
+name: Import Qianxing Skills
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Apply migration (false = preview only)'
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout destination
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify source token exists
+        env:
+          SOURCE_TOKEN: ${{ secrets.QXQY_SOURCE_READ_TOKEN }}
+        run: |
+          if [ -z "$SOURCE_TOKEN" ]; then
+            echo "::error::Missing QXQY_SOURCE_READ_TOKEN secret (read-only access to qxqy_AI)"
+            exit 1
+          fi
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          repository: lizhenyu2845905433-rgb/qxqy_AI
+          path: _source
+          token: ${{ secrets.QXQY_SOURCE_READ_TOKEN }}
+          persist-credentials: false
+      - name: Preview and optionally import
+        env:
+          APPLY: ${{ inputs.apply }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import os, hashlib, shutil
+          src=Path('_source/.agents/skills')
+          dst=Path('skills')
+          assert src.is_dir(), 'Source skills folder missing'
+          new=[]; same=[]; conflict=[]
+          for f in sorted(src.rglob('*')):
+              if not f.is_file(): continue
+              target=dst/f.relative_to(src)
+              if not target.exists(): new.append((f,target))
+              elif hashlib.sha256(f.read_bytes()).digest()==hashlib.sha256(target.read_bytes()).digest(): same.append(str(target))
+              else: conflict.append(str(target))
+          print(f'NEW={len(new)} SAME={len(same)} CONFLICT={len(conflict)}')
+          for p in conflict: print('CONFLICT',p)
+          if os.environ.get('APPLY')=='true':
+              for f,target in new:
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  shutil.copy2(f,target)
+              print('Copied missing files; existing files preserved')
+          else: print('Preview only; no files changed')
+          PY
+      - name: Commit imported files
+        if: ${{ inputs.apply }}
+        run: |
+          rm -rf _source
+          git add -- skills
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Import missing Qianxing skill dependencies'
+            git push
+          fi
