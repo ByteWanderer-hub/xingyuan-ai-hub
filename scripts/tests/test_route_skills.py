@@ -76,6 +76,30 @@ class RoutingTests(unittest.TestCase):
     def test_natural_maintenance_request(self):
         self.assertEqual(self.names('继续整理星缘资料库里重复的技能')[0], 'skill-manager')
 
+    def test_route_rows_have_meaningful_fields(self):
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
+        for row in data['skills']:
+            with self.subTest(skill=row['name']):
+                self.assertTrue(row['purpose'].strip())
+                self.assertIn(row['platform'], {'general', 'ugc', 'qianxing', 'roblox'})
+                self.assertIsInstance(row['keywords'], list)
+                self.assertGreater(len(row['keywords']), 0)
+                self.assertTrue(all(isinstance(k, str) and k.strip() == k and k for k in row['keywords']))
+                self.assertEqual(len(row['keywords']), len({k.casefold() for k in row['keywords']}))
+
+    def test_each_indexed_keyword_can_reach_its_target(self):
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
+        for row in data['skills']:
+            platform = row['platform'] if row['platform'] in {'qianxing', 'roblox'} else 'other'
+            for keyword in row['keywords']:
+                with self.subTest(skill=row['name'], keyword=keyword):
+                    self.assertIn(row['name'], self.names(keyword, platform))
+
+    def test_entry_maintenance_requests(self):
+        for query in ('新增技能后更新关键词入口', '修改技能的适用范围', '维护我们的快速跳转入口'):
+            self.assertEqual(self.names(query)[0], 'skill-manager')
+        self.assertNotIn('skill-manager', self.names('修改千星UI按钮颜色'))
+
     def test_context_override(self):
         self.assertIn('miliastra-ui', self.names('UI 图片', 'qianxing'))
         self.assertNotIn('miliastra-ui', self.names('不要Roblox做千星UI', 'other'))
