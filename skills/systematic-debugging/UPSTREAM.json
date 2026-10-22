@@ -1,0 +1,56 @@
+{
+  "upstream": "https://github.com/obra/superpowers",
+  "commit": "b739a8af570e10a95898f2bdf6cec97467fa6c12",
+  "distributionAlsoReviewed": "https://github.com/openai/plugins/tree/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/superpowers",
+  "distributionDifference": "Two environment-log examples differ; neither copied into adapted skill.",
+  "license": "MIT",
+  "variant": "local-adapted",
+  "installedUsing": "skill-installer to isolated staging; selected reviewed prose adapted before activation",
+  "reviewedFiles": {
+    "SKILL.md": {
+      "sha256": "51c6435d98c83c42c96ba7c35725a0b2c376cd487fb1a4e6bd0ddbe7e33ef202",
+      "bytes": 9530
+    },
+    "root-cause-tracing.md": {
+      "sha256": "75b933b6a8c40bdb2031b10f21654395b56ec6ab6bc7b018c18d3fe57aeb7fb8",
+      "bytes": 5321
+    },
+    "condition-based-waiting.md": {
+      "sha256": "e89fec8400d6cd50f43407cec9fab50976ba4d55d0ec2eb51c0bd68036b54c26",
+      "bytes": 3516
+    }
+  },
+  "changes": [
+    "Narrow trigger to diagnostic tasks",
+    "Remove mandatory skill dependencies and unconditional human pauses",
+    "Use bounded targeted reads and risk-appropriate verification",
+    "Retain backward tracing, component boundary comparisons, and condition waits",
+    "No scripts, hooks, external services or configuration changes"
+  ],
+  "scope": "user skill directory only; project and main-thread files untouched",
+  "checks": {
+    "source_identity": "passed",
+    "license": "preserved",
+    "reference_review": "passed",
+    "behavioral_benchmark": "not_run",
+    "format": "passed",
+    "local_links": "passed",
+    "executable_surface": "none",
+    "project_rule_compatibility": "manually_reviewed",
+    "validator_dependency": "PyYAML 6.0.3 in temporary directory only"
+  },
+  "installedFiles": {
+    "LICENSE": {
+      "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+      "bytes": 1070
+    },
+    "SKILL.md": {
+      "sha256": "5b2c4bc4220e876efdac1507b75f94b0b2e1b99b1268e16173378fbe43dd455d",
+      "bytes": 3247
+    },
+    "references/techniques.md": {
+      "sha256": "a9382d0cfc651953614f39f2a4e4f1cd1b4a089b295bf076081d3764d1124284",
+      "bytes": 2278
+    }
+  }
+}
