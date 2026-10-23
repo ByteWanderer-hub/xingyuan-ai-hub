@@ -18,7 +18,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 关键词/意图 | 主技能 | 按需补充 |
 | --- | --- | --- |
 | 千星 Lua、API、变量、信号、require、对话、部署 | `miliastra-code` | 故障加 `systematic-debugging` |
-| 千星 UI、素材、参考图转控件、计数预览、图片转 GIA/Lua | `miliastra-ui` | 纯图片控件可通用生成；Lua API 加 `miliastra-code`，其他控件按地图适配，完整《天堂之门》GIA 加专用技能 |
+| 千星 UI、素材/静态资产包、ID 对照图、参考图转控件、图片转 GIA/Lua | `miliastra-ui` | 纯图片控件可通用生成；Lua API 加 `miliastra-code`，其他控件按地图适配，完整《天堂之门》GIA 加专用技能 |
 | 《天堂之门》设计图转完整客户端 GIA | `tiantangzhimen-gia` | 先确认设计数据与目标地图模板；写入存档另遵守 `miliastra-code` |
 | UGC 需求分析、范围歧义、验收标准 | `miliastra-bb` | 范围明确后转实现，不重复审批 |
 | 实现/创作/修复角色提示词 | `qianxing-agent` | 只选对应角色 |
@@ -36,6 +36,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 ## 细分入口与缺口
 
 - 千星对话/黑幕/选项/打字机：读 `miliastra-code` 后按其对话工程参考继续。
+- 千星静态资产包、资产 ID 对照图：读 `miliastra-ui/references/static-image-pack.md`，使用只读脚本按 ID/用途查询和检查几何元数据；不把图片索引视为控件创建模板，不自动重传原始资产。
 - 参考图重建、按圈选小改、图片转 GIA/Lua：读 `miliastra-ui` 的 `references/client-template-gia.md`。仅图片控件可走通用输出，不要求指定地图；加入其他控件或玩法才按地图适配。区分预览、离线 GIA 与 Lua 创建模块，不把图片文件本身当可导入资源，不为通用美术或其他地图误启《天堂之门》专用流程。
 - GIL/GIA、节点图、REA：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含 `rea` 技能或通用地图 GIA 生成器；素材样例不等于生成工具。
 - 土狼时间/郊狼时间/coyote time、输入缓冲/input buffer：本库暂无对应移动/输入专项技能。`game-feel` 不负责原始控制器数学；可结合已核实引擎 API 实现，但明确是补充实现而非调用现成专用技能。

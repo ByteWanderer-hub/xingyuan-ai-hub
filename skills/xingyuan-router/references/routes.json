@@ -25,7 +25,7 @@
     },
     {
       "name": "miliastra-ui",
-      "purpose": "千星 UI、素材检索、参考图重建与通用纯图片控件 GIA/Lua 输出流程",
+      "purpose": "千星 UI、静态资产包与 ID 对照选材、参考图重建及纯图片控件 GIA/Lua 流程",
       "platform": "qianxing",
       "keywords": [
         "ui",
@@ -38,6 +38,13 @@
         "音乐",
         "特效素材",
         "imageid",
+        "资产id",
+        "资产 id",
+        "对照图",
+        "静态资产",
+        "资产包",
+        "asset pack",
+        "asset id",
         "模板",
         "遮罩",
         "拖拽",

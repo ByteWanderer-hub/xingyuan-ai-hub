@@ -24,6 +24,15 @@ class RoutingTests(unittest.TestCase):
         names = self.names('天堂之门设计图生成客户端 GIA')
         self.assertIn('tiantangzhimen-gia', names)
 
+    def test_local_static_asset_pack(self):
+        for query in ('千星图片静态资产.zip', '千星资产ID与对照图',
+                      'miliastra asset pack', 'miliastra asset id mapping'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'miliastra-ui')
+                self.assertNotIn('tiantangzhimen-gia', self.names(query))
+        for query in ('Unity asset pack', '解压普通ZIP文件', 'Roblox asset id'):
+            self.assertNotIn('miliastra-ui', self.names(query))
+
     def test_reference_art_workflow(self):
         for query in ('千星按参考图生成原生控件，先预览和控件数量，不生成GIA',
                       '千星图片转GIA', 'miliastra reference image to native UI art',
