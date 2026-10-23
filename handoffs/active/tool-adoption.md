@@ -1,7 +1,7 @@
 # 九项工具接入与本地安装
 日期：2026-10-23（北京时间）
 最后更新：2026-10-23（北京时间）
-状态：六项工具已安装并完成基础命令/安装登记验证；Open-LLM-VTuber 前端已安装；Superpowers 与 Aseprite 有明确外部阻塞。本地工具优先规则已写入 `desktop-toolbox` 共享技能并接入关键词入口。
+状态：六项工具已安装并完成基础命令/安装登记验证；Open-LLM-VTuber 前端已安装；Superpowers 与 Aseprite 有明确外部阻塞。本地工具优先规则已写入 `desktop-toolbox` 共享技能、接入关键词入口并安装到当前项目；实际 Codex 发现仍待触发相关任务时核实。
 下一步：为已安装的桌面工具执行其功能验收；完成 Superpowers 市场包修复或改用经核实的官方安装方式；确认 Aseprite 许可证或编译选择。
 来源：本轮用户在推荐 MarkItDown、Superpowers、LocalSend、Open-LLM-VTuber、Aseprite 后明确表示“我想都要”。
 后续选择：用户要求安装本轮另外两项重点推荐 rembg 和 Ink／Inky；Repomix 未选择，LosslessCut 和 Flow Launcher 仍为候选。
@@ -53,3 +53,4 @@
 - 已建立九项清单、去重策略及验收条件。
 - 未执行任何 Windows 安装、购买、模型下载或本机设置变更。
 - 未新增/修改技能正文，现有关键词路由无需变更；后续实际引入技能时必须联动更新。
+- 已新增并推送 `desktop-toolbox`（`fcb9f91`），关键词入口路由测试通过；当前项目已从该提交安装 `desktop-toolbox` 与更新后的 `xingyuan-router`。原未受管入口已备份至 `D:\xingyuan-ai-hub-backups\20261023-desktop-toolbox-router-134533\original-xingyuan-router`，文件安装不等于实际 Codex 发现或桌面工具功能验收。
