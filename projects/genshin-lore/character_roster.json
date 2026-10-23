@@ -1,0 +1,3010 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-23",
+  "scope": "截至核对日两份公开角色目录交叉比对；旅行者元素形态与奇偶性别各合并，不把已发布公告等同于实装。",
+  "counting_unit": "playable_identity",
+  "playable_count": 122,
+  "bwiki_display_rows": 129,
+  "hoyowiki_zh_rows": 128,
+  "sources": [
+    "story-bwiki-角色"
+  ],
+  "english_alias_sources": [
+    "story-hoyowiki-en-roster"
+  ],
+  "release_date_policy": "仅保存实际核对过日期的条目，其余为null；目录成员资格不是逐人的实装日期审计。",
+  "excluded_candidates": [
+    {
+      "hoyowiki_id": "11827",
+      "name": "Mitya",
+      "reason": "仅英文预告页；无已实装与公开角色故事证据，不收录测试服/泄露文本。"
+    },
+    {
+      "hoyowiki_id": "11828",
+      "name": "Valeriy",
+      "reason": "仅英文预告页；无已实装与公开角色故事证据，不收录测试服/泄露文本。"
+    }
+  ],
+  "characters": [
+    {
+      "entity": "character.aino",
+      "name": "爱诺",
+      "aliases": [
+        "Aino"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "爱诺",
+          "source_id": "hwstory-8397",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-8397",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.alhaitham",
+      "name": "艾尔海森",
+      "aliases": [
+        "Alhaitham"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "艾尔海森",
+          "source_id": "hwstory-3336",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3336",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.ayaka",
+      "name": "神里绫华",
+      "aliases": [
+        "Kamisato Ayaka"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "神里绫华",
+          "source_id": "hwstory-32",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-32",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.candace",
+      "name": "坎蒂丝",
+      "aliases": [
+        "Candace"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "坎蒂丝",
+          "source_id": "hwstory-2815",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2815",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.cyno",
+      "name": "赛诺",
+      "aliases": [
+        "Cyno"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "赛诺",
+          "source_id": "hwstory-2813",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2813",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.diluc",
+      "name": "迪卢克",
+      "aliases": [
+        "Diluc"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "迪卢克",
+          "source_id": "hwstory-43",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-43",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.flins",
+      "name": "菲林斯",
+      "aliases": [
+        "Flins"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "菲林斯",
+          "source_id": "hwstory-8398",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-8398",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.freminet",
+      "name": "菲米尼",
+      "aliases": [
+        "Freminet"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "菲米尼",
+          "source_id": "hwstory-3964",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3964",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.ganyu",
+      "name": "甘雨",
+      "aliases": [
+        "Ganyu"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "甘雨",
+          "source_id": "hwstory-28",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-28",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-1",
+      "name": "七七",
+      "aliases": [
+        "Qiqi"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "七七",
+          "source_id": "hwstory-1",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-1",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-10412",
+      "name": "莉奈娅",
+      "aliases": [
+        "Linnea"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "莉奈娅",
+          "source_id": "hwstory-10412",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-10412",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-10622",
+      "name": "尼可",
+      "aliases": [
+        "Nicole"
+      ],
+      "region": "其他",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "尼可",
+          "source_id": "hwstory-10622",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-10622",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-10623",
+      "name": "洛恩",
+      "aliases": [
+        "Lohen"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "洛恩",
+          "source_id": "hwstory-10623",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-10623",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-10624",
+      "name": "布伦妮",
+      "aliases": [
+        "Prune"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "布伦妮",
+          "source_id": "hwstory-10624",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-10624",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-10920",
+      "name": "桑多涅",
+      "aliases": [
+        "Sandrone"
+      ],
+      "region": "至冬",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "桑多涅",
+          "source_id": "hwstory-10920",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-10920",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-11",
+      "name": "北斗",
+      "aliases": [
+        "Beidou"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "北斗",
+          "source_id": "hwstory-11",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-11",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-11162",
+      "name": "奥黛塔",
+      "aliases": [
+        "Odette"
+      ],
+      "region": "至冬",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "奥黛塔",
+          "source_id": "hwstory-11162",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-11162",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-11163",
+      "name": "阿罗夏",
+      "aliases": [
+        "Alyosha"
+      ],
+      "region": "至冬",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "阿罗夏",
+          "source_id": "hwstory-11163",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-11163",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-11661",
+      "name": "薇斯纳",
+      "aliases": [
+        "Vesna"
+      ],
+      "region": "至冬",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "薇斯纳",
+          "source_id": "hwstory-11661",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": "2026-09-23",
+      "release_date_basis": "story-bwiki-薇斯纳",
+      "sources": [
+        "hwstory-11661",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-11702",
+      "name": "沃雅妮莎",
+      "aliases": [
+        "Vodyanitsa"
+      ],
+      "region": "至冬",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "沃雅妮莎",
+          "source_id": "hwstory-11702",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": "2026-09-23",
+      "release_date_basis": "story-bwiki-沃雅妮莎",
+      "sources": [
+        "hwstory-11702",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-12",
+      "name": "可莉",
+      "aliases": [
+        "Klee"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "可莉",
+          "source_id": "hwstory-12",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-12",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-13",
+      "name": "埃洛伊",
+      "aliases": [
+        "Aloy"
+      ],
+      "region": "通用",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "埃洛伊",
+          "source_id": "hwstory-13",
+          "story_section_count": 6
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-13",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-14",
+      "name": "安柏",
+      "aliases": [
+        "Amber"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "安柏",
+          "source_id": "hwstory-14",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-14",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-15",
+      "name": "宵宫",
+      "aliases": [
+        "Yoimiya"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "宵宫",
+          "source_id": "hwstory-15",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-15",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-16",
+      "name": "托马",
+      "aliases": [
+        "Thoma"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "托马",
+          "source_id": "hwstory-16",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-16",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2",
+      "name": "丽莎",
+      "aliases": [
+        "Lisa"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "丽莎",
+          "source_id": "hwstory-2",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-21",
+      "name": "早柚",
+      "aliases": [
+        "Sayu"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "早柚",
+          "source_id": "hwstory-21",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-21",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-22",
+      "name": "枫原万叶",
+      "aliases": [
+        "Kaedehara Kazuha"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "枫原万叶",
+          "source_id": "hwstory-22",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-22",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2252",
+      "name": "夜兰",
+      "aliases": [
+        "Yelan"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "夜兰",
+          "source_id": "hwstory-2252",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2252",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2256",
+      "name": "久岐忍",
+      "aliases": [
+        "Kuki Shinobu"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "久岐忍",
+          "source_id": "hwstory-2256",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2256",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2263",
+      "name": "鹿野院平藏",
+      "aliases": [
+        "Shikanoin Heizou"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "鹿野院平藏",
+          "source_id": "hwstory-2263",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2263",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2265",
+      "name": "提纳里",
+      "aliases": [
+        "Tighnari"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "提纳里",
+          "source_id": "hwstory-2265",
+          "story_section_count": 6
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2265",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2268",
+      "name": "柯莱",
+      "aliases": [
+        "Collei"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "柯莱",
+          "source_id": "hwstory-2268",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2268",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2269",
+      "name": "多莉",
+      "aliases": [
+        "Dori"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "多莉",
+          "source_id": "hwstory-2269",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2269",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-24",
+      "name": "烟绯",
+      "aliases": [
+        "Yanfei"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "烟绯",
+          "source_id": "hwstory-24",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-24",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-26",
+      "name": "班尼特",
+      "aliases": [
+        "Bennett"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "班尼特",
+          "source_id": "hwstory-26",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-26",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2812",
+      "name": "妮露",
+      "aliases": [
+        "Nilou"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "妮露",
+          "source_id": "hwstory-2812",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2812",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2859",
+      "name": "莱依拉",
+      "aliases": [
+        "Layla"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "莱依拉",
+          "source_id": "hwstory-2859",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2859",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-29",
+      "name": "申鹤",
+      "aliases": [
+        "Shenhe"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "申鹤",
+          "source_id": "hwstory-29",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-29",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2967",
+      "name": "珐露珊",
+      "aliases": [
+        "Faruzan"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "珐露珊",
+          "source_id": "hwstory-2967",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2967",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-2968",
+      "name": "流浪者",
+      "aliases": [
+        "Wanderer"
+      ],
+      "region": "其他",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "流浪者",
+          "source_id": "hwstory-2968",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2968",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-30",
+      "name": "砂糖",
+      "aliases": [
+        "Sucrose"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "砂糖",
+          "source_id": "hwstory-30",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-30",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-31",
+      "name": "神里绫人",
+      "aliases": [
+        "Kamisato Ayato"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "神里绫人",
+          "source_id": "hwstory-31",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-31",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-33",
+      "name": "罗莎莉亚",
+      "aliases": [
+        "Rosaria"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "罗莎莉亚",
+          "source_id": "hwstory-33",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-33",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-3335",
+      "name": "瑶瑶",
+      "aliases": [
+        "Yaoyao"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "瑶瑶",
+          "source_id": "hwstory-3335",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3335",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-34",
+      "name": "胡桃",
+      "aliases": [
+        "Hu Tao"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "胡桃",
+          "source_id": "hwstory-34",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-34",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-3462",
+      "name": "米卡",
+      "aliases": [
+        "Mika"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "米卡",
+          "source_id": "hwstory-3462",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3462",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-3463",
+      "name": "迪希雅",
+      "aliases": [
+        "Dehya"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "迪希雅",
+          "source_id": "hwstory-3463",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3463",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-35",
+      "name": "芭芭拉",
+      "aliases": [
+        "Barbara"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "芭芭拉",
+          "source_id": "hwstory-35",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-35",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-36",
+      "name": "荒泷一斗",
+      "aliases": [
+        "Arataki Itto"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "荒泷一斗",
+          "source_id": "hwstory-36",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-36",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-3608",
+      "name": "卡维",
+      "aliases": [
+        "Kaveh"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "卡维",
+          "source_id": "hwstory-3608",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3608",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-3609",
+      "name": "白术",
+      "aliases": [
+        "Baizhu"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "白术",
+          "source_id": "hwstory-3609",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3609",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-37",
+      "name": "莫娜",
+      "aliases": [
+        "Mona"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "莫娜",
+          "source_id": "hwstory-37",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-37",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-3719",
+      "name": "绮良良",
+      "aliases": [
+        "Kirara"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "绮良良",
+          "source_id": "hwstory-3719",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3719",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-38",
+      "name": "菲谢尔",
+      "aliases": [
+        "Fischl"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "菲谢尔",
+          "source_id": "hwstory-38",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-38",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-39",
+      "name": "行秋",
+      "aliases": [
+        "Xingqiu"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "行秋",
+          "source_id": "hwstory-39",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-39",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-4",
+      "name": "云堇",
+      "aliases": [
+        "Yun Jin"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "云堇",
+          "source_id": "hwstory-4",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-40",
+      "name": "诺艾尔",
+      "aliases": [
+        "Noelle"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "诺艾尔",
+          "source_id": "hwstory-40",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-40",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-41",
+      "name": "辛焱",
+      "aliases": [
+        "Xinyan"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "辛焱",
+          "source_id": "hwstory-41",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-41",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-4376",
+      "name": "芙宁娜",
+      "aliases": [
+        "Furina"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "芙宁娜",
+          "source_id": "hwstory-4376",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4376",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-4377",
+      "name": "夏洛蒂",
+      "aliases": [
+        "Charlotte"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "夏洛蒂",
+          "source_id": "hwstory-4377",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4377",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-44",
+      "name": "迪奥娜",
+      "aliases": [
+        "Diona"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "迪奥娜",
+          "source_id": "hwstory-44",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-44",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-45",
+      "name": "重云",
+      "aliases": [
+        "Chongyun"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "重云",
+          "source_id": "hwstory-45",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-45",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-4576",
+      "name": "娜维娅",
+      "aliases": [
+        "Navia"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "娜维娅",
+          "source_id": "hwstory-4576",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4576",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-4577",
+      "name": "夏沃蕾",
+      "aliases": [
+        "Chevreuse"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "夏沃蕾",
+          "source_id": "hwstory-4577",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4577",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-47",
+      "name": "阿贝多",
+      "aliases": [
+        "Albedo"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "阿贝多",
+          "source_id": "hwstory-47",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-47",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-4774",
+      "name": "闲云",
+      "aliases": [
+        "Xianyun"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "闲云",
+          "source_id": "hwstory-4774",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4774",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-4775",
+      "name": "嘉明",
+      "aliases": [
+        "Gaming"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "嘉明",
+          "source_id": "hwstory-4775",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4775",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-48",
+      "name": "雷泽",
+      "aliases": [
+        "Razor"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "雷泽",
+          "source_id": "hwstory-48",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-48",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-4946",
+      "name": "千织",
+      "aliases": [
+        "Chiori"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "千织",
+          "source_id": "hwstory-4946",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4946",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-5",
+      "name": "五郎",
+      "aliases": [
+        "Gorou"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "五郎",
+          "source_id": "hwstory-5",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-5",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-50",
+      "name": "香菱",
+      "aliases": [
+        "Xiangling"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "香菱",
+          "source_id": "hwstory-50",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-50",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-51",
+      "name": "魈",
+      "aliases": [
+        "Xiao"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "魈",
+          "source_id": "hwstory-51",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-51",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-5149",
+      "name": "阿蕾奇诺",
+      "aliases": [
+        "Arlecchino"
+      ],
+      "region": "至冬",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "阿蕾奇诺",
+          "source_id": "hwstory-5149",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-5149",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-5596",
+      "name": "克洛琳德",
+      "aliases": [
+        "Clorinde"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "克洛琳德",
+          "source_id": "hwstory-5596",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-5596",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-5597",
+      "name": "希格雯",
+      "aliases": [
+        "Sigewinne"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "希格雯",
+          "source_id": "hwstory-5597",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-5597",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-5598",
+      "name": "赛索斯",
+      "aliases": [
+        "Sethos"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "赛索斯",
+          "source_id": "hwstory-5598",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-5598",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-5714",
+      "name": "艾梅莉埃",
+      "aliases": [
+        "Emilie"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "艾梅莉埃",
+          "source_id": "hwstory-5714",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-5714",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-6",
+      "name": "优菈",
+      "aliases": [
+        "Eula"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "优菈",
+          "source_id": "hwstory-6",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-6",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-6924",
+      "name": "希诺宁",
+      "aliases": [
+        "Xilonen"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "希诺宁",
+          "source_id": "hwstory-6924",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-6924",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7",
+      "name": "八重神子",
+      "aliases": [
+        "Yae Miko"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "八重神子",
+          "source_id": "hwstory-7",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7079",
+      "name": "欧洛伦",
+      "aliases": [
+        "Ororon"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "欧洛伦",
+          "source_id": "hwstory-7079",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7079",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7080",
+      "name": "恰斯卡",
+      "aliases": [
+        "Chasca"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "恰斯卡",
+          "source_id": "hwstory-7080",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7080",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7299",
+      "name": "玛薇卡",
+      "aliases": [
+        "Mavuika"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "玛薇卡",
+          "source_id": "hwstory-7299",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7299",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7300",
+      "name": "茜特菈莉",
+      "aliases": [
+        "Citlali"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "茜特菈莉",
+          "source_id": "hwstory-7300",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7300",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7301",
+      "name": "蓝砚",
+      "aliases": [
+        "Lan Yan"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "蓝砚",
+          "source_id": "hwstory-7301",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7301",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7420",
+      "name": "梦见月瑞希",
+      "aliases": [
+        "Yumemizuki Mizuki"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "梦见月瑞希",
+          "source_id": "hwstory-7420",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7420",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7488",
+      "name": "瓦雷莎",
+      "aliases": [
+        "Varesa"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "瓦雷莎",
+          "source_id": "hwstory-7488",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7488",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7502",
+      "name": "伊安珊",
+      "aliases": [
+        "Iansan"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "伊安珊",
+          "source_id": "hwstory-7502",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7502",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7624",
+      "name": "爱可菲",
+      "aliases": [
+        "Escoffier"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "爱可菲",
+          "source_id": "hwstory-7624",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7624",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7627",
+      "name": "伊法",
+      "aliases": [
+        "Ifa"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "伊法",
+          "source_id": "hwstory-7627",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7627",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7707",
+      "name": "塔利雅",
+      "aliases": [
+        "Dahlia"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "塔利雅",
+          "source_id": "hwstory-7707",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7707",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-7852",
+      "name": "伊涅芙",
+      "aliases": [
+        "Ineffa"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "伊涅芙",
+          "source_id": "hwstory-7852",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7852",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-8894",
+      "name": "奈芙尔",
+      "aliases": [
+        "Nefer"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "奈芙尔",
+          "source_id": "hwstory-8894",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-8894",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-9",
+      "name": "凯亚",
+      "aliases": [
+        "Kaeya"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "凯亚",
+          "source_id": "hwstory-9",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-9",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-9017",
+      "name": "杜林",
+      "aliases": [
+        "Durin"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "杜林",
+          "source_id": "hwstory-9017",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-9017",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-9018",
+      "name": "雅珂达",
+      "aliases": [
+        "Jahoda"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "雅珂达",
+          "source_id": "hwstory-9018",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-9018",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-9121",
+      "name": "哥伦比娅",
+      "aliases": [
+        "Columbina"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "哥伦比娅",
+          "source_id": "hwstory-9121",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-9121",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-9122",
+      "name": "兹白",
+      "aliases": [
+        "Zibai"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "兹白",
+          "source_id": "hwstory-9122",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-9122",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-9123",
+      "name": "叶洛亚",
+      "aliases": [
+        "Illuga"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "叶洛亚",
+          "source_id": "hwstory-9123",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-9123",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.hoyowiki-9342",
+      "name": "法尔伽",
+      "aliases": [
+        "Varka"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "法尔伽",
+          "source_id": "hwstory-9342",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-9342",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.jean",
+      "name": "琴",
+      "aliases": [
+        "Jean"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "琴",
+          "source_id": "hwstory-27",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-27",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.kachina",
+      "name": "卡齐娜",
+      "aliases": [
+        "Kachina"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "卡齐娜",
+          "source_id": "hwstory-6318",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-6318",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.keqing",
+      "name": "刻晴",
+      "aliases": [
+        "Keqing"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "刻晴",
+          "source_id": "hwstory-10",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-10",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.kinich",
+      "name": "基尼奇",
+      "aliases": [
+        "Kinich"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "基尼奇",
+          "source_id": "hwstory-6317",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-6317",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.kokomi",
+      "name": "珊瑚宫心海",
+      "aliases": [
+        "Sangonomiya Kokomi"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "珊瑚宫心海",
+          "source_id": "hwstory-25",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-25",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.lauma",
+      "name": "菈乌玛",
+      "aliases": [
+        "Lauma"
+      ],
+      "region": "挪德卡莱",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "菈乌玛",
+          "source_id": "hwstory-8396",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-8396",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.lynette",
+      "name": "琳妮特",
+      "aliases": [
+        "Lynette"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "琳妮特",
+          "source_id": "hwstory-3962",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3962",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.lyney",
+      "name": "林尼",
+      "aliases": [
+        "Lyney"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "林尼",
+          "source_id": "hwstory-3963",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3963",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.mualani",
+      "name": "玛拉妮",
+      "aliases": [
+        "Mualani"
+      ],
+      "region": "纳塔",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "玛拉妮",
+          "source_id": "hwstory-6319",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-6319",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.nahida",
+      "name": "纳西妲",
+      "aliases": [
+        "Nahida",
+        "小吉祥草王"
+      ],
+      "region": "须弥",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "纳西妲",
+          "source_id": "hwstory-2850",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-2850",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.neuvillette",
+      "name": "那维莱特",
+      "aliases": [
+        "Iudex",
+        "Neuvillette"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "那维莱特",
+          "source_id": "hwstory-4023",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4023",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.ningguang",
+      "name": "凝光",
+      "aliases": [
+        "Ningguang"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "凝光",
+          "source_id": "hwstory-8",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-8",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.sara",
+      "name": "九条裟罗",
+      "aliases": [
+        "Kujou Sara"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "九条裟罗",
+          "source_id": "hwstory-3",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-3",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.shogun",
+      "name": "雷电将军",
+      "aliases": [
+        "Raiden Shogun"
+      ],
+      "region": "稻妻",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "雷电将军",
+          "source_id": "hwstory-49",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-49",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.skirk",
+      "name": "丝柯克",
+      "aliases": [
+        "Skirk"
+      ],
+      "region": "其他",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "丝柯克",
+          "source_id": "hwstory-7706",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-7706",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.tartaglia",
+      "name": "达达利亚",
+      "aliases": [
+        "Childe",
+        "Tartaglia",
+        "公子"
+      ],
+      "region": "至冬",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "达达利亚",
+          "source_id": "hwstory-42",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-42",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.traveler",
+      "name": "旅行者",
+      "aliases": [
+        "Traveler",
+        "空",
+        "荧",
+        "Aether",
+        "Lumine"
+      ],
+      "region": "通用",
+      "kind": "selectable_protagonist",
+      "forms": [
+        {
+          "name": "旅行者(冰)",
+          "source_id": "hwstory-11609",
+          "story_section_count": 0
+        },
+        {
+          "name": "旅行者（火）",
+          "source_id": "hwstory-7306",
+          "story_section_count": 7
+        },
+        {
+          "name": "旅行者（水）",
+          "source_id": "hwstory-3997",
+          "story_section_count": 8
+        },
+        {
+          "name": "旅行者（草）",
+          "source_id": "hwstory-2674",
+          "story_section_count": 8
+        },
+        {
+          "name": "旅行者",
+          "source_id": "hwstory-20",
+          "story_section_count": 8
+        },
+        {
+          "name": "旅行者（风）",
+          "source_id": "hwstory-19",
+          "story_section_count": 8
+        },
+        {
+          "name": "旅行者（雷）",
+          "source_id": "hwstory-18",
+          "story_section_count": 8
+        },
+        {
+          "name": "旅行者（岩）",
+          "source_id": "hwstory-17",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-20",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.venti",
+      "name": "温迪",
+      "aliases": [
+        "Venti"
+      ],
+      "region": "蒙德",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "温迪",
+          "source_id": "hwstory-23",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-23",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.wonderland-manekin",
+      "name": "奇偶",
+      "aliases": [
+        "奇域人偶",
+        "Manekin",
+        "Manekina",
+        "Wonderland Manekin"
+      ],
+      "region": "通用",
+      "kind": "customizable_avatar",
+      "forms": [
+        {
+          "name": "Manekin",
+          "source_id": "hwstory-9020",
+          "story_section_count": 0
+        },
+        {
+          "name": "Manekina",
+          "source_id": "hwstory-9021",
+          "story_section_count": 0
+        }
+      ],
+      "release_status": "release_date_verified",
+      "release_date": "2025-10-22",
+      "release_date_basis": "story-bwiki-奇偶",
+      "sources": [
+        "story-bwiki-奇偶",
+        "hwstory-9020",
+        "hwstory-9021"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.wriothesley",
+      "name": "莱欧斯利",
+      "aliases": [
+        "Wriothesley"
+      ],
+      "region": "枫丹",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "莱欧斯利",
+          "source_id": "hwstory-4022",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-4022",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    },
+    {
+      "entity": "character.zhongli",
+      "name": "钟离",
+      "aliases": [
+        "Zhongli"
+      ],
+      "region": "璃月",
+      "kind": "playable",
+      "forms": [
+        {
+          "name": "钟离",
+          "source_id": "hwstory-46",
+          "story_section_count": 8
+        }
+      ],
+      "release_status": "listed_in_both_public_rosters",
+      "release_date": null,
+      "release_date_basis": null,
+      "sources": [
+        "hwstory-46",
+        "story-bwiki-角色"
+      ],
+      "checked_at": "2026-10-23"
+    }
+  ]
+}
