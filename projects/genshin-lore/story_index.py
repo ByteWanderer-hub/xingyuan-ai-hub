@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import sys
 import unicodedata
-from timeline import read_timeline, participants
+from timeline import participants
 
 ROOT = Path(__file__).resolve().parent
 LEVELS = {'none': 0, 'minor': 1, 'major': 2, 'all': 2}
@@ -17,7 +17,8 @@ JSONL_FILES = (*ENTITY_FILES, 'quests.jsonl', 'relations.jsonl', 'character_prof
                'character_timelines.jsonl', 'hangout_branches.jsonl', 'timeline_relations.jsonl')
 SOURCE_FILES = ('sources.json', 'expansion_sources.json', 'character_sources.json', 'community_sources.json',
                 'timeline_sources.json')
-DATA_FILES = (*JSONL_FILES, *SOURCE_FILES, 'patterns.json', 'character_roster.json', 'timeline_coverage.json')
+DATA_FILES = (*JSONL_FILES, *SOURCE_FILES, 'patterns.json', 'character_roster.json',
+              'timeline_coverage.json', 'localization_kits.json')
 
 
 def read_json(path):
@@ -153,6 +154,24 @@ def build_index(root=ROOT):
         records[record['id']] = record
         cards[record['id']] = {'file': 'patterns.json', 'pointer': f'/{i}', 'title': record['title'],
                                'spoiler': record['spoiler'], 'sources': sorted({s for b in record['basis'] for s in records[b]['sources']})}
+    for i, record in enumerate(read_json(root / 'localization_kits.json')):
+        if record['id'] in cards:
+            raise ValueError(f'duplicate card id: {record["id"]}')
+        if record.get('kind') != 'original_adaptation':
+            raise ValueError(f'{record["id"]}: localization must be labelled original')
+        if record.get('spoiler') not in {'none', 'minor', 'major'}:
+            raise ValueError(f'{record["id"]}: invalid localization spoiler')
+        for anchor in record['anchors']:
+            ref = anchor['card_id']
+            if ref not in cards or cards[ref]['file'] not in JSONL_FILES or cards[ref]['file'] == 'community.jsonl' or records[ref].get('kind') == 'original_adaptation':
+                raise ValueError(f'{record["id"]}: unresolved canonical anchor {ref}')
+            if LEVELS[records[ref]['spoiler']] > LEVELS[record['spoiler']]:
+                raise ValueError(f'{record["id"]}: anchor spoiler exceeds adaptation')
+        records[record['id']] = record
+        cards[record['id']] = {
+            'file': 'localization_kits.json', 'pointer': f'/{i}', 'title': record['title'],
+            'kind': 'original_adaptation', 'spoiler': record['spoiler'],
+            'sources': sorted({src for anchor in record['anchors'] for src in records[anchor['card_id']]['sources']})}
     entities = {}
     aliases = defaultdict(set)
     for ident, record in records.items():
@@ -160,12 +179,14 @@ def build_index(root=ROOT):
             continue
         entities[ident] = {'title': record['title'], 'spoiler': record['spoiler'], 'profile_ids': [],
                            'story_ids': [], 'quest_ids': [], 'relation_ids': [], 'timeline_ids': [],
-                           'event_ids': [], 'branch_ids': [], 'event_relation_ids': [], 'mentioned_in': []}
+                           'event_ids': [], 'branch_ids': [], 'event_relation_ids': [],
+                           'localization_ids': [], 'mentioned_in': []}
         for name in [ident, record['title'], *record['aliases']]:
             aliases[normalize(name)].add(ident)
     for r in read_json(root / 'character_roster.json')['characters']:
         for name in [r['name'], *r['aliases']]:
             aliases[normalize(name)].add(r['entity'])
+    entity_records = {key: records[key] for key in entities}
     for ident, record in records.items():
         filename = cards[ident]['file']
         if filename == 'character_profiles.jsonl':
@@ -181,7 +202,7 @@ def build_index(root=ROOT):
             for ref in (record['subject'], record['object']):
                 entities[ref]['relation_ids'].append(ident)
         elif filename == 'timeline_events.jsonl':
-            for ref in participants(record, {key: records[key] for key in entities}):
+            for ref in participants(record, entity_records):
                 entities[ref]['event_ids'].append(ident)
         elif filename == 'character_timelines.jsonl':
             entities[record['entity']]['timeline_ids'].append(ident)
@@ -190,6 +211,14 @@ def build_index(root=ROOT):
         elif filename == 'timeline_relations.jsonl':
             for ref in (record['subject'], record['object']):
                 entities[ref]['event_relation_ids'].append(ident)
+        elif filename == 'localization_kits.json':
+            refs = set()
+            for anchor in record['anchors']:
+                basis = records[anchor['card_id']]
+                refs.update({basis['id'], basis.get('entity'), basis.get('subject'), basis.get('object'),
+                             *basis.get('places', []), *participants(basis, entity_records)})
+            for ref in refs & entities.keys():
+                entities[ref]['localization_ids'].append(ident)
     # Cross-references are independently checked; building must not mask editorial drift.
     for ident, record in records.items():
         if 'entity' not in record:
@@ -201,12 +230,13 @@ def build_index(root=ROOT):
     for card in cards.values():
         if not set(card['sources']) <= sources.keys():
             raise ValueError('index: unresolved source')
-    return {'schema_version': 2, 'checked_at': read_json(root / 'timeline_coverage.json')['checked_at'],
+    return {'schema_version': 3, 'checked_at': read_json(root / 'timeline_coverage.json')['checked_at'],
             'contains_major_spoilers': True, 'encoding': 'UTF-8', 'line_numbers': 'one-based; hash excludes newline',
             'retrieval_order': ['resolve alias to entity id', 'read bounded profile, story and timeline locators',
                                 'follow quest/relation/event ids', 'follow source locator and unlock/variant conditions'],
             'mention_semantics': 'lexical retrieval only; not an asserted relationship',
             'chronology_semantics': 'event edges are partial quest progression only; release versions and world dates are not chronology; cast is evidence-linked association, not a semantic relationship',
+            'localization_semantics': 'localization_ids point to original, unplaytested adaptation proposals; anchors are evidence boundaries, not proof that the proposed events happened in canon',
             'data_hashes': {name: digest((root / name).read_bytes()) for name in DATA_FILES},
             'aliases': {name: sorted(refs) for name, refs in sorted(aliases.items())},
             'entities': entities, 'cards': cards, 'sources': sources}
@@ -228,11 +258,12 @@ def lookup(index, value, spoilers='none', limit=5):
     node = index['entities'][ident]
     result = {'entity': ident, 'title': node['title'], 'spoiler_filter': spoilers, 'collections': {}}
     for key in ('profile_ids', 'story_ids', 'quest_ids', 'relation_ids', 'timeline_ids', 'event_ids',
-                'branch_ids', 'event_relation_ids', 'mentioned_in'):
+                'branch_ids', 'event_relation_ids', 'localization_ids', 'mentioned_in'):
         visible = [ref for ref in node[key] if LEVELS[index['cards'][ref]['spoiler']] <= LEVELS[spoilers]]
         result['collections'][key] = {'matched': len(visible), 'shown': min(limit, len(visible)),
                                       'locators': [{'id': ref, **index['cards'][ref]} for ref in visible[:limit]]}
     result['mention_semantics'] = index['mention_semantics']
+    result['localization_semantics'] = index['localization_semantics']
     return result
 
 

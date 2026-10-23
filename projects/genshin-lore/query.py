@@ -274,6 +274,9 @@ def main(argv=None):
         parser.error("--relation-type 需要 --relations 或 --event-relations")
     try:
         registry, entries, patterns = read_data()
+        # Keep the validated identity map for this invocation. Re-reading it for
+        # every candidate made character timeline queries perform 1,208 disk reads.
+        entity_map = {entry["id"]: entry for entry in entries}
         errors = validate(registry, entries, patterns)
         quests, relations = read_atlas()
         errors.extend(validate_atlas(registry, entries, quests, relations))
@@ -291,16 +294,22 @@ def main(argv=None):
             errors.extend(validate_community(community_registry, community_entries))
             if {e['id'] for e in entries + quests + relations + profiles + stories} & {e['id'] for e in community_entries}:
                 errors.append("fact/community ids overlap")
+        localization_kits = []
+        if args.stats or args.validate:
+            from localization import read_context, read_kits, validate_kits
+            localization_cards, _ = read_context()
+            localization_kits = read_kits()
+            errors.extend(validate_kits(localization_kits, localization_cards))
         if errors:
             raise ValueError("; ".join(errors))
     except (OSError, ValueError, KeyError, TypeError) as exc:
         print(f"资料库错误：{exc}", file=sys.stderr)
         return 1
     if args.validate:
-        print(f"PASS: {len(entries)} fact/entities, {len(registry['sources'])} fact sources, {len(patterns)} patterns; {len(quests)} quests, {len(relations)} relations; {roster['playable_count']} playable identities, {len(profiles)} profiles, {len(stories)} story sections; {len(events)} timeline events, {len(branches)} hangout endings, {len(event_relations)} narrative relations; {len(community_entries)} community entries, {len(community_registry['sources'])} community sources; IDs/references/spoilers/index valid")
+        print(f"PASS: {len(entries)} fact/entities, {len(registry['sources'])} fact sources, {len(patterns)} patterns; {len(quests)} quests, {len(relations)} relations; {roster['playable_count']} playable identities, {len(profiles)} profiles, {len(stories)} story sections; {len(events)} timeline events, {len(branches)} hangout endings, {len(event_relations)} narrative relations; {len(localization_kits)} localization kits; {len(community_entries)} community entries, {len(community_registry['sources'])} community sources; IDs/references/spoilers/index valid")
         return 0
     if args.stats:
-        print(json.dumps({"entries": len(entries), "sources": len(registry["sources"]), "patterns": len(patterns), "quests": len(quests), "quest_coverage": dict(Counter(q["coverage"] for q in quests)), "relations": len(relations), "relation_categories": dict(Counter(r["category"] for r in relations)), "timeline": {"events": len(events), "evidence_depth": dict(Counter(e["coverage"] for e in events)), "hangout_endings": len(branches), "narrative_relations": len(event_relations), "coverage": "partial quest progression; no inferred world chronology or complete appearance corpus"}, "regions": dict(Counter(e["region"] for e in entries)), "spoilers": dict(Counter(e["spoiler"] for e in entries)), "checked_at": registry["checked_at"], "characters": {"playable_identities": roster["playable_count"], "profiles": len(profiles), "npc_profiles": sum(not p["playable"] for p in profiles), "story_sections": len(stories), "availability": dict(Counter(s["availability"] for s in stories)), "coverage": "chapter topic summaries and source locators; not a complete chronology of all appearances"}, "community": {"entries": len(community_entries), "sources": len(community_registry["sources"]), "source_platforms": dict(Counter(s["platform"] for s in community_registry["sources"])), "checked_at": community_registry["checked_at"]}, "coverage": "selected sourced cards; not complete/latest-story coverage; community samples are not a popularity ranking"}, ensure_ascii=False, indent=2))
+        print(json.dumps({"entries": len(entries), "sources": len(registry["sources"]), "patterns": len(patterns), "localization_kits": len(localization_kits), "quests": len(quests), "quest_coverage": dict(Counter(q["coverage"] for q in quests)), "relations": len(relations), "relation_categories": dict(Counter(r["category"] for r in relations)), "timeline": {"events": len(events), "evidence_depth": dict(Counter(e["coverage"] for e in events)), "hangout_endings": len(branches), "narrative_relations": len(event_relations), "coverage": "partial quest progression; no inferred world chronology or complete appearance corpus"}, "regions": dict(Counter(e["region"] for e in entries)), "spoilers": dict(Counter(e["spoiler"] for e in entries)), "checked_at": registry["checked_at"], "characters": {"playable_identities": roster["playable_count"], "profiles": len(profiles), "npc_profiles": sum(not p["playable"] for p in profiles), "story_sections": len(stories), "availability": dict(Counter(s["availability"] for s in stories)), "coverage": "chapter topic summaries and source locators; not a complete chronology of all appearances"}, "community": {"entries": len(community_entries), "sources": len(community_registry["sources"]), "source_platforms": dict(Counter(s["platform"] for s in community_registry["sources"])), "checked_at": community_registry["checked_at"]}, "coverage": "selected sourced cards; not complete/latest-story coverage; community samples are not a popularity ranking"}, ensure_ascii=False, indent=2))
         return 0
     entity_id = None
     if args.entity:
@@ -311,7 +320,7 @@ def main(argv=None):
     if args.quests or args.relations or args.profiles or args.stories or args.timeline or args.branches or args.event_relations:
         entries = quests if args.quests else relations if args.relations else profiles if args.profiles else stories if args.stories else events if args.timeline else branches if args.branches else event_relations
         if entity_id:
-            entries = [e for e in entries if linked_to(e, entity_id, {e['id']: e for e in read_data()[1]})]
+            entries = [e for e in entries if linked_to(e, entity_id, entity_map)]
         if args.relation_type:
             entries = [e for e in entries if e["relation_type"] == args.relation_type]
     elif args.community:
@@ -351,8 +360,20 @@ def main(argv=None):
             else:
                 label = "玩家文化摘要" if args.community else "事实摘要"
                 print(f"时点：{item['timeline']}\n{label}：{item['summary']}\n边界：{item['boundary']}")
-                if args.relations:
+                if args.relations or args.event_relations:
                     print(f"方向：{item['subject']} --{item['relation_type']}--> {item['object']}")
+                if args.event_relations:
+                    print(f"关系时点：{item['time_scope']}")
+                    print("事件依据：" + ", ".join(item["event_ids"]))
+                if args.timeline:
+                    print(f"核对深度：{item['coverage']}；节点类型：{item['node_kind']}")
+                    print("时序：仅局部任务进度；检索顺序不是世界内编年。")
+                    print("已核对的进度前置：" + (", ".join(item["progression_predecessor_ids"]) or "未建立"))
+                    print("解锁条件边界：" + item["unlock_logic_note"])
+                if args.branches:
+                    print(f"条件概述 [{item['condition_evidence']}]：{item['condition']}")
+                    print(f"所属邀约：{item['act_event_id']}；结局标题为编辑检索标签。")
+                    print("同次路线互斥结局：" + ", ".join(item["mutually_exclusive_with"]))
                 if args.stories or args.profiles:
                     print(f"覆盖：{item['coverage']}；人物：{item['entity']}")
                 if args.stories:

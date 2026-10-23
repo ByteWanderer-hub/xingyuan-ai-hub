@@ -1,11 +1,15 @@
 """Targeted behavior tests; no game connection or web requests."""
 import copy
+from contextlib import redirect_stderr, redirect_stdout
+import io
 import json
 from pathlib import Path
 import subprocess
 import sys
 import unittest
+from unittest.mock import patch
 
+import query
 from query import ROOT, read_data, read_community, read_atlas, search, validate, validate_community, validate_atlas, resolve_entity
 
 
@@ -193,6 +197,107 @@ class LoreTests(unittest.TestCase):
         quests, relations = read_atlas()
         quests[0]["id"] = self.entries[0]["id"]
         self.assertTrue(any("duplicate id" in e for e in validate_atlas(self.registry, self.entries, quests, relations)))
+
+    def test_timeline_entity_map_is_read_once(self):
+        output = io.StringIO()
+        with patch.object(query, "read_data", wraps=query.read_data) as read, redirect_stdout(output):
+            result = query.main(["--timeline", "--entity", "雷电将军", "--spoilers", "all", "--json", "--limit", "2"])
+        self.assertEqual(result, 0)
+        self.assertEqual(read.call_count, 1)
+        data = json.loads(output.getvalue())
+        self.assertEqual(data["shown"], 2)
+        self.assertGreater(data["matched"], data["shown"])
+
+    def test_timeline_aggregate_keeps_original_identity_and_filters(self):
+        # The event names Ei specifically; the Shogun aggregate is a retrieval
+        # convenience and must not replace the source's actual cast identity.
+        result = self.run_cli("--timeline", "--entity", "雷电将军", "--id", "event.bwiki-4fef4ab00af88910", "--region", "稻妻", "--spoilers", "all", "--json")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        data = json.loads(result.stdout)
+        self.assertEqual(data["collection"], "timeline")
+        self.assertEqual(data["shown"], 1)
+        event = data["results"][0]
+        self.assertEqual(event["title"], "试胆大会")
+        self.assertIn("aspect.raiden-ei", [c["entity"] for c in event["cast"]])
+        self.assertNotIn("character.shogun", [c["entity"] for c in event["cast"]])
+        self.assertEqual(event["region"], "稻妻")
+        self.assertIsNone(event["in_world_date"])
+        self.assertTrue(event["source_details"])
+
+    def test_timeline_collections_are_bounded_cited_and_spoiler_filtered(self):
+        for flag, collection in (("--timeline", "timeline"), ("--branches", "branches"), ("--event-relations", "event_relations")):
+            with self.subTest(collection=collection):
+                shown = self.run_cli(flag, "--spoilers", "all", "--json", "--limit", "2")
+                self.assertEqual(shown.returncode, 0, shown.stderr)
+                data = json.loads(shown.stdout)
+                self.assertEqual(data["collection"], collection)
+                self.assertEqual(data["shown"], 2)
+                self.assertGreater(data["matched"], 2)
+                self.assertTrue(all(record["source_details"] for record in data["results"]))
+                hidden = self.run_cli(flag, "--id", data["results"][0]["id"], "--json")
+                self.assertEqual(hidden.returncode, 0, hidden.stderr)
+                self.assertEqual(json.loads(hidden.stdout)["results"], [])
+
+    def test_branch_entity_filter_keeps_mutually_exclusive_routes(self):
+        result = self.run_cli("--branches", "--entity", "诺艾尔", "--spoilers", "all", "--json", "--limit", "20")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        branches = json.loads(result.stdout)["results"]
+        self.assertTrue(branches)
+        by_id = {branch["id"]: branch for branch in branches}
+        for branch in branches:
+            self.assertEqual(branch["entity"], "character.hoyowiki-40")
+            self.assertTrue(branch["condition"])
+            self.assertTrue(branch["condition_evidence"])
+            self.assertEqual(branch["predecessor_branch_ids"], [])
+            self.assertEqual(branch["successor_branch_ids"], [])
+            for ref in branch["mutually_exclusive_with"]:
+                self.assertEqual(by_id[ref]["branch_group"], branch["branch_group"])
+                self.assertIn(branch["id"], by_id[ref]["mutually_exclusive_with"])
+
+    def test_event_relations_filter_either_endpoint_without_reversing_relation(self):
+        result = self.run_cli("--event-relations", "--entity", "迪希雅", "--relation-type", "抚养者", "--spoilers", "all", "--json")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        data = json.loads(result.stdout)
+        self.assertEqual(data["shown"], 1)
+        relation = data["results"][0]
+        self.assertEqual(relation["subject"], "actor.bwiki-e3e3cd8f56c30931")
+        self.assertEqual(relation["object"], "character.hoyowiki-3463")
+        self.assertEqual(relation["relation_type"], "抚养者")
+        self.assertTrue(relation["time_scope"])
+        self.assertTrue(relation["event_ids"])
+
+    def test_new_text_modes_show_evidence_and_direction(self):
+        checks = (
+            (["--timeline"], ["核对深度", "检索顺序不是世界内编年", "解锁条件边界"]),
+            (["--branches", "--entity", "诺艾尔"], ["条件概述", "同次路线互斥", "编辑检索标签"]),
+            (["--event-relations", "--entity", "迪希雅", "--relation-type", "抚养者"], ["--抚养者-->", "关系时点", "事件依据"]),
+        )
+        for args, labels in checks:
+            with self.subTest(mode=args[0]):
+                result = self.run_cli(*args, "--spoilers", "all", "--limit", "1")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                for label in labels:
+                    self.assertIn(label, result.stdout)
+
+    def test_timeline_queries_still_reject_stale_index(self):
+        for mode in ("--timeline", "--branches", "--event-relations"):
+            with self.subTest(mode=mode), patch.object(query, "check_index", return_value=["stale index fixture"]), redirect_stdout(io.StringIO()) as output, redirect_stderr(io.StringIO()) as error:
+                result = query.main([mode, "--spoilers", "all", "--json"])
+                self.assertEqual(result, 1)
+                self.assertEqual(output.getvalue(), "")
+                self.assertIn("stale index fixture", error.getvalue())
+
+    def test_stats_report_validated_localization_kits(self):
+        result = self.run_cli("--stats")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertGreater(json.loads(result.stdout)["localization_kits"], 0)
+
+    def test_validate_rejects_invalid_localization_kit(self):
+        with patch("localization.validate_kits", return_value=["broken localization basis fixture"]), redirect_stdout(io.StringIO()) as output, redirect_stderr(io.StringIO()) as error:
+            result = query.main(["--validate"])
+        self.assertEqual(result, 1)
+        self.assertEqual(output.getvalue(), "")
+        self.assertIn("broken localization basis fixture", error.getvalue())
 
 
 if __name__ == "__main__":
