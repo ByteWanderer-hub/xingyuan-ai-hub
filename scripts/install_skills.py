@@ -18,7 +18,7 @@ import tempfile
 from dataclasses import dataclass
 
 
-REPOSITORY = "lizhenyu2845905433-rgb/xingyuan-ai-hub"
+REPOSITORY = "ByteWanderer-hub/xingyuan-ai-hub"
 MANIFEST_NAME = ".xingyuan-ai-hub-install.json"
 DEFAULT_SKILLS = (
     "xingyuan-router",

@@ -7,7 +7,7 @@
 | 对象 | 固定版本与路径 |
 | --- | --- |
 | 只读来源 | `lizhenyu2845905433-rgb/qxqy_AI`，提交 `80b07a1e396d199d0aad255d4f6b08b501429b78`，`.agents/skills/` |
-| 完整迁移目标 | `lizhenyu2845905433-rgb/xingyuan-ai-hub`，提交 `3084d1c02ec0d094d547e61f2aa10ea7be930524`，`skills/` |
+| 完整迁移目标 | `ByteWanderer-hub/xingyuan-ai-hub`，提交 `3084d1c02ec0d094d547e61f2aa10ea7be930524`，`skills/` |
 | 比较结果 | 10 项技能、187 个文件；Git Blob SHA、字节数、Git 文件模式全部一致；无缺失、无差异 |
 | 可复核清单 | [migration-baseline.json](../scripts/migration-baseline.json) |
 

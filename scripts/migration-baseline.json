@@ -6,7 +6,7 @@
     "prefix": ".agents/skills/"
   },
   "destination": {
-    "repository": "lizhenyu2845905433-rgb/xingyuan-ai-hub",
+    "repository": "ByteWanderer-hub/xingyuan-ai-hub",
     "baseline_commit": "3084d1c02ec0d094d547e61f2aa10ea7be930524",
     "prefix": "skills/"
   },

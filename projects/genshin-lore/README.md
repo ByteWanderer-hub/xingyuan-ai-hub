@@ -24,7 +24,7 @@
 
 用户于 2026-10-23 明确授权将本库同步到星愿 GitHub 仓库，供其他电脑与有仓库权限的使用者下载。
 
-- 正式共享入口：[星愿仓库原神资料库](https://github.com/lizhenyu2845905433-rgb/xingyuan-ai-hub/tree/main/projects/genshin-lore)。仓库克隆中的路径为 `projects/genshin-lore/`，本机为 `D:/xingyuan-ai-hub/projects/genshin-lore/`。
+- 正式共享入口：[星愿仓库原神资料库](https://github.com/ByteWanderer-hub/xingyuan-ai-hub/tree/main/projects/genshin-lore)。仓库克隆中的路径为 `projects/genshin-lore/`，本机为 `D:/xingyuan-ai-hub/projects/genshin-lore/`。
 - 游戏工程使用副本：`D:/千星奇遇/qxqy_AI/project-docs/genshin-lore/`。本主题只维护这份 README 的同步副本，不另建交接正文。
 - 分发的是实际 JSON、JSONL、Python 与说明文件，不依赖本机软链接、私有磁盘路径、额外 Python 包或在线数据库服务。取得仓库后可离线检索；仓库的访问权限仍按 GitHub 设置执行。
 - 后续维护先比较两边与远端差异，保留未同步改动，合并验证后正常提交、推送，再更新使用副本。没有后台监听或自动抓取剧情的进程。

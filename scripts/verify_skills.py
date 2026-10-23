@@ -32,7 +32,7 @@ CRITICAL_ASSETS = (
     "skills/miliastra-code/assets/信号节点图_4类型整改_侦探杀_20260929.gia",
 )
 INSTALL_MANIFEST = ".xingyuan-ai-hub-install.json"
-REPOSITORY = "lizhenyu2845905433-rgb/xingyuan-ai-hub"
+REPOSITORY = "ByteWanderer-hub/xingyuan-ai-hub"
 SAFE_NAME = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\Z")
 RESERVED_NAMES = {"CON", "PRN", "AUX", "NUL"} | {
     f"{prefix}{number}" for prefix in ("COM", "LPT") for number in range(1, 10)

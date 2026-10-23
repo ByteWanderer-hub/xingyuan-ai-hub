@@ -10,7 +10,7 @@
 
 - 任务 ID：`QXQY-READINESS-20261022`。
 - 用户已同意第一轮优化：更新迁移状态与交接、补安装和环境检查入口、跑必要离线验证。
-- 目标：`lizhenyu2845905433-rgb/xingyuan-ai-hub` 的 `main`；本轮基线为 `3084d1c02ec0d094d547e61f2aa10ea7be930524`。
+- 目标：`ByteWanderer-hub/xingyuan-ai-hub` 的 `main`；本轮基线为 `3084d1c02ec0d094d547e61f2aa10ea7be930524`。
 - 只读来源：`lizhenyu2845905433-rgb/qxqy_AI` 的 `80b07a1e396d199d0aad255d4f6b08b501429b78`。10 项来源技能的 187 个文件在迁移基线全部一致，见 [迁移状态](../../skills/QIANXING_MIGRATION_STATUS.md)。
 - 本轮交付以本记录所在 Git 提交为准；实际测试的脚本、测试文件、技能说明与基线指纹见 [机器可读证据](../evidence/qianxing-readiness.json)。
 
