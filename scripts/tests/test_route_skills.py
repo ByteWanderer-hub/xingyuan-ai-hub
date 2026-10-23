@@ -20,6 +20,14 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(self.names('千星找图片图标素材')[0], 'miliastra-ui')
         self.assertNotIn('qianxing-auto-delivery', self.names('千星找图片图标素材'))
 
+    def test_qianxing_2d_matching_assets(self):
+        for query in ('千星2D控件生成，同型物体优先用对应资产',
+                      '千星 2D 控件，不用像素块拼画', '千星同型资产优先'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'miliastra-ui')
+                self.assertNotIn('tiantangzhimen-gia', self.names(query))
+        self.assertNotIn('miliastra-ui', self.names('Unity 2D 控件'))
+
     def test_tiantangzhimen_gia(self):
         names = self.names('天堂之门设计图生成客户端 GIA')
         self.assertIn('tiantangzhimen-gia', names)
