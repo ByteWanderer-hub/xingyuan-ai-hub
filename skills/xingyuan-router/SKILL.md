@@ -19,6 +19,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | --- | --- | --- |
 | 千星 Lua、API、变量、信号、require、对话、部署 | `miliastra-code` | 故障加 `systematic-debugging` |
 | 千星 UI/2D 控件生成、同型资产、静态资产包、ID 对照图、图片转 GIA/Lua | `miliastra-ui` | 同型资产优先，不用像素块拼画；Lua API 加 `miliastra-code`，其他控件按地图适配，完整《天堂之门》GIA 加专用技能 |
+| 千星 UI 动效、状态反馈、ui 粒子、粒子池与预算 | `miliastra-motion` | 只给数值口径与预算方法；脚本 API 与真机预算加 `miliastra-code`，控件与素材加 `miliastra-ui` |
 | 《天堂之门》设计图转完整客户端 GIA | `tiantangzhimen-gia` | 先确认设计数据与目标地图模板；写入存档另遵守 `miliastra-code` |
 | UGC 需求分析、范围歧义、验收标准 | `miliastra-bb` | 范围明确后转实现，不重复审批 |
 | 实现/创作/修复角色提示词 | `qianxing-agent` | 只选对应角色 |
@@ -26,6 +27,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 玩法、玩家动机、叙事、好不好玩 | `game-design-theory` | 空间安排加 `level-design` |
 | 关卡、白盒、动线、节奏、可达性 | `level-design` | 千星落地前核对实际工程能力 |
 | 打击感、顿帧、震动、缓动、juice | `game-feel` | 引擎技能实现 API；不是移动控制器技能 |
+| 通用动效原则、时长/缓动表、迪士尼动画原则（第三方参考） | `motion-design` | 只提供平台无关的原则与数值；千星落地加 `miliastra-motion` |
 | HUD、安全区、焦点导航、多端适配 | `game-ui-ux` | 千星实际控件用 `miliastra-ui` |
 | 报错、没效果、偶发失败、根因 | `systematic-debugging` | 加目标平台工程技能 |
 | 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox` | 先检查本机可用性和验收状态；不强行启动 GUI |

@@ -23,7 +23,8 @@ MANIFEST_NAME = ".xingyuan-ai-hub-install.json"
 DEFAULT_SKILLS = (
     "xingyuan-router",
     "game-design-theory", "game-feel", "game-ui-ux", "level-design",
-    "miliastra-bb", "miliastra-code", "miliastra-ui", "qianxing-agent",
+    "miliastra-bb", "miliastra-code", "miliastra-ui", "miliastra-motion",
+    "motion-design", "qianxing-agent",
     "qianxing-auto-delivery", "systematic-debugging",
 )
 _HASH = re.compile(r"[0-9a-f]{64}\Z")

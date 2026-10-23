@@ -77,6 +77,52 @@
       ]
     },
     {
+      "name": "miliastra-motion",
+      "purpose": "千星 UI 动效与 UI 粒子：时长/缓动/编排/状态反馈的数值口径，以及粒子池与预算",
+      "platform": "qianxing",
+      "keywords": [
+        "ui 动效",
+        "ui动效",
+        "动效",
+        "动画",
+        "动画时长",
+        "缓动",
+        "easing",
+        "过冲",
+        "编排",
+        "stagger",
+        "错峰",
+        "状态反馈",
+        "呼吸",
+        "循环动效",
+        "逐帧动效",
+        "tween",
+        "ui 粒子",
+        "ui粒子",
+        "粒子",
+        "粒子池",
+        "火花",
+        "蒸汽动效",
+        "冷汽动效",
+        "彩纸",
+        "飘雪",
+        "微交互",
+        "micro-interaction",
+        "按钮反馈",
+        "按下反馈",
+        "点击反馈",
+        "入场动画",
+        "出场动画",
+        "过场",
+        "粒子上限",
+        "特效预算",
+        "弹入",
+        "弹出动画",
+        "转场",
+        "motion"
+      ]
+    },
+    {
       "name": "tiantangzhimen-gia",
       "purpose": "《天堂之门》设计图到完整客户端 GIA 的离线候选与验收",
       "platform": "qianxing",
@@ -183,6 +229,30 @@
         "screen shake",
         "juice",
         "game feel"
+      ]
+    },
+    {
+      "name": "motion-design",
+      "purpose": "通用 UI 动效原则与数值参考（第三方，LottieFiles MIT，原样收录）",
+      "platform": "general",
+      "keywords": [
+        "动效原则",
+        "动画原则",
+        "motion design",
+        "时长表",
+        "缓动曲线",
+        "easings",
+        "disney",
+        "迪士尼动画原则",
+        "css 动画",
+        "css animation",
+        "gsap",
+        "framer motion",
+        "lottie",
+        "spring 动画",
+        "转场设计",
+        "微交互设计",
+        "页面过渡"
       ]
     },
     {
@@ -333,6 +403,19 @@
         "jump buffer"
       ],
       "message": "本库没有 platformer/input-systems 专项技能；game-feel 仅涉及反馈，不能冒充移动与输入机制实现。先确认目标引擎 API，再实现并验证。"
+    },
+    {
+      "keywords": [
+        "rive",
+        "spine",
+        "lottie 制作",
+        "lottie 动画文件",
+        "ae 导出动效",
+        "after effects 动效",
+        "web 动效实现",
+        "react 动画实现"
+      ],
+      "message": "本库没有 Lottie/Rive/Spine 的制作或 Web 端动效实现技能。motion-design 只是第三方动效原则参考（MIT，原样收录），不含任何平台实现；千星奇域的落地看 miliastra-motion（数值口径 + 粒子预算），脚本 API 与部署看 miliastra-code。"
     },
     {
       "keywords": [

@@ -2,9 +2,19 @@
 
 日期：2026-10-23（北京时间）。
 最后更新：2026-10-23（北京时间）。
-状态：资产包技能及“所有千星 2D 控件同型资产优先”规则均已发布安装；71 项测试与安装核对通过，既存素材基线告警单列。
-下一步：后续实际任务遵循同型资产优先并验证素材适配与端到端效果，不自动重做旧定稿组件。
+状态：新增 `miliastra-motion`（千星 UI 动效与粒子）与第三方参考 `motion-design`；路由、安装默认集与安装副本同步中。
+下一步：新会话验证关键词命中与实际动效任务效果；第三方参考技能只作原则参考，千星落地走 `miliastra-motion`。
 触发：用户回到原电脑，在可访问本地文件和 Git 的会话要求“同步星愿/星缘资料库”时执行。不是定时任务，不在用户离线时自动运行。
+
+## UI 动效与粒子技能（2026-10-23）
+
+- [x] 已确认：用户要求“去 GitHub 找 UI 动画与 UI 粒子的 skill”，并选择“① 装参考技能 ② 改写成千星口径技能”，两项同时执行。
+- [x] 已调研：GitHub 无千星专属动效/粒子技能（仅 `1475505/Miliastra-toolbox` 知识库，明确不含 Lua）。选定 LottieFiles `motion-design-skill`（MIT, ★2449）、iart-ai `webgl-animation-skills/particle-system`（MIT）、adnvli `vfxskill`（MIT）作为数值与机制来源；`transitions.dev` 许可证为 NOASSERTION，未收录。
+- [x] 已完成：`skills/motion-design/` 原样收录上游 `skills/motion-design/` 17 个 md + LICENSE + 上游 README，固定 commit `f9a8a041b85185ee4881b3471d3415e939aac772`（`git ls-remote` 取得），改动仅两处（description 加限定、正文加第三方声明），记录在 `NOTICE.md`。
+- [x] 已完成：新增 `skills/miliastra-motion/`（SKILL.md + `references/ui-motion-timing.md`、`references/particles.md`、`references/sources.md`）：时长/缓动/编排/状态反馈/过冲的数值口径（补 60/30fps 帧换算）、实现选型矩阵（Tween/逐帧/粒子池/帧动画）、粒子机制与预算公式、R1/R11/R12 与栅格落字约束、验收清单；与 `miliastra-code`（API/预算实测）、`miliastra-ui`（控件/素材）、`game-feel`（打击感）明确分工，不复制其正文。
+- [x] 已完成：路由 `routes.json` 新增两行并补 1 条缺口说明（Lottie/Rive/Spine 制作与 Web 动效实现不在本库）；`xingyuan-router/SKILL.md` 快速表同步两行；`install_skills.py` 默认集 11→13；README 示例与迁移说明同步。
+- [x] 已验证：`verify_skills.py` 结构检查通过（19 个 SKILL.md，本地引用 106、外部引用 1 条不校验）；既有 `Image_sample_by_id.json` 迁移基线告警仍为历史问题，本轮未改该素材。四份测试 24+21+15+11=71 项全部 OK；新增技能本地链接断链 0；路由探针「千星 UI 动效 / 千星 粒子 特效 / 千星 按钮 按下 动画 / 千星 粒子上限」均命中 `miliastra-motion`，「关卡设计」「roblox particle」未被误改。
+- [ ] 未完成：提交推送、远端 SHA 回读与本工程安装副本更新；真实动效/粒子任务的效果仍待后续验证（本技能只给口径，不代表任何动效已在真机通过）。
 
 ## 参考图到原生控件技能升级（2026-10-23）
 
