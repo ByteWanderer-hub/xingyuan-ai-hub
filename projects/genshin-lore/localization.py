@@ -49,6 +49,14 @@ def validate_kits(kits, cards):
                 errors.append(f'{ident}: missing {key} list')
         if not set(kit.get('mechanics', [])) <= set(MECHANICS):
             errors.append(f'{ident}: unknown mechanic')
+        reference = kit.get('adaptation_reference')
+        if reference is not None:
+            for field in ('work', 'url', 'source_scope'):
+                if not isinstance(reference.get(field), str) or not reference[field].strip():
+                    errors.append(f'{ident}: incomplete adaptation reference.{field}')
+            for field in ('adapted_elements', 'not_transferred'):
+                if not isinstance(reference.get(field), list) or not reference[field] or any(not isinstance(v, str) or not v.strip() for v in reference[field]):
+                    errors.append(f'{ident}: incomplete adaptation reference.{field}')
         anchors = kit.get('anchors', [])
         if not anchors or len({a.get('card_id') for a in anchors}) != len(anchors):
             errors.append(f'{ident}: empty/duplicate evidence anchors')
@@ -151,6 +159,7 @@ def build_brief(kit, cards, sources, index):
         'id': kit['id'], 'title': kit['title'], 'kind': 'original_adaptation',
         'spoiler': kit['spoiler'], 'region': kit['region'], 'mechanics': kit['mechanics'],
         'status': 'design_proposal_unplaytested', 'summary': kit['summary'],
+        'adaptation_reference': kit.get('adaptation_reference'),
         'canon_evidence': evidence,
         'original_design': {key: kit[key] for key in (
             'context', 'intent', 'original_npcs', 'original_lines', 'beats', 'environment',
@@ -176,6 +185,11 @@ def render_markdown(payload):
             continue
         design = brief['original_design']
         context, intent = design['context'], design['intent']
+        reference = brief.get('adaptation_reference')
+        if reference:
+            lines += ['', '### 改编参考与边界', '',
+                      f"参考作品：[{reference['work']}]({reference['url']})", f"已采用：{'；'.join(reference['adapted_elements'])}",
+                      f"不移植：{'；'.join(reference['not_transferred'])}", f"核对范围：{reference['source_scope']}"]
         lines += ['', '### 原作依据与适用语境', '', f"时点：{context['time_scope']}",
                   f"边界：{context['canon_boundary']}", '', *['- 前提：' + p for p in context['preconditions']]]
         for item in brief['canon_evidence']:

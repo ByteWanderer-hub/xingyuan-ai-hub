@@ -55,7 +55,7 @@ Codex 的技能发现位置参考[官方技能文档](https://learn.chatgpt.com/
 - `memory/`：经用户确认的项目知识与开发偏好（当前为空白模板）
 - `handoffs/`：任务请求、执行结果和待审核记录
 - `projects/`：项目索引
-- `projects/genshin-lore/`：[原神本土化资料库](projects/genshin-lore/README.md)，含 122 个可玩角色身份、相关 NPC、故事／任务／关系及 AI 索引；新增 8 套原创本土化任务方案，可按地区／玩法／人物离线筛选和导出，用户已授权同步
+- `projects/genshin-lore/`：[原神本土化资料库](projects/genshin-lore/README.md)，含 122 个可玩角色身份、相关 NPC、故事／任务／关系及 AI 索引；9 套原创本土化任务方案可按地区／玩法／人物离线筛选和导出，包含外部玩法参考与不移植边界，用户已授权同步
 - `scripts/`：技能安装器、只读校验器、迁移基线和定向测试
 
 ## 使用方式

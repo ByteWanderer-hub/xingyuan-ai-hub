@@ -35,7 +35,7 @@
     "patterns.json": "f54d3d9ea3259fbe52e139f1852714c7db91ad752a0826566b42439afbd35d83",
     "character_roster.json": "02989a1c815e6e7ecd3b3a652b25fddf7e1fe610b3eb29efcebc642cb8a9409b",
     "timeline_coverage.json": "e48b9ddf911b247623b25c352c5ba6a98a9fb11076dd9e9b4f0b3a391fdabe47",
-    "localization_kits.json": "e73e0f9c0cc7e9e3b6fce22118f93f3aacd6e8d1c81acc55ec49983b1aa80430"
+    "localization_kits.json": "bf7e532a83ab8e5db29a0837dcc2bb03292c51429dbbd6dba9518725b1916390"
   },
   "aliases": {
     "aaru village": [
@@ -12802,7 +12802,8 @@
       "branch_ids": [],
       "event_relation_ids": [],
       "localization_ids": [
-        "localization.liyue-split-manifest"
+        "localization.liyue-split-manifest",
+        "localization.liyue-night-market"
       ],
       "mentioned_in": [
         "story.cyno.06",
@@ -14969,7 +14970,9 @@
         "event-relation.cde03084fb97b154",
         "event-relation.ce2bfa8bcd6c4bc4"
       ],
-      "localization_ids": [],
+      "localization_ids": [
+        "localization.liyue-night-market"
+      ],
       "mentioned_in": [
         "story.hoyowiki-34.02",
         "story.hoyowiki-3609.04",
@@ -17064,7 +17067,9 @@
         "hangout.character.hoyowiki-11.act1.ending5"
       ],
       "event_relation_ids": [],
-      "localization_ids": [],
+      "localization_ids": [
+        "localization.liyue-night-market"
+      ],
       "mentioned_in": [
         "story.hoyowiki-15.04",
         "story.hoyowiki-22.00",
@@ -20692,7 +20697,9 @@
       "event_relation_ids": [
         "event-relation.311abf50194aac27"
       ],
-      "localization_ids": [],
+      "localization_ids": [
+        "localization.liyue-night-market"
+      ],
       "mentioned_in": [
         "story.hoyowiki-11.04",
         "story.hoyowiki-3335.07",
@@ -117509,6 +117516,19 @@
         "timeline-evidence-dehya",
         "timeline-evidence-dehya_end",
         "timeline-page-09483370d44bc05c"
+      ]
+    },
+    "localization.liyue-night-market": {
+      "file": "localization_kits.json",
+      "pointer": "/8",
+      "title": "璃月：夜泊食堂",
+      "kind": "original_adaptation",
+      "spoiler": "major",
+      "sources": [
+        "hwstory-11",
+        "hwstory-46",
+        "hwstory-50",
+        "official-map"
       ]
     }
   },

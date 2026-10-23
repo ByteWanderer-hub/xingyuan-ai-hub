@@ -80,6 +80,23 @@ class LocalizationTests(unittest.TestCase):
         indexed = lookup(self.index, 'Mualani', 'all', 20)['collections']['localization_ids']
         self.assertIn(kit['id'], [loc['id'] for loc in indexed['locators']])
 
+    def test_night_market_reference_keeps_external_loop_and_canon_separate(self):
+        kit = next(k for k in self.kits if k['id'] == 'localization.liyue-night-market')
+        self.assertEqual(kit['spoiler'], 'major')
+        self.assertIn('东方夜雀食堂', kit['adaptation_reference']['work'])
+        self.assertTrue(all('原创' in item or '不' in item for item in kit['adaptation_reference']['not_transferred']))
+        selected = select_kits(self.kits, self.index, self.cards, region='璃月',
+                               mechanic='经营', entity='香菱', spoilers='all')
+        self.assertIn(kit['id'], [item['id'] for item in selected])
+        self.assertEqual(select_kits(self.kits, self.index, self.cards,
+                                     kit_id=kit['id'], spoilers='none'), [])
+        brief = build_brief(kit, self.cards, self.sources, self.index)
+        self.assertEqual(brief['adaptation_reference']['url'], 'https://store.steampowered.com/app/1584090/Touhou_Mystias_Izakaya/?l=schinese')
+        self.assertIn('改编参考与边界', render_markdown({'matched': 1, 'shown': 1, 'spoiler_filter': 'all', 'results': [brief]}))
+        malformed = copy.deepcopy(self.kits)
+        next(item for item in malformed if item['id'] == kit['id'])['adaptation_reference']['not_transferred'] = []
+        self.assertTrue(any('reference.not_transferred' in error for error in validate_kits(malformed, self.cards)))
+
     def test_relationship_direction_is_preserved_in_evidence(self):
         kit = next(k for k in self.kits if k['spoiler'] == 'major')
         brief = build_brief(kit, self.cards, self.sources, self.index)
