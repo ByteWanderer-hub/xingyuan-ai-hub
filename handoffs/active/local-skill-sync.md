@@ -14,7 +14,9 @@
 - [x] 已完成：新增 `skills/miliastra-motion/`（SKILL.md + `references/ui-motion-timing.md`、`references/particles.md`、`references/sources.md`）：时长/缓动/编排/状态反馈/过冲的数值口径（补 60/30fps 帧换算）、实现选型矩阵（Tween/逐帧/粒子池/帧动画）、粒子机制与预算公式、R1/R11/R12 与栅格落字约束、验收清单；与 `miliastra-code`（API/预算实测）、`miliastra-ui`（控件/素材）、`game-feel`（打击感）明确分工，不复制其正文。
 - [x] 已完成：路由 `routes.json` 新增两行并补 1 条缺口说明（Lottie/Rive/Spine 制作与 Web 动效实现不在本库）；`xingyuan-router/SKILL.md` 快速表同步两行；`install_skills.py` 默认集 11→13；README 示例与迁移说明同步。
 - [x] 已验证：`verify_skills.py` 结构检查通过（19 个 SKILL.md，本地引用 106、外部引用 1 条不校验）；既有 `Image_sample_by_id.json` 迁移基线告警仍为历史问题，本轮未改该素材。四份测试 24+21+15+11=71 项全部 OK；新增技能本地链接断链 0；路由探针「千星 UI 动效 / 千星 粒子 特效 / 千星 按钮 按下 动画 / 千星 粒子上限」均命中 `miliastra-motion`，「关卡设计」「roblox particle」未被误改。
-- [ ] 未完成：提交推送、远端 SHA 回读与本工程安装副本更新；真实动效/粒子任务的效果仍待后续验证（本技能只给口径，不代表任何动效已在真机通过）。
+- [x] 已完成：提交 `1528f4fbe5965fbcdd2a423bfea5261729b7acf8` 正常推送，`git ls-remote origin main` 回读同一 SHA。前方备份在 `D:/xingyuan-ai-hub-backups/20261023-motion-skills`（含 hub 的 `xingyuan-router`、`install_skills.py`、README、本文件，以及工程安装副本的 `xingyuan-router` 与原安装清单）。
+- [x] 已完成：用仓库安装器安装到本工程 `D:/千星奇遇/qxqy_AI/.agents/skills`：ADDED `miliastra-motion`(4 文件)、ADDED `motion-design`(21 文件)、UPDATED `xingyuan-router`(5 文件)，来源 `source_dirty=false`；复查三项均 UNCHANGED，受管清单 revision 与远端一致。安装副本的 route.py 探针「千星 UI 动效 / 千星 粒子 特效 / 千星 入场动画」均命中 `miliastra-motion`；技能目录已出现 `miliastra-motion` 与 `motion-design`。
+- [ ] 未完成：真实动效/粒子任务的效果仍待后续验证（本技能只给口径，不代表任何动效已在真机通过）；`transitions.dev`（许可证 NOASSERTION）与其余候选未收录，需要时另行核对许可。
 
 ## 参考图到原生控件技能升级（2026-10-23）
 
