@@ -19,6 +19,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | --- | --- | --- |
 | 千星 Lua、API、变量、信号、require、对话、部署 | `miliastra-code` | 故障加 `systematic-debugging` |
 | 千星 UI、布局、图片、图标、音效、模板素材 | `miliastra-ui` | 写脚本加 `miliastra-code`；复杂导航加 `game-ui-ux` |
+| 《天堂之门》设计图转完整客户端 GIA | `tiantangzhimen-gia` | 先确认设计数据与目标地图模板；写入存档另遵守 `miliastra-code` |
 | UGC 需求分析、范围歧义、验收标准 | `miliastra-bb` | 范围明确后转实现，不重复审批 |
 | 实现/创作/修复角色提示词 | `qianxing-agent` | 只选对应角色 |
 | 自动交付、自主派工、继续工作流 | `qianxing-auto-delivery` | 按阶段选实现技能，不自动扩大部署权限 |

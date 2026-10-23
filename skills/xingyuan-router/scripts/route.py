@@ -24,7 +24,7 @@ def lookup(query, platform='auto'):
         context = re.sub(r'(?:不要|不用|不是|不做|非)\s*(?:roblox|luau|千星|miliastra|qianxing|godot|unity|unreal)', '', text)
         if any(matches(context, k) for k in ('roblox', 'luau')):
             detected.append('roblox')
-        if any(matches(context, k) for k in ('千星', 'miliastra', 'qianxing')):
+        if any(matches(context, k) for k in ('千星', 'miliastra', 'qianxing', '天堂之门')):
             detected.append('qianxing')
         if any(matches(context, k) for k in ('unity', 'godot', 'unreal')):
             detected.append('other')

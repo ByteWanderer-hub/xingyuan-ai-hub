@@ -20,6 +20,10 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(self.names('千星找图片图标素材')[0], 'miliastra-ui')
         self.assertNotIn('qianxing-auto-delivery', self.names('千星找图片图标素材'))
 
+    def test_tiantangzhimen_gia(self):
+        names = self.names('天堂之门设计图生成客户端 GIA')
+        self.assertIn('tiantangzhimen-gia', names)
+
     def test_bug_with_engine(self):
         names = self.names('千星 Lua require 报错')
         self.assertIn('miliastra-code', names)
@@ -48,7 +52,7 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(self.names('给我做个蛋糕'), [])
 
     def test_all_targets_exist_and_are_unique(self):
-        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text())
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         names = [r['name'] for r in data['skills']]
         self.assertEqual(len(names), len(set(names)))
         expected = {p.parent.name for p in (ROOT/'skills').glob('*/SKILL.md')} - {'xingyuan-router'}

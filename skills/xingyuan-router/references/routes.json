@@ -45,6 +45,21 @@
       ]
     },
     {
+      "name": "tiantangzhimen-gia",
+      "purpose": "《天堂之门》设计图到完整客户端 GIA 的离线候选与验收",
+      "platform": "qianxing",
+      "keywords": [
+        "天堂之门",
+        "天堂之门 gia",
+        "天堂之门控件",
+        "天堂之门设计图",
+        "房间容器",
+        "门包装节点",
+        "客户端 gia",
+        "gia 导出验收"
+      ]
+    },
+    {
       "name": "miliastra-bb",
       "purpose": "UGC 需求边界与验收",
       "platform": "ugc",
