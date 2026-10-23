@@ -24,6 +24,27 @@ class RoutingTests(unittest.TestCase):
         names = self.names('天堂之门设计图生成客户端 GIA')
         self.assertIn('tiantangzhimen-gia', names)
 
+    def test_reference_art_workflow(self):
+        for query in ('千星按参考图生成原生控件，先预览和控件数量，不生成GIA',
+                      '千星图片转GIA', 'miliastra reference image to native UI art',
+                      '千星按参考图固定规则，后续代码动态创建'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'miliastra-ui')
+
+    def test_general_art_does_not_select_map_specific_export(self):
+        for query in ('千星其他地图图片转控件，生成客户端 GIA',
+                      '千星原生控件房间容器与门包装节点',
+                      '千星参考图转 GIA 导出验收'):
+            with self.subTest(query=query):
+                self.assertIn('miliastra-ui', self.names(query))
+                self.assertNotIn('tiantangzhimen-gia', self.names(query))
+
+    def test_reference_art_platform_boundary_and_capability_warning(self):
+        self.assertNotIn('miliastra-ui', self.names('Unity 参考图转原生控件'))
+        self.assertNotIn('miliastra-ui', self.names('给我一张冰淇淋图片'))
+        warnings = route.lookup('千星参考图转 GIA')['warnings']
+        self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in warnings))
+
     def test_bug_with_engine(self):
         names = self.names('千星 Lua require 报错')
         self.assertIn('miliastra-code', names)

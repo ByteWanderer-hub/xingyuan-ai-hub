@@ -9,9 +9,11 @@ description: 为《天堂之门》把已确认的关卡设计图整理为含房�
 
 用户授权的本地图独立美术测试关也适用，不必套用正式关卡布局或要求可解。通用生成方法已合并到 [miliastra-ui：原生 GIA 生成与验收](../miliastra-ui/references/client-template-gia.md)；本技能只补充天堂之门的数据契约、样本和用户美术约定。
 
+用户只要求参考图预览、减少控件或固定动态代码规则时，使用 `miliastra-ui` 的对应分支，不因历史交接里有 GIA 待办就继续导出。已定稿组件冻结，当前修改仅影响用户指定的组件/字段；局部外观确认不等于整关或真机验收。
+
 ## 先确认输入与真源
 
-1. 读取本仓库根 `AGENTS.md`、`instructions/qianxing/AGENTS.md`，并从 `work/交接.md` 定位到 `work/yiguoduan-solver-pipeline/交付说明.md` 的当前状态与未完成项。
+1. 在目标游戏工程读取根 `AGENTS.md`、`instructions/qianxing/AGENTS.md`，从 `work/交接.md` 定位当前主题；现有工程入口是 `work/yiguoduan-solver-pipeline/交付说明.md`。这些是游戏工程路径，不是在技能资料库恢复业务任务；纯技能维护不读取它们。
 2. 将设计图整理为结构化数据：房间轮廓、门洞、门方向、角色/气体初态、容器需求和规则版本。图片中看不出的信息集中请用户确认；不得声称已具备任意图片自动识别能力。
 3. 读取用户明确提供或当前目标存档已取证的 GIA 真源，确认根控件、子树、四态属性和模板引用。现有第九关模板链的已知事实见 [模板链](references/template-chain.md)。不能把其中的 ID 当作跨地图通用值。
 4. 开始生成或排查导入失败前，必读 [导出与验收门禁](references/export-validation.md)。检查所用生成器是否满足其中的封装要求；不能因为以前生成过文件或求解通过就直接批量重跑旧入口。

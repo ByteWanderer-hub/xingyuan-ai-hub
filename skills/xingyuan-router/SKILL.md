@@ -18,7 +18,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 关键词/意图 | 主技能 | 按需补充 |
 | --- | --- | --- |
 | 千星 Lua、API、变量、信号、require、对话、部署 | `miliastra-code` | 故障加 `systematic-debugging` |
-| 千星 UI、布局、图片、图标、音效、模板素材 | `miliastra-ui` | 写脚本加 `miliastra-code`；复杂导航加 `game-ui-ux` |
+| 千星 UI、素材、参考图转控件、控件计数预览、图片转 GIA | `miliastra-ui` | 通用流程不等于转换器；写脚本加 `miliastra-code`，完整《天堂之门》GIA 加专用技能 |
 | 《天堂之门》设计图转完整客户端 GIA | `tiantangzhimen-gia` | 先确认设计数据与目标地图模板；写入存档另遵守 `miliastra-code` |
 | UGC 需求分析、范围歧义、验收标准 | `miliastra-bb` | 范围明确后转实现，不重复审批 |
 | 实现/创作/修复角色提示词 | `qianxing-agent` | 只选对应角色 |
@@ -36,6 +36,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 ## 细分入口与缺口
 
 - 千星对话/黑幕/选项/打字机：读 `miliastra-code` 后按其对话工程参考继续。
+- 参考图重建为千星原生控件、按圈选小改、预览后生成 GIA：读 `miliastra-ui` 的 `references/client-template-gia.md`；先区分预览、离线 GIA 与动态创建，不把图片文件本身当可导入资源。不为其他地图误启《天堂之门》专用流程。
 - GIL/GIA、节点图、REA：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含 `rea` 技能或通用地图 GIA 生成器；素材样例不等于生成工具。
 - 土狼时间/郊狼时间/coyote time、输入缓冲/input buffer：本库暂无对应移动/输入专项技能。`game-feel` 不负责原始控制器数学；可结合已核实引擎 API 实现，但明确是补充实现而非调用现成专用技能。
 - `platformer`、`input-systems`、`camera-systems` 等旧文档提及的外部技能：先确认实际存在，不能从名字推断已安装。
