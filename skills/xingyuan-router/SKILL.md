@@ -28,6 +28,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 打击感、顿帧、震动、缓动、juice | `game-feel` | 引擎技能实现 API；不是移动控制器技能 |
 | HUD、安全区、焦点导航、多端适配 | `game-ui-ux` | 千星实际控件用 `miliastra-ui` |
 | 报错、没效果、偶发失败、根因 | `systematic-debugging` | 加目标平台工程技能 |
+| 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox` | 先检查本机可用性和验收状态；不强行启动 GUI |
 | 代码审查、回归风险 | `code-review` | 不因审查擅自修改代码 |
 | 技能文档、去重、合并、资料库整理 | `skill-manager` | 维护真源与引用 |
 | 明确 Roblox/Luau 开发 | `roblox-luau-expert` | 明确反作弊加 `roblox-security-audit` |
@@ -38,6 +39,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 - GIL/GIA、节点图、REA：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含 `rea` 技能或通用地图 GIA 生成器；素材样例不等于生成工具。
 - 土狼时间/郊狼时间/coyote time、输入缓冲/input buffer：本库暂无对应移动/输入专项技能。`game-feel` 不负责原始控制器数学；可结合已核实引擎 API 实现，但明确是补充实现而非调用现成专用技能。
 - `platformer`、`input-systems`、`camera-systems` 等旧文档提及的外部技能：先确认实际存在，不能从名字推断已安装。
+- 已接入的桌面软件：读 `desktop-toolbox`，其接入记录区分已安装、可启动和已完成实际功能验收；不因曾经安装就默认可用。
 - 关键词未命中：回到任务目标判断，必要时追问一句；不默认启动全部技能。
 
 ## 安装与维护

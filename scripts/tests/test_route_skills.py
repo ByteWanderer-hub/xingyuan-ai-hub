@@ -47,6 +47,11 @@ class RoutingTests(unittest.TestCase):
         self.assertNotIn('game-feel', self.names('土狼时间 输入缓冲'))
         self.assertTrue(any('GIA' in x for x in route.lookup('千星生成GIA')['warnings']))
 
+    def test_desktop_toolbox(self):
+        self.assertEqual(self.names('用 WinMerge 比较两个文件夹')[0], 'desktop-toolbox')
+        self.assertEqual(self.names('查看二进制的十六进制偏移')[0], 'desktop-toolbox')
+        self.assertNotIn('desktop-toolbox', self.names('修改一个 Lua 文件'))
+
     def test_unknown_and_word_boundary(self):
         self.assertEqual(self.names('build quick guidance'), [])
         self.assertEqual(self.names('给我做个蛋糕'), [])

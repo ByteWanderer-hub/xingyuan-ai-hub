@@ -195,6 +195,35 @@
       ]
     },
     {
+      "name": "desktop-toolbox",
+      "purpose": "已接入本地软件的可用性核对与优先使用",
+      "platform": "general",
+      "keywords": [
+        "本地软件",
+        "桌面软件",
+        "工具可用",
+        "检查软件",
+        "winmerge",
+        "比较文件夹",
+        "比较两个文件夹",
+        "文件差异",
+        "imhex",
+        "十六进制",
+        "二进制查看",
+        "localsend",
+        "局域网传文件",
+        "open-llm-vtuber",
+        "虚拟主播",
+        "桌宠配置",
+        "markitdown",
+        "文档转 markdown",
+        "rembg",
+        "去背景",
+        "inky",
+        "ink 剧情"
+      ]
+    },
+    {
       "name": "code-review",
       "purpose": "代码变更审查",
       "platform": "general",
