@@ -7,14 +7,17 @@ import json
 from pathlib import Path
 import sys
 import unicodedata
+from timeline import read_timeline, participants
 
 ROOT = Path(__file__).resolve().parent
 LEVELS = {'none': 0, 'minor': 1, 'major': 2, 'all': 2}
-JSONL_FILES = ('entries.jsonl', 'entities.jsonl', 'playable_entities.jsonl',
-               'quests.jsonl', 'relations.jsonl', 'character_profiles.jsonl',
-               'character_stories.jsonl', 'community.jsonl')
-SOURCE_FILES = ('sources.json', 'expansion_sources.json', 'character_sources.json', 'community_sources.json')
-DATA_FILES = (*JSONL_FILES, *SOURCE_FILES, 'patterns.json', 'character_roster.json')
+ENTITY_FILES = ('entries.jsonl', 'entities.jsonl', 'playable_entities.jsonl', 'timeline_entities.jsonl')
+JSONL_FILES = (*ENTITY_FILES, 'quests.jsonl', 'relations.jsonl', 'character_profiles.jsonl',
+               'character_stories.jsonl', 'community.jsonl', 'timeline_events.jsonl',
+               'character_timelines.jsonl', 'hangout_branches.jsonl', 'timeline_relations.jsonl')
+SOURCE_FILES = ('sources.json', 'expansion_sources.json', 'character_sources.json', 'community_sources.json',
+                'timeline_sources.json')
+DATA_FILES = (*JSONL_FILES, *SOURCE_FILES, 'patterns.json', 'character_roster.json', 'timeline_coverage.json')
 
 
 def read_json(path):
@@ -153,10 +156,11 @@ def build_index(root=ROOT):
     entities = {}
     aliases = defaultdict(set)
     for ident, record in records.items():
-        if cards[ident]['file'] not in JSONL_FILES[:3]:
+        if cards[ident]['file'] not in ENTITY_FILES:
             continue
         entities[ident] = {'title': record['title'], 'spoiler': record['spoiler'], 'profile_ids': [],
-                           'story_ids': [], 'quest_ids': [], 'relation_ids': [], 'mentioned_in': []}
+                           'story_ids': [], 'quest_ids': [], 'relation_ids': [], 'timeline_ids': [],
+                           'event_ids': [], 'branch_ids': [], 'event_relation_ids': [], 'mentioned_in': []}
         for name in [ident, record['title'], *record['aliases']]:
             aliases[normalize(name)].add(ident)
     for r in read_json(root / 'character_roster.json')['characters']:
@@ -176,8 +180,20 @@ def build_index(root=ROOT):
         elif filename == 'relations.jsonl':
             for ref in (record['subject'], record['object']):
                 entities[ref]['relation_ids'].append(ident)
+        elif filename == 'timeline_events.jsonl':
+            for ref in participants(record, {key: records[key] for key in entities}):
+                entities[ref]['event_ids'].append(ident)
+        elif filename == 'character_timelines.jsonl':
+            entities[record['entity']]['timeline_ids'].append(ident)
+        elif filename == 'hangout_branches.jsonl':
+            entities[record['entity']]['branch_ids'].append(ident)
+        elif filename == 'timeline_relations.jsonl':
+            for ref in (record['subject'], record['object']):
+                entities[ref]['event_relation_ids'].append(ident)
     # Cross-references are independently checked; building must not mask editorial drift.
     for ident, record in records.items():
+        if 'entity' not in record:
+            continue
         for field in ('quest_ids', 'relation_ids'):
             for ref in record.get(field, []):
                 if ref not in cards or ref not in entities[record['entity']][field]:
@@ -185,11 +201,12 @@ def build_index(root=ROOT):
     for card in cards.values():
         if not set(card['sources']) <= sources.keys():
             raise ValueError('index: unresolved source')
-    return {'schema_version': 1, 'checked_at': read_json(root / 'character_roster.json')['checked_at'],
+    return {'schema_version': 2, 'checked_at': read_json(root / 'timeline_coverage.json')['checked_at'],
             'contains_major_spoilers': True, 'encoding': 'UTF-8', 'line_numbers': 'one-based; hash excludes newline',
-            'retrieval_order': ['resolve alias to entity id', 'read bounded profile and story locators',
-                                'follow quest/relation ids', 'follow source locator and unlock/variant conditions'],
+            'retrieval_order': ['resolve alias to entity id', 'read bounded profile, story and timeline locators',
+                                'follow quest/relation/event ids', 'follow source locator and unlock/variant conditions'],
             'mention_semantics': 'lexical retrieval only; not an asserted relationship',
+            'chronology_semantics': 'event edges are partial quest progression only; release versions and world dates are not chronology; cast is evidence-linked association, not a semantic relationship',
             'data_hashes': {name: digest((root / name).read_bytes()) for name in DATA_FILES},
             'aliases': {name: sorted(refs) for name, refs in sorted(aliases.items())},
             'entities': entities, 'cards': cards, 'sources': sources}
@@ -210,7 +227,8 @@ def lookup(index, value, spoilers='none', limit=5):
     ident = ids[0]
     node = index['entities'][ident]
     result = {'entity': ident, 'title': node['title'], 'spoiler_filter': spoilers, 'collections': {}}
-    for key in ('profile_ids', 'story_ids', 'quest_ids', 'relation_ids', 'mentioned_in'):
+    for key in ('profile_ids', 'story_ids', 'quest_ids', 'relation_ids', 'timeline_ids', 'event_ids',
+                'branch_ids', 'event_relation_ids', 'mentioned_in'):
         visible = [ref for ref in node[key] if LEVELS[index['cards'][ref]['spoiler']] <= LEVELS[spoilers]]
         result['collections'][key] = {'matched': len(visible), 'shown': min(limit, len(visible)),
                                       'locators': [{'id': ref, **index['cards'][ref]} for ref in visible[:limit]]}

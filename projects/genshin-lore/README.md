@@ -1,6 +1,6 @@
 # 原神本土化资料库
 
-最后更新：2026-10-23（Asia/Shanghai）。当前状态：已扩至公开目录交叉核对的 122 个可玩角色身份、9 个任务相关 NPC，补充逐章主题提要及 AI 索引，44 项测试通过；本轮按用户授权同步星愿仓库与工程使用副本。下一步优先补任务正文证据、角色出场年表和来源占位，不能把目录覆盖等同于全剧情覆盖。
+最后更新：2026-10-23（Asia/Shanghai）。当前状态：已覆盖 122 个可玩角色的任务、邀约和活动检索入口，建立 1,208 个事件节点、102 个邀约结局分支、1,783 个来源标签 NPC／叙事对象和 19 条叙事关系；索引与回归验证待本轮完成后同步星愿仓库。事件边只表达经来源支持的局部任务进度，不声称完整剧情、全出场名单或世界内绝对编年。
 
 - [x] 已完成：37 条背景事实卡、6 套原创改编参考及项目路由。
 - [x] 已完成：14 条玩家梗/名场面卡、27 个新增来源、独立检索与剧透/出处检查；维护责任方：助手。
@@ -9,6 +9,8 @@
 - [x] 已完成：49 条有方向和时点的关系（14 条人物、16 条组织、19 条地域），支持按人物、地点或组织查相关任务与关系。
 - [x] 已完成：122 个可玩角色身份与 9 个相关 NPC 的 131 张人物档案，976 个故事／背景记录（972 个提要、4 个来源未开放占位）；保留来源定位、标题纠错与任务前后文本条件。
 - [x] 已完成：AI 索引连接 182 个实体、1,371 张卡片与 188 个来源，提供中英文别名、文件行号、指纹、人物故事／任务／关系入口及过期检查；44 项测试通过。
+- [x] 已完成：时间线增加 1,208 个事件、102 个邀约结局清单和 19 条具来源、时点与方向的叙事关系；未审定的前置条件保留为来源引用，不推导为时间先后。
+- [ ] 未完成：运行全套回归、更新 AI 索引后推送 `ByteWanderer-hub/xingyuan-ai-hub`，再回写工程镜像；验收条件为远端提交可核实且镜像校验通过。
 - [ ] 未完成：4 个旅行者故事占位在核对来源中仍标“暂未开放”，尚未取得可核对正文。责任方：助手；取得公开正文后再替换，不把占位当故事内容，也不据此断言当前客户端状态。
 - [ ] 未完成：8 张官方概要卡的完整流程与结局尚未逐项核对；助手按具体设计需求补正文证据后升级，不把概要当全剧情。所有角色的全任务、邀约、活动出场年表与逐句游戏内核验仍未完成。
 - [ ] 未完成：部分候选的精确原作出处尚需补证，条目已标 `needs_primary_check`。责任方：助手；在具体设计把它当原句或剧情事实使用前完成。
@@ -53,6 +55,9 @@
 | [ai_index.json](ai_index.json) / [story_index.py](story_index.py) | AI 可读的别名、卡片定位及关系索引；离线构建、限量查询、过期检查 |
 | [quests.jsonl](quests.jsonl) | 13 张任务资料卡：章节、参与者、地点、前置、阶段、结局证据与原创改编 |
 | [relations.jsonl](relations.jsonl) | 49 条人物／组织／地域关系；通过稳定实体 ID 连接背景卡与新增实体 |
+| [timeline_events.jsonl](timeline_events.jsonl) / [character_timelines.jsonl](character_timelines.jsonl) | 任务、邀约与活动的事件节点及 122 个可玩角色的局部进度入口；不把版本号或目录排序当世界内日期 |
+| [hangout_branches.jsonl](hangout_branches.jsonl) / [timeline_relations.jsonl](timeline_relations.jsonl) | 102 个互斥邀约结局及 19 条经叙事证据支持的关系；同场或目录列名不自动成为关系 |
+| [timeline_entities.jsonl](timeline_entities.jsonl) / [timeline_sources.json](timeline_sources.json) | 任务中具名称呼的 NPC／叙事对象与逐条来源定位；同名、化身和回忆身份保持待核 |
 | [sources.json](sources.json) / [expansion_sources.json](expansion_sources.json) | 原 13 个与新增 10 个事实来源；新文件不是对所有旧来源的重新核查 |
 | [community.jsonl](community.jsonl) | 14 条玩家文化卡：梗、熟悉台词、外号、反差与情绪名场面，和事实库分开 |
 | [community_sources.json](community_sources.json) | 27 个新增证据来源；记录平台、发帖者身份类别与访问限制 |
@@ -103,6 +108,9 @@ python -B query.py --profiles --entity 纳西妲 --spoilers all --json
 python -B query.py --stories --entity Tighnari --spoilers all --limit 8 --json
 python -B query.py --stories --entity 嘉明 --spoilers all
 python -B query.py --quests --entity 婕德 --spoilers all --json
+python -B query.py --timeline --entity 钟离 --spoilers all --limit 8 --json
+python -B query.py --branches --entity 久岐忍 --spoilers all --json
+python -B query.py --event-relations --entity 马科修斯 --spoilers all
 python -B story_index.py --check
 ```
 
@@ -215,7 +223,7 @@ python -B query.py --category 角色 --region 枫丹 --limit 10
 
 每次补充只处理当前任务相关主题，保持摘要简短。原作发生变化时保留历史时点，不把不同章节状态合并成一个“当前事实”。若来源冲突，记录冲突并核对原文后再用于关键设计。新增原创模式必须引用已有卡片，剧透等级不得低于它引用的事实卡。
 
-修改数据后运行 `python -B story_index.py --build`，再运行 `python -B query.py --validate` 和定向检索；修改检索程序时运行 `python -B -m unittest test_query test_story_index`。这些检查只验证结构、引用与检索行为，不证明世界观事实正确，也不代表关卡已真机通过。更新数量时同步本页，统计以 `--stats` 为准。
+修改数据后运行 `python -B story_index.py --build`，再运行 `python -B query.py --validate` 和定向检索；修改检索程序时运行 `python -B -m unittest test_query test_story_index test_timeline`。这些检查只验证结构、引用与检索行为，不证明世界观事实正确，也不代表关卡已真机通过。更新数量时同步本页，统计以 `--stats` 为准。
 
 ## 玩家文化资料：怎么用，怎么判断
 

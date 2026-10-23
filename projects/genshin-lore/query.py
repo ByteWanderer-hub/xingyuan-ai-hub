@@ -6,6 +6,7 @@ import sys
 import unicodedata
 from collections import Counter
 from story_index import read_stories, validate_stories, check_index
+from timeline import read_timeline, validate_timeline, participants
 
 ROOT = Path(__file__).resolve().parent
 SPOILERS = {"none": 0, "minor": 1, "major": 2, "all": 2}
@@ -29,6 +30,10 @@ def read_data(root=ROOT):
     registry["sources"].extend(characters["sources"])
     registry["checked_at"] = max(registry["checked_at"], characters["checked_at"])
     entries.extend(read_jsonl(root / "playable_entities.jsonl"))
+    timeline_registry = json.loads((root / "timeline_sources.json").read_text(encoding="utf-8"))
+    registry["sources"].extend(timeline_registry["sources"])
+    registry["checked_at"] = max(registry["checked_at"], timeline_registry["checked_at"])
+    entries.extend(read_jsonl(root / "timeline_entities.jsonl"))
     # Aliases belong to the same identity; elemental/gender variants are not new people.
     by_id = {e["id"]: e for e in entries}
     roster = json.loads((root / "character_roster.json").read_text(encoding="utf-8"))
@@ -120,7 +125,9 @@ def resolve_entity(value, entries, spoilers):
     return found[0]["id"]
 
 
-def linked_to(card, entity_id):
+def linked_to(card, entity_id, entity_map=None):
+    if card.get('node_kind') in {'quest', 'series', 'hangout_act'}:
+        return entity_id in participants(card, entity_map or {})
     return entity_id in [card.get("entity"), card.get("subject"), card.get("object"),
                          *card.get("places", []), *[c["entity"] for c in card.get("cast", [])]]
 
@@ -250,6 +257,9 @@ def main(argv=None):
     mode.add_argument("--relations", action="store_true", help="检索有方向、时点和来源的人物/组织/地域关系")
     mode.add_argument("--profiles", action="store_true", help="检索人物资料卡及故事、任务和关系入口")
     mode.add_argument("--stories", action="store_true", help="检索人物故事章节主题提要及来源定位")
+    mode.add_argument("--timeline", action="store_true", help="检索任务、邀约和活动的证据时间线节点")
+    mode.add_argument("--branches", action="store_true", help="检索邀约结局分支与条件证据等级")
+    mode.add_argument("--event-relations", action="store_true", help="检索由叙事证据支持的任务人物关系")
     parser.add_argument("--entity", help="用于任务、关系、人物或故事；准确实体 ID、标题或别名")
     parser.add_argument("--relation-type", help="仅用于关系，如 师徒、成员、位于")
     parser.add_argument("--tone", choices=["轻松", "温暖", "燃", "悲伤"], help="仅筛选玩家文化条目的情绪用途")
@@ -258,10 +268,10 @@ def main(argv=None):
         parser.error("--limit 必须为 1–20")
     if args.tone and not args.community:
         parser.error("--tone 需要 --community")
-    if args.entity and not (args.quests or args.relations or args.profiles or args.stories):
-        parser.error("--entity 需要 --quests、--relations、--profiles 或 --stories")
-    if args.relation_type and not args.relations:
-        parser.error("--relation-type 需要 --relations")
+    if args.entity and not (args.quests or args.relations or args.profiles or args.stories or args.timeline or args.branches or args.event_relations):
+        parser.error("--entity 需要一个人物、关系或时间线检索模式")
+    if args.relation_type and not (args.relations or args.event_relations):
+        parser.error("--relation-type 需要 --relations 或 --event-relations")
     try:
         registry, entries, patterns = read_data()
         errors = validate(registry, entries, patterns)
@@ -270,7 +280,10 @@ def main(argv=None):
         roster, profiles, stories = read_stories()
         errors.extend(validate(registry, entries + quests + relations + profiles + stories, []))
         errors.extend(validate_stories(registry, entries, roster, profiles, stories))
-        if args.stories or args.profiles or args.stats or args.validate:
+        events, timelines, branches, event_relations, timeline_coverage = read_timeline()
+        errors.extend(validate(registry, entries + events + timelines + branches + event_relations, []))
+        errors.extend(validate_timeline(registry, entries, roster, events, timelines, branches, event_relations, timeline_coverage))
+        if args.stories or args.profiles or args.timeline or args.branches or args.event_relations or args.stats or args.validate:
             errors.extend(check_index())
         community_registry, community_entries = (None, [])
         if args.community or args.stats or args.validate:
@@ -284,10 +297,10 @@ def main(argv=None):
         print(f"资料库错误：{exc}", file=sys.stderr)
         return 1
     if args.validate:
-        print(f"PASS: {len(entries)} fact entries, {len(registry['sources'])} fact sources, {len(patterns)} patterns; {len(quests)} quests, {len(relations)} relations; {roster['playable_count']} playable identities, {len(profiles)} profiles, {len(stories)} story sections; {len(community_entries)} community entries, {len(community_registry['sources'])} community sources; IDs/references/spoilers/index valid")
+        print(f"PASS: {len(entries)} fact/entities, {len(registry['sources'])} fact sources, {len(patterns)} patterns; {len(quests)} quests, {len(relations)} relations; {roster['playable_count']} playable identities, {len(profiles)} profiles, {len(stories)} story sections; {len(events)} timeline events, {len(branches)} hangout endings, {len(event_relations)} narrative relations; {len(community_entries)} community entries, {len(community_registry['sources'])} community sources; IDs/references/spoilers/index valid")
         return 0
     if args.stats:
-        print(json.dumps({"entries": len(entries), "sources": len(registry["sources"]), "patterns": len(patterns), "quests": len(quests), "quest_coverage": dict(Counter(q["coverage"] for q in quests)), "relations": len(relations), "relation_categories": dict(Counter(r["category"] for r in relations)), "regions": dict(Counter(e["region"] for e in entries)), "spoilers": dict(Counter(e["spoiler"] for e in entries)), "checked_at": registry["checked_at"], "characters": {"playable_identities": roster["playable_count"], "profiles": len(profiles), "npc_profiles": sum(not p["playable"] for p in profiles), "story_sections": len(stories), "availability": dict(Counter(s["availability"] for s in stories)), "coverage": "chapter topic summaries and source locators; not a complete chronology of all appearances"}, "community": {"entries": len(community_entries), "sources": len(community_registry["sources"]), "source_platforms": dict(Counter(s["platform"] for s in community_registry["sources"])), "checked_at": community_registry["checked_at"]}, "coverage": "selected sourced cards; not complete/latest-story coverage; community samples are not a popularity ranking"}, ensure_ascii=False, indent=2))
+        print(json.dumps({"entries": len(entries), "sources": len(registry["sources"]), "patterns": len(patterns), "quests": len(quests), "quest_coverage": dict(Counter(q["coverage"] for q in quests)), "relations": len(relations), "relation_categories": dict(Counter(r["category"] for r in relations)), "timeline": {"events": len(events), "evidence_depth": dict(Counter(e["coverage"] for e in events)), "hangout_endings": len(branches), "narrative_relations": len(event_relations), "coverage": "partial quest progression; no inferred world chronology or complete appearance corpus"}, "regions": dict(Counter(e["region"] for e in entries)), "spoilers": dict(Counter(e["spoiler"] for e in entries)), "checked_at": registry["checked_at"], "characters": {"playable_identities": roster["playable_count"], "profiles": len(profiles), "npc_profiles": sum(not p["playable"] for p in profiles), "story_sections": len(stories), "availability": dict(Counter(s["availability"] for s in stories)), "coverage": "chapter topic summaries and source locators; not a complete chronology of all appearances"}, "community": {"entries": len(community_entries), "sources": len(community_registry["sources"]), "source_platforms": dict(Counter(s["platform"] for s in community_registry["sources"])), "checked_at": community_registry["checked_at"]}, "coverage": "selected sourced cards; not complete/latest-story coverage; community samples are not a popularity ranking"}, ensure_ascii=False, indent=2))
         return 0
     entity_id = None
     if args.entity:
@@ -295,10 +308,10 @@ def main(argv=None):
             entity_id = resolve_entity(args.entity, entries, args.spoilers)
         except ValueError as exc:
             parser.error(str(exc))
-    if args.quests or args.relations or args.profiles or args.stories:
-        entries = quests if args.quests else relations if args.relations else profiles if args.profiles else stories
+    if args.quests or args.relations or args.profiles or args.stories or args.timeline or args.branches or args.event_relations:
+        entries = quests if args.quests else relations if args.relations else profiles if args.profiles else stories if args.stories else events if args.timeline else branches if args.branches else event_relations
         if entity_id:
-            entries = [e for e in entries if linked_to(e, entity_id)]
+            entries = [e for e in entries if linked_to(e, entity_id, {e['id']: e for e in read_data()[1]})]
         if args.relation_type:
             entries = [e for e in entries if e["relation_type"] == args.relation_type]
     elif args.community:
@@ -323,7 +336,7 @@ def main(argv=None):
         matches = search(entries, args.query, args.region, args.category, args.spoilers, args.entry_id)
         results = [{**e, "source_details": [source_map[s] for s in e["sources"]]} for e in matches[:args.limit]]
     if args.as_json:
-        print(json.dumps({"collection": "quests" if args.quests else "relations" if args.relations else "profiles" if args.profiles else "stories" if args.stories else "community" if args.community else "patterns" if args.patterns else "facts", "matched": len(matches), "shown": len(results), "spoiler_filter": args.spoilers, "results": results}, ensure_ascii=False, indent=2))
+        print(json.dumps({"collection": "quests" if args.quests else "relations" if args.relations else "profiles" if args.profiles else "stories" if args.stories else "timeline" if args.timeline else "branches" if args.branches else "event_relations" if args.event_relations else "community" if args.community else "patterns" if args.patterns else "facts", "matched": len(matches), "shown": len(results), "spoiler_filter": args.spoilers, "results": results}, ensure_ascii=False, indent=2))
     else:
         print(f"匹配 {len(matches)} 条，显示 {len(results)} 条；剧透范围={args.spoilers}。")
         if not results:
