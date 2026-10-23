@@ -25,7 +25,7 @@
     },
     {
       "name": "miliastra-ui",
-      "purpose": "千星 UI、素材检索、参考图重建与原生控件预览/GIA 验收流程",
+      "purpose": "千星 UI、素材检索、参考图重建与通用纯图片控件 GIA/Lua 输出流程",
       "platform": "qianxing",
       "keywords": [
         "ui",
@@ -51,6 +51,17 @@
         "图片转 gia",
         "参考图转gia",
         "参考图转 gia",
+        "图片转lua",
+        "图片转 lua",
+        "参考图转lua",
+        "参考图转 lua",
+        "图片控件",
+        "image",
+        "image-only",
+        "image-only gia",
+        "image-only lua",
+        "image to lua",
+        "image to gia",
         "reference image",
         "native ui art"
       ]
@@ -319,7 +330,7 @@
         "gil",
         "rea"
       ],
-      "message": "miliastra-ui 提供参考图重建、原生控件预览及 GIA 验收流程，但本库未包含名为 rea 的技能或通用 GIA 地图生成器；需核对目标工程工具与模板，不能仅凭路由承诺生成、解析或导入成功。"
+      "message": "miliastra-ui 支持参考图重建与通用纯图片控件 GIA/Lua 输出流程，无需先指定地图；其他控件与玩法按地图适配。本库未包含名为 rea 的技能或通用 GIA 地图生成器；实际输出仍须核实平台封装、工具/创建 API 与素材依赖，不能仅凭路由承诺导入或运行成功。"
     }
   ]
 }

@@ -39,6 +39,23 @@ class RoutingTests(unittest.TestCase):
                 self.assertIn('miliastra-ui', self.names(query))
                 self.assertNotIn('tiantangzhimen-gia', self.names(query))
 
+    def test_generic_image_only_gia_and_lua(self):
+        for query in ('千星生成只有图片控件的 GIA，不绑定地图',
+                      '千星图片转Lua', '千星参考图转 Lua',
+                      '千星只有图片控件的 Lua 动态创建模块',
+                      'miliastra image-only GIA', 'miliastra image to lua'):
+            with self.subTest(query=query):
+                names = self.names(query)
+                self.assertEqual(names[0], 'miliastra-ui')
+                self.assertNotIn('tiantangzhimen-gia', names)
+                self.assertIn('miliastra-code', names)
+
+    def test_image_only_does_not_capture_unrelated_platforms(self):
+        for query in ('Unity image-only UI', 'Roblox image to lua',
+                      '把照片转成图片', '修改一个 Lua 文件'):
+            with self.subTest(query=query):
+                self.assertNotIn('miliastra-ui', self.names(query))
+
     def test_reference_art_platform_boundary_and_capability_warning(self):
         self.assertNotIn('miliastra-ui', self.names('Unity 参考图转原生控件'))
         self.assertNotIn('miliastra-ui', self.names('给我一张冰淇淋图片'))
