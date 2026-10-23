@@ -1,0 +1,56 @@
+[
+  {
+    "id":"pattern.liyue-delivery","title":"璃月：一份有来由的送货委托","kind":"original_adaptation","spoiler":"none","basis":["region.liyue","org.guild"],
+    "premise":"原创港口货主委托冒险家补送一箱货，收货人正等它开工。",
+    "loop":"核对货单 → 选安全绕路或短途挑战 → 交货验收 → 收到对后续生产的反馈。",
+    "localization":"把港口职业、收货凭据和货物用途写入目标与环境；不要只把金币改名为摩拉。",
+    "sample_original_line":"这箱货晚到半天，码头那边就得多等半天。劳烦你认准货单上的记号。",
+    "implementation":"先定义领取、送达、失败与结算接口；包裹归属和重复结算由服务端裁决，实际 API 另查。",
+    "acceptance":"玩家能说出为谁送、为什么急、送到后改变了什么；多人不能互领或重复结算。"
+  },
+  {
+    "id":"pattern.inazuma-island","title":"稻妻：海风中的路标","kind":"original_adaptation","spoiler":"none","basis":["region.inazuma","place.narukami"],
+    "premise":"原创岛民请玩家修复被风雨损坏的沿路标记，方便来往行人。",
+    "loop":"辨认残存标记 → 登高确认路线 → 分段修复 → 让返程线路更容易辨认。",
+    "localization":"用岛间交通、地势与生活需求组织探索；神社可作远景定位物，不随意编造宗教仪式。",
+    "sample_original_line":"雨一大，岔口的记号就看不清了。先修好高处那一块，回来的人才认得路。",
+    "implementation":"检查点、可交互物与路线提示分别定义状态；视觉表现由当前 UI 和资产能力决定。",
+    "acceptance":"玩家能由环境找到路；去掉专有名词后，仍能感受到海岛生活对玩法的影响。"
+  },
+  {
+    "id":"pattern.sumeru-fieldwork","title":"须弥：观察先于答案","kind":"original_adaptation","spoiler":"none","basis":["region.sumeru"],
+    "premise":"原创调查员邀请玩家比较绿洲周边的样本，居民经验与调查记录提供不同线索。",
+    "loop":"观察 → 记录两个可比较特征 → 提出判断 → 用新样本修正。",
+    "localization":"让知识来自环境和当地人的经验；不把学者身份当作永远正确的权威。",
+    "sample_original_line":"先别急着填结论。这两处痕迹看着相像，附近的水源却不同。",
+    "implementation":"样本和答案用稳定 ID；客户端展示笔记，服务端按已取得线索判定进度。",
+    "acceptance":"答案可从关卡内推导；没有读过原神剧情的玩家也能完成。"
+  },
+  {
+    "id":"pattern.fontaine-workshop","title":"枫丹：开演前的机关检修","kind":"original_adaptation","spoiler":"none","basis":["region.fontaine","org.research-institute","place.opera"],
+    "premise":"原创剧场技师请玩家在排练前查出布景机关的故障。",
+    "loop":"听取故障描述 → 检查分段装置 → 切换测试状态 → 完成一次排练演示。",
+    "localization":"机械技术服务于舞台工作；维修步骤和事故属于原创，不冒称歌剧院发生过这一事件。",
+    "sample_original_line":"灯光会按时亮，布景却早了一拍。先别动总开关，我们逐段试。",
+    "implementation":"逻辑开关可先用普通状态机表达；仅在平台证实支持后采用原生荒芒效果。",
+    "acceptance":"玩家从反馈定位故障，不能靠无提示穷举；表演成功有明确视觉或声音反馈。"
+  },
+  {
+    "id":"pattern.natlan-route","title":"纳塔：由向导说明的路线挑战","kind":"original_adaptation","spoiler":"none","basis":["region.natlan","character.mualani","mechanic.saurian"],
+    "premise":"以向导职业与地形移动为参考，原创当地向导设计一段有安全提示的旅行挑战。",
+    "loop":"认识地形 → 练习一种移动规则 → 两条路径选择 → 回到休息点分享发现。",
+    "localization":"把地形与当地生活连起来；主角可用原创 NPC，玛拉妮只作已核对的职业参考。",
+    "sample_original_line":"这条路快，不过前面没有落脚的地方。第一次走的话，先认准回程的标记。",
+    "implementation":"未证实能附身龙时采用已支持的移动与检查点机制，并说明是改编玩法。",
+    "acceptance":"捷径有可学习的技巧，失误有明确返回点；不强行伪装成完整原生龙机制。"
+  },
+  {
+    "id":"pattern.nodkrai-polarity","title":"挪德卡莱：红蓝场的路线谜题","kind":"original_adaptation","spoiler":"none","basis":["region.nodkrai","mechanic.kuuvahki"],
+    "premise":"原创维修任务引导玩家恢复一段红蓝场装置的通路。",
+    "loop":"无风险演示同色排斥、异色吸引 → 单步练习 → 组合路线 → 复位与通行。",
+    "localization":"只借用有依据的交互规律；装置、故障原因、委托人和任务对白均为原创。",
+    "sample_original_line":"别急着往前跳。先看看它把你推开，还是把你拉过去。",
+    "implementation":"红蓝同时配形状或图标，避免只靠颜色；位移与碰撞能力必须查平台接口。",
+    "acceptance":"玩家在安全区学会规则；重置不会遗留旧状态；没有原生能力时明确改编范围。"
+  }
+]

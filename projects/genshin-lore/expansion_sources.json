@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-23",
+  "sources": [
+    {
+      "id": "mondstadt-quest",
+      "title": "巨龙与自由之歌 — BWIKI",
+      "url": "https://wiki.biligame.com/ys/巨龙与自由之歌",
+      "kind": "community_transcription",
+      "access": "page",
+      "published_at": null,
+      "scope": "序章第三幕的任务结构、登场人物、救援目标与收尾；未逐句校对游戏。",
+      "checked_at": "2026-10-23",
+      "author": "BWIKI 社区贡献者",
+      "revision": "673273",
+      "revision_url": "https://wiki.biligame.com/ys/index.php?title=%E5%B7%A8%E9%BE%99%E4%B8%8E%E8%87%AA%E7%94%B1%E4%B9%8B%E6%AD%8C&oldid=673273"
+    },
+    {
+      "id": "liyue-act3",
+      "title": "迫近的客星 — BWIKI",
+      "url": "https://wiki.biligame.com/ys/迫近的客星",
+      "kind": "community_transcription",
+      "access": "page",
+      "published_at": null,
+      "scope": "第一章第三幕的任务结构、人物与魔神被镇压的结果；未逐句校对游戏。",
+      "checked_at": "2026-10-23",
+      "author": "BWIKI 社区贡献者",
+      "revision": "673277",
+      "revision_url": "https://wiki.biligame.com/ys/index.php?title=%E8%BF%AB%E8%BF%91%E7%9A%84%E5%AE%A2%E6%98%9F&oldid=673277"
+    },
+    {
+      "id": "sakura-quest",
+      "title": "神樱大祓 — BWIKI",
+      "url": "https://wiki.biligame.com/ys/神樱大祓",
+      "kind": "community_transcription",
+      "access": "page",
+      "published_at": null,
+      "scope": "2.0 世界任务链的地点、净化顺序与面具收尾；不采用页面攻略作者推测。",
+      "checked_at": "2026-10-23",
+      "author": "BWIKI 社区贡献者",
+      "revision": "630211",
+      "revision_url": "https://wiki.biligame.com/ys/index.php?title=%E7%A5%9E%E6%A8%B1%E5%A4%A7%E7%A5%93&oldid=630211"
+    },
+    {
+      "id": "golden-slumber",
+      "title": "黄金梦乡 — BWIKI",
+      "url": "https://wiki.biligame.com/ys/黄金梦乡",
+      "kind": "community_transcription",
+      "access": "page",
+      "published_at": null,
+      "scope": "任务链流程、考古队成员与奔奔命名；不采用页面明确存疑的主线差异说法。",
+      "checked_at": "2026-10-23",
+      "author": "BWIKI 社区贡献者",
+      "revision": "539242",
+      "revision_url": "https://wiki.biligame.com/ys/index.php?title=%E9%BB%84%E9%87%91%E6%A2%A6%E4%B9%A1&oldid=539242"
+    },
+    {
+      "id": "inazuma-21",
+      "title": "Version 2.1: Join the Hunt With Aloy in the World of Teyvat",
+      "url": "https://blog.playstation.com/?p=352434",
+      "kind": "developer_article",
+      "access": "page",
+      "published_at": "2021-08-20",
+      "scope": "2.1 官方预告：海祇岛、反抗军、心海、九条裟罗与逐月节；不能证明稻妻终章结局。",
+      "checked_at": "2026-10-23",
+      "author": "Zhenzhong Yi，HoYoverse"
+    },
+    {
+      "id": "sumeru-32",
+      "title": "Version 3.2: Akasha pulses and the Kalpa Flame rises",
+      "url": "https://blog.playstation.com/?p=371131",
+      "kind": "developer_article",
+      "access": "page",
+      "published_at": "2022-10-24",
+      "scope": "3.2 官方预告：营救纳西妲的前提、盟友与对手；不支持世界树结局。",
+      "checked_at": "2026-10-23",
+      "author": "Zhenzhong Yi，HoYoverse"
+    },
+    {
+      "id": "sumeru-34",
+      "title": "Version 3.4: Desert of Hadramaveth",
+      "url": "https://blog.playstation.com/2023/01/06/genshin-impact-version-3-4-lets-players-venture-into-sumeru-the-desert-of-hadramaveth/",
+      "kind": "developer_article",
+      "access": "page",
+      "published_at": "2023-01-06",
+      "scope": "婕德后续旅程前提、千壑沙地与艾尔海森职务的3.4介绍。",
+      "checked_at": "2026-10-23",
+      "author": "Zhenzhong Yi，HoYoverse"
+    },
+    {
+      "id": "fontaine-41",
+      "title": "Version 4.1: To the Stars Shining in the Depths",
+      "url": "https://blog.playstation.com/?p=384425",
+      "kind": "developer_article",
+      "access": "page",
+      "published_at": "2023-09-15",
+      "scope": "梅洛彼得堡、莱欧斯利、那维莱特、科研事故与寻人主线前提；不支持4.2结局。",
+      "checked_at": "2026-10-23",
+      "author": "Zhenzhong Yi，HoYoverse"
+    },
+    {
+      "id": "skirk-57",
+      "title": "Version 5.7 arrives with Skirk on June 18",
+      "url": "https://blog.playstation.com/2025/06/06/genshin-impact-version-5-7-arrives-with-skirk-on-june-18/",
+      "kind": "developer_article",
+      "access": "page",
+      "published_at": "2025-06-06",
+      "scope": "丝柯克师承、达达利亚师徒关系、在璃月相遇的传说任务前提；不支持任务完整结局。",
+      "checked_at": "2026-10-23",
+      "author": "Zhenzhong Yi，HoYoverse"
+    },
+    {
+      "id": "forest-child",
+      "title": "迷林之子 — BWIKI",
+      "url": "https://wiki.biligame.com/ys/迷林之子",
+      "kind": "community_transcription",
+      "access": "page",
+      "published_at": null,
+      "checked_at": "2026-10-23",
+      "scope": "5.0 地图事件的救援、命名、伙伴同行流程；不推断幼龙与巨兽的血缘。",
+      "author": "BWIKI 社区贡献者",
+      "revision": "648171",
+      "revision_url": "https://wiki.biligame.com/ys/index.php?title=%E8%BF%B7%E6%9E%97%E4%B9%8B%E5%AD%90&oldid=648171"
+    }
+  ]
+}

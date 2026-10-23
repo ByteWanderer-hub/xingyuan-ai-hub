@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-21",
+  "sources": [
+    {"id":"gamekee","title":"原神社区资料入口（用户指定）","url":"https://www.gamekee.com/ysgl/","kind":"community_wiki","access":"page","scope":"站点介绍中的提瓦特、神之眼；不是米哈游官方游戏站","published_at":null},
+    {"id":"official-map","title":"Genshin Impact — Teyvat / Map","url":"https://genshin.hoyoverse.com/en/map","kind":"official","access":"search_excerpt","scope":"提瓦特、蒙德、璃月介绍；动态正文未完整读取","published_at":null},
+    {"id":"inazuma-20","title":"Version 2.0: All about Inazuma","url":"https://blog.playstation.com/2021/07/09/genshin-impact-version-2-0-all-about-inazuma/","kind":"developer_article","access":"page","scope":"2.0 稻妻初登场介绍","published_at":"2021-07-09","author":"Zhenzhong Yi，开发团队署名"},
+    {"id":"sumeru-31","title":"Version 3.1: A journey through the desert","url":"https://blog.playstation.com/2022/09/16/genshin-impact-version-3-1-a-journey-through-the-desert/","kind":"developer_article","access":"page","scope":"3.1 须弥沙漠、阿如村和人物简介","published_at":"2022-09-16","author":"Zhenzhong Yi，HoYoverse"},
+    {"id":"fontaine-40","title":"Version 4.0 launches August 16 — first details","url":"https://blog.playstation.com/2023/08/04/genshin-impact-version-4-0-launches-august-16-first-details/","kind":"developer_article","access":"page","scope":"4.0 枫丹初登场介绍，不证明后续主线状态","published_at":"2023-08-04","author":"Zhenzhong Yi，HoYoverse"},
+    {"id":"natlan-50","title":"The sixth major nation of Teyvat — Version 5.0","url":"https://blog.playstation.com/2024/08/16/genshin-impact-welcomes-the-sixth-major-nation-of-teyvat-with-version-5-0-going-live-august-28/","kind":"developer_article","access":"page","scope":"5.0 纳塔、龙、燃素、部族及人物介绍","published_at":"2024-08-16","author":"Zhenzhong Yi，HoYoverse"},
+    {"id":"nodkrai-luna1","title":"Version Luna I: Song of the Welkin Moon — Segue","url":"https://blog.playstation.com/?p=409125","kind":"developer_article","access":"page","scope":"月之一介绍；不代表月之系列完整剧情或当前版本状态","published_at":"2025-08-29","author":"Zhenzhong Yi，HoYoverse"},
+    {"id":"liyue-wiki","title":"璃月 — BWIKI","url":"https://wiki.biligame.com/ys/璃月","kind":"community_summary","access":"page","scope":"仅采用已核对的奥赛尔战役梗概；页面混有汇编与推测，不全页背书","published_at":null},
+    {"id":"guild-quest","title":"冒险家协会的诸多事宜 — BWIKI","url":"https://wiki.biligame.com/ys/冒险家协会的诸多事宜","kind":"community_transcription","access":"search_excerpt","scope":"岚姐对协会日常委托的任务对白摘录；不代表全套组织制度","published_at":null},
+    {"id":"knights-quest","title":"西风骑士团（任务）— BWIKI","url":"https://wiki.biligame.com/ys/西风骑士团（任务）","kind":"community_transcription","access":"search_excerpt","scope":"序章任务登场角色与地点，未校对全部对白","published_at":null},
+    {"id":"lantern-13","title":"Genshin Impact Version 1.3 — Lantern Rite","url":"https://blog.playstation.com/?p=345685","kind":"developer_article","access":"search_excerpt","scope":"1.3 海灯节与机关棋谭介绍；不代表今年活动规则","published_at":"2021-01-22"},
+    {"id":"bloom-tutorial","title":"教程：元素反应：绽放 — BWIKI","url":"https://wiki.biligame.com/ys/教程：元素反应：绽放","kind":"community_transcription","access":"search_excerpt","scope":"草原核与火、雷交互的教程摘录，不是完整元素反应表","published_at":null},
+    {"id":"chasm-quest","title":"层岩巨渊寻访记 — BWIKI","url":"https://wiki.biligame.com/ys/层岩巨渊寻访记","kind":"community_transcription","access":"search_excerpt","scope":"任务发生时的入境审批状态；不是当前永久规则","published_at":null}
+  ]
+}
