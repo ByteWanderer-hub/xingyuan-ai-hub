@@ -148,6 +148,16 @@
 - 验证：16 项关键词路由测试通过；项目安装副本与真源的 12 项同步目录逐文件 SHA-256 一致。`verify_skills.py` 仍因真源既有的关键素材 `skills/miliastra-code/assets/Image_sample_by_id.json` 与迁移基线不一致而失败；本轮未改写该素材或基线，需另行核实其来源。
 - 验收标准：同名版本与远端一致；新增技能两端保留且可检索；无关技能不变；备份和推送结果可追溯。
 
+## QQ 自定义表情包技能新增（2026-10-25）
+
+- [x] 已完成：用户要求把本轮实测的 QQ 机器人表情包流程固化成技能。真源新增 `skills/qq-sticker-pack/`：SKILL.md + `scripts/gen_stickers.py`（Pillow 生成器）+ `scripts/upload_stickers.ps1`（批量 `add_custom_face` / `modify_custom_face` + 收藏数校验）。核心内容为 SnowLuma/NapCat 的非标准动作、base64 上传、备注、以及「不能把 emoji_id 当 file」的发送姿势与踩坑表。
+- [x] 已完成：入口联动——`references/routes.json` 追加条目（platform=general，15 个中英关键词，含 `add_custom_face`、`enoent emoji_id` 等排错词），`SKILL.md` 快速表新增「QQ 机器人表情包/贴纸」一行；路由职责与关键词已核对，无缺口提示需撤销。
+- [x] 已完成：`python -B -m unittest discover -s scripts/tests -p test_route_skills.py` → 27 项通过（含 `test_all_targets_exist_and_are_unique`、`test_each_indexed_keyword_can_reach_its_target`）；安装副本内 route.py 探针「让机器人发表情包」命中 qq-sticker-pack 且 available=true。
+- [x] 已完成：提交 `0f5e985bce8873ba2f0ede507414495ac5daded9` 正常推送至 origin/main；`git rev-parse origin/main` 回读同 SHA，`git ls-tree -r origin/main -- skills/qq-sticker-pack` 列出 3 个文件。
+- [x] 已完成：工程安装副本 `D:\千星奇遇\qxqy_AI\.agents\skills\qq-sticker-pack`（3 文件）与 `xingyuan-router` 的 SKILL.md、routes.json 已同步，SKILL.md 与 routes.json 的 SHA-256 与真源一致；本轮 DSH 会话技能目录已列出 `qq-sticker-pack`。
+- [x] 已记录：本次只新增目录并修改 router 两文件，改动均在 Git 历史中可还原，未另建 D:/xingyuan-ai-hub-backups 目录；未改游戏工程、未部署、未动 Host。
+- [ ] 未完成：真机效果验证——bot 在群里自行挑表情并成功发出尚未执行；本轮只有 API 级实测（上传 8 张、备注写入、收藏数 7→15、发送返回有效 message_id）。
+
 ## 自动提交授权（2026-10-23 用户指定）
 
 - **范围**：技能改动**只自动提交到星愿真源仓库**（`D:\xingyuan-ai-hub` 的 `skills/`、入口与交接文档），提交后正常推送。
