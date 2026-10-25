@@ -2,8 +2,8 @@
 
 日期：2026-10-23（北京时间）。
 最后更新：2026-10-25（北京时间）。
-状态：performance-optimization 千星适配二次审查修订完成，验证及发布同步中。
-下一步：完成本轮定向检查、提交推送、工程安装与哈希复查；真机效果留待实际性能任务。
+状态：performance-optimization 千星适配二次审查修订已验证、发布并同步本工程。
+下一步：真实性能任务按修订后的采样、生命周期和回归规则执行，按目标设备验证效果。
 触发：用户回到原电脑，在可访问本地文件和 Git 的会话要求“同步星愿/星缘资料库”时执行。不是定时任务，不在用户离线时自动运行。
 
 ## 游戏性能技能引入与千星适配（2026-10-25）
@@ -19,7 +19,7 @@
 - [x] 已完成：用户要求再次审查并直接修正/同步。基线干净 main 与 fetch 后 origin/main 均为 0c0b9a4faef13b10b2b25be5718e554bf36fe793，源/工程安装器预览两项 UNCHANGED。审查使用 code-review、skill-manager 与 skill-creator 规范；备份 D:/xingyuan-ai-hub-backups/20261025-performance-optimization-review。
 - [x] 已完成：依据现有 API/交互可靠性/对话工程资料，修复 SetVisible/SetActive/EnableUpdate 区别、池与 Tween/回调清理及重开生命周期、模板索引与包装层成本、setter 缓存所有权和 parent 时机边界；增加原始 dt/无效值统计与有界追赶，修正冻结实验的混杂因素及 pending/not_required/failed 区分。不改其他动效/工程技能正文，不调用 Host 或部署。路由职责与关键词未变，入口已核对，无需变更。
 - [x] 已完成：本轮 26 项路由测试通过；20 项技能元数据/引用结构通过，新增引用目标及本技能全部 Markdown 链接通过，git diff --check 通过。全库仍仅报原有素材基线告警；本次无可执行代码变更，未重复全套测试或已知缺 PyYAML 的系统校验。
-- [ ] 未完成：本轮正常推送、远端核实及项目副本同步；由本轮助手完成。
+- [x] 已完成：二次审查修订提交 1cf3aebb9c29629b707de0da7c6b9ca41a4921bd 正常推送，远端 main SHA 已回读一致。安装器从该干净版本更新本工程 performance-optimization（6 文件），入口职责/关键词核对无需变更，xingyuan-router（5 文件）UNCHANGED；两项复查均 UNCHANGED，11 个文件的源/安装/清单 SHA-256 一致，source_dirty=false。未改游戏工程脚本或执行部署。
 
 ## UI 动效与粒子技能（2026-10-23）
 
