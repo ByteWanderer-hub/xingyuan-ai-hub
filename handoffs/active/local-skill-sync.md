@@ -156,7 +156,9 @@
 - [x] 已完成：提交 `0f5e985bce8873ba2f0ede507414495ac5daded9` 正常推送至 origin/main；`git rev-parse origin/main` 回读同 SHA，`git ls-tree -r origin/main -- skills/qq-sticker-pack` 列出 3 个文件。
 - [x] 已完成：工程安装副本 `D:\千星奇遇\qxqy_AI\.agents\skills\qq-sticker-pack`（3 文件）与 `xingyuan-router` 的 SKILL.md、routes.json 已同步，SKILL.md 与 routes.json 的 SHA-256 与真源一致；本轮 DSH 会话技能目录已列出 `qq-sticker-pack`。
 - [x] 已记录：本次只新增目录并修改 router 两文件，改动均在 Git 历史中可还原，未另建 D:/xingyuan-ai-hub-backups 目录；未改游戏工程、未部署、未动 Host。
-- [ ] 未完成：真机效果验证——bot 在群里自行挑表情并成功发出尚未执行；本轮只有 API 级实测（上传 8 张、备注写入、收藏数 7→15、发送返回有效 message_id）。
+- [x] 已记录：首次实跑（第二弹 8 张表情）暴露两处技能缺陷并已修复——① `fetch_custom_face_detail` 传 `{"count":N}` 返回空数组、必须发 `{}`；② PowerShell 5.1 按 ANSI 解析无 BOM 脚本，中文导致 `Unexpected token '}'`。另记录 QQ 按图片 md5 去重（同图复用 emoji_id、会覆盖备注）。修复提交 `0d60dc7e31d985648c0d744bf802b5e1129fe368` 已推送，远端回读一致，新增 `scripts/upload_stickers.py`（Python 版，绕开 PS 编码问题）并同步到工程安装副本（SKILL.md SHA-256 一致）。
+- [x] 已完成：第二弹 8 张（震惊/委屈/点赞/吃瓜/再见/催更/哈哈/睡了）上架，收藏数 15→23，备注全部写入；桥接 `/api/stickers` 回读 23 条；实发「震惊」`message_id=758792231` 有效。
+- [ ] 未完成：真机效果验证——bot 在群里自行挑表情并成功发出尚未执行；本轮只有 API 级实测（上传 8 张、备注写入、收藏数 7→15→23、发送返回有效 message_id）。
 
 ## 自动提交授权（2026-10-23 用户指定）
 
