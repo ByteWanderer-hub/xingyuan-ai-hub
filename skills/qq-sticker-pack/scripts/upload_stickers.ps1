@@ -1,4 +1,4 @@
-# 批量把表情 PNG 上架到 QQ 收藏表情（SnowLuma / NapCat OneBot HTTP API）
+﻿# 批量把表情 PNG 上架到 QQ 收藏表情（SnowLuma / NapCat OneBot HTTP API）
 #
 # 用法：
 #   .\upload_stickers.ps1 -StickerDir D:\qqbot\stickers `
@@ -35,7 +35,8 @@ function Invoke-OneBot([string]$action, [string]$json) {
 }
 
 function Count-Stickers {
-  $raw = Invoke-OneBot 'fetch_custom_face_detail' '{"count":200}'
+  # 传 {"count":N} 时 SnowLuma 会返回空数组（实测雪崩为 0 条），必须发空对象 {}
+  $raw = Invoke-OneBot 'fetch_custom_face_detail' '{}'
   try { return (($raw | ConvertFrom-Json).data | Measure-Object).Count } catch { return -1 }
 }
 

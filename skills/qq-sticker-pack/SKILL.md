@@ -98,7 +98,7 @@ ENOENT: no such file or directory, stat 'D:\...\2712..._0_0'
 
 ## 第五步：验收
 
-1. **收藏数变了**：`fetch_custom_face_detail` 前后对比（`{"count":50}` 或空对象都行）；
+1. **收藏数变了**：`fetch_custom_face_detail` 前后对比——**请求体必须是 `{}`**；传 `{"count":50}` 会返回空数组（实测直接变 0 条，不是没收藏成功）；
 2. **桥接认识它**：`GET /api/stickers`（需 `x-console-token` 头），新条目应带 `desc`；
 3. **真发一条**：发出去后从 QQ 侧回读历史，确认 `message_id` 有效——只看接口返回 `ok` 不够，要以历史记录为准。
 
@@ -111,6 +111,9 @@ ENOENT: no such file or directory, stat 'D:\...\2712..._0_0'
 | 请求体必须是合法 JSON | PowerShell 内联 JSON 被吃引号 | 写临时文件 + `--data-binary @file` |
 | 中文字被裁 / 不显示 | 用了默认字体，或 caption 超出画布 | 用 `msyhbd.ttc`；正文留 42px 底部空间 |
 | 列表里没有新表情 | 桥接缓存未刷新 | `POST /api/stickers/sync`，或重启桥接 |
+| `fetch_custom_face_detail` 传 `count` 返回 0 条 | 该动作不认 `{"count":N}` | 请求体发 `{}` |
+| 重复上传同一张图，收藏数不变 | **QQ 按图片内容（md5）去重**，复用同一个 `emoji_id` | 验证计数要用不同图片；重复上传会覆盖该表情的备注 |
+| PowerShell 5.1 跑脚本报 `Unexpected token '}'` / 中文乱码 | 脚本是 UTF-8 **无 BOM**，PS 5.1 按 ANSI 解析 | 脚本存成 **UTF-8 with BOM**；或直接用 `scripts/upload_stickers.py` |
 | `fetch_custom_face_detail` 字段取不到 | 条目字段是 `id` / `resId` / `md5` / `url` / `desc`，**不是** `emoji_id` | 按 `id` 取 |
 
 ## 与其他技能的边界
