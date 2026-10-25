@@ -114,6 +114,29 @@ ENOENT: no such file or directory, stat 'D:\...\2712..._0_0'
 | `fetch_custom_face_detail` 传 `count` 返回 0 条 | 该动作不认 `{"count":N}` | 请求体发 `{}` |
 | 重复上传同一张图，收藏数不变 | **QQ 按图片内容（md5）去重**，复用同一个 `emoji_id` | 验证计数要用不同图片；重复上传会覆盖该表情的备注 |
 | PowerShell 5.1 跑脚本报 `Unexpected token '}'` / 中文乱码 | 脚本是 UTF-8 **无 BOM**，PS 5.1 按 ANSI 解析 | 脚本存成 **UTF-8 with BOM**；或直接用 `scripts/upload_stickers.py` |
+| 发送时报「域名解析到内网/本机地址，已阻止」 | 本机挂了 fake-ip 代理（Clash/Mihomo 等），所有域名解析到 `198.18.0.0/15`，而桥接 `safe-fetch.js` 把该段判为内网 | 见下方「fake-ip 代理」一节 |
+
+## fake-ip 代理：装表情最容易撞的墙
+
+有 fake-ip 代理的机器上，`p.qpic.cn` / `gxh.vip.qq.com` / `multimedia.nt.qq.com.cn` 都会解析到 `198.18.x.x`。桥接的 SSRF 防护（`src/safe-fetch.js` 的 `isPrivateIp`，明确把 `198.18.0.0/15` 列为内网）会把下载拦掉，于是 **bot 挑好了表情、也调了 `qq_send_sticker`，但发不出去**。
+
+表现（日志原文）：
+
+```
+[sticker] 工具发送表情失败 … 的图片下载失败（QQ CDN 网络异常或地址已失效）：域名解析到内网/本机地址，已阻止
+```
+
+两种修法，二选一：
+
+1. **钉真实 IP（不改代码，最快）**——用 DoH 查真实 A 记录再写 hosts：
+   ```bash
+   curl -s -H 'accept: application/dns-json' "https://1.1.1.1/dns-query?name=p.qpic.cn&type=A"
+   ```
+   然后把结果写进 `C:\Windows\System32\drivers\etc\hosts`（先备份）。实测钉了 `p.qpic.cn`、`gxh.vip.qq.com`、`multimedia.nt.qq.com.cn` 三个域名后立刻恢复。缺点是 CDN IP 会变，属于临时手段。
+2. **让代理放行这些域名**（长期稳妥）——在代理的 `fake-ip-filter`（Clash/Mihomo）里排除 `*.qpic.cn`、`*.vip.qq.com`、`*.nt.qq.com.cn`，让它们走真实 DNS。
+
+> 排查顺序：先看 `get_version_info`/token（401 类）→ 再看这条「内网拦截」→ 最后才怀疑频率限制。前两者文案完全不同，别混。
+
 | `fetch_custom_face_detail` 字段取不到 | 条目字段是 `id` / `resId` / `md5` / `url` / `desc`，**不是** `emoji_id` | 按 `id` 取 |
 
 ## 与其他技能的边界
