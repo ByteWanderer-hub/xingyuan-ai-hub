@@ -2,8 +2,8 @@
 
 日期：2026-10-23（北京时间）。
 最后更新：2026-10-25（北京时间）。
-状态：performance-optimization 已在真源引入并完成中文校正/千星适配，正在验证与发布。
-下一步：通过路由与结构检查后正常推送并核实远端，再同步本工程安装副本。
+状态：performance-optimization 中文校正/千星适配已发布并同步本工程；入口与默认安装集已更新。
+下一步：后续性能任务按技能先测量再优化；新会话发现与真机效果按实际任务验证。
 触发：用户回到原电脑，在可访问本地文件和 Git 的会话要求“同步星愿/星缘资料库”时执行。不是定时任务，不在用户离线时自动运行。
 
 ## 游戏性能技能引入与千星适配（2026-10-25）
@@ -13,7 +13,7 @@
 - [x] 已完成：固定上游 gamedev-skills/awesome-gamedev-agent-skills 提交 184b72be02884f782a0058f2eeae2ce4277453e4；Apache-2.0 LICENSE 与 NOTICE 保留。中文改写两个源文件，新增千星适配及来源/校正参考，无第三方安装脚本。
 - [x] 已完成：校正 Draw Call 的 CPU 提交成本、CPU/GPU 流水与等待、尖峰/平均值口径、池的生命周期与溢出、热降频推断和固定资源阈值；千星区分回调 dt/脚本计时/GPU/呈现，历史数据不冒充当前设备上限。入口、默认安装集和正反例同步。
 - [x] 已完成：73 项仓库测试（含 26 项路由测试）通过；20 项 SKILL.md 元数据/引用结构检查和新增 Markdown 链接检查、git diff --check 通过。全库仍仅报既存 Image_sample_by_id.json 迁移字节基线告警，本次未改；quick_validate.py 缺 PyYAML，未运行成功，未为此改环境。
-- [ ] 未完成：提交推送与远端核实、工程同步；由本轮助手完成，以安装副本哈希一致为验收。
+- [x] 已完成：技能提交 a4994c7d690f5a571d27424f730c2c963cfd1fb6 正常推送至 origin/main，git ls-remote 回读相同 SHA。安装器从该干净版本（source_dirty=false）新增 performance-optimization（6 文件）并更新 xingyuan-router（5 文件）到 D:/千星奇遇/qxqy_AI/.agents/skills；复查两项 UNCHANGED，11 个文件的源/安装/清单 SHA-256 一致。安装副本探针“千星渲染卡顿掉帧”“千星 UI 粒子卡顿掉帧”“Unity low fps frame time”均首选 performance-optimization 且目标存在。
 - [ ] 未完成：未来实际性能任务的新会话技能发现与真机效果验证；本次只有技能维护，device_status=not_required，不宣称游戏优化已通过。
 
 ## UI 动效与粒子技能（2026-10-23）
