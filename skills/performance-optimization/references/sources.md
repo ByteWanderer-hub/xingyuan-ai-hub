@@ -27,3 +27,10 @@
 - [Godot：GPU optimization](https://docs.godotengine.org/en/stable/tutorials/performance/gpu_optimization.html)：渲染瓶颈也可位于 CPU/驱动，批处理成本与剔除粒度权衡。
 
 千星依据为本库 `miliastra-code` 的 API 参考、工程约束和历史性能记录，以及 UI/动效技能；具体入口见 [miliastra.md](miliastra.md)。这些是项目资料，当前 API 与设备仍需按任务核实，本次仅验证技能文件与路由，没有执行游戏或声称真机通过。
+
+## 千星适配复核（2026-10-25）
+
+- 依据本库 API 参考的 `Script.EnableUpdate`、控件 `active/visible` 与 `SetActive/SetVisible`、`OnDestroy`、Tween `Kill(complete)`、创建模板参数，补齐显隐/更新分工和池的收尾；属于 documented，非本轮 observed。
+- 按 UI 交互可靠性参考的创建/销毁期间改 parent 失败案例及对话工程的失效令牌/同步重入记录，补齐父级优化、旧回调、Tween 取消及外部写入后的缓存失效边界；保留原来源的验证层级。
+- 新增原始 dt 与无效值采样、时间域及有限追赶、模板包装层预算；修正“冻结后保持相同画面”和“没真机数据都 pending”的不准确表述。
+- 当前动效参考中的“Tween 不占每帧逻辑”、旧实测数量、固定降频等不得升级成通用性能承诺；本技能明确取舍与复测。此次不扩展修改其他技能正文，也未运行 Host、部署或真机实验。

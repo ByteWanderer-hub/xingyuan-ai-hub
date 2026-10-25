@@ -31,6 +31,6 @@ description: 游戏卡顿、掉帧与渲染性能优化：复现并测量帧耗�
 
 ## 按需参考与分工
 
-- **千星奇域**：先读 [千星测量与优化边界](references/miliastra.md)。实际 Lua 修改/API/验证/部署走相邻 `miliastra-code`；控件与素材走 `miliastra-ui`；动效编排和粒子参数走 `miliastra-motion`。仅咨询时不启动业务恢复或 Host 调用。
+- **千星奇域**：先读 [千星测量与优化边界](references/miliastra.md)，尤其注意显隐/Tick、Tween/池复用、长帧追赶及原始 dt 采样。实际 Lua 修改/API/验证/部署走相邻 `miliastra-code`；控件与素材走 `miliastra-ui`；动效编排和粒子参数走 `miliastra-motion`。仅咨询时不启动业务恢复或 Host 调用。引用动效配方时不能沿用“Tween 无每帧开销”或旧场景阈值等绝对说法，性能结论以本轮证据为准。
 - **跨引擎分析、池与资源预算**：读 [测量与预算细则](references/profiling-and-budgets.md)。其他引擎的工具名称仅作入口，命令和支持范围按项目实际版本核实；不假设本库安装了上游提到的 `physics-tuning`、`godot-export` 等技能。
 - 刻意的打击停顿与反馈设计走 `game-feel`；网络延迟另查网络链路，物理抖动另查时间步与插值，不能把症状全部归为渲染问题。
