@@ -438,6 +438,28 @@
         "漏洞",
         "exploit"
       ]
+    },
+    {
+      "name": "qq-sticker-pack",
+      "purpose": "QQ 机器人自定义表情包：Pillow 画图 + SnowLuma add_custom_face 上架 + modify_custom_face 备注 + 正确的发送姿势（CDN 转 base64）",
+      "platform": "general",
+      "keywords": [
+        "表情包",
+        "贴纸",
+        "自定义表情",
+        "qq表情",
+        "收藏表情",
+        "表情上架",
+        "机器人发表情",
+        "让bot发表情",
+        "add_custom_face",
+        "modify_custom_face",
+        "sticker",
+        "sticker pack",
+        "emoji pack",
+        "表情发不出去",
+        "enoent emoji_id"
+      ]
     }
   ],
   "gaps": [

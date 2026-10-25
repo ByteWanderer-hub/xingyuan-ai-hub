@@ -34,6 +34,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox` | 先检查本机可用性和验收状态；不强行启动 GUI |
 | 代码审查、回归风险 | `code-review` | 不因审查擅自修改代码 |
 | 技能文档、去重、合并、资料库整理 | `skill-manager` | 维护真源与引用 |
+| QQ 机器人表情包/贴纸、自定义表情上架、表情发不出去 | `qq-sticker-pack` | 美术画风走 `design`；千星平台图片资产走 `miliastra-ui`；发送链路排错可加 `systematic-debugging` |
 | 明确 Roblox/Luau 开发 | `roblox-luau-expert` | 明确反作弊加 `roblox-security-audit` |
 
 ## 细分入口与缺口
