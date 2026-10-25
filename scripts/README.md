@@ -49,6 +49,8 @@ python3 -B scripts/verify_skills.py --root /path/to/hub --installed /path/to/pro
 
 Git Blob SHA 按 `SHA1("blob " + 字节数 + NUL + 文件内容)` 计算，与普通文件 SHA-1 不同。不要为了让检查通过而改写原始素材的基线；需要更新资产时，应记录新来源和授权后明确更新迁移策略。
 
+根 `.gitattributes` 对两项不可变素材设置 `-text`，禁止 Git 在检入/检出时自动换行转换。即使 Windows 设置 `core.autocrlf=true`，工作副本也应保持素材 Blob 的原始字节。已有 CRLF 工作副本不会因新增属性自动恢复；先备份并核对“仅 CRLF→LF 后与基线 Blob 完全相等”，确认无内容改动后才可从已核实 Blob 恢复，再由该发布源同步安装副本。校验器仍严格比较原始字节，不做隐式归一化。
+
 ## 必要验证入口
 
 ```bash

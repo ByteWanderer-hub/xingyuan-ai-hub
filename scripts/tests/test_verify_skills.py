@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import shutil
 import stat
+import subprocess
 import sys
 import tempfile
 from types import SimpleNamespace
@@ -168,6 +169,39 @@ class VerificationTests(unittest.TestCase):
         self.assertIn("critical_asset_changed", self.codes(self.verify()))
         path.unlink()
         self.assertIn("missing_critical_asset", self.codes(self.verify()))
+
+    @unittest.skipUnless(shutil.which("git"), "Git required for checkout regression")
+    def test_immutable_assets_keep_bytes_with_autocrlf_checkout(self):
+        # Exercise the actual repository policy, not a duplicated test-only rule.
+        policy = Path(__file__).resolve().parents[2] / ".gitattributes"
+        self.write(".gitattributes", policy.read_bytes())
+        originals = {rel: (self.root / rel).read_bytes() for rel in verifier.CRITICAL_ASSETS}
+
+        def git(*args):
+            return subprocess.run(["git", *args], cwd=self.root, check=True,
+                                  capture_output=True, timeout=20)
+
+        git("init", "-q")
+        git("config", "core.autocrlf", "true")
+        git("add", "--", ".gitattributes", *verifier.CRITICAL_ASSETS)
+        for relative in verifier.CRITICAL_ASSETS:
+            (self.root / relative).unlink()
+        git("checkout-index", "--force", "--", *verifier.CRITICAL_ASSETS)
+        for relative, original in originals.items():
+            self.assertEqual((self.root / relative).read_bytes(), original, relative)
+        self.assertEqual(self.verify()["asset_validation"], "passed")
+
+    def test_catalog_valid_json_edits_and_line_endings_still_fail_baseline(self):
+        path = self.root / verifier.CRITICAL_ASSETS[0]
+        original = path.read_bytes()
+        for changed in (original.replace(b"\n", b"\r\n"),
+                        original.replace(b'"assetID": 1', b'"assetID": 2')):
+            with self.subTest(content=changed):
+                json.loads(changed)  # Both variants remain syntactically valid JSON.
+                path.write_bytes(changed)
+                self.assertIn("critical_asset_changed", self.codes(self.verify()))
+        path.write_bytes(original)
+        self.assertEqual(self.verify()["asset_validation"], "passed")
 
     def test_intentional_text_edit_is_not_a_migration_hash_failure(self):
         self.skill("game-feel", body="A legitimate documentation improvement after migration.")
