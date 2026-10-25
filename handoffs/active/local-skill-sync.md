@@ -162,6 +162,14 @@
 - [x] 已定位并绕过阻塞：首次自主发送连续失败，报「域名解析到内网/本机地址，已阻止」。根因是本机 fake-ip 代理把所有域名解析到 `198.18.0.0/15`，而桥接 `src/safe-fetch.js:82` 把该段判为内网。**未改第三方代码**，改用 DoH 查真实 IP 后写入 hosts（`C:\Windows\System32\drivers\etc\hosts`，备份 `hosts.bak-qqbridge`），钉 `p.qpic.cn` / `gxh.vip.qq.com` / `multimedia.nt.qq.com.cn` 三条，随后发送成功。此改动是**系统级、环境相关**：CDN IP 会变，长期方案是代理 `fake-ip-filter` 放行这些域名；回退只需删 hosts 里那 4 行。
 - [x] 已记录：上述两坑已写入 `qq-sticker-pack` 的踩坑表与专节（含 DoH 命令与两种修法），提交 `docs/skills` 同步推送；该技能的验收项现在包含「agent 自主发送」而非仅 API 直发。
 
+## 本地表情库（方案 B，2026-10-25）
+
+- [x] 已完成：用户要求「表情放本地、需要时调用」。实现为桥接侧本地库：`src/local-sticker-lib.js`（新增）+ `src/bridge.js`（+61/−14：列表合并、`local:` 前缀分流读盘、唤醒提示追加一行），配置 `socialV2.localStickers={enabled,dir}`。**工具名与参数不变 ⇒ 只重启桥接，不重启 DSH**。
+- [x] 已完成：实机验证——AI 自主挑中 `local:deepseek娘_爱心 1_…` 并发出（19:54:20），QQ 历史出现 `[image]`，`fetch_custom_face_detail` 仍为 7 条（收藏夹零污染）。
+- [x] 已完成：素材——BrickAZ「蓝色大肥鱼」161 张 GIF（569 MB）压到 300px/≈15fps/≤950KB 共 103 MB，存 `D:\qqbot\stickers_bricka`（另含 `manifest.json`、`compress.py`、`send.py` 供人工/脚本按名发送）；此前两套自绘与第三方 PNG 包已按用户要求删除，收藏夹恢复为用户原有 7 张。
+- [x] 已记录：补丁与操作说明落盘 `D:\qqbot\LOCAL-STICKERS.patch`、`D:\qqbot\qq-bridge\LOCAL-STICKERS.md`（含重打/回滚/验收）；技能文档新增「方案 B」一节并推送，提交 `86addf531fd700b994ba4165d4cf95ab41709ef9`，工程副本 SHA-256 一致。
+- [ ] 未完成：跨机器迁移未验证（需同时带走表情目录、桥接补丁与 config 段）；桥接上游更新后补丁需重打。
+
 ## 自动提交授权（2026-10-23 用户指定）
 
 - **范围**：技能改动**只自动提交到星愿真源仓库**（`D:\xingyuan-ai-hub` 的 `skills/`、入口与交接文档），提交后正常推送。
