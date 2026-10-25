@@ -102,6 +102,25 @@ ENOENT: no such file or directory, stat 'D:\...\2712..._0_0'
 2. **桥接认识它**：`GET /api/stickers`（需 `x-console-token` 头），新条目应带 `desc`；
 3. **真发一条**：发出去后从 QQ 侧回读历史，确认 `message_id` 有效——只看接口返回 `ok` 不够，要以历史记录为准。
 
+## 方案 B（推荐）：整套放本地，按需发送
+
+收藏夹有数量和体积上限，几百张塞进去会污染账号。更好的做法是**本地库 + `local:` id**：
+
+- 桥接扫描一个目录（`socialV2.localStickers = { enabled, dir }`），把每个文件伪装成一条表情，
+  id 为 `local:<文件名>`、desc 取 `manifest.json` 里的台词；
+- **工具名和参数都不变**（还是 `qq_list_stickers` / `qq_send_sticker`），所以**不用重启 DSH**，
+  只重启桥接即可；
+- 发送时按 id 前缀分流：`local:` 读磁盘，其余走 CDN 下载；仍然走桥接的发送守卫（白名单/频率/sendChain）。
+
+实测（2026-10-25，161 张 GIF / 103 MB）：AI 自主挑中 `local:deepseek娘_爱心 1_…` 并发出，
+QQ 历史出现 `[image]`，而 `fetch_custom_face_detail` 仍为 7 条 —— 收藏夹零污染。
+
+落地要点与补丁清单见工程内的 `D:\qqbot\qq-bridge\LOCAL-STICKERS.md`（含 `LOCAL-STICKERS.patch`、
+新增 `src/local-sticker-lib.js`、`node --check` 与回滚步骤）。
+
+> GIF 体积一定要先压：QQ 收藏那条路上限约 1 MB；本地直发虽然更宽松，但 500px/30fps 的原始包
+> 中位数 3.5 MB、最大 12 MB，压到 **300px / 约 15fps / ≤950KB** 才适合聊天使用（161 张 569 MB → 103 MB）。
+
 ## 踩坑速查表
 
 | 现象 | 真因 | 处理 |
