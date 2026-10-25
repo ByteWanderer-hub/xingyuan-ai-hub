@@ -84,6 +84,25 @@ class RoutingTests(unittest.TestCase):
         self.assertIn('miliastra-code', names)
         self.assertIn('systematic-debugging', names)
 
+    def test_game_performance(self):
+        for query in ('千星渲染卡顿掉帧', '千星 UI 粒子卡顿掉帧',
+                      'Unity low fps frame time', 'Godot draw calls',
+                      'Unreal rendering performance', '游戏 GC 尖峰，对象池',
+                      '$performance-optimization'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'performance-optimization')
+        self.assertIn('miliastra-code', self.names('千星 Lua 渲染卡顿'))
+        self.assertIn('miliastra-motion', self.names('千星 UI 粒子卡顿掉帧'))
+        self.assertNotIn('miliastra-code', self.names('Unity low fps'))
+
+    def test_performance_scope_negatives(self):
+        for query in ('千星打击感顿帧 hit-stop', '设计关卡节奏',
+                      '优化千星UI布局', '网站加载慢', '网络延迟 ping 高',
+                      'React rerender', '给蒸汽增加动效'):
+            with self.subTest(query=query):
+                self.assertNotIn('performance-optimization', self.names(query))
+        self.assertEqual(self.names('千星打击感顿帧 hit-stop')[0], 'game-feel')
+
     def test_explicit_skill(self):
         self.assertEqual(self.names('$level-design 设计关卡')[0], 'level-design')
 

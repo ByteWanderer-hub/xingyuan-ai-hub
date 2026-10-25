@@ -4,6 +4,8 @@ ChatGPT × Codex 的私有共享知识、技能和任务交接仓库。
 
 千星奇域的 10 项来源技能已完整迁入；本仓库另保留 4 项辅助技能，新增 [关键词统一入口](skills/xingyuan-router/SKILL.md)。2026-10-23 补入 `miliastra-motion`（千星 UI 动效与 UI 粒子的数值口径与预算）与 `motion-design`（第三方动效原则参考，LottieFiles MIT，原样收录）。迁移证据见 [迁移状态](skills/QIANXING_MIGRATION_STATUS.md)，当前进度和下一步见 [千星就绪检查](handoffs/active/qianxing-readiness.md)。
 
+2026-10-25 新增 [performance-optimization](skills/performance-optimization/SKILL.md)（上游 Apache-2.0 的中文校正版），涵盖游戏卡顿/帧耗时分析、CPU 渲染提交与 GPU 区分、对象池/预算及千星测量边界。
+
 ## 唯一真源与维护方式
 
 **本仓库 main 的 skills/ 是用户共享技能的唯一正式真源。** 电脑上的仓库克隆用于编辑，客户端技能目录仅作为安装副本；完整约束见 [Agent 规则](AGENTS.md)。
@@ -27,7 +29,7 @@ ChatGPT × Codex 的私有共享知识、技能和任务交接仓库。
 # 1. 只读检查技能、引用和原始素材
 python3 -B scripts/verify_skills.py
 
-# 2. 预览默认 13 项技能（入口 + 12 项）将安装到哪里、改动哪些文件
+# 2. 预览默认 14 项技能（入口 + 13 项）将安装到哪里、改动哪些文件
 python3 -B scripts/install_skills.py
 
 # 3. 执行安装到当前仓库 .agents/skills

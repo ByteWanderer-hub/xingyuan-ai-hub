@@ -26,6 +26,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 自动交付、自主派工、继续工作流 | `qianxing-auto-delivery` | 按阶段选实现技能，不自动扩大部署权限 |
 | 玩法、玩家动机、叙事、好不好玩 | `game-design-theory` | 空间安排加 `level-design` |
 | 关卡、白盒、动线、节奏、可达性 | `level-design` | 千星落地前核对实际工程能力 |
+| 游戏卡顿、掉帧、渲染优化、帧耗时、Draw Call、GC 尖峰 | `performance-optimization` | 千星测量边界读其 references/miliastra.md；Lua/API 加 `miliastra-code`，动效加 `miliastra-motion`；刻意 hit-stop 仍走 `game-feel` |
 | 打击感、顿帧、震动、缓动、juice | `game-feel` | 引擎技能实现 API；不是移动控制器技能 |
 | 通用动效原则、时长/缓动表、迪士尼动画原则（第三方参考） | `motion-design` | 只提供平台无关的原则与数值；千星落地加 `miliastra-motion` |
 | HUD、安全区、焦点导航、多端适配 | `game-ui-ux` | 千星实际控件用 `miliastra-ui` |
@@ -36,6 +37,8 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 明确 Roblox/Luau 开发 | `roblox-luau-expert` | 明确反作弊加 `roblox-security-audit` |
 
 ## 细分入口与缺口
+
+- 游戏性能与渲染卡顿：`performance-optimization` 提供跨引擎测量/复测和千星适配；无 GPU 计时不确诊 GPU-bound，控件数不冒充 Draw Call，历史控件/粒子数量不作为通用上限。网页性能、网络延迟和刻意打击停顿不归此技能；混合 UI/动效性能任务以性能定位为主，平台技能负责实现。
 
 - 千星对话/黑幕/选项/打字机：读 `miliastra-code` 后按其对话工程参考继续。
 - 千星静态资产包、资产 ID 对照图：读 `miliastra-ui/references/static-image-pack.md`，使用只读脚本按 ID/用途查询和检查几何元数据；不把图片索引视为控件创建模板，不自动重传原始资产。

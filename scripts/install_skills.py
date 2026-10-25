@@ -24,7 +24,7 @@ DEFAULT_SKILLS = (
     "xingyuan-router",
     "game-design-theory", "game-feel", "game-ui-ux", "level-design",
     "miliastra-bb", "miliastra-code", "miliastra-ui", "miliastra-motion",
-    "motion-design", "qianxing-agent",
+    "motion-design", "performance-optimization", "qianxing-agent",
     "qianxing-auto-delivery", "systematic-debugging",
 )
 _HASH = re.compile(r"[0-9a-f]{64}\Z")
