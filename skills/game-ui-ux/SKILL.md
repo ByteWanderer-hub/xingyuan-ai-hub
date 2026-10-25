@@ -19,6 +19,12 @@ gamepad and a mouse. This skill owns the engine-neutral UI architecture — resp
 scaling, focus navigation, screen flow, and how UI talks to game state — and defers the
 concrete widget API to the engine UI skill.
 
+## 千星适配入口
+
+千星整屏、菜单或交互改版以 [miliastra-ui 的七步流程](../miliastra-ui/references/ui-ux-workflow.md) 为主，本技能补充响应式布局、焦点和屏幕流转原理。节点图控件组的激活/开启/隐藏/关闭不等同于 Lua 可见性或生命周期方法；事件归属与 API 由千星技能核实。不要将以下 Godot/Unity 示例直接用于千星。
+
+设计参考坐标经实际画布、安全区与父级坐标换算后可以使用；禁止的是把单一屏幕像素位置硬套所有设备。16:9 是可选手机检查场景，1600×1000 是既有 PC 参考，均不是全平台固定尺寸。单控件小改只检查受影响路径，不强制创建屏幕栈或重走整套流程。
+
 ## When to use
 
 - Use when building a HUD (health/ammo/score), a menu (main/pause/settings), an inventory or
@@ -35,9 +41,10 @@ rebinding screens). For card/board layout specifics, the `card-game` genre compo
 
 ## Core workflow
 
-1. **Pick a layout model: anchors + containers, never absolute pixels.** Anchor elements to
-   edges/corners/center and let containers (rows, columns, grids) flow children. Absolute
-   `(x, y)` positions break at the first new resolution.
+1. **Pick a layout model: anchors, containers, or transformed design coordinates.** Anchor
+   elements to edges/corners/center and use available layout containers. If the platform uses
+   explicit positions, transform reference coordinates into the actual parent and safe area;
+   do not reuse unscaled screen pixels across resolutions.
 2. **Choose a scaling strategy** for the whole UI: a reference resolution that scales to fit
    (most games), plus a policy for extra width/height on other aspect ratios (letterbox,
    expand, or anchor HUD corners outward).
@@ -56,7 +63,7 @@ rebinding screens). For card/board layout specifics, the `card-game` genre compo
 
 ## Patterns
 
-### 1. Anchors + containers, not absolute coordinates
+### 1. Anchors + containers where the engine supports them
 
 ```gdscript
 # Godot 4.7. Anchor a HUD label to the TOP-LEFT; let a container flow a row of hearts.
@@ -122,8 +129,8 @@ func _on_health_changed(current: int, max: int) -> void:
 
 ## Pitfalls
 
-- **Absolute pixel positions / a single design resolution.** Looks right on your monitor, broken
-  everywhere else. Anchor to edges/center and flow with containers.
+- **Unscaled screen positions / one tested resolution.** Anchor to edges/center, use containers,
+  or transform reference coordinates; verify the result on the target aspect ratios.
 - **No aspect-ratio policy.** 16:9-only layouts crop or letterbox badly on ultrawide and phones.
   Decide expand vs letterbox and anchor HUD to corners that move outward.
 - **Ignoring the safe area.** HUD under a notch or lost to TV overscan. Inset critical elements.

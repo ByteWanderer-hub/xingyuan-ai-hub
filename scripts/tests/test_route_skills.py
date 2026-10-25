@@ -28,6 +28,19 @@ class RoutingTests(unittest.TestCase):
                 self.assertNotIn('tiantangzhimen-gia', self.names(query))
         self.assertNotIn('miliastra-ui', self.names('Unity 2D 控件'))
 
+    def test_qianxing_ui_ux_workflow(self):
+        for query in ('优化我千星的 UI /UX技能', '千星 UI/UX 从需求到试玩',
+                      '千星分区布局与控件选型', '千星控件组状态绑定',
+                      '千星多端适配安全区', '千星手柄导航与焦点导航',
+                      'miliastra ui workflow'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'miliastra-ui')
+        self.assertIn('game-ui-ux', self.names('千星手柄导航'))
+        for query in ('Unity UI/UX 多端适配', '网页分区布局与控件选型',
+                      '整理一张工作流程图', 'Roblox ui workflow'):
+            with self.subTest(query=query):
+                self.assertNotIn('miliastra-ui', self.names(query))
+
     def test_tiantangzhimen_gia(self):
         names = self.names('天堂之门设计图生成客户端 GIA')
         self.assertIn('tiantangzhimen-gia', names)

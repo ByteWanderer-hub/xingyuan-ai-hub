@@ -25,7 +25,7 @@
     },
     {
       "name": "miliastra-ui",
-      "purpose": "千星 2D UI 同型资产优先生成、静态资产包选材、参考图重建及纯图片控件 GIA/Lua 流程",
+      "purpose": "千星 UI/UX 需求、布局、控件选型、模板、多端适配、绑定与试玩；同型资产及纯图片控件 GIA/Lua",
       "platform": "qianxing",
       "keywords": [
         "ui",
@@ -73,7 +73,18 @@
         "image to lua",
         "image to gia",
         "reference image",
-        "native ui art"
+        "native ui art",
+        "ui/ux",
+        "ui /ux",
+        "ux",
+        "分区布局",
+        "控件选型",
+        "多端适配",
+        "手柄导航",
+        "焦点导航",
+        "安全区",
+        "控件组",
+        "ui workflow"
       ]
     },
     {
