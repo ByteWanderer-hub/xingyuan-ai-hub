@@ -229,6 +229,17 @@ class RoutingTests(unittest.TestCase):
             with self.subTest(query=query):
                 self.assertNotIn('user-intent-alignment', self.names(query))
 
+    def test_prompt_review_natural_phrasing(self):
+        for query in ('这个 prompt 效果不好，帮我改一下', '帮我优化这个 prompt',
+                      '帮我写一个客服提示词', '把这些要求整理成给另一个 AI 的指令',
+                      '你又理解错了，继续修改当前按钮'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'user-intent-alignment')
+        for query in ('给游戏按钮增加提示文字', '修复命令行 prompt 显示',
+                      '画一张客服头像', '只是问缺哪些依赖'):
+            with self.subTest(query=query):
+                self.assertNotIn('user-intent-alignment', self.names(query))
+
     def test_route_rows_have_meaningful_fields(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         for row in data['skills']:
