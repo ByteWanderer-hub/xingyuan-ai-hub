@@ -104,7 +104,7 @@ class ReviewWorkflow:
         self.m.save_manifest(run, manifest)
         try:
             prompt = Path(args.prompt_file)
-            self.require(prompt.is_file() and prompt.read_text().strip(), "Prompt file is missing or empty")
+            self.require(prompt.is_file() and prompt.read_text(encoding="utf-8").strip(), "Prompt file is missing or empty")
             self.m.copy_once(prompt, folder / "prompt.txt")
             record["prompt"] = str(folder / "prompt.txt")
             loader = importlib.util.spec_from_file_location("comic_automatic", self.m.SKILL_ROOT / "scripts/validate-image.py")

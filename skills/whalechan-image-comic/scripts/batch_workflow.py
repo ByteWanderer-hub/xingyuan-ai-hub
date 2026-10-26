@@ -175,7 +175,7 @@ class BatchWorkflow:
                  else f"Total: {count} images; maximum {count * 3} calls. Role limits are shared across sources.")
         if words:
             total = words["totals"].format(n=count, calls=count * 3)
-        rendered.write_text("\n\n".join(tables) + "\n\n" + total + "\n\n" + question + "\n")
+        rendered.write_text("\n\n".join(tables) + "\n\n" + total + "\n\n" + question + "\n", encoding="utf-8")
         with self.locked(path.with_suffix(".lock")):
             batch = self.state(path)
             batch.update(proposal=str(target), proposal_sha256=self.m.sha256(target), preflight=preflight)
@@ -320,16 +320,16 @@ class BatchWorkflow:
             self.require(number <= 3, "Candidate budget exhausted")
             if number > 1:
                 self.require(getattr(args, "retry_prompt", None), "A targeted drawing-only retry prompt is required")
-                prompt = Path(args.retry_prompt).read_text()
+                prompt = Path(args.retry_prompt).read_text(encoding="utf-8")
             else:
                 prompt = self.m.visual_prompt().render(assignment, spec)
             self.require(prompt.strip(), "Empty prompt")
             folder = run / "staging" / args.image
             prompt_path = folder / f"prompt-{number:02d}.txt"
             if prompt_path.exists():
-                self.require(prompt_path.read_text() == prompt, "Saved attempt prompt differs")
+                self.require(prompt_path.read_text(encoding="utf-8") == prompt, "Saved attempt prompt differs")
             else:
-                prompt_path.write_text(prompt)
+                prompt_path.write_text(prompt, encoding="utf-8")
             request = self.m.extension_module("build-prompt").build_request(spec, prompt, None, "")
             request_path = folder / f"prompt-{number:02d}.request.json"
             self.m.write_json(request_path, request)
@@ -572,7 +572,7 @@ class BatchWorkflow:
                             "expected": len(outcomes)}
             gallery = Path(delivery["gallery"])
             data = json.loads(re.search(r'<script id="gallery-data" type="application/json">(.*?)</script>',
-                                        gallery.read_text(), re.S).group(1))
+                                        gallery.read_text(encoding="utf-8"), re.S).group(1))
             self.require(len(data["groups"]) == len(runs), "Gallery source count mismatch")
             for filename, group in zip(runs, data["groups"]):
                 _, frozen, manifest = self.m.load_run(filename)
@@ -598,10 +598,10 @@ class BatchWorkflow:
             index = path.parent / "delivery-index.md"
             index.write_text(f"# Comics: {len(final_paths)}/{len(outcomes)}\n\n" + "\n".join(
                 f"- [{r['image']}]({r['final']})" if r["final"] else
-                f"- {r['run']} / {r['image']}: {r['status']}" for r in outcomes))
+                f"- {r['run']} / {r['image']}: {r['status']}" for r in outcomes), encoding="utf-8")
             if tier_distributions:
                 delivery["tier_distributions"] = tier_distributions
-                with index.open("a") as handle:
+                with index.open("a", encoding="utf-8") as handle:
                     handle.write("\n\n" + ("## 档位配比（A:B:C）" if batch.get("language", "zh") == "zh" else "## Tier distribution (A:B:C)") + "\n\n")
                     for row in tier_distributions:
                         counts = {k: ":".join(str(row[k][t]) for t in "ABC") for k in ("planned", "delivered", "missing")}
@@ -625,7 +625,7 @@ class BatchWorkflow:
                 for row in tier_distributions:
                     counts = {k: ":".join(str(row[k][t]) for t in "ABC") for k in ("planned", "delivered", "missing")}
                     lines.append(words["delivery_row"].format(run=titles.get(row["run"], row["run"]), **counts))
-                index.write_text("\n".join(lines) + "\n")
+                index.write_text("\n".join(lines) + "\n", encoding="utf-8")
             delivery["index"] = str(index)
             self.m.write_json(receipt_file, delivery)
             result = self.receipt(path, args.task_id, args.owner,

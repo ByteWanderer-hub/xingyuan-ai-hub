@@ -92,7 +92,7 @@ class AdapterTests(unittest.TestCase):
     def dry_run(self, adapter: str, request: Path, output: Path) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
             [
-                "python3",
+                sys.executable,
                 str(SKILL_ROOT / "scripts" / ADAPTER_FILES[adapter]),
                 "--request",
                 str(request),

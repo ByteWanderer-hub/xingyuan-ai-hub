@@ -9,6 +9,8 @@ Turn one recognizable fact into 2N concise candidates, have an independent sub-a
 
 Workflow: analyze → freeze 2N concise ideas → independent priority ranking → select N → original author completes N visual plans and allocation → **one user confirmation of table, totals and allocation** → validate and freeze → generate, review and deliver. Complete planning before this gate; planning alone never authorizes image calls.
 
+Read [runtime prerequisites](references/runtime.md) before running local scripts, especially on Windows.
+
 ## Load the guidance
 
 Main reads `references/agent-orchestration.md` and the role boundaries in `references/batch-commands.md` and delegates the remaining guidance to the responsible role. Planning workers load creative/prompt guidance; generation workers load provider/QA guidance; collection and delivery workers load their lifecycle/gallery guidance.

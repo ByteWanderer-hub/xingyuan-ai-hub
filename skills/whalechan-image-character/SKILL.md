@@ -9,6 +9,8 @@ Create verified Whale-chan PNGs. Preserve Whale-chan's permanent identity while 
 
 Workflow: propose → **Gate 1: select directions** → **Gate 2: confirm scope and begin** → expand, validate and freeze → generate, review and deliver. Selection alone is not permission to generate.
 
+Read [runtime prerequisites](references/runtime.md) before running local scripts, especially on Windows.
+
 ## Load guidance as needed
 
 - Read `references/proposal-selection.md` before presenting either gate or interpreting replies.

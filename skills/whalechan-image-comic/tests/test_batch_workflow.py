@@ -387,6 +387,13 @@ class BatchWorkflowTests(unittest.TestCase):
     def test_heic_source_display_conversion_preserves_original(self):
         gallery = m.extension_module("export-gallery")
         source = self.root / "source.heic"
+        # Some official Windows builds decode HEIC but do not encode it.
+        # This fixture needs an encoder; the production gallery only decodes.
+        formats = subprocess.check_output([self.magick, "-list", "format"], text=True)
+        heic = next((line.split() for line in formats.splitlines()
+                     if line.split() and line.split()[0].rstrip("*") == "HEIC"), [])
+        if len(heic) < 2 or "w" not in heic[1]:
+            self.skipTest("HEIC fixture encoding is unavailable in this ImageMagick build")
         subprocess.run([self.magick, "-size", "64x64", "xc:blue", str(source)],
                        check=True, capture_output=True)
         sha = m.sha256(source)

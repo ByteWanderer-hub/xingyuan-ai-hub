@@ -1,9 +1,16 @@
 """Role limits and persistent task dispatch; this module never starts agents."""
 from __future__ import annotations
 import copy
-import fcntl
+import errno
+import os
+import time
 from contextlib import contextmanager
 from pathlib import Path
+
+if os.name == "nt":
+    import msvcrt
+else:
+    import fcntl
 
 ROLES = ("planning", "selection", "generation", "collection", "delivery")
 PRIORITY_MODE = "independent-priority-ranking"
@@ -19,12 +26,32 @@ DEFAULT_LIMITS = {"planning": 5, "selection": 2, "generation": 5, "codex_generat
 def locked(path):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("a") as handle:
-        fcntl.flock(handle, fcntl.LOCK_EX)
+    with path.open("a+b") as handle:
+        if os.name == "nt":
+            # Every process locks the same first byte. Keep the lock file in
+            # place so concurrent open handles cannot refer to different files.
+            if handle.seek(0, os.SEEK_END) == 0:
+                handle.write(b"\0")
+                handle.flush()
+            handle.seek(0)
+            while True:
+                try:
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+                    break
+                except OSError as error:
+                    if error.errno not in (errno.EACCES, errno.EAGAIN, errno.EDEADLK):
+                        raise
+                    time.sleep(0.05)
+        else:
+            fcntl.flock(handle, fcntl.LOCK_EX)
         try:
             yield
         finally:
-            fcntl.flock(handle, fcntl.LOCK_UN)
+            if os.name == "nt":
+                handle.seek(0)
+                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(handle, fcntl.LOCK_UN)
 
 
 def execution(value=None):

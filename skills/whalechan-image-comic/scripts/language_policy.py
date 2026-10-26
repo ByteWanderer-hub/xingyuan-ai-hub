@@ -39,9 +39,9 @@ def check_dictionary(actual, expected, path='locale'):
 
 def locale(value, language, section):
     language = tag(language)
-    baseline = json.loads((ROOT / 'assets/locales/en.json').read_text())
+    baseline = json.loads((ROOT / 'assets/locales/en.json').read_text(encoding="utf-8"))
     path = ROOT / 'assets/locales' / f'{language}.json'
-    bundled = json.loads(path.read_text()) if path.is_file() else {}
+    bundled = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
     supplied = value.get('localizations', {}).get(language, {})
     result = supplied.get(section, bundled.get(section))
     if result is None:
@@ -109,7 +109,7 @@ def gallery_locales(assignments, extra=None):
     for code in languages:
         result[code] = locale({'localizations': merged}, code, 'gallery')
         path = ROOT / 'assets/locales' / f'{code}.json'
-        metadata = merged.get(code) or (json.loads(path.read_text()) if path.is_file() else {})
+        metadata = merged.get(code) or (json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {})
         if not metadata.get('name') or metadata.get('direction') not in {'ltr', 'rtl'}:
             raise ValueError(f'{code}: locale requires a native name and ltr/rtl direction')
         names[code], directions[code] = metadata['name'], metadata['direction']
