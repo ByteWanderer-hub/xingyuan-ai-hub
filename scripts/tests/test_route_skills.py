@@ -133,8 +133,12 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(result['externals'][0]['status'], 'missing')
         self.assertEqual(result['candidates'], [])
         warning = ' '.join(result['warnings'])
-        self.assertIn('安装', warning)
+        self.assertIn('提示用户安装', warning)
+        self.assertIn('本次不执行', warning)
         self.assertIn('不使用', result['externals'][0]['note'])
+        ready = ' '.join(route.lookup('SnowLuma 网关掉线')['warnings'])
+        self.assertIn('ready', ready)
+        self.assertNotIn('本次不执行', ready)
         # 未接入且不提示安装的，不得留在索引
         for query in ('装个 XERJ 做本地检索', '千星编辑器打不开'):
             with self.subTest(query=query):
@@ -174,6 +178,7 @@ class RoutingTests(unittest.TestCase):
                 self.assertTrue(ext['display'].strip() and ext['purpose'].strip() and ext['note'].strip())
                 self.assertGreater(len(ext['keywords']), 0)
                 self.assertEqual(len(ext['keywords']), len({k.casefold() for k in ext['keywords']}))
+                self.assertTrue(ext.get('install', '').strip(), f"{name} 缺少 install 说明")
         for row in data['skills']:
             for req in row.get('requires', []):
                 with self.subTest(skill=row['name'], requires=req):

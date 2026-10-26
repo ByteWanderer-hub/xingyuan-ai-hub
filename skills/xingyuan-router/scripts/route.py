@@ -57,14 +57,21 @@ def lookup(query, platform='auto'):
             continue
         externals.append({'name': ext['name'], 'display': ext['display'], 'kind': ext['kind'],
                           'status': ext['status'], 'purpose': ext['purpose'], 'note': ext['note'],
+                          'install': ext.get('install', ''),
                           'matched': hits,
                           'used_by': sorted(n for n, row in names.items()
                                             if ext['name'] in row.get('requires', []))})
     warnings = [g['message'] for g in data['gaps'] if any(matches(text, k) for k in g['keywords'])]
     for ext in externals:
-        warnings.append('外部{0}不在本库：{1}（{2}）。{3}{4}'.format(
-            EXTERNAL_LABELS[ext['kind']], ext['display'], ext['status'], ext['purpose'],
-            '' if ext['status'] == 'ready' else ' ' + ext['note']))
+        label = EXTERNAL_LABELS[ext['kind']]
+        if ext['status'] == 'ready':
+            warnings.append('外部{0}：{1}（ready）。{2} 使用前仍要复核当前状态。'.format(
+                label, ext['display'], ext['purpose']))
+        else:
+            warnings.append('外部{0}：{1}（{2}）。{3} 先核验本机是否已接入；缺失则提示用户安装：{4} '
+                            '用户不安装、或装后仍不可用 → 本次不执行，也不用别的技能冒充。'.format(
+                                label, ext['display'], ext['status'], ext['purpose'],
+                                ext.get('install') or ext['note']))
     if platform == 'unknown':
         warnings.append('平台未知或混合；实际实现需结合上下文确认，可用 --platform 指定。')
     if not results:

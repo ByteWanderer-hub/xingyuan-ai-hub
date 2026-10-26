@@ -1085,7 +1085,8 @@
         "qq-bridge",
         "add_custom_face",
         "modify_custom_face"
-      ]
+      ],
+      "install": "无需安装；网关离线时按 qq-sticker-pack 的接入说明恢复 SnowLuma/NapCat（OneBot HTTP，默认 127.0.0.1:3000，accessToken 在 qq-bridge 的 config.json）。"
     },
     {
       "name": "rea",
@@ -1103,7 +1104,8 @@
         "ghidra",
         "hopper",
         "jadx"
-      ]
+      ],
+      "install": "GitHub morluto/rea（MIT）；需 Node 与 Hopper/Ghidra/JADX 等逆向工具，按上游 README 接入 MCP（或先用命令行 rea 验证可用）。"
     }
   ]
 }

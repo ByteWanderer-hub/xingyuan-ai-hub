@@ -123,9 +123,8 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 - 千星静态资产包、资产 ID 对照图：读 `miliastra-ui/references/static-image-pack.md`，使用只读脚本按 ID/用途查询和检查几何元数据；不把图片索引视为控件创建模板，不自动重传原始资产。
 - 参考图重建、按圈选小改、图片转 GIA/Lua：读 `miliastra-ui` 的 `references/client-template-gia.md`。仅图片控件可走通用输出，不要求指定地图；加入其他控件或玩法才按地图适配。区分预览、离线 GIA 与 Lua 创建模块，不把图片文件本身当可导入资源，不为通用美术或其他地图误启《天堂之门》专用流程。
 - GIL/GIA、节点图：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含通用地图 GIA 生成器；素材样例不等于生成工具。
-- REA（逆向工程 MCP）：登记在 `externals[]`，`status: missing`（本机无 `rea` 可执行，DSH profile 无对应 MCP）。处理顺序固定：① 先核验 `rea` 在不在 PATH / MCP 是否接入；② 缺失就提示用户安装（GitHub `morluto/rea`，MIT，需 Node 与 Hopper/Ghidra/JADX 等工具）并等确认；③ 用户不安装、或装完仍不可用 → **本次不使用该能力**，不假装逆向、不用 `systematic-debugging` 等技能冒充，也不把结果写成本库功能。
-- XERJ（本地搜索 MCP）与千星编辑器：不登记（2026-10-27 本机无二进制、无 MCP 配置，无法证明可用）。被问到就说明本库没有该能力，按需现场核实来源，不虚构技能、不写入索引。
-- 唯一可用的库外依赖是 `snowluma-onebot`（ready，2026-10-27 探活在线）：`qq-sticker-pack` 的 `requires` 指向它，落地前仍要复核。
+- **库外依赖（MCP / 网关 / 平台）统一规则。** 索引 `externals[]` 里每条都带 `status`（ready / unverified / missing）和 `install`（来源 + 前置 + 接入方式）。用到时按固定顺序：① 核验本机是否已接入（命令在不在 PATH、MCP 是否在 profile 配置里），不凭“应该装过”判断；② `missing` / `unverified` 或核验失败 → 提示用户安装，把 `install` 里的来源与前置一次说清，然后等用户决定；③ 用户不安装、或装后仍不可用 → **本次不执行**该能力，不假装执行、不用相邻技能冒充（例如别用 `systematic-debugging` 冒充逆向）、不把未发生的结果写进正文或交接；④ 实测通过才把 `status` 改为 `ready` 并记录 handoff。
+- 当前 `externals[]`：`snowluma-onebot`（服务，ready，2026-10-27 探活在线，`qq-sticker-pack` 依赖）、`rea`（MCP，missing，缺失即提示安装）。XERJ 与千星编辑器未登记（本机无二进制、无 MCP 配置），被问到只说明缺口，不虚构。
 - 土狼时间/郊狼时间/coyote time、输入缓冲/input buffer：本库暂无对应移动/输入专项技能。`game-feel` 不负责原始控制器数学；可结合已核实引擎 API 实现，但明确是补充实现而非调用现成专用技能。
 - `platformer`、`input-systems`、`camera-systems` 等旧文档提及的外部技能：先确认实际存在，不能从名字推断已安装。
 - 已接入的桌面软件：读 `desktop-toolbox`，其接入记录区分已安装、可启动和已完成实际功能验收；不因曾经安装就默认可用。
