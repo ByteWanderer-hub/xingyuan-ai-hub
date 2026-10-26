@@ -172,6 +172,17 @@ class RoutingTests(unittest.TestCase):
     def test_natural_maintenance_request(self):
         self.assertEqual(self.names('继续整理星缘资料库里重复的技能')[0], 'skill-manager')
 
+    def test_project_lessons_skill_maintenance(self):
+        for query in ('把这次项目的完整经验总结优化技能',
+                      '项目复盘优化技能', '把项目经验写入技能',
+                      '把经验写入技能', 'project lessons into skills'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'skill-manager')
+        for query in ('总结这次游戏项目', '优化角色技能伤害和冷却',
+                      '千星气体波动动画优化', '网页杯子透视编辑器'):
+            with self.subTest(query=query):
+                self.assertNotIn('skill-manager', self.names(query))
+
     def test_route_rows_have_meaningful_fields(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         for row in data['skills']:

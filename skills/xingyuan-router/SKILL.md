@@ -33,12 +33,14 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 报错、没效果、偶发失败、根因 | `systematic-debugging` | 加目标平台工程技能 |
 | 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox` | 先检查本机可用性和验收状态；不强行启动 GUI |
 | 代码审查、回归风险 | `code-review` | 不因审查擅自修改代码 |
-| 技能文档、去重、合并、资料库整理 | `skill-manager` | 维护真源与引用 |
+| 技能文档、去重、合并、资料库整理、把项目经验写入技能 | `skill-manager` | 维护真源与引用；普通项目总结不触发技能修改 |
 | QQ 机器人表情包/贴纸、自定义表情上架、表情发不出去 | `qq-sticker-pack` | 美术画风走 `design`；千星平台图片资产走 `miliastra-ui`；发送链路排错可加 `systematic-debugging` |
 | 明确 Roblox/Luau 开发 | `roblox-luau-expert` | 明确反作弊加 `roblox-security-audit` |
 
 ## 细分入口与缺口
 
+- 将项目复盘用于优化技能：读 `skill-manager` 的“从项目经验优化技能”，区分可复用不变量、项目决定与未验证方案；不启动业务恢复或重新部署游戏。
+- 千星房间/门共用几何、杯子遮挡、浏览器微调回流：读 `miliastra-ui` 的 [场景几何参考](../miliastra-ui/references/scene-iteration.md)。气体波动/转移、口袋门、食物达成和结算编排：读 `miliastra-motion` 的 [状态动效参考](../miliastra-motion/references/stateful-scene-motion.md)。这些是千星实现参考，不让普通网站任务误入千星流程。
 - 游戏性能与渲染卡顿：`performance-optimization` 提供跨引擎测量/复测和千星适配；无 GPU 计时不确诊 GPU-bound，控件数不冒充 Draw Call，历史控件/粒子数量不作为通用上限。网页性能、网络延迟和刻意打击停顿不归此技能；混合 UI/动效性能任务以性能定位为主，平台技能负责实现。
 
 - 千星对话/黑幕/选项/打字机：读 `miliastra-code` 后按其对话工程参考继续。
