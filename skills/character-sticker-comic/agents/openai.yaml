@@ -1,0 +1,4 @@
+interface:
+  display_name: "通用角色表情包与漫画"
+  short_description: "根据任意角色设定生成表情贴纸与漫画，检查身份、文案和整套差异。"
+  default_prompt: "使用 $character-sticker-comic，沿用我的角色设定制作所需表情包或漫画，保持身份一致。"

@@ -240,6 +240,18 @@ class RoutingTests(unittest.TestCase):
             self.assertEqual(self.names(query)[0], 'skill-manager')
         self.assertNotIn('skill-manager', self.names('修改千星UI按钮颜色'))
 
+    def test_generic_character_workflows(self):
+        for query in ('设计原创人设图', '机器人角色三视图', 'character sheet'):
+            self.assertEqual(self.names(query)[0], 'character-image-design')
+        for query in ('帮我生成表情包', '原创表情包', 'character sticker'):
+            self.assertEqual(self.names(query)[0], 'character-sticker-comic')
+        self.assertEqual(self.names('鲸鱼娘人设图')[0], 'whalechan-image-character')
+        self.assertEqual(self.names('鲸鱼娘表情包')[0], 'whalechan-image-comic')
+        self.assertEqual(self.names('QQ机器人自定义表情上架')[0], 'qq-sticker-pack')
+        for query in ('给机器人写文字人设提示词', '千星UI按钮布局'):
+            self.assertNotIn('character-image-design', self.names(query))
+            self.assertNotIn('character-sticker-comic', self.names(query))
+
     def test_context_override(self):
         self.assertIn('miliastra-ui', self.names('UI 图片', 'qianxing'))
         self.assertNotIn('miliastra-ui', self.names('不要Roblox做千星UI', 'other'))

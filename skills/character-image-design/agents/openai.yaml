@@ -1,0 +1,4 @@
+interface:
+  display_name: "通用角色人设图"
+  short_description: "从文字与参考图提取角色身份，生成一致的人设图、立绘和三视图。"
+  default_prompt: "使用 $character-image-design，根据我的描述或参考图设计角色，保留固定身份并生成本次需要的图。"

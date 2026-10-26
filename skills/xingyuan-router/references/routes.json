@@ -478,7 +478,8 @@
         "deepseek娘立绘",
         "deepseek娘人设",
         "whale-chan portrait",
-        "whalechan illustration"
+        "whalechan illustration",
+        "鲸鱼娘人设图"
       ]
     },
     {
@@ -517,6 +518,37 @@
         "communication style",
         "自动修订沟通技能",
         "自动更新沟通习惯"
+      ]
+    },
+    {
+      "name": "character-image-design",
+      "purpose": "从文字与参考图提取角色身份，生成一致的人设图、立绘和三视图。",
+      "platform": "general",
+      "keywords": [
+        "人设图",
+        "角色立绘",
+        "角色设定图",
+        "角色三视图",
+        "通用人设",
+        "角色设计图",
+        "character sheet",
+        "character illustration"
+      ]
+    },
+    {
+      "name": "character-sticker-comic",
+      "purpose": "根据任意角色设定生成表情贴纸与漫画，检查身份、文案和整套差异。",
+      "platform": "general",
+      "keywords": [
+        "生成表情包",
+        "角色表情包",
+        "原创表情包",
+        "通用表情包",
+        "表情包生成",
+        "表情差分",
+        "角色漫画",
+        "character sticker",
+        "character comic"
       ]
     }
   ],
