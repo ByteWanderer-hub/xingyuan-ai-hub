@@ -3,6 +3,10 @@
   "skills": [
     {
       "name": "miliastra-code",
+      "kind": "skill",
+      "requires": [
+        "qianxing-platform"
+      ],
       "purpose": "千星脚本、API、节点图与工程实现",
       "platform": "qianxing",
       "keywords": [
@@ -25,6 +29,10 @@
     },
     {
       "name": "miliastra-ui",
+      "kind": "skill",
+      "requires": [
+        "qianxing-platform"
+      ],
       "purpose": "千星 UI/UX 需求、布局、控件选型、模板、多端适配、绑定与试玩；同型资产及纯图片控件 GIA/Lua",
       "platform": "qianxing",
       "keywords": [
@@ -89,6 +97,10 @@
     },
     {
       "name": "miliastra-motion",
+      "kind": "skill",
+      "requires": [
+        "qianxing-platform"
+      ],
       "purpose": "千星 UI 动效与 UI 粒子：时长/缓动/编排/状态反馈的数值口径，以及粒子池与预算",
       "platform": "qianxing",
       "keywords": [
@@ -135,6 +147,10 @@
     },
     {
       "name": "tiantangzhimen-gia",
+      "kind": "skill",
+      "requires": [
+        "qianxing-platform"
+      ],
       "purpose": "《天堂之门》设计图到完整客户端 GIA 的离线候选与验收",
       "platform": "qianxing",
       "keywords": [
@@ -150,6 +166,7 @@
     },
     {
       "name": "miliastra-bb",
+      "kind": "skill",
       "purpose": "UGC 需求边界与验收",
       "platform": "ugc",
       "keywords": [
@@ -164,6 +181,7 @@
     },
     {
       "name": "qianxing-agent",
+      "kind": "experience",
       "purpose": "选择实现、创作、修复角色工作流",
       "platform": "qianxing",
       "keywords": [
@@ -177,6 +195,7 @@
     },
     {
       "name": "qianxing-auto-delivery",
+      "kind": "skill",
       "purpose": "自主交付、接续与调度",
       "platform": "qianxing",
       "keywords": [
@@ -189,6 +208,7 @@
     },
     {
       "name": "game-design-theory",
+      "kind": "experience",
       "purpose": "玩法、动机、叙事与试玩设计",
       "platform": "general",
       "keywords": [
@@ -206,6 +226,7 @@
     },
     {
       "name": "performance-optimization",
+      "kind": "skill",
       "purpose": "游戏渲染卡顿、掉帧与帧耗时取证优化，含千星控件/粒子与测量边界",
       "platform": "general",
       "keywords": [
@@ -249,6 +270,7 @@
     },
     {
       "name": "level-design",
+      "kind": "experience",
       "purpose": "白盒、关卡动线、节奏与可达性",
       "platform": "general",
       "keywords": [
@@ -267,6 +289,7 @@
     },
     {
       "name": "game-feel",
+      "kind": "experience",
       "purpose": "已有动作的打击感与反馈",
       "platform": "general",
       "keywords": [
@@ -287,6 +310,7 @@
     },
     {
       "name": "motion-design",
+      "kind": "experience",
       "purpose": "通用 UI 动效原则与数值参考（第三方，LottieFiles MIT，原样收录）",
       "platform": "general",
       "keywords": [
@@ -311,6 +335,7 @@
     },
     {
       "name": "game-ui-ux",
+      "kind": "experience",
       "purpose": "跨平台 HUD、导航、适配与界面流程",
       "platform": "general",
       "keywords": [
@@ -330,6 +355,7 @@
     },
     {
       "name": "systematic-debugging",
+      "kind": "skill",
       "purpose": "故障复现、取证与根因分析",
       "platform": "general",
       "keywords": [
@@ -354,6 +380,7 @@
     },
     {
       "name": "desktop-toolbox",
+      "kind": "external",
       "purpose": "已接入本地软件的可用性核对与优先使用",
       "platform": "general",
       "keywords": [
@@ -383,6 +410,7 @@
     },
     {
       "name": "code-review",
+      "kind": "experience",
       "purpose": "代码变更审查",
       "platform": "general",
       "keywords": [
@@ -395,6 +423,7 @@
     },
     {
       "name": "skill-manager",
+      "kind": "skill",
       "purpose": "技能去重、合并、维护与项目经验沉淀",
       "platform": "general",
       "keywords": [
@@ -431,6 +460,7 @@
     },
     {
       "name": "roblox-luau-expert",
+      "kind": "experience",
       "purpose": "Roblox Luau 与双端边界",
       "platform": "roblox",
       "keywords": [
@@ -444,6 +474,7 @@
     },
     {
       "name": "roblox-security-audit",
+      "kind": "experience",
       "purpose": "Roblox 服务端校验与反作弊",
       "platform": "roblox",
       "keywords": [
@@ -457,6 +488,10 @@
     },
     {
       "name": "qq-sticker-pack",
+      "kind": "skill",
+      "requires": [
+        "snowluma-onebot"
+      ],
       "purpose": "QQ 机器人自定义表情包：Pillow 画图 + SnowLuma add_custom_face 上架 + modify_custom_face 备注 + 正确的发送姿势（CDN 转 base64）",
       "platform": "general",
       "keywords": [
@@ -479,6 +514,7 @@
     },
     {
       "name": "whalechan-image-character",
+      "kind": "skill",
       "purpose": "DeepSeek 鲸鱼娘人设图、角色立绘与主题插画；身份参考与比例质检",
       "platform": "general",
       "keywords": [
@@ -495,6 +531,7 @@
     },
     {
       "name": "whalechan-image-comic",
+      "kind": "skill",
       "purpose": "DeepSeek 鲸鱼娘表情包与 1/2/4 格漫画；从事实素材提炼笑点并质检",
       "platform": "general",
       "keywords": [
@@ -512,6 +549,7 @@
     },
     {
       "name": "user-intent-alignment",
+      "kind": "skill",
       "purpose": "理解短句与纠正、按证据主动校准；按需诊断提示词并将要求提炼成完整可用指令",
       "platform": "general",
       "keywords": [
@@ -550,6 +588,7 @@
     },
     {
       "name": "character-image-design",
+      "kind": "skill",
       "purpose": "从文字与参考图提取角色身份，生成一致的人设图、立绘和三视图。",
       "platform": "general",
       "keywords": [
@@ -565,6 +604,7 @@
     },
     {
       "name": "character-sticker-comic",
+      "kind": "skill",
       "purpose": "根据任意角色设定生成表情贴纸与漫画，检查身份、文案和整套差异。",
       "platform": "general",
       "keywords": [
@@ -581,6 +621,7 @@
     },
     {
       "name": "slack-gif-creator",
+      "kind": "skill",
       "purpose": "GIF 表情包的帧合成、缓动、循环与文件检查；角色画面另用生图工具，不含图生视频模型",
       "platform": "general",
       "keywords": [
@@ -630,8 +671,16 @@
         "gil"
       ],
       "message": "miliastra-ui 支持参考图重建与通用纯图片控件 GIA/Lua 输出流程，无需先指定地图；其他控件与玩法按地图适配。本库未包含通用 GIA 地图生成器；实际输出仍须核实平台封装、工具/创建 API 与素材依赖，不能仅凭路由承诺导入或运行成功。"
-    },
+    }
+  ],
+  "externals": [
     {
+      "name": "rea",
+      "display": "REA（morluto/rea）",
+      "kind": "mcp",
+      "status": "missing",
+      "purpose": "面向 Agent 的逆向工程 MCP：把 Hopper/Ghidra/JADX/浏览器等工具接给 AI Agent，用于应用行为、Electron/JS 结构与原生二进制分析（MIT）。",
+      "note": "本库没有逆向工程技能，REA 也不是 GIA/GIL 工具或 GIA 生成器；需要时按 MCP 单独接入，并在目标环境核验工具可用性与分析边界。",
       "keywords": [
         "rea",
         "morluto/rea",
@@ -641,8 +690,38 @@
         "ghidra",
         "hopper",
         "jadx"
-      ],
-      "message": "REA 指 GitHub 的 morluto/rea：面向 Agent 的逆向工程 MCP（把 Hopper/Ghidra/JADX/浏览器等工具接给 AI Agent，MIT），不是千星 GIA/GIL 工具，也不能当 GIA 生成器用。本库没有逆向工程技能；需要时按 MCP 单独接入，并在目标环境核验工具可用性与分析边界。"
+      ]
+    },
+    {
+      "name": "snowluma-onebot",
+      "display": "SnowLuma / NapCat OneBot 网关",
+      "kind": "service",
+      "status": "ready",
+      "purpose": "QQ 机器人 OneBot v11 网关，提供 add_custom_face / modify_custom_face 等非标准动作以及发消息、发图接口。",
+      "note": "2026-10-27 探活：网关可达、QQ 账号在线。qq-sticker-pack 的运行时依赖；动作名与字段仍须按网关版本核对。",
+      "keywords": [
+        "snowluma",
+        "napcat",
+        "onebot",
+        "qq 网关",
+        "qq-bridge",
+        "add_custom_face",
+        "modify_custom_face"
+      ]
+    },
+    {
+      "name": "qianxing-platform",
+      "display": "千星奇域编辑器与脚本插件",
+      "kind": "platform",
+      "status": "unverified",
+      "purpose": "千星奇域客户端编辑器、节点图/Lua 插件与存盘环境；miliastra-* 与《天堂之门》GIA 的落地、试玩和真机验收都在这里发生。",
+      "note": "2026-10-27 本机未检测到编辑器进程，是否安装/登录未核实；文档结论与 API 说明不能替代编辑器存盘和真机试玩。",
+      "keywords": [
+        "千星编辑器",
+        "miliastra editor",
+        "编辑器插件",
+        "qianxing editor"
+      ]
     }
   ]
 }

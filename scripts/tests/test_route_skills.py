@@ -125,19 +125,63 @@ class RoutingTests(unittest.TestCase):
         warnings = route.lookup('千星参考图转 GIA')['warnings']
         self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in warnings))
 
-    def test_rea_reverse_engineering_gap(self):
+    def test_rea_external_mcp(self):
         for query in ('REA 默认调用的是不是 morluto/rea', 'morluto/rea 逆向工程',
                       '用 ghidra 拆一个 Electron 应用', '把安装包逆向分析一下'):
             with self.subTest(query=query):
-                warnings = route.lookup(query)['warnings']
-                self.assertTrue(any('morluto/rea' in warning for warning in warnings))
-                self.assertFalse(any('GIA 地图生成器' in warning for warning in warnings))
+                result = route.lookup(query)
+                self.assertEqual([e['name'] for e in result['externals']], ['rea'])
+                self.assertEqual(result['externals'][0]['kind'], 'mcp')
+                self.assertEqual(result['externals'][0]['status'], 'missing')
+                self.assertTrue(any('morluto/rea' in warning for warning in result['warnings']))
+                self.assertFalse(any('GIA 地图生成器' in warning for warning in result['warnings']))
         for query in ('千星参考图转 GIA', '千星图片转 GIA'):
             with self.subTest(query=query):
-                warnings = route.lookup(query)['warnings']
-                self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in warnings))
-                self.assertFalse(any('morluto/rea' in warning for warning in warnings))
+                result = route.lookup(query)
+                self.assertEqual(result['externals'], [])
+                self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in result['warnings']))
+                self.assertFalse(any('morluto/rea' in warning for warning in result['warnings']))
         self.assertEqual(self.names('REA 逆向工具怎么装'), [])
+
+    def test_kind_classification(self):
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
+        kinds = {row['name']: row['kind'] for row in data['skills']}
+        self.assertEqual(set(kinds.values()), {'skill', 'external', 'experience'})
+        self.assertEqual(sum(1 for v in kinds.values() if v == 'skill'), 16)
+        self.assertEqual(sum(1 for v in kinds.values() if v == 'experience'), 9)
+        self.assertEqual(sum(1 for v in kinds.values() if v == 'external'), 1)
+        for name, kind in kinds.items():
+            if kind != 'experience':
+                continue
+            with self.subTest(skill=name):
+                scripts = [p for p in (ROOT/'skills'/name).rglob('*')
+                           if p.is_file() and p.suffix in {'.py', '.ps1', '.js', '.lua'}]
+                self.assertEqual(scripts, [])
+        result = route.lookup('打击感顿帧怎么做')
+        self.assertEqual(result['candidates'][0]['skill'], 'game-feel')
+        self.assertEqual(result['candidates'][0]['kind'], 'experience')
+        self.assertEqual(route.lookup('$miliastra-code 千星脚本')['candidates'][0]['kind'], 'skill')
+
+    def test_externals_section(self):
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
+        externals = {e['name']: e for e in data['externals']}
+        self.assertEqual(set(externals), {'rea', 'snowluma-onebot', 'qianxing-platform'})
+        for name, ext in externals.items():
+            with self.subTest(external=name):
+                self.assertIn(ext['kind'], {'mcp', 'service', 'platform', 'software'})
+                self.assertIn(ext['status'], {'ready', 'unverified', 'missing'})
+                self.assertTrue(ext['display'].strip() and ext['purpose'].strip() and ext['note'].strip())
+                self.assertGreater(len(ext['keywords']), 0)
+                self.assertEqual(len(ext['keywords']), len({k.casefold() for k in ext['keywords']}))
+        for row in data['skills']:
+            for req in row.get('requires', []):
+                with self.subTest(skill=row['name'], requires=req):
+                    self.assertIn(req, externals)
+        result = route.lookup('SnowLuma 网关连不上')
+        self.assertEqual(result['externals'][0]['name'], 'snowluma-onebot')
+        self.assertEqual(result['externals'][0]['status'], 'ready')
+        self.assertIn('qq-sticker-pack', result['externals'][0]['used_by'])
+        self.assertEqual(route.lookup('千星编辑器怎么打开')['externals'][0]['status'], 'unverified')
 
     def test_bug_with_engine(self):
         names = self.names('千星 Lua require 报错')

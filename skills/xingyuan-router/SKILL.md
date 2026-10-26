@@ -26,6 +26,19 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 已知网页项目：页面加载慢 | 查会话可用的网页性能/工程技能；无适用项直接排查 | 不套千星流程或本库游戏性能技能 |
 | 找已有图标；修改技能入口；回复“继续” | 分别选素材入口、`skill-manager`、当前任务仍适用的已读技能 | 不因检索、维护或短句启动业务恢复/部署 |
 
+## 三类入口：技能 / 外部 MCP 与服务 / 经验
+
+索引里 `kind` 字段区分三类，加载和承诺能力前先看清是哪一类：
+
+| 类型 | 索引位置 | 当前内容 | 怎么用 | 不能做什么 |
+| --- | --- | --- | --- | --- |
+| 技能 `skill` | `skills[]`，16 项 | 千星实现、需求边界、交付编排、调试、性能、QQ 表情包、图像配方、技能维护等 | 读 SKILL.md 按步骤执行，产出并验证 | 不把参考条目当实现步骤；有 `requires` 的先核验外部依赖 |
+| 外部工具清单 `external` | `skills[]`，1 项 `desktop-toolbox` | 本机桌面软件的选择与核对 | 先按清单核验安装/可启动/功能验收状态再用 | 不把“已安装”当成“已验收”，不臆测 GUI 与连通性 |
+| 经验 `experience` | `skills[]`，9 项 | `game-design-theory`、`motion-design`、`level-design`、`game-ui-ux`、`game-feel`、`code-review`、`roblox-luau-expert`、`roblox-security-audit`、`qianxing-agent` | 只取原则、数值、判据、案例与审视清单，落地另配平台技能 | 不假装有脚本、生成器、平台 API 或真机验证 |
+| 库外依赖 `externals[]` | 独立段 | `rea`（MCP，missing）、`snowluma-onebot`（服务，ready）、`qianxing-platform`（平台，unverified） | 先看 `status` 再接入，`ready` 才可直接用 | 不把库外能力写成本库技能，不虚构已接入 |
+
+`experience` 类没有任何脚本；它们的落地路径写在各自 SKILL.md 里（多为“配合平台技能”）。`externals` 的 `status`：`ready` 已探活可用、`unverified` 未核实、`missing` 未接入。
+
 ## 快速表
 
 | 关键词/意图 | 主技能 | 按需补充 |
@@ -68,7 +81,8 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 - 千星静态资产包、资产 ID 对照图：读 `miliastra-ui/references/static-image-pack.md`，使用只读脚本按 ID/用途查询和检查几何元数据；不把图片索引视为控件创建模板，不自动重传原始资产。
 - 参考图重建、按圈选小改、图片转 GIA/Lua：读 `miliastra-ui` 的 `references/client-template-gia.md`。仅图片控件可走通用输出，不要求指定地图；加入其他控件或玩法才按地图适配。区分预览、离线 GIA 与 Lua 创建模块，不把图片文件本身当可导入资源，不为通用美术或其他地图误启《天堂之门》专用流程。
 - GIL/GIA、节点图：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含通用地图 GIA 生成器；素材样例不等于生成工具。
-- REA（`morluto/rea`）：指 GitHub 上 morluto 的 Agent 逆向工程 MCP（接入 Hopper/Ghidra/JADX/浏览器等工具，MIT），与千星 GIA/GIL 无关，也不是 GIA 生成器；本库没有逆向工程技能，需要时按 MCP 单独接入，并按目标环境核验工具可用性与分析边界。
+- REA：库外 MCP 依赖，见 `externals[]` 的 `rea`（`status: missing`）。它指 GitHub 上 morluto 的 Agent 逆向工程 MCP（接入 Hopper/Ghidra/JADX/浏览器等工具，MIT），与千星 GIA/GIL 无关，也不是 GIA 生成器；本库没有逆向工程技能，需要时按 MCP 单独接入并按目标环境核验。
+- SnowLuma / NapCat OneBot 网关、千星奇域编辑器：分别是 `externals[]` 的 `snowluma-onebot`（ready）与 `qianxing-platform`（unverified）。引用它们的技能（`qq-sticker-pack`、`miliastra-*`、`tiantangzhimen-gia`）在 `requires` 里标注，落地前先核对实际状态。
 - 土狼时间/郊狼时间/coyote time、输入缓冲/input buffer：本库暂无对应移动/输入专项技能。`game-feel` 不负责原始控制器数学；可结合已核实引擎 API 实现，但明确是补充实现而非调用现成专用技能。
 - `platformer`、`input-systems`、`camera-systems` 等旧文档提及的外部技能：先确认实际存在，不能从名字推断已安装。
 - 已接入的桌面软件：读 `desktop-toolbox`，其接入记录区分已安装、可启动和已完成实际功能验收；不因曾经安装就默认可用。
@@ -86,12 +100,14 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 
 | 变更 | 必须核对和更新 |
 | --- | --- |
-| 新增/导入技能 | 在 routes.json 添加唯一条目：name、purpose、platform、中英文/自然表达关键词；在上方快速表加入或并入对应行 |
-| 修改职责、适用条件或能力 | 同步 purpose、platform、keywords、快速表、主辅技能分工及细分入口；新增能力落实后撤销对应过时的缺口提示 |
-| 更名、合并、删除 | 更新目标名称与路径，移除失效条目；有必要时将旧名称作为新目标的关键词，不能指向已删除目录 |
-| 仅修正文案/内部实现 | 仍核对该技能索引；若职责与关键词没有变化，记录“入口已核对，无需变更”，不制造无意义改动 |
+| 新增/导入技能 | 在 routes.json 添加唯一条目：name、`kind`、purpose、platform、中英文/自然表达关键词；在上方快速表加入或并入对应行 |
+| 新增库外 MCP/服务/平台 | 在 `externals[]` 增加条目：name、display、kind（mcp/service/platform/software）、status（ready/unverified/missing）、purpose、note、keywords；依赖它的技能在 `requires` 里写该 name |
+| 修改职责、适用条件或能力 | 同步 purpose、`kind`、platform、keywords、快速表、主辅技能分工及细分入口；新增能力落实后撤销对应过时的缺口提示 |
+| 更名、合并、删除 | 更新目标名称与路径，移除失效条目；有必要时将旧名称作为新目标的关键词，不能指向已删除目录；同步清理 `requires` 与 `externals` 引用 |
+| 仅修正文案/内部实现 | 仍核对该技能索引；若职责、`kind` 与关键词没有变化，记录“入口已核对，无需变更”，不制造无意义改动 |
 
 1. 先读变更后的目标 SKILL.md，按实际能力整理关键词，不能只靠目录名猜测；缺口说明同时检查 routes.json 的 gaps 与本入口正文。
+2. 新增条目时先判定 `kind`：有可执行步骤或脚本、能产出并验证的填 `skill`；只给原则/数值/判据的填 `experience`（且不得带脚本）；清单式外部工具入口填 `external`。分类有疑问时以“能否直接执行并验收”为准，不按名字好听程度分。
 2. 核对同义词、用户常用说法、平台边界及同关键词下主辅关系；新增平台需同步 route.py 的平台识别、过滤和参数，不能只填一个脚本不认识的平台值。
 3. 新增/改变路由时增加能代表用户表达的正例和易误触发的反例。保留原有路由行为；全部目标必须存在，每项实际技能（本路由自身除外）恰好一个索引条目，关键词不能为空。
 4. 在仓库根运行 `python -B -m unittest discover -s scripts/tests -p test_route_skills.py`。目录或元数据变化再运行相关结构检查。测试失败先修复，不以“技能正文已完成”跳过入口维护。

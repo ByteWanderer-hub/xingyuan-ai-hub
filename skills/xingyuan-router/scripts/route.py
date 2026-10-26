@@ -7,6 +7,8 @@ import re
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 
+EXTERNAL_LABELS = {'mcp': ' MCP 服务', 'service': '服务', 'platform': '平台/运行时', 'software': '软件'}
+
 
 def matches(text, term):
     term = term.casefold()
@@ -42,17 +44,36 @@ def lookup(query, platform='auto'):
         score = (100 if explicit else 0) + len(hits) * 3
         if row['platform'] == platform:
             score += 2
-        results.append({'skill': row['name'], 'purpose': row['purpose'],
+        results.append({'skill': row['name'], 'kind': row['kind'], 'purpose': row['purpose'],
                         'matched': hits, 'explicit': explicit, 'score': score,
+                        'requires': row.get('requires', []),
                         'path': str(target), 'available': target.is_file()})
     results.sort(key=lambda row: (-row['score'], row['skill']))
+    names = {row['name']: row for row in data['skills']}
+    externals = []
+    for ext in data.get('externals', []):
+        hits = [k for k in ext['keywords'] if matches(text, k)]
+        if not hits:
+            continue
+        externals.append({'name': ext['name'], 'display': ext['display'], 'kind': ext['kind'],
+                          'status': ext['status'], 'purpose': ext['purpose'], 'note': ext['note'],
+                          'matched': hits,
+                          'used_by': sorted(n for n, row in names.items()
+                                            if ext['name'] in row.get('requires', []))})
     warnings = [g['message'] for g in data['gaps'] if any(matches(text, k) for k in g['keywords'])]
+    for ext in externals:
+        warnings.append('外部{0}不在本库：{1}（{2}）。{3}{4}'.format(
+            EXTERNAL_LABELS[ext['kind']], ext['display'], ext['status'], ext['purpose'],
+            '' if ext['status'] == 'ready' else ' ' + ext['note']))
     if platform == 'unknown':
         warnings.append('平台未知或混合；实际实现需结合上下文确认，可用 --platform 指定。')
     if not results:
         warnings.append('没有可靠命中；按任务目标人工选择或补充关键词，不自动加载所有技能。')
-    return {'query': query, 'platform': platform, 'candidates': results, 'warnings': warnings,
-            'note': '候选排序不是最终决策；人工核对否定词、平台和任务范围，再读目标 SKILL.md。此脚本不执行技能。'}
+    return {'query': query, 'platform': platform, 'candidates': results, 'externals': externals,
+            'warnings': warnings,
+            'note': 'kind 区分三类：skill=可加载执行、experience=只取原则与数值、external=外部工具清单；'
+                    'externals 是库外 MCP/服务/平台，须先核验可用性。候选排序不是最终决策，'
+                    '人工核对否定词、平台和任务范围再读目标 SKILL.md。此脚本不执行技能。'}
 
 
 def main():

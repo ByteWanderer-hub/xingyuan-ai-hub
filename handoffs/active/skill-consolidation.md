@@ -2,8 +2,25 @@
 
 日期：2026-10-23（北京时间）。
 最后更新：2026-10-27（北京时间）。
-当前状态：主动技能选择规则已发布并安装，路由与安装校验通过；REA 归属已修正并推送。
+当前状态：主动技能选择规则已发布并安装，路由与安装校验通过；REA 归属已修正、三类能力已区分并推送。
 下一步：在后续实际任务中检验主动选用效果。
+
+## 技能 / 外部 MCP / 经验三类区分（2026-10-27）
+
+判定依据只看证据，不按名字：`SKILL.md` 的 frontmatter 说明、`references/` 内容性质、是否存在可执行脚本、是否依赖库外服务。「能直接执行并验收」→ `kind: skill`；「只给原则/数值/判据/案例」→ `kind: experience`；「本机工具清单，需先核对状态」→ `kind: external`。
+
+- 索引 26 条：`skill` **16**、`experience` **9**、`external` **1**。
+  - `skill`：miliastra-code、miliastra-ui、miliastra-motion、miliastra-bb、qianxing-auto-delivery、tiantangzhimen-gia、performance-optimization、systematic-debugging、skill-manager、user-intent-alignment、character-image-design、character-sticker-comic、whalechan-image-character、whalechan-image-comic、slack-gif-creator、qq-sticker-pack。
+  - `experience`：game-design-theory、motion-design、level-design、game-ui-ux、game-feel、code-review、roblox-luau-expert、roblox-security-audit、qianxing-agent。共同证据：无脚本；正文自述 engine-neutral / 第三方参考 / 审视清单（game-design-theory 明确 “NOT for coding”；motion-design 注明 LottieFiles MIT 原样收录）。
+  - `external`：desktop-toolbox（工具清单，状态以 `handoffs/active/tool-adoption.md` 为准，已安装≠已验收）。
+- 新增 `externals[]` 登记库外依赖，与技能分开，避免再把外部能力写成库内技能：
+  - `rea`（mcp，missing）——REA=morluto/rea 逆向工程 MCP，未接入。
+  - `snowluma-onebot`（service，ready）——2026-10-27 探活网关可达、账号在线；`qq-sticker-pack` 的 `requires` 指向它。
+  - `qianxing-platform`（platform，unverified）——本机未见编辑器进程，安装/登录未核实；`miliastra-code`/`-ui`/`-motion`、`tiantangzhimen-gia` 的 `requires` 指向它。
+- `route.py` 变更：候选输出加 `kind`/`requires`；新增 `externals` 匹配与“外部…不在本库”的 warning；`note` 说明三类含义。REA 从 `gaps` 移入 `externals`，`gaps` 只留 platformer 输入、Lottie/Rive/Spine、GIA 生成器三条真实能力缺口。
+- 测试：`test_rea_external_mcp`、`test_kind_classification`（含“experience 条目不得有脚本”的不变式）、`test_externals_section`（kind/status 枚举、requires 只能引用已登记 externals）新增，`python -B -m unittest discover -s scripts/tests -p test_route_skills.py` **41/41 通过**。
+- 入口同步：`skills/xingyuan-router/SKILL.md` 增“三类入口”表与维护表条目，`skills/skill-manager/SKILL.md` 增归类与 externals 登记要求。
+- [ ] 未完成：`qianxing-platform` 与 `desktop-toolbox` 各工具的实际状态仍待在本机核实；REA 接入、编辑器存盘与真机验收均未执行。分类计数是静态判定，客户端是否按 `kind` 区别使用要等真实任务反馈。
 
 ## REA 路由归属修正（2026-10-27）
 
@@ -14,6 +31,8 @@
 - [ ] 未完成：客户端是否按新缺口实际提示，取决于下一次真实任务；本轮只验证路由输出，未做客户端行为测试。
 
 补充：本机 `github.com` 直连超时，本次 push 仅单次命令复用已启用的系统代理（`127.0.0.1:17891`），未改任何网络或 git 全局配置。
+
+后续（同日）：REA 不再留在 `gaps`，已移入 `externals[]`（`kind: mcp`、`status: missing`），对应测试改名 `test_rea_external_mcp`；见上节。
 
 ## 主动技能选择（2026-10-26）
 
