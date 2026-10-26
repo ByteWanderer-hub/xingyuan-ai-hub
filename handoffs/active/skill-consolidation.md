@@ -1,9 +1,19 @@
 # 技能通读、去重与关键词入口
 
 日期：2026-10-23（北京时间）。
-最后更新：2026-10-26（北京时间）。
-当前状态：主动技能选择规则已发布并安装，路由与安装校验通过。
+最后更新：2026-10-27（北京时间）。
+当前状态：主动技能选择规则已发布并安装，路由与安装校验通过；REA 归属已修正并推送。
 下一步：在后续实际任务中检验主动选用效果。
+
+## REA 路由归属修正（2026-10-27）
+
+- [x] 已完成：原 `gaps` 把 `rea` 与 `gia`/`gil` 并入同一条（源自 2026-10-23 “不虚构 platformer、input-systems、rea 等技能”的整理），任何 REA 提问都会返回千星 GIA 提示。经核对，REA 指 GitHub 的 `morluto/rea`（面向 Agent 的逆向工程 MCP，接入 Hopper/Ghidra/JADX/浏览器等工具，MIT），与千星 GIA/GIL 无关，也不是 GIA 生成器，本库确无对应技能。
+- [x] 已完成：拆为独立缺口（`rea`/`morluto/rea`/`逆向工程`/`逆向分析`/`reverse engineering`/`ghidra`/`hopper`/`jadx`），提示语写明其真实身份与“按 MCP 单独接入”的边界；GIA/GIL 缺口保留原千星语义。`skills/xingyuan-router/SKILL.md` 细分入口同步拆成两条。
+- [x] 已完成：新增 `test_rea_reverse_engineering_gap` 正反例（REA/逆向查询只出 REA 缺口，GIA 查询不带 REA 文案），`python -B -m unittest discover -s scripts/tests -p test_route_skills.py` **39/39 通过**。
+- [x] 已完成：提交 `2cb5cb7` 正常推送，`ls-remote` 核实远端 `main` 同 SHA；使用副本（`C:\Users\admin\.dsh\skills`）与该提交内容一致。
+- [ ] 未完成：客户端是否按新缺口实际提示，取决于下一次真实任务；本轮只验证路由输出，未做客户端行为测试。
+
+补充：本机 `github.com` 直连超时，本次 push 仅单次命令复用已启用的系统代理（`127.0.0.1:17891`），未改任何网络或 git 全局配置。
 
 ## 主动技能选择（2026-10-26）
 
@@ -37,7 +47,7 @@
 | 奖励章节重复教学案例/教程原则 | gameplay-elements链接design-principles的教学章节，保留奖励策略 |
 | 网格换算中的旧锚点公式 | 合并到design-guide唯一公式入口，避免漏半宽高 |
 | 旧案例/角色流程与现行入口混杂 | 添加明确适用边界、历史说明与权威入口，保留独有案例数据 |
-| 外部技能名误当已安装能力 | 标明外部参考并由路由报告缺口，不虚构platformer、input-systems、rea等技能 |
+| 外部技能名误当已安装能力 | 标明外部参考并由路由报告缺口，不虚构platformer、input-systems等技能；rea 经 2026-10-27 核对实为 morluto/rea 逆向工程 MCP，已拆为独立缺口 |
 
 新增 [xingyuan-router](../../skills/xingyuan-router/SKILL.md)：中英文关键词、显式技能名、平台筛选、常见否定平台、缺失目标提示。路由只给候选，随后读取目标SKILL执行，不自动扩大权限。覆盖原14项技能；默认安装为11项（入口+原10项），`--all`为15项。
 
