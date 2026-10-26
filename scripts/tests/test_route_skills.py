@@ -2,6 +2,7 @@
 from pathlib import Path
 import importlib.util
 import json
+import re
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -220,6 +221,27 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(result['externals'][0]['kind'], 'mcp')
         self.assertEqual(result['externals'][0]['status'], 'missing')
         self.assertEqual(result['candidates'], [])
+
+    def test_self_description_probe(self):
+        """每个技能的 description 应该能路由回自己；零网络、零安装的回归探针。"""
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
+        total = ok1 = 0
+        missed = []
+        for row in data['skills']:
+            md = ROOT/'skills'/row['name']/'SKILL.md'
+            text = md.read_text(encoding='utf-8')
+            found = re.search(r'^description:\s*(.+?)(?:\n\w+:|\n---)', text, re.S | re.M)
+            desc = re.sub(r'\s+', ' ', found.group(1)).strip().strip('"').strip("'") if found else ''
+            if not desc:
+                continue
+            total += 1
+            names = self.names(desc)
+            if row['name'] not in names:
+                missed.append(row['name'])
+            elif names[0] == row['name']:
+                ok1 += 1
+        self.assertEqual(missed, [], '这些技能用自己的 description 都路由不到自己')
+        self.assertGreaterEqual(ok1 / total, 0.75, f'top-1 命中率过低：{ok1}/{total}')
 
     def test_bug_with_engine(self):
         names = self.names('千星 Lua require 报错')

@@ -13,3 +13,17 @@
   - `setup-matt-pocock-skills` 会改项目的 issue tracker 配置，属写操作，执行前须确认目标仓库。
   - 上游宣传的收益与基准不在本库证据范围。
 - 更新方式：上游有新提交时按 commit 差异重做本文件与目录，不手工改已导入正文。
+
+## 验证证据（2026-10-27，零网络、零安装、零模型调用）
+
+| 检查 | 方法 | 结果 |
+| --- | --- | --- |
+| 结构、元数据、本地引用 | `python -B scripts/verify_skills.py` | PASSED：58 个 SKILL.md、167 条本地引用、3 条外部引用 |
+| 路由与分类 | `python -B -m unittest discover -s scripts/tests -p 'test_*.py'` | 94 项 OK（1 skipped），含 `test_matt_pocock_import`、`test_self_description_probe` |
+| 绝对路径 / 凭据 | 正则扫 30 个目录的 86 个文件 | 绝对路径 0；`api_key/token/secret/credential` 6 处均为正文描述（如向导要求用户填写 `.env`），无真实凭据 |
+| 平台专有假设 | 同一次扫描 | Claude Code 相关 3 个文件（`git-guardrails-claude-code`、`pr`）、斜杠命令 2 个（`handoff`、`teach`）、Node 工具链 2 个（`migrate-to-shoehorn`、`setup-pre-commit`）→ 在 DSH 需改写，仅作参考 |
+| 随包脚本 | 列出全部 `.sh` | 3 个：`block-dangerous-git.sh`（Claude Code hook，依赖 `jq`）、`hitl-loop.template.sh`、`wizard/template.sh`（后两者为模板，需自行复制改写）；import 过程未执行任何脚本 |
+| 自描述探针 | 用每个技能自己的 description 当查询跑路由 | 57 条中 47 条 top-1（82%）、56 条进 top-3、0 条完全失配；Matt 30 条全部能路由回自己。据此补了 46 个英文触发词（如 `test-driven development`、`relentless interview`、`whale-chan comics`） |
+| 漂移检测 | `skills/MATT_POCOCK_SKILLS.sha256` | 86 个文件的 SHA-256；上游同步或手工改正文后用它核对差异 |
+
+仍**未验证**：这些技能在真实任务中的行为效果；Claude Code/Node 假设在 DSH 下是否可用；上游宣传的收益数字。自描述探针只证明“能被自己的描述找到”，不证明“用得好”。

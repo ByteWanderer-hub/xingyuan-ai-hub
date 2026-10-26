@@ -12,6 +12,7 @@
 - 一个真实冲突：初版给 `retro` 的关键词含单字“复盘”，把「项目复盘优化技能」「复盘沟通风格」两条既有路由抢走；已收窄为「代码复盘/会话复盘/开发复盘/retro/retrospective」，两条原有测试恢复通过。这是守则里“关键词要用用户表达、同时防误触发”的实例。
 - **XERJ**：`xerj-org/xerj`（Apache-2.0，commit `6a7d7da`）= Rust 本地搜索引擎 + MCP server，不是技能；登记为 `externals[]` 的 `xerj`（kind mcp、status missing），写明依赖（二进制在 PATH、本地节点默认 `http://localhost:9200`）与“上游 DSH 插件包自称未在 DSH 验证”。未下载二进制、未装插件、未改 profile。
 - 验证：`python -B -m unittest discover -s scripts/tests -p 'test_*.py'` **93 项 OK（1 skipped）**，新增 `test_matt_pocock_import`（含 code-review 合并断言、正反例）与 `test_xerj_external_mcp`；`verify_skills.py` PASSED（58 个 SKILL.md、本地引用 167、外部引用 3）。
+- 低成本复核（同日追加，零网络/零安装/零模型调用）：静态扫 86 个文件 → 绝对路径 0、无真实凭据、3 个 `.sh`（1 个 Claude Code hook + 2 个模板，未执行）、Claude Code 假设集中在 3 个文件；自描述探针（把每个技能的 description 当查询）→ 57 条里 47 条 top-1、56 条 top-3、0 条失配，并据缺口补了 46 个英文触发词；新增 `test_self_description_probe`（无失配 + top-1 ≥ 75% 门槛）与 `skills/MATT_POCOCK_SKILLS.sha256`（86 文件哈希，用于上游漂移核对）。全量测试 94 项 OK（1 skipped），verify PASSED。
 - [ ] 未完成：30 个导入技能在真实任务中的效果未验证；`git-guardrails-claude-code`、`setup-pre-commit`、`wizard` 的 Claude Code/Node 假设未改写适配 DSH；XERJ 与 ponytail 的上游收益数字未复测。
 
 ## Ponytail 收录（2026-10-27）
