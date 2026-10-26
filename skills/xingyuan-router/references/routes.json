@@ -497,6 +497,25 @@
         "鲸鱼娘表情",
         "deepseek娘表情"
       ]
+    },
+    {
+      "name": "user-intent-alignment",
+      "purpose": "本用户沟通风格、上下文指代与局部纠正对齐；以证据复盘并减少重复解释",
+      "platform": "general",
+      "keywords": [
+        "沟通风格",
+        "对话风格",
+        "对话的风格",
+        "沟通习惯",
+        "理解我的意思",
+        "听懂我的话",
+        "我的意思是",
+        "你理解错了",
+        "按我的习惯",
+        "沟通复盘",
+        "user intent alignment",
+        "communication style"
+      ]
     }
   ],
   "gaps": [

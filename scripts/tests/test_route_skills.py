@@ -16,6 +16,22 @@ class RoutingTests(unittest.TestCase):
     def names(self, query, platform='auto'):
         return [x['skill'] for x in route.lookup(query, platform)['candidates']]
 
+    def test_user_intent_alignment(self):
+        for query in ('整理我与你对话的风格，让你更好听懂我的话',
+                      '我的意思是之前选的那一批', '你理解错了，按我的习惯理解',
+                      '复盘沟通风格', 'communication style', '$user-intent-alignment'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'user-intent-alignment')
+
+    def test_user_intent_alignment_scope(self):
+        for query in ('千星角色对话系统', '继续', '装到D盘', '重做成功界面',
+                      '写一个聊天机器人', '总结项目文档', '生成游戏角色人格'):
+            with self.subTest(query=query):
+                self.assertNotIn('user-intent-alignment', self.names(query))
+        names = self.names('千星UI，你理解错了，只改成功界面')
+        self.assertIn('user-intent-alignment', names)
+        self.assertIn('miliastra-ui', names)
+
     def test_whalechan_character_and_comic(self):
         for query in ('鲸鱼娘人设图', 'DeepSeek娘立绘', '鲸鱼娘插画',
                       'whale-chan portrait', '$whalechan-image-character'):
