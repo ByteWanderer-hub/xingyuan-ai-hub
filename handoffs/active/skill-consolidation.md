@@ -5,6 +5,18 @@
 当前状态：主动技能选择规则已发布并安装，路由与安装校验通过；REA 归属已修正、三类能力已区分；新技能录用守则已落地并推送。
 下一步：在后续实际任务中检验主动选用效果；下一次录入新技能时按录用守则走一遍并记录实际卡点。
 
+## 未证明条目移出（2026-10-27）
+
+按用户决定「把没证明的踢出去」，只保留能在本环境证明或可执行的部分：
+
+- 移出 `git-guardrails-claude-code`：它写 `.claude/settings.json` hook，DSH 无此机制，属“装了也用不了”。已删目录与索引行，`kind: skill` 18 项、`experience` 37 项、`external` 1 项，索引 56 条。
+- 移出 `externals[]` 的 `rea`、`xerj`、`qianxing-platform`：本机 `Get-Command rea/xerj` 均未找到，DSH profile 的 MCP 配置里只有 snowluma 两个与 web-search-safe，三者都无法证明可用。`miliastra-code/-ui/-motion`、`tiantangzhimen-gia` 原先的 `requires: [qianxing-platform]` 一并清除，避免悬空引用。
+- 保留 `snowluma-onebot`（`status: ready`，2026-10-27 探活 gateway 在线、账号在线），它是唯一被证明的外部依赖，`qq-sticker-pack` 的 `requires` 仍指向它。
+- 保留其余 29 个导入技能（27 经验 + 2 技能），但文档明确写“行为未验证”：本轮只证明结构、引用、路由可达、安装哈希，未证明真实任务效果。
+- 索引新增回归测试 `test_unproven_capabilities_not_indexed`：REA/XERJ/千星编辑器查询不得再出现 externals 条目，`git-guardrails-claude-code` 不得回到索引或目录。
+- 矛盾记录：`handoffs/active/tool-adoption.md` 写“用户已确认 REA 安装在电脑”，但 2026-10-27 在本机未找到 `rea` 可执行与 MCP 配置；该说法可能指另一台电脑，未改动原记录，仅在此标记待核。
+- 验证：路由测试 44 项 OK；全量测试与 verify_skills 结果见下条。
+
 ## Matt Pocock 技能集与 XERJ（2026-10-27）
 
 - **Matt Pocock Skills**：上游 `mattpocock/skills`（MIT，commit `5beb35b`）；`skills/` 下 engineering 20 + productivity 7 + misc 4 = 31 个可用技能，另有 7 个 `in-progress` 与空 `deprecated`。导入 30 个（原样复制，含各自 references/模板/脚本），`code-review` 与上游同名，按守则合并为本库 `code-review/references/matt-pocock.md` 并在 SKILL.md 加指路，不新增重复条目。`in-progress`、`.claude-plugin`、仓库级 `scripts/`、`docs/`、`CHANGELOG` 未收。

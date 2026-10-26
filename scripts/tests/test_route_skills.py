@@ -126,29 +126,23 @@ class RoutingTests(unittest.TestCase):
         warnings = route.lookup('千星参考图转 GIA')['warnings']
         self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in warnings))
 
-    def test_rea_external_mcp(self):
-        for query in ('REA 默认调用的是不是 morluto/rea', 'morluto/rea 逆向工程',
-                      '用 ghidra 拆一个 Electron 应用', '把安装包逆向分析一下'):
-            with self.subTest(query=query):
-                result = route.lookup(query)
-                self.assertEqual([e['name'] for e in result['externals']], ['rea'])
-                self.assertEqual(result['externals'][0]['kind'], 'mcp')
-                self.assertEqual(result['externals'][0]['status'], 'missing')
-                self.assertTrue(any('morluto/rea' in warning for warning in result['warnings']))
-                self.assertFalse(any('GIA 地图生成器' in warning for warning in result['warnings']))
-        for query in ('千星参考图转 GIA', '千星图片转 GIA'):
+    def test_unproven_capabilities_not_indexed(self):
+        """REA / XERJ / 千星编辑器 / Claude Code 专用技能：未证明可用，不得留在索引里。"""
+        for query in ('REA 逆向工具怎么装', '装个 XERJ 做本地检索', '千星编辑器打不开'):
             with self.subTest(query=query):
                 result = route.lookup(query)
                 self.assertEqual(result['externals'], [])
-                self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in result['warnings']))
-                self.assertFalse(any('morluto/rea' in warning for warning in result['warnings']))
-        self.assertEqual(self.names('REA 逆向工具怎么装'), [])
+        self.assertEqual(route.lookup('REA 逆向工具怎么装')['candidates'], [])
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
+        names = {row['name'] for row in data['skills']}
+        self.assertNotIn('git-guardrails-claude-code', names)
+        self.assertFalse((ROOT/'skills/git-guardrails-claude-code').exists())
 
     def test_kind_classification(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         kinds = {row['name']: row['kind'] for row in data['skills']}
         self.assertEqual(set(kinds.values()), {'skill', 'external', 'experience'})
-        self.assertEqual(sum(1 for v in kinds.values() if v == 'skill'), 19)
+        self.assertEqual(sum(1 for v in kinds.values() if v == 'skill'), 18)
         self.assertEqual(sum(1 for v in kinds.values() if v == 'experience'), 37)
         self.assertEqual(sum(1 for v in kinds.values() if v == 'external'), 1)
         for name, kind in kinds.items():
@@ -166,7 +160,7 @@ class RoutingTests(unittest.TestCase):
     def test_externals_section(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         externals = {e['name']: e for e in data['externals']}
-        self.assertEqual(set(externals), {'rea', 'snowluma-onebot', 'qianxing-platform', 'xerj'})
+        self.assertEqual(set(externals), {'snowluma-onebot'})
         for name, ext in externals.items():
             with self.subTest(external=name):
                 self.assertIn(ext['kind'], {'mcp', 'service', 'platform', 'software'})
@@ -182,7 +176,7 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(result['externals'][0]['name'], 'snowluma-onebot')
         self.assertEqual(result['externals'][0]['status'], 'ready')
         self.assertIn('qq-sticker-pack', result['externals'][0]['used_by'])
-        self.assertEqual(route.lookup('千星编辑器怎么打开')['externals'][0]['status'], 'unverified')
+        self.assertEqual(route.lookup('千星编辑器怎么打开')['externals'], [])
 
     def test_ponytail_experience_route(self):
         for query in ('用 ponytail 模式写这个功能', '这段代码过度设计了，帮我精简', 'YAGNI 一下'):
@@ -197,7 +191,7 @@ class RoutingTests(unittest.TestCase):
     def test_matt_pocock_import(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         kinds = {row['name']: row['kind'] for row in data['skills']}
-        for name in ('diagnosing-bugs', 'wizard', 'git-guardrails-claude-code'):
+        for name in ('diagnosing-bugs', 'wizard'):
             self.assertEqual(kinds.get(name), 'skill', name)
         for name in ('tdd', 'to-spec', 'to-tickets', 'implement', 'pr', 'triage', 'retro',
                      'grilling', 'teach', 'handoff', 'writing-for-agents', 'research',
@@ -214,13 +208,6 @@ class RoutingTests(unittest.TestCase):
             with self.subTest(query=query):
                 for name in ('tdd', 'triage', 'grilling', 'handoff'):
                     self.assertNotIn(name, self.names(query))
-
-    def test_xerj_external_mcp(self):
-        result = route.lookup('装个 XERJ 做本地检索')
-        self.assertEqual([e['name'] for e in result['externals']], ['xerj'])
-        self.assertEqual(result['externals'][0]['kind'], 'mcp')
-        self.assertEqual(result['externals'][0]['status'], 'missing')
-        self.assertEqual(result['candidates'], [])
 
     def test_self_description_probe(self):
         """每个技能的 description 应该能路由回自己；零网络、零安装的回归探针。"""

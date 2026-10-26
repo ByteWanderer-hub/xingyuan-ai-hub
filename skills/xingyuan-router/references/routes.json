@@ -4,9 +4,6 @@
     {
       "name": "miliastra-code",
       "kind": "skill",
-      "requires": [
-        "qianxing-platform"
-      ],
       "purpose": "千星脚本、API、节点图与工程实现",
       "platform": "qianxing",
       "keywords": [
@@ -30,9 +27,6 @@
     {
       "name": "miliastra-ui",
       "kind": "skill",
-      "requires": [
-        "qianxing-platform"
-      ],
       "purpose": "千星 UI/UX 需求、布局、控件选型、模板、多端适配、绑定与试玩；同型资产及纯图片控件 GIA/Lua",
       "platform": "qianxing",
       "keywords": [
@@ -98,9 +92,6 @@
     {
       "name": "miliastra-motion",
       "kind": "skill",
-      "requires": [
-        "qianxing-platform"
-      ],
       "purpose": "千星 UI 动效与 UI 粒子：时长/缓动/编排/状态反馈的数值口径，以及粒子池与预算",
       "platform": "qianxing",
       "keywords": [
@@ -148,9 +139,6 @@
     {
       "name": "tiantangzhimen-gia",
       "kind": "skill",
-      "requires": [
-        "qianxing-platform"
-      ],
       "purpose": "《天堂之门》设计图到完整客户端 GIA 的离线候选与验收",
       "platform": "qianxing",
       "keywords": [
@@ -923,19 +911,6 @@
       ]
     },
     {
-      "name": "git-guardrails-claude-code",
-      "kind": "skill",
-      "purpose": "为 Claude Code 加 git 危险命令拦截钩子（DSH 需改写）",
-      "platform": "general",
-      "keywords": [
-        "git 保护",
-        "危险命令拦截",
-        "git guardrails",
-        "block dangerous git commands",
-        "git safety hooks"
-      ]
-    },
-    {
       "name": "migrate-to-shoehorn",
       "kind": "experience",
       "purpose": "把测试里的 as 断言迁移到 @total-typescript/shoehorn",
@@ -1096,24 +1071,6 @@
   ],
   "externals": [
     {
-      "name": "rea",
-      "display": "REA（morluto/rea）",
-      "kind": "mcp",
-      "status": "missing",
-      "purpose": "面向 Agent 的逆向工程 MCP：把 Hopper/Ghidra/JADX/浏览器等工具接给 AI Agent，用于应用行为、Electron/JS 结构与原生二进制分析（MIT）。",
-      "note": "本库没有逆向工程技能，REA 也不是 GIA/GIL 工具或 GIA 生成器；需要时按 MCP 单独接入，并在目标环境核验工具可用性与分析边界。",
-      "keywords": [
-        "rea",
-        "morluto/rea",
-        "逆向工程",
-        "逆向分析",
-        "reverse engineering",
-        "ghidra",
-        "hopper",
-        "jadx"
-      ]
-    },
-    {
       "name": "snowluma-onebot",
       "display": "SnowLuma / NapCat OneBot 网关",
       "kind": "service",
@@ -1128,35 +1085,6 @@
         "qq-bridge",
         "add_custom_face",
         "modify_custom_face"
-      ]
-    },
-    {
-      "name": "qianxing-platform",
-      "display": "千星奇域编辑器与脚本插件",
-      "kind": "platform",
-      "status": "unverified",
-      "purpose": "千星奇域客户端编辑器、节点图/Lua 插件与存盘环境；miliastra-* 与《天堂之门》GIA 的落地、试玩和真机验收都在这里发生。",
-      "note": "2026-10-27 本机未检测到编辑器进程，是否安装/登录未核实；文档结论与 API 说明不能替代编辑器存盘和真机试玩。",
-      "keywords": [
-        "千星编辑器",
-        "miliastra editor",
-        "编辑器插件",
-        "qianxing editor"
-      ]
-    },
-    {
-      "name": "xerj",
-      "display": "XERJ（xerj-org/xerj）",
-      "kind": "mcp",
-      "status": "missing",
-      "purpose": "Rust 单二进制的本地搜索引擎兼 MCP server：索引代码、文档、日志、PDF，提供 BM25/向量/混合检索并兼容 Elasticsearch API，让编码 Agent 少读整文件、少耗 token。",
-      "note": "需要 xerj 二进制在 PATH（或绝对路径）、本机已有 xerj 节点监听（默认 http://localhost:9200）；上游自带的 DSH 插件包（dsh/）自称尚未在 DSH 验证。本库只登记依赖，不含安装与二进制。",
-      "keywords": [
-        "xerj",
-        "本地搜索引擎",
-        "代码检索 mcp",
-        "xerj mcp",
-        "local search engine"
       ]
     }
   ]
