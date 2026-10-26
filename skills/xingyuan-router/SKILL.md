@@ -41,6 +41,8 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 
 ## 快速表
 
+下表除标注外均为 `skill`；标（经验）的是只提供原则/数值/判据的 reference 类，标（外部）的是本机工具清单。
+
 | 关键词/意图 | 主技能 | 按需补充 |
 | --- | --- | --- |
 | 千星 Lua、API、变量、信号、require、对话、部署 | `miliastra-code` | 故障加 `systematic-debugging` |
@@ -48,17 +50,17 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 千星 UI 动效、状态反馈、ui 粒子、粒子池与预算 | `miliastra-motion` | 只给数值口径与预算方法；脚本 API 与真机预算加 `miliastra-code`，控件与素材加 `miliastra-ui` |
 | 《天堂之门》设计图转完整客户端 GIA | `tiantangzhimen-gia` | 先确认设计数据与目标地图模板；写入存档另遵守 `miliastra-code` |
 | UGC 需求分析、范围歧义、验收标准 | `miliastra-bb` | 范围明确后转实现，不重复审批 |
-| 实现/创作/修复角色提示词 | `qianxing-agent` | 只选对应角色 |
+| 实现/创作/修复角色提示词 | `qianxing-agent`（经验） | 只选对应角色 |
 | 自动交付、自主派工、继续工作流 | `qianxing-auto-delivery` | 按阶段选实现技能，不自动扩大部署权限 |
-| 玩法、玩家动机、叙事、好不好玩 | `game-design-theory` | 空间安排加 `level-design` |
-| 关卡、白盒、动线、节奏、可达性 | `level-design` | 千星落地前核对实际工程能力 |
+| 玩法、玩家动机、叙事、好不好玩 | `game-design-theory`（经验） | 空间安排加 `level-design` |
+| 关卡、白盒、动线、节奏、可达性 | `level-design`（经验） | 千星落地前核对实际工程能力 |
 | 游戏卡顿、掉帧、渲染优化、帧耗时、Draw Call、GC 尖峰 | `performance-optimization` | 千星测量边界读其 references/miliastra.md；Lua/API 加 `miliastra-code`，动效加 `miliastra-motion`；刻意 hit-stop 仍走 `game-feel` |
-| 打击感、顿帧、震动、缓动、juice | `game-feel` | 引擎技能实现 API；不是移动控制器技能 |
-| 通用动效原则、时长/缓动表、迪士尼动画原则（第三方参考） | `motion-design` | 只提供平台无关的原则与数值；千星落地加 `miliastra-motion` |
-| 通用 HUD、安全区、焦点导航、多端适配 | `game-ui-ux` | 明确千星时以 `miliastra-ui` 为主，本技能补充原理 |
+| 打击感、顿帧、震动、缓动、juice | `game-feel`（经验） | 引擎技能实现 API；不是移动控制器技能 |
+| 通用动效原则、时长/缓动表、迪士尼动画原则（第三方参考） | `motion-design`（经验） | 只提供平台无关的原则与数值；千星落地加 `miliastra-motion` |
+| 通用 HUD、安全区、焦点导航、多端适配 | `game-ui-ux`（经验） | 明确千星时以 `miliastra-ui` 为主，本技能补充原理 |
 | 报错、没效果、偶发失败、根因 | `systematic-debugging` | 加目标平台工程技能 |
-| 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox` | 先检查本机可用性和验收状态；不强行启动 GUI |
-| 代码审查、回归风险 | `code-review` | 不因审查擅自修改代码 |
+| 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox`（外部） | 先检查本机可用性和验收状态；不强行启动 GUI |
+| 代码审查、回归风险 | `code-review`（经验） | 不因审查擅自修改代码 |
 | 技能文档、去重、合并、资料库整理、把项目经验写入技能 | `skill-manager` | 维护真源与引用；普通项目总结不触发技能修改 |
 | 沟通风格、我的意思是、你理解错了；优化提示词/系统提示词 | `user-intent-alignment` | 理解纠正先修当前任务；明确要求时才交付提示词；按长期授权校准有证据的偏好，普通“对话/继续”不启动复盘 |
 | QQ 机器人表情包/贴纸、自定义表情上架、表情发不出去 | `qq-sticker-pack` | 美术画风走 `design`；千星平台图片资产走 `miliastra-ui`；发送链路排错可加 `systematic-debugging` |
@@ -67,7 +69,7 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 生成表情包、角色贴纸、表情差分、角色漫画 | `character-sticker-comic` | 任意角色图像创作；QQ 上架/发送用 `qq-sticker-pack`，鲸鱼娘优先专用技能 |
 | 鲸鱼娘 / DeepSeek娘人设图、立绘、主题插画 | `whalechan-image-character` | 专用角色身份锁定，不当作任意人设生成器；本地脚本先读技能 runtime 依赖说明，保留上游授权范围 |
 | 鲸鱼娘 / DeepSeek娘表情包、1/2/4 格反转漫画 | `whalechan-image-comic` | 美术与漫画生成；Windows 锁兼容已补充，仍需 ImageMagick；QQ 上架和发送另加 `qq-sticker-pack`，通用表情包不默认套用鲸鱼娘身份 |
-| 明确 Roblox/Luau 开发 | `roblox-luau-expert` | 明确反作弊加 `roblox-security-audit` |
+| 明确 Roblox/Luau 开发 | `roblox-luau-expert`（经验） | 明确反作弊加 `roblox-security-audit` |
 
 ## 细分入口与缺口
 
