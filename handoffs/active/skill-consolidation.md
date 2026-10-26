@@ -2,8 +2,20 @@
 
 日期：2026-10-23（北京时间）。
 最后更新：2026-10-27（北京时间）。
-当前状态：主动技能选择规则已发布并安装，路由与安装校验通过；REA 归属已修正、三类能力已区分并推送。
-下一步：在后续实际任务中检验主动选用效果。
+当前状态：主动技能选择规则已发布并安装，路由与安装校验通过；REA 归属已修正、三类能力已区分；新技能录用守则已落地并推送。
+下一步：在后续实际任务中检验主动选用效果；下一次录入新技能时按录用守则走一遍并记录实际卡点。
+
+## 新技能录用守则（2026-10-27）
+
+录入前的旧规则是散的：AGENTS「关键词入口联动维护」只说必须同步入口，`xingyuan-router` 的维护表按“变更类型”列要求，`skill-manager` 第 4–5 步提来源/许可与 kind，`local-skill-sync.md` 第 3 步管导入，但**没有一条规则在写索引之前先判定类别**，也没写“什么情况不该建技能”。本次补齐为单一守则：
+
+- 全文 [skills/skill-manager/references/admission.md](../../skills/skill-manager/references/admission.md)：顺序判定表（外部依赖 → 技能 → 经验 → 外部工具清单 → 不录用）、准入硬门槛（来源/许可/安全/结构/去重）、写索引顺序、常见误判与改判、完成定义。
+- `skill-manager/SKILL.md` 增「新技能录用守则」摘要与链接，维护步骤改为 6 步（先定类别再写索引、跑全量测试与 `verify_skills.py`）。
+- `xingyuan-router/SKILL.md` 维护表增「新增/导入技能、接入 MCP/服务前」一行，编号修正为 1–6，第 1 步即“先定类别，再写索引”。
+- `AGENTS.md`「关键词入口联动维护」增一句：录入前按录用守则判定类别并过门槛，类别未定不写索引，外部依赖进 `externals[]`。
+- 判定样例：REA→外部 MCP（missing）；SnowLuma 网关→服务（ready）；motion-design/game-feel 等 9 项→经验（无脚本）；desktop-toolbox→外部工具清单。
+- 验证：`python -B -m unittest discover -s scripts/tests -p 'test_*.py'` **90 项 OK（1 skipped）**；`python -B scripts/verify_skills.py` PASSED（27 个 SKILL.md、本地引用 133、不可变素材 passed）。本轮不改路由数据，`test_route_skills` 用例未变。
+- [ ] 未完成：尚未用一次真实新技能录入演练该守则；客户端是否按 `kind` 区别处理、安装副本之外的工程侧发现仍未验证。
 
 ## 技能 / 外部 MCP / 经验三类区分（2026-10-27）
 
