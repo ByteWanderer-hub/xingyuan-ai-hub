@@ -16,6 +16,23 @@ class RoutingTests(unittest.TestCase):
     def names(self, query, platform='auto'):
         return [x['skill'] for x in route.lookup(query, platform)['candidates']]
 
+    def test_whalechan_character_and_comic(self):
+        for query in ('鲸鱼娘人设图', 'DeepSeek娘立绘', '鲸鱼娘插画',
+                      'whale-chan portrait', '$whalechan-image-character'):
+            self.assertEqual(self.names(query)[0], 'whalechan-image-character')
+        for query in ('鲸鱼娘表情包', 'DeepSeek娘漫画', '鲸鱼娘四格',
+                      'whalechan meme', '$whalechan-image-comic'):
+            self.assertEqual(self.names(query)[0], 'whalechan-image-comic')
+
+    def test_whalechan_scope_boundaries(self):
+        for query in ('原创角色人设图', '普通表情包生成', '千星UI图片转GIA',
+                      'QQ机器人表情包上传收藏', 'Unity character design'):
+            self.assertNotIn('whalechan-image-character', self.names(query))
+            self.assertNotIn('whalechan-image-comic', self.names(query))
+        names = self.names('鲸鱼娘表情包上传到QQ机器人收藏')
+        self.assertIn('whalechan-image-comic', names)
+        self.assertIn('qq-sticker-pack', names)
+
     def test_qianxing_assets(self):
         self.assertEqual(self.names('千星找图片图标素材')[0], 'miliastra-ui')
         self.assertNotIn('qianxing-auto-delivery', self.names('千星找图片图标素材'))

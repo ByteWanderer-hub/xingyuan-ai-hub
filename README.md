@@ -6,6 +6,8 @@ ChatGPT × Codex 的私有共享知识、技能和任务交接仓库。
 
 2026-10-25 新增 [performance-optimization](skills/performance-optimization/SKILL.md)（上游 Apache-2.0 的中文校正版），涵盖游戏卡顿/帧耗时分析、CPU 渲染提交与 GPU 区分、对象池/预算及千星测量边界。
 
+2026-10-26 收录 [whalechan-image-character](skills/whalechan-image-character/SKILL.md) 与 [whalechan-image-comic](skills/whalechan-image-comic/SKILL.md)，用于 DeepSeek 鲸鱼娘立绘、人设与漫画表情。来源、版本和分层授权见各包 UPSTREAM.md；保留完整依赖素材，安装不调用生图接口。
+
 ## 唯一真源与维护方式
 
 **本仓库 main 的 skills/ 是用户共享技能的唯一正式真源。** 电脑上的仓库克隆用于编辑，客户端技能目录仅作为安装副本；完整约束见 [Agent 规则](AGENTS.md)。

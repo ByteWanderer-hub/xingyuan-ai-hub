@@ -465,6 +465,38 @@
         "表情发不出去",
         "enoent emoji_id"
       ]
+    },
+    {
+      "name": "whalechan-image-character",
+      "purpose": "DeepSeek 鲸鱼娘人设图、角色立绘与主题插画；身份参考与比例质检",
+      "platform": "general",
+      "keywords": [
+        "鲸鱼娘立绘",
+        "鲸鱼娘人设",
+        "鲸鱼娘设定图",
+        "鲸鱼娘插画",
+        "deepseek娘立绘",
+        "deepseek娘人设",
+        "whale-chan portrait",
+        "whalechan illustration"
+      ]
+    },
+    {
+      "name": "whalechan-image-comic",
+      "purpose": "DeepSeek 鲸鱼娘表情包与 1/2/4 格漫画；从事实素材提炼笑点并质检",
+      "platform": "general",
+      "keywords": [
+        "鲸鱼娘表情包",
+        "鲸鱼娘漫画",
+        "鲸鱼娘四格",
+        "鲸鱼娘反转漫画",
+        "deepseek娘表情包",
+        "deepseek娘漫画",
+        "whale-chan comic",
+        "whalechan meme",
+        "鲸鱼娘表情",
+        "deepseek娘表情"
+      ]
     }
   ],
   "gaps": [

@@ -1,0 +1,4 @@
+interface:
+  display_name: "whalechan-image-character"
+  short_description: "Select, confirm, and generate verified Whale-chan art"
+  default_prompt: "Use $whalechan-image-character to propose illustration directions in a table, let me select, then separately confirm quantities, visual settings and candidate budget before generation; default to one image per selected proposal."

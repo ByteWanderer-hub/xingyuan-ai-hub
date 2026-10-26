@@ -1,3 +1,6 @@
 # Migration-baseline assets must retain their exact Git blob bytes on checkout.
 /skills/miliastra-code/assets/Image_sample_by_id.json -text
 /skills/miliastra-code/assets/信号节点图_4类型整改_侦探杀_20260929.gia -text
+
+# Preserve imported upstream file bytes and catalog fingerprints.
+/skills/whalechan-image-*/** -text

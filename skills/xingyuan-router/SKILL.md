@@ -35,6 +35,8 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 代码审查、回归风险 | `code-review` | 不因审查擅自修改代码 |
 | 技能文档、去重、合并、资料库整理、把项目经验写入技能 | `skill-manager` | 维护真源与引用；普通项目总结不触发技能修改 |
 | QQ 机器人表情包/贴纸、自定义表情上架、表情发不出去 | `qq-sticker-pack` | 美术画风走 `design`；千星平台图片资产走 `miliastra-ui`；发送链路排错可加 `systematic-debugging` |
+| 鲸鱼娘 / DeepSeek娘人设图、立绘、主题插画 | `whalechan-image-character` | 专用角色身份锁定，不当作任意人设生成器；保留上游授权范围 |
+| 鲸鱼娘 / DeepSeek娘表情包、1/2/4 格反转漫画 | `whalechan-image-comic` | 美术与漫画生成；QQ 上架和发送另加 `qq-sticker-pack`，通用表情包不默认套用鲸鱼娘身份 |
 | 明确 Roblox/Luau 开发 | `roblox-luau-expert` | 明确反作弊加 `roblox-security-audit` |
 
 ## 细分入口与缺口
