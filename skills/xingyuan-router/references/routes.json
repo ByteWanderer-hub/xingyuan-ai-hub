@@ -1106,6 +1106,54 @@
         "jadx"
       ],
       "install": "GitHub morluto/rea（MIT）；需 Node 与 Hopper/Ghidra/JADX 等逆向工具，按上游 README 接入 MCP（或先用命令行 rea 验证可用）。"
+    },
+    {
+      "name": "mcp-snowluma",
+      "display": "qq-bridge MCP（mcp-snowluma，QQ 工具桥）",
+      "kind": "mcp",
+      "status": "unverified",
+      "purpose": "qq-bridge 的受限 QQ 工具桥：发消息、表情、图片、收藏等 qq_* 工具，走 SnowLuma/NapCat 网关。",
+      "note": "2026-10-27 本机状态：工具已注册在 profile，但本轮没有会话 key/token，未实际调用；状态按“未验证”记，换机需重测。",
+      "install": "由 D:\\qqbot\\qq-bridge 提供（src\\mcp-snowluma-safe.js），profile 里 id 为 mcp-snowluma，配置在 cordis.patch.yml 的 qq-bridge MCP 区块（由 scripts/setup-dsh.mjs 维护）；恢复条件：node 可用、qq-bridge 文件在、SnowLuma 网关在线。",
+      "keywords": [
+        "qq 桥接",
+        "qq-bridge",
+        "mcp-snowluma",
+        "qq 工具",
+        "发消息桥"
+      ]
+    },
+    {
+      "name": "mcp-snowluma-host",
+      "display": "qq-bridge MCP（mcp-snowluma-host，宿主/探活桥）",
+      "kind": "mcp",
+      "status": "ready",
+      "purpose": "qq-bridge 的宿主侧 MCP：进程/网关探活（snowluma_status）与宿主管理指令。",
+      "note": "2026-10-27 实测：snowluma_status 返回 reachable=true、online=true（QQ 2712845167 小鲸鱼）；换机需重测。",
+      "install": "由 D:\\qqbot\\qq-bridge 提供（src\\mcp-host-server.js），profile 里 id 为 mcp-snowluma-host；恢复条件同 mcp-snowluma（node、qq-bridge 文件、网关在线）。",
+      "keywords": [
+        "宿主桥",
+        "snowluma-host",
+        "mcp 探活",
+        "网关状态",
+        "snowluma_status"
+      ]
+    },
+    {
+      "name": "mcp-web-search-safe",
+      "display": "qq-bridge MCP（mcp-web-search-safe，联网搜索桥）",
+      "kind": "mcp",
+      "status": "ready",
+      "purpose": "联网搜索与网页抓取 MCP：Web 搜索、抓取正文；优先 DeepSeek 搜索，不可用时回退 Bing。",
+      "note": "2026-10-27 实测可用，但本机未配置 DeepSeek 搜索凭据，实际走 Bing 回退（可用但降级）；换机需重测。",
+      "install": "由 D:\\qqbot\\qq-bridge 提供（src\\mcp-web-search-safe.js），profile 里 id 为 mcp-web-search-safe；要恢复首选通道需在 qq-bridge 配置 DeepSeek 搜索凭据，否则只能 Bing 回退。",
+      "keywords": [
+        "联网搜索",
+        "web_search",
+        "网页抓取",
+        "web fetch",
+        "搜索桥"
+      ]
     }
   ]
 }

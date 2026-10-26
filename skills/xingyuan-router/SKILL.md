@@ -124,7 +124,13 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 - 参考图重建、按圈选小改、图片转 GIA/Lua：读 `miliastra-ui` 的 `references/client-template-gia.md`。仅图片控件可走通用输出，不要求指定地图；加入其他控件或玩法才按地图适配。区分预览、离线 GIA 与 Lua 创建模块，不把图片文件本身当可导入资源，不为通用美术或其他地图误启《天堂之门》专用流程。
 - GIL/GIA、节点图：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含通用地图 GIA 生成器；素材样例不等于生成工具。
 - **库外依赖（MCP / 网关 / 平台）统一规则。** 索引 `externals[]` 里每条都带 `status`（ready / unverified / missing）和 `install`（来源 + 前置 + 接入方式）。用到时按固定顺序：① 核验本机是否已接入（命令在不在 PATH、MCP 是否在 profile 配置里），不凭“应该装过”判断；② `missing` / `unverified` 或核验失败 → 提示用户安装，把 `install` 里的来源与前置一次说清，然后等用户决定；③ 用户不安装、或装后仍不可用 → **本次不执行**该能力，不假装执行、不用相邻技能冒充（例如别用 `systematic-debugging` 冒充逆向）、不把未发生的结果写进正文或交接；④ 实测通过才把 `status` 改为 `ready` 并记录 handoff。
-- 当前 `externals[]`：`snowluma-onebot`（服务，ready，2026-10-27 探活在线，`qq-sticker-pack` 依赖）、`rea`（MCP，missing，缺失即提示安装）。XERJ 与千星编辑器未登记（本机无二进制、无 MCP 配置），被问到只说明缺口，不虚构。
+- 当前 `externals[]`（状态均为 2026-10-27 本机实测，换机要重测）：
+  - `snowluma-onebot`（服务，ready）——SnowLuma/NapCat 网关，`qq-sticker-pack` 依赖。
+  - `mcp-snowluma-host`（MCP，ready）——qq-bridge 宿主/探活桥，`snowluma_status` 实测 online。
+  - `mcp-web-search-safe`（MCP，ready，降级）——联网搜索桥，未配 DeepSeek 凭据，走 Bing 回退。
+  - `mcp-snowluma`（MCP，unverified）——QQ 工具桥，工具已注册但本轮无会话 token，未实调。
+  - `rea`（MCP，missing）——逆向工程 MCP，缺失即提示安装，不装不用。
+- XERJ 与千星编辑器未登记（本机无二进制、无 MCP 配置），被问到只说明缺口，不虚构。
 - 土狼时间/郊狼时间/coyote time、输入缓冲/input buffer：本库暂无对应移动/输入专项技能。`game-feel` 不负责原始控制器数学；可结合已核实引擎 API 实现，但明确是补充实现而非调用现成专用技能。
 - `platformer`、`input-systems`、`camera-systems` 等旧文档提及的外部技能：先确认实际存在，不能从名字推断已安装。
 - 已接入的桌面软件：读 `desktop-toolbox`，其接入记录区分已安装、可启动和已完成实际功能验收；不因曾经安装就默认可用。

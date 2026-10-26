@@ -170,7 +170,8 @@ class RoutingTests(unittest.TestCase):
     def test_externals_section(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         externals = {e['name']: e for e in data['externals']}
-        self.assertEqual(set(externals), {'snowluma-onebot', 'rea'})
+        self.assertEqual(set(externals), {'snowluma-onebot', 'rea', 'mcp-snowluma',
+                                          'mcp-snowluma-host', 'mcp-web-search-safe'})
         for name, ext in externals.items():
             with self.subTest(external=name):
                 self.assertIn(ext['kind'], {'mcp', 'service', 'platform', 'software'})
