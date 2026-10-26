@@ -550,6 +550,24 @@
         "character sticker",
         "character comic"
       ]
+    },
+    {
+      "name": "slack-gif-creator",
+      "purpose": "GIF 表情包的帧合成、缓动、循环与文件检查；角色画面另用生图工具，不含图生视频模型",
+      "platform": "general",
+      "keywords": [
+        "gif表情包",
+        "gif 表情包",
+        "制作gif",
+        "制作 gif",
+        "制作动图",
+        "表情包动图",
+        "逐帧动画",
+        "animated gif",
+        "slack gif",
+        "动态表情包",
+        "动图"
+      ]
     }
   ],
   "gaps": [

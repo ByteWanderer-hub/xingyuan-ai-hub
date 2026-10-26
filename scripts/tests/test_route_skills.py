@@ -252,6 +252,12 @@ class RoutingTests(unittest.TestCase):
             self.assertNotIn('character-image-design', self.names(query))
             self.assertNotIn('character-sticker-comic', self.names(query))
 
+    def test_animated_gif_route(self):
+        for q in ('制作gif表情包', '给自设做表情包动图', 'animated gif'):
+            self.assertEqual(self.names(q)[0], 'slack-gif-creator')
+        for q in ('QQ自定义表情上架', '角色立绘', '千星UI动效'):
+            self.assertNotIn('slack-gif-creator', self.names(q))
+
     def test_context_override(self):
         self.assertIn('miliastra-ui', self.names('UI 图片', 'qianxing'))
         self.assertNotIn('miliastra-ui', self.names('不要Roblox做千星UI', 'other'))
