@@ -500,7 +500,7 @@
     },
     {
       "name": "user-intent-alignment",
-      "purpose": "本用户沟通风格、上下文指代与局部纠正对齐；以证据复盘并减少重复解释",
+      "purpose": "本用户沟通风格、上下文指代与局部纠正对齐；按长期授权基于新证据主动修订并同步",
       "platform": "general",
       "keywords": [
         "沟通风格",
@@ -514,7 +514,9 @@
         "按我的习惯",
         "沟通复盘",
         "user intent alignment",
-        "communication style"
+        "communication style",
+        "自动修订沟通技能",
+        "自动更新沟通习惯"
       ]
     }
   ],

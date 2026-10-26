@@ -34,7 +34,7 @@ description: 星愿/星缘资料库统一技能入口。用户要求找技能、
 | 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox` | 先检查本机可用性和验收状态；不强行启动 GUI |
 | 代码审查、回归风险 | `code-review` | 不因审查擅自修改代码 |
 | 技能文档、去重、合并、资料库整理、把项目经验写入技能 | `skill-manager` | 维护真源与引用；普通项目总结不触发技能修改 |
-| 沟通风格、听懂我的话、我的意思是、你理解错了 | `user-intent-alignment` | 保留当前任务；明确理解修正时按需辅助，不用它替代业务技能，不因普通“对话/继续”启动历史复盘 |
+| 沟通风格、听懂我的话、我的意思是、你理解错了 | `user-intent-alignment` | 保留当前任务；按长期授权对有证据的新沟通偏好主动修订，无需提醒；不用它替代业务技能，不因普通“对话/继续”启动历史复盘 |
 | QQ 机器人表情包/贴纸、自定义表情上架、表情发不出去 | `qq-sticker-pack` | 美术画风走 `design`；千星平台图片资产走 `miliastra-ui`；发送链路排错可加 `systematic-debugging` |
 | 鲸鱼娘 / DeepSeek娘人设图、立绘、主题插画 | `whalechan-image-character` | 专用角色身份锁定，不当作任意人设生成器；本地脚本先读技能 runtime 依赖说明，保留上游授权范围 |
 | 鲸鱼娘 / DeepSeek娘表情包、1/2/4 格反转漫画 | `whalechan-image-comic` | 美术与漫画生成；Windows 锁兼容已补充，仍需 ImageMagick；QQ 上架和发送另加 `qq-sticker-pack`，通用表情包不默认套用鲸鱼娘身份 |
