@@ -282,6 +282,19 @@ class RoutingTests(unittest.TestCase):
         for q in ('QQ自定义表情上架', '角色立绘', '千星UI动效'):
             self.assertNotIn('slack-gif-creator', self.names(q))
 
+    def test_proactive_entry_requests(self):
+        for q in ('再优化一遍技能入口', '任务开始时主动加载技能', '自动选择技能'):
+            self.assertEqual(self.names(q)[0], 'skill-manager')
+
+    def test_loading_and_freeze_natural_language(self):
+        for q in ('切关卡很卡', '创建 UI 时间太长', '游戏加载慢'):
+            self.assertIn('performance-optimization', self.names(q, 'qianxing'))
+        for q in ('点击开始游戏后卡住不动', '书本还在原位，完全不动'):
+            self.assertIn('systematic-debugging', self.names(q, 'qianxing'))
+        for q in ('网站加载慢', '快递完全不动', '回复继续'):
+            self.assertNotIn('performance-optimization', self.names(q))
+        self.assertNotIn('skill-manager', self.names('优化游戏角色技能伤害'))
+
     def test_context_override(self):
         self.assertIn('miliastra-ui', self.names('UI 图片', 'qianxing'))
         self.assertNotIn('miliastra-ui', self.names('不要Roblox做千星UI', 'other'))
