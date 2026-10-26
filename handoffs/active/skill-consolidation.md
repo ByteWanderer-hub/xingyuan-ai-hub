@@ -5,6 +5,15 @@
 当前状态：主动技能选择规则已发布并安装，路由与安装校验通过；REA 归属已修正、三类能力已区分；新技能录用守则已落地并推送。
 下一步：在后续实际任务中检验主动选用效果；下一次录入新技能时按录用守则走一遍并记录实际卡点。
 
+## Matt Pocock 技能集与 XERJ（2026-10-27）
+
+- **Matt Pocock Skills**：上游 `mattpocock/skills`（MIT，commit `5beb35b`）；`skills/` 下 engineering 20 + productivity 7 + misc 4 = 31 个可用技能，另有 7 个 `in-progress` 与空 `deprecated`。导入 30 个（原样复制，含各自 references/模板/脚本），`code-review` 与上游同名，按守则合并为本库 `code-review/references/matt-pocock.md` 并在 SKILL.md 加指路，不新增重复条目。`in-progress`、`.claude-plugin`、仓库级 `scripts/`、`docs/`、`CHANGELOG` 未收。
+- 分类：`diagnosing-bugs`、`wizard`、`git-guardrails-claude-code` 各带脚本/模板 → `kind: skill`（16→19）；其余 27 个 → `kind: experience`（10→37）；索引 27→57 条。来源、范围、边界集中在 [skills/MATT_POCOCK_SKILLS.md](../../skills/MATT_POCOCK_SKILLS.md)，许可证存 `skills/MATT_POCOCK_LICENSE`。
+- 一个真实冲突：初版给 `retro` 的关键词含单字“复盘”，把「项目复盘优化技能」「复盘沟通风格」两条既有路由抢走；已收窄为「代码复盘/会话复盘/开发复盘/retro/retrospective」，两条原有测试恢复通过。这是守则里“关键词要用用户表达、同时防误触发”的实例。
+- **XERJ**：`xerj-org/xerj`（Apache-2.0，commit `6a7d7da`）= Rust 本地搜索引擎 + MCP server，不是技能；登记为 `externals[]` 的 `xerj`（kind mcp、status missing），写明依赖（二进制在 PATH、本地节点默认 `http://localhost:9200`）与“上游 DSH 插件包自称未在 DSH 验证”。未下载二进制、未装插件、未改 profile。
+- 验证：`python -B -m unittest discover -s scripts/tests -p 'test_*.py'` **93 项 OK（1 skipped）**，新增 `test_matt_pocock_import`（含 code-review 合并断言、正反例）与 `test_xerj_external_mcp`；`verify_skills.py` PASSED（58 个 SKILL.md、本地引用 167、外部引用 3）。
+- [ ] 未完成：30 个导入技能在真实任务中的效果未验证；`git-guardrails-claude-code`、`setup-pre-commit`、`wizard` 的 Claude Code/Node 假设未改写适配 DSH；XERJ 与 ponytail 的上游收益数字未复测。
+
 ## Ponytail 收录（2026-10-27）
 
 按新守则走一遍真实录入，验证守则可执行：

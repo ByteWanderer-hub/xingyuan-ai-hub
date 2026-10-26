@@ -10,6 +10,10 @@ ChatGPT × Codex 的私有共享知识、技能和任务交接仓库。
 
 2026-10-27 收录 [ponytail](skills/ponytail/SKILL.md)：上游 `DietrichGebert/ponytail`（MIT，commit `09c434a`）的“懒惰资深开发”准则，按**经验类**收录（`kind: experience`），6 个上游技能合并为 1 条索引 + 5 份 references。只取文档，不含 hooks、脚本与插件机制；来源与改动见 [NOTICE](skills/ponytail/NOTICE.md)。
 
+2026-10-27 收录 [Matt Pocock Skills](skills/MATT_POCOCK_SKILLS.md)：上游 `mattpocock/skills`（MIT，commit `5beb35b`）的 31 个技能中，30 个原样进库（engineering 20 / productivity 7 / misc 4，跳过 in-progress 与 deprecated），`code-review` 并入本库同名技能的 `references/`。其中 3 个带脚本模板的判 `kind: skill`，27 个判 `kind: experience`；索引 27 → 57 条。
+
+同日把 [XERJ](https://github.com/xerj-org/xerj)（Apache-2.0，本地搜索 + MCP server）登记为 `externals[]` 的 `xerj`（`kind: mcp`、`status: missing`）：库外依赖，需要二进制与本地节点，上游 DSH 插件包自称未在 DSH 验证，本库不含安装。
+
 ## 唯一真源与维护方式
 
 **本仓库 main 的 skills/ 是用户共享技能的唯一正式真源。** 电脑上的仓库克隆用于编辑，客户端技能目录仅作为安装副本；完整约束见 [Agent 规则](AGENTS.md)。

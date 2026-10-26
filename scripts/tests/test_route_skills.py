@@ -147,8 +147,8 @@ class RoutingTests(unittest.TestCase):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         kinds = {row['name']: row['kind'] for row in data['skills']}
         self.assertEqual(set(kinds.values()), {'skill', 'external', 'experience'})
-        self.assertEqual(sum(1 for v in kinds.values() if v == 'skill'), 16)
-        self.assertEqual(sum(1 for v in kinds.values() if v == 'experience'), 10)
+        self.assertEqual(sum(1 for v in kinds.values() if v == 'skill'), 19)
+        self.assertEqual(sum(1 for v in kinds.values() if v == 'experience'), 37)
         self.assertEqual(sum(1 for v in kinds.values() if v == 'external'), 1)
         for name, kind in kinds.items():
             if kind != 'experience':
@@ -165,7 +165,7 @@ class RoutingTests(unittest.TestCase):
     def test_externals_section(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         externals = {e['name']: e for e in data['externals']}
-        self.assertEqual(set(externals), {'rea', 'snowluma-onebot', 'qianxing-platform'})
+        self.assertEqual(set(externals), {'rea', 'snowluma-onebot', 'qianxing-platform', 'xerj'})
         for name, ext in externals.items():
             with self.subTest(external=name):
                 self.assertIn(ext['kind'], {'mcp', 'service', 'platform', 'software'})
@@ -192,6 +192,34 @@ class RoutingTests(unittest.TestCase):
         for query in ('整理技能入口', '千星 UI 布局', '生成表情包'):
             with self.subTest(query=query):
                 self.assertNotIn('ponytail', self.names(query))
+
+    def test_matt_pocock_import(self):
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
+        kinds = {row['name']: row['kind'] for row in data['skills']}
+        for name in ('diagnosing-bugs', 'wizard', 'git-guardrails-claude-code'):
+            self.assertEqual(kinds.get(name), 'skill', name)
+        for name in ('tdd', 'to-spec', 'to-tickets', 'implement', 'pr', 'triage', 'retro',
+                     'grilling', 'teach', 'handoff', 'writing-for-agents', 'research',
+                     'codebase-design', 'domain-modeling', 'ask-matt'):
+            self.assertEqual(kinds.get(name), 'experience', name)
+        # 上游 code-review 合并进本库同名技能，不单独占条目
+        self.assertNotIn('code-review-matt', kinds)
+        self.assertTrue((ROOT/'skills/code-review/references/matt-pocock.md').is_file())
+        self.assertEqual(self.names('用 tdd 先写测试')[0], 'tdd')
+        self.assertEqual(self.names('把这个方案拆票')[0], 'to-tickets')
+        self.assertEqual(self.names('帮我拷问一下这个设计')[0], 'grilling')
+        self.assertEqual(self.names('写交接文档给下一个 agent')[0], 'handoff')
+        for query in ('千星 UI 布局', '角色立绘', '生成表情包'):
+            with self.subTest(query=query):
+                for name in ('tdd', 'triage', 'grilling', 'handoff'):
+                    self.assertNotIn(name, self.names(query))
+
+    def test_xerj_external_mcp(self):
+        result = route.lookup('装个 XERJ 做本地检索')
+        self.assertEqual([e['name'] for e in result['externals']], ['xerj'])
+        self.assertEqual(result['externals'][0]['kind'], 'mcp')
+        self.assertEqual(result['externals'][0]['status'], 'missing')
+        self.assertEqual(result['candidates'], [])
 
     def test_bug_with_engine(self):
         names = self.names('千星 Lua require 报错')

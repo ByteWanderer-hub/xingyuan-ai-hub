@@ -32,12 +32,12 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 
 | 类型 | 索引位置 | 当前内容 | 怎么用 | 不能做什么 |
 | --- | --- | --- | --- | --- |
-| 技能 `skill` | `skills[]`，16 项 | 千星实现、需求边界、交付编排、调试、性能、QQ 表情包、图像配方、技能维护等 | 读 SKILL.md 按步骤执行，产出并验证 | 不把参考条目当实现步骤；有 `requires` 的先核验外部依赖 |
+| 技能 `skill` | `skills[]`，19 项 | 千星实现、需求边界、交付编排、调试、性能、QQ 表情包、图像配方、技能维护；另含 Matt Pocock 的 `diagnosing-bugs`/`wizard`/`git-guardrails-claude-code`（带脚本模板） | 读 SKILL.md 按步骤执行，产出并验证 | 不把参考条目当实现步骤；有 `requires` 的先核验外部依赖 |
 | 外部工具清单 `external` | `skills[]`，1 项 `desktop-toolbox` | 本机桌面软件的选择与核对 | 先按清单核验安装/可启动/功能验收状态再用 | 不把“已安装”当成“已验收”，不臆测 GUI 与连通性 |
-| 经验 `experience` | `skills[]`，10 项 | `game-design-theory`、`motion-design`、`level-design`、`game-ui-ux`、`game-feel`、`code-review`、`roblox-luau-expert`、`roblox-security-audit`、`qianxing-agent`、`ponytail` | 只取原则、数值、判据、案例与审视清单，落地另配平台技能 | 不假装有脚本、生成器、平台 API 或真机验证 |
-| 库外依赖 `externals[]` | 独立段 | `rea`（MCP，missing）、`snowluma-onebot`（服务，ready）、`qianxing-platform`（平台，unverified） | 先看 `status` 再接入，`ready` 才可直接用 | 不把库外能力写成本库技能，不虚构已接入 |
+| 经验 `experience` | `skills[]`，37 项 | 原有 10 项（含 `code-review`、`ponytail` 等）+ Matt Pocock 技能集 27 项（见下方专节） | 只取原则、数值、判据、案例与审视清单，落地另配平台技能 | 不假装有脚本、生成器、平台 API 或真机验证 |
+| 库外依赖 `externals[]` | 独立段 | `rea`（MCP，missing）、`snowluma-onebot`（服务，ready）、`qianxing-platform`（平台，unverified）、`xerj`（MCP，missing） | 先看 `status` 再接入，`ready` 才可直接用 | 不把库外能力写成本库技能，不虚构已接入 |
 
-`experience` 类没有任何脚本；它们的落地路径写在各自 SKILL.md 里（多为“配合平台技能”）。`externals` 的 `status`：`ready` 已探活可用、`unverified` 未核实、`missing` 未接入。
+`experience` 类没有可执行流程（个别技能只带 1 个模板脚本时才判 `skill`）。`externals` 的 `status`：`ready` 已探活可用、`unverified` 未核实、`missing` 未接入。
 
 ## 快速表
 
@@ -62,6 +62,9 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox`（外部） | 先检查本机可用性和验收状态；不强行启动 GUI |
 | 代码审查、回归风险 | `code-review`（经验） | 不因审查擅自修改代码 |
 | 过度设计、代码臃肿、想用最小改动、YAGNI、懒人模式；审查/审计/技术债 | `ponytail`（经验） | 只约束改法规模与精简度；风险审查加 `code-review`，定位根因加 `systematic-debugging`，千星实现另加平台技能 |
+| TDD、规格、拆票、实现、PR、分诊、复盘、架构改进 | `tdd` `to-spec` `to-tickets` `implement` `implement-spec` `pr` `triage` `retro` `improve-codebase-architecture`（经验） | 工程流；先 `setup-matt-pocock-skills` 配好 issue tracker；千星实现另加平台技能 |
+| 拷问需求、追问决策、调研、教、交接、给 agent 写文档 | `grilling` `grill-me` `grill-with-docs` `research` `teach` `handoff` `writing-for-agents`（经验） | 打磨思路与文档，不产出平台实现 |
+| 难查缺陷、性能回归的诊断循环 | `diagnosing-bugs` | 与 `systematic-debugging` 叠加或二选一，定位仍要取证 |
 | 技能文档、去重、合并、资料库整理、把项目经验写入技能 | `skill-manager` | 维护真源与引用；普通项目总结不触发技能修改 |
 | 沟通风格、我的意思是、你理解错了；优化提示词/系统提示词 | `user-intent-alignment` | 理解纠正先修当前任务；明确要求时才交付提示词；按长期授权校准有证据的偏好，普通“对话/继续”不启动复盘 |
 | QQ 机器人表情包/贴纸、自定义表情上架、表情发不出去 | `qq-sticker-pack` | 美术画风走 `design`；千星平台图片资产走 `miliastra-ui`；发送链路排错可加 `systematic-debugging` |
@@ -71,6 +74,43 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 鲸鱼娘 / DeepSeek娘人设图、立绘、主题插画 | `whalechan-image-character` | 专用角色身份锁定，不当作任意人设生成器；本地脚本先读技能 runtime 依赖说明，保留上游授权范围 |
 | 鲸鱼娘 / DeepSeek娘表情包、1/2/4 格反转漫画 | `whalechan-image-comic` | 美术与漫画生成；Windows 锁兼容已补充，仍需 ImageMagick；QQ 上架和发送另加 `qq-sticker-pack`，通用表情包不默认套用鲸鱼娘身份 |
 | 明确 Roblox/Luau 开发 | `roblox-luau-expert`（经验） | 明确反作弊加 `roblox-security-audit` |
+
+## Matt Pocock 技能集（30 项）
+
+来源 `mattpocock/skills`（MIT，commit `5beb35b`），原样收录；只取工程/生产力/杂项，跳过 `in-progress` 与 `deprecated`。上游另有同名 `code-review`，已并入本库 `code-review` 的 `references/matt-pocock.md`，不再单独占一条。3 个带脚本模板的判 `kind: skill`，其余判 `experience`。来源、范围与边界见 [MATT_POCOCK_SKILLS.md](../MATT_POCOCK_SKILLS.md)。
+
+| 技能 | 用途 | 类型 |
+| --- | --- | --- |
+| `ask-matt` | 在这套技能里推荐该用哪个 | 经验 |
+| `tdd` | 红-绿-重构 | 经验 |
+| `to-spec` | 对话转规格并发布 | 经验 |
+| `to-tickets` | 规格拆成可追踪票据 | 经验 |
+| `implement` | 按 spec/票据实现 | 经验 |
+| `implement-spec` | 把 to-spec 产物落成代码 | 经验 |
+| `pr` | 写 PR 描述 | 经验 |
+| `triage` | issue/PR 分诊状态机 | 经验 |
+| `retro` | 编码会话复盘 | 经验 |
+| `wayfinder` | 跨会话大块工作规划 | 经验 |
+| `codebase-design` | 深模块与接口设计 | 经验 |
+| `improve-codebase-architecture` | 扫描架构深化机会 | 经验 |
+| `domain-modeling` | 领域模型、术语表、ADR | 经验 |
+| `prototype` | 一次性原型验证设计问题 | 经验 |
+| `research` | 一手资料调研并留档 | 经验 |
+| `grill-with-docs` | 带文档的拷问式访谈 | 经验 |
+| `diagnosing-bugs` | 难查缺陷/性能回归诊断循环（带 HITL 模板脚本） | 技能 |
+| `wizard` | 生成交互式 bash 向导（带模板脚本） | 技能 |
+| `setup-matt-pocock-skills` | 配置 issue tracker、标签、领域文档 | 经验 |
+| `git-guardrails-claude-code` | Claude Code 的 git 危险命令拦截（带脚本，DSH 需改写） | 技能 |
+| `grilling` | 不留情面地追问计划/决策 | 经验 |
+| `grill-me` | 让 agent 反过来拷问你 | 经验 |
+| `teach` | 在工作区内教学并留学习记录 | 经验 |
+| `handoff` | 会话压缩成交接文档 | 经验 |
+| `to-questionnaire` | 答不了的决策转成问卷 | 经验 |
+| `wait-what` | 没听懂时要求对方重讲 | 经验 |
+| `writing-for-agents` | 写给 agent 的文档与技能正文写法 | 经验 |
+| `migrate-to-shoehorn` | 把测试里的 as 断言迁到 shoehorn | 经验 |
+| `scaffold-exercises` | 生成练习目录结构 | 经验 |
+| `setup-pre-commit` | Husky + lint-staged + 类型检查 | 经验 |
 
 ## 细分入口与缺口
 

@@ -660,6 +660,358 @@
         "over-engineering",
         "技术债"
       ]
+    },
+    {
+      "name": "ask-matt",
+      "kind": "experience",
+      "purpose": "按处境推荐该用哪个 Matt Pocock 技能或流程（技能集内的路由器）",
+      "platform": "general",
+      "keywords": [
+        "ask matt",
+        "选哪个技能",
+        "技能选择",
+        "该用哪个技能"
+      ]
+    },
+    {
+      "name": "codebase-design",
+      "kind": "experience",
+      "purpose": "用“深模块”术语设计代码库结构与接口",
+      "platform": "general",
+      "keywords": [
+        "深模块",
+        "deep module",
+        "代码库设计",
+        "模块接口设计"
+      ]
+    },
+    {
+      "name": "diagnosing-bugs",
+      "kind": "skill",
+      "purpose": "难查缺陷与性能回归的诊断循环（含人工介入环节模板）",
+      "platform": "general",
+      "keywords": [
+        "难查的 bug",
+        "性能回归",
+        "bug 诊断循环",
+        "diagnosis loop"
+      ]
+    },
+    {
+      "name": "domain-modeling",
+      "kind": "experience",
+      "purpose": "建立并打磨领域模型、术语表与 ADR",
+      "platform": "general",
+      "keywords": [
+        "领域模型",
+        "领域建模",
+        "domain model",
+        "术语表",
+        "adr"
+      ]
+    },
+    {
+      "name": "grill-with-docs",
+      "kind": "experience",
+      "purpose": "带文档的拷问式访谈，打磨方案并同步产出文档",
+      "platform": "general",
+      "keywords": [
+        "拷问需求",
+        "带着文档拷问",
+        "grill with docs"
+      ]
+    },
+    {
+      "name": "implement",
+      "kind": "experience",
+      "purpose": "按 spec 或票据实现一块工作",
+      "platform": "general",
+      "keywords": [
+        "实现任务",
+        "开始实现",
+        "implement ticket"
+      ]
+    },
+    {
+      "name": "implement-spec",
+      "kind": "experience",
+      "purpose": "把 to-spec/to-tickets 的产物落到代码",
+      "platform": "general",
+      "keywords": [
+        "按规范实现",
+        "spec 落地",
+        "implement spec"
+      ]
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "kind": "experience",
+      "purpose": "扫描代码库的深化机会并按优先级呈现",
+      "platform": "general",
+      "keywords": [
+        "改进架构",
+        "架构扫描",
+        "重构机会",
+        "improve architecture"
+      ]
+    },
+    {
+      "name": "pr",
+      "kind": "experience",
+      "purpose": "写 Pull Request 描述",
+      "platform": "general",
+      "keywords": [
+        "写 pr",
+        "pr 描述",
+        "pr body",
+        "pull request 描述"
+      ]
+    },
+    {
+      "name": "prototype",
+      "kind": "experience",
+      "purpose": "用一次性原型回答设计问题",
+      "platform": "general",
+      "keywords": [
+        "做原型",
+        "一次性原型",
+        "prototype",
+        "试验性实现"
+      ]
+    },
+    {
+      "name": "research",
+      "kind": "experience",
+      "purpose": "用高可信一手资料调研问题并留档",
+      "platform": "general",
+      "keywords": [
+        "调研",
+        "一手资料",
+        "research",
+        "资料核查"
+      ]
+    },
+    {
+      "name": "retro",
+      "kind": "experience",
+      "purpose": "对一次编码会话做复盘",
+      "platform": "general",
+      "keywords": [
+        "代码复盘",
+        "会话复盘",
+        "开发复盘",
+        "retro",
+        "retrospective"
+      ]
+    },
+    {
+      "name": "setup-matt-pocock-skills",
+      "kind": "experience",
+      "purpose": "为仓库配置这套技能所需 issue tracker、标签与领域文档",
+      "platform": "general",
+      "keywords": [
+        "配置技能仓库",
+        "issue tracker 配置",
+        "setup skills"
+      ]
+    },
+    {
+      "name": "tdd",
+      "kind": "experience",
+      "purpose": "测试驱动开发：红-绿-重构",
+      "platform": "general",
+      "keywords": [
+        "tdd",
+        "测试驱动",
+        "先写测试",
+        "红绿重构"
+      ]
+    },
+    {
+      "name": "to-spec",
+      "kind": "experience",
+      "purpose": "把当前对话转成规格并发布到项目",
+      "platform": "general",
+      "keywords": [
+        "写规格",
+        "需求转规格",
+        "to spec",
+        "spec 文档"
+      ]
+    },
+    {
+      "name": "to-tickets",
+      "kind": "experience",
+      "purpose": "把计划/规格拆成可追踪的票据",
+      "platform": "general",
+      "keywords": [
+        "拆票",
+        "任务拆分",
+        "to tickets",
+        "拆成 tickets"
+      ]
+    },
+    {
+      "name": "triage",
+      "kind": "experience",
+      "purpose": "用分诊角色状态机推进 issue 与外部 PR",
+      "platform": "general",
+      "keywords": [
+        "分诊",
+        "issue 分诊",
+        "triage",
+        "标签流转"
+      ]
+    },
+    {
+      "name": "wayfinder",
+      "kind": "experience",
+      "purpose": "为超过一个会话的大块工作做路线规划",
+      "platform": "general",
+      "keywords": [
+        "大工程规划",
+        "跨会话计划",
+        "wayfinder",
+        "路线图"
+      ]
+    },
+    {
+      "name": "wizard",
+      "kind": "skill",
+      "purpose": "生成引导人走完步骤的交互式 bash 向导",
+      "platform": "general",
+      "keywords": [
+        "生成向导",
+        "bash 向导",
+        "wizard",
+        "交互脚本"
+      ]
+    },
+    {
+      "name": "git-guardrails-claude-code",
+      "kind": "skill",
+      "purpose": "为 Claude Code 加 git 危险命令拦截钩子（DSH 需改写）",
+      "platform": "general",
+      "keywords": [
+        "git 保护",
+        "危险命令拦截",
+        "git guardrails"
+      ]
+    },
+    {
+      "name": "migrate-to-shoehorn",
+      "kind": "experience",
+      "purpose": "把测试里的 as 断言迁移到 @total-typescript/shoehorn",
+      "platform": "general",
+      "keywords": [
+        "shoehorn",
+        "类型断言迁移",
+        "as 断言迁移"
+      ]
+    },
+    {
+      "name": "scaffold-exercises",
+      "kind": "experience",
+      "purpose": "生成练习目录结构（分区、题目、答案）",
+      "platform": "general",
+      "keywords": [
+        "练习题脚手架",
+        "exercise 目录",
+        "scaffold exercises"
+      ]
+    },
+    {
+      "name": "setup-pre-commit",
+      "kind": "experience",
+      "purpose": "配置 Husky pre-commit + lint-staged + 类型检查",
+      "platform": "general",
+      "keywords": [
+        "pre-commit",
+        "husky",
+        "lint-staged",
+        "提交钩子"
+      ]
+    },
+    {
+      "name": "grill-me",
+      "kind": "experience",
+      "purpose": "让 agent 反过来连续拷问你的方案",
+      "platform": "general",
+      "keywords": [
+        "拷问我",
+        "grill me",
+        "逼问"
+      ]
+    },
+    {
+      "name": "grilling",
+      "kind": "experience",
+      "purpose": "对计划、决策或想法做不留情面的追问",
+      "platform": "general",
+      "keywords": [
+        "拷问",
+        "追问决策",
+        "压力测试想法",
+        "grill"
+      ]
+    },
+    {
+      "name": "handoff",
+      "kind": "experience",
+      "purpose": "把当前对话压缩成交接文档给下一个 agent",
+      "platform": "general",
+      "keywords": [
+        "交接文档",
+        "handoff",
+        "会话压缩",
+        "交接给另一个 agent"
+      ]
+    },
+    {
+      "name": "teach",
+      "kind": "experience",
+      "purpose": "在工作区内教会用户一项技能或概念",
+      "platform": "general",
+      "keywords": [
+        "教我",
+        "teaching",
+        "学习记录",
+        "teach"
+      ]
+    },
+    {
+      "name": "to-questionnaire",
+      "kind": "experience",
+      "purpose": "把答不了的决策变成给别人填的问卷",
+      "platform": "general",
+      "keywords": [
+        "问卷",
+        "questionnaire",
+        "决策转问卷"
+      ]
+    },
+    {
+      "name": "wait-what",
+      "kind": "experience",
+      "purpose": "让对方停下来重讲没听懂的那段",
+      "platform": "general",
+      "keywords": [
+        "没听懂",
+        "再说一遍",
+        "wait what",
+        "重讲"
+      ]
+    },
+    {
+      "name": "writing-for-agents",
+      "kind": "experience",
+      "purpose": "写给 agent 看的文档与技能正文的写法",
+      "platform": "general",
+      "keywords": [
+        "给 agent 写文档",
+        "写 skill 文档",
+        "writing for agents"
+      ]
     }
   ],
   "gaps": [
@@ -744,6 +1096,21 @@
         "miliastra editor",
         "编辑器插件",
         "qianxing editor"
+      ]
+    },
+    {
+      "name": "xerj",
+      "display": "XERJ（xerj-org/xerj）",
+      "kind": "mcp",
+      "status": "missing",
+      "purpose": "Rust 单二进制的本地搜索引擎兼 MCP server：索引代码、文档、日志、PDF，提供 BM25/向量/混合检索并兼容 Elasticsearch API，让编码 Agent 少读整文件、少耗 token。",
+      "note": "需要 xerj 二进制在 PATH（或绝对路径）、本机已有 xerj 节点监听（默认 http://localhost:9200）；上游自带的 DSH 插件包（dsh/）自称尚未在 DSH 验证。本库只登记依赖，不含安装与二进制。",
+      "keywords": [
+        "xerj",
+        "本地搜索引擎",
+        "代码检索 mcp",
+        "xerj mcp",
+        "local search engine"
       ]
     }
   ]
