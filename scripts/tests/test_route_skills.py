@@ -126,13 +126,19 @@ class RoutingTests(unittest.TestCase):
         warnings = route.lookup('千星参考图转 GIA')['warnings']
         self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in warnings))
 
-    def test_unproven_capabilities_not_indexed(self):
-        """REA / XERJ / 千星编辑器 / Claude Code 专用技能：未证明可用，不得留在索引里。"""
-        for query in ('REA 逆向工具怎么装', '装个 XERJ 做本地检索', '千星编辑器打不开'):
+    def test_missing_external_prompts_install_then_skips(self):
+        """REA 缺失时：提示安装；用户不装就不用，不拿别的技能冒充。"""
+        result = route.lookup('REA 逆向工具怎么装')
+        self.assertEqual([e['name'] for e in result['externals']], ['rea'])
+        self.assertEqual(result['externals'][0]['status'], 'missing')
+        self.assertEqual(result['candidates'], [])
+        warning = ' '.join(result['warnings'])
+        self.assertIn('安装', warning)
+        self.assertIn('不使用', result['externals'][0]['note'])
+        # 未接入且不提示安装的，不得留在索引
+        for query in ('装个 XERJ 做本地检索', '千星编辑器打不开'):
             with self.subTest(query=query):
-                result = route.lookup(query)
-                self.assertEqual(result['externals'], [])
-        self.assertEqual(route.lookup('REA 逆向工具怎么装')['candidates'], [])
+                self.assertEqual(route.lookup(query)['externals'], [])
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         names = {row['name'] for row in data['skills']}
         self.assertNotIn('git-guardrails-claude-code', names)
@@ -160,7 +166,7 @@ class RoutingTests(unittest.TestCase):
     def test_externals_section(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         externals = {e['name']: e for e in data['externals']}
-        self.assertEqual(set(externals), {'snowluma-onebot'})
+        self.assertEqual(set(externals), {'snowluma-onebot', 'rea'})
         for name, ext in externals.items():
             with self.subTest(external=name):
                 self.assertIn(ext['kind'], {'mcp', 'service', 'platform', 'software'})

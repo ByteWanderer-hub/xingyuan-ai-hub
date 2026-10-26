@@ -12,7 +12,7 @@ ChatGPT × Codex 的私有共享知识、技能和任务交接仓库。
 
 2026-10-27 收录 [Matt Pocock Skills](skills/MATT_POCOCK_SKILLS.md)：上游 `mattpocock/skills`（MIT，commit `5beb35b`）的 31 个技能中，29 个进库（engineering 19 / productivity 7 / misc 3，跳过 in-progress 与 deprecated），`code-review` 并入本库同名技能的 `references/`；`git-guardrails-claude-code` 因硬绑 Claude Code hook、本环境无法执行而移出。2 个带脚本模板的判 `kind: skill`，27 个判 `kind: experience`；索引 27 → 56 条。
 
-同日曾把 [XERJ](https://github.com/xerj-org/xerj)（Apache-2.0，本地搜索 + MCP server）登记为外部依赖；因本机既无该二进制也无 MCP 配置、无法证明可用，按“未证明即移出”原则于当日撤销，索引里不再保留 `xerj`/`rea`/`qianxing-platform` 三个未接入条目。
+同日曾把 [XERJ](https://github.com/xerj-org/xerj)（Apache-2.0，本地搜索 + MCP server）与千星编辑器登记为外部依赖；因本机既无二进制也无 MCP 配置、无法证明可用，按“未证明即移出”原则撤销，索引里不再保留 `xerj`/`qianxing-platform`。REA（`morluto/rea`）保留为 `status: missing`，并约定：用到时先核验，缺失就提示安装，用户不安装则**本次不使用该能力**。
 
 ## 唯一真源与维护方式
 

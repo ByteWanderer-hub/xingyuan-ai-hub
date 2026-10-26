@@ -1086,6 +1086,24 @@
         "add_custom_face",
         "modify_custom_face"
       ]
+    },
+    {
+      "name": "rea",
+      "display": "REA（morluto/rea）",
+      "kind": "mcp",
+      "status": "missing",
+      "purpose": "面向 Agent 的逆向工程 MCP：把 Hopper/Ghidra/JADX/浏览器等工具接给 AI Agent，做应用行为、Electron/JS 结构与原生二进制分析（MIT）。",
+      "note": "本库不含 REA 二进制。使用前先核验：`rea` 是否在 PATH、或 DSH 的 MCP 配置里是否已接入；缺失时提示用户安装（来源 GitHub morluto/rea，MIT，需 Node 与 Hopper/Ghidra/JADX 等工具）并等确认。用户不安装、或装完仍不可用，则本次不使用该能力：不假装执行逆向、不用别的技能冒充 REA、不把结果写成本库能力。",
+      "keywords": [
+        "rea",
+        "morluto/rea",
+        "逆向工程",
+        "逆向分析",
+        "reverse engineering",
+        "ghidra",
+        "hopper",
+        "jadx"
+      ]
     }
   ]
 }
