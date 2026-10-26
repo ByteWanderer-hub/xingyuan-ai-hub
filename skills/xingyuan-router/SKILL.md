@@ -67,7 +67,8 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 - 千星对话/黑幕/选项/打字机：读 `miliastra-code` 后按其对话工程参考继续。
 - 千星静态资产包、资产 ID 对照图：读 `miliastra-ui/references/static-image-pack.md`，使用只读脚本按 ID/用途查询和检查几何元数据；不把图片索引视为控件创建模板，不自动重传原始资产。
 - 参考图重建、按圈选小改、图片转 GIA/Lua：读 `miliastra-ui` 的 `references/client-template-gia.md`。仅图片控件可走通用输出，不要求指定地图；加入其他控件或玩法才按地图适配。区分预览、离线 GIA 与 Lua 创建模块，不把图片文件本身当可导入资源，不为通用美术或其他地图误启《天堂之门》专用流程。
-- GIL/GIA、节点图、REA：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含 `rea` 技能或通用地图 GIA 生成器；素材样例不等于生成工具。
+- GIL/GIA、节点图：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含通用地图 GIA 生成器；素材样例不等于生成工具。
+- REA（`morluto/rea`）：指 GitHub 上 morluto 的 Agent 逆向工程 MCP（接入 Hopper/Ghidra/JADX/浏览器等工具，MIT），与千星 GIA/GIL 无关，也不是 GIA 生成器；本库没有逆向工程技能，需要时按 MCP 单独接入，并按目标环境核验工具可用性与分析边界。
 - 土狼时间/郊狼时间/coyote time、输入缓冲/input buffer：本库暂无对应移动/输入专项技能。`game-feel` 不负责原始控制器数学；可结合已核实引擎 API 实现，但明确是补充实现而非调用现成专用技能。
 - `platformer`、`input-systems`、`camera-systems` 等旧文档提及的外部技能：先确认实际存在，不能从名字推断已安装。
 - 已接入的桌面软件：读 `desktop-toolbox`，其接入记录区分已安装、可启动和已完成实际功能验收；不因曾经安装就默认可用。

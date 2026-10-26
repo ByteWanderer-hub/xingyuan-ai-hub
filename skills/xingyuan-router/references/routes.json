@@ -627,10 +627,22 @@
     {
       "keywords": [
         "gia",
-        "gil",
-        "rea"
+        "gil"
       ],
-      "message": "miliastra-ui 支持参考图重建与通用纯图片控件 GIA/Lua 输出流程，无需先指定地图；其他控件与玩法按地图适配。本库未包含名为 rea 的技能或通用 GIA 地图生成器；实际输出仍须核实平台封装、工具/创建 API 与素材依赖，不能仅凭路由承诺导入或运行成功。"
+      "message": "miliastra-ui 支持参考图重建与通用纯图片控件 GIA/Lua 输出流程，无需先指定地图；其他控件与玩法按地图适配。本库未包含通用 GIA 地图生成器；实际输出仍须核实平台封装、工具/创建 API 与素材依赖，不能仅凭路由承诺导入或运行成功。"
+    },
+    {
+      "keywords": [
+        "rea",
+        "morluto/rea",
+        "逆向工程",
+        "逆向分析",
+        "reverse engineering",
+        "ghidra",
+        "hopper",
+        "jadx"
+      ],
+      "message": "REA 指 GitHub 的 morluto/rea：面向 Agent 的逆向工程 MCP（把 Hopper/Ghidra/JADX/浏览器等工具接给 AI Agent，MIT），不是千星 GIA/GIL 工具，也不能当 GIA 生成器用。本库没有逆向工程技能；需要时按 MCP 单独接入，并在目标环境核验工具可用性与分析边界。"
     }
   ]
 }

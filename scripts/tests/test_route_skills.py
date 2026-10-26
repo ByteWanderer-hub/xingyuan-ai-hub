@@ -125,6 +125,20 @@ class RoutingTests(unittest.TestCase):
         warnings = route.lookup('千星参考图转 GIA')['warnings']
         self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in warnings))
 
+    def test_rea_reverse_engineering_gap(self):
+        for query in ('REA 默认调用的是不是 morluto/rea', 'morluto/rea 逆向工程',
+                      '用 ghidra 拆一个 Electron 应用', '把安装包逆向分析一下'):
+            with self.subTest(query=query):
+                warnings = route.lookup(query)['warnings']
+                self.assertTrue(any('morluto/rea' in warning for warning in warnings))
+                self.assertFalse(any('GIA 地图生成器' in warning for warning in warnings))
+        for query in ('千星参考图转 GIA', '千星图片转 GIA'):
+            with self.subTest(query=query):
+                warnings = route.lookup(query)['warnings']
+                self.assertTrue(any('通用 GIA 地图生成器' in warning for warning in warnings))
+                self.assertFalse(any('morluto/rea' in warning for warning in warnings))
+        self.assertEqual(self.names('REA 逆向工具怎么装'), [])
+
     def test_bug_with_engine(self):
         names = self.names('千星 Lua require 报错')
         self.assertIn('miliastra-code', names)
