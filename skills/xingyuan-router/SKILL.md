@@ -34,7 +34,7 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | --- | --- | --- | --- | --- |
 | 技能 `skill` | `skills[]`，16 项 | 千星实现、需求边界、交付编排、调试、性能、QQ 表情包、图像配方、技能维护等 | 读 SKILL.md 按步骤执行，产出并验证 | 不把参考条目当实现步骤；有 `requires` 的先核验外部依赖 |
 | 外部工具清单 `external` | `skills[]`，1 项 `desktop-toolbox` | 本机桌面软件的选择与核对 | 先按清单核验安装/可启动/功能验收状态再用 | 不把“已安装”当成“已验收”，不臆测 GUI 与连通性 |
-| 经验 `experience` | `skills[]`，9 项 | `game-design-theory`、`motion-design`、`level-design`、`game-ui-ux`、`game-feel`、`code-review`、`roblox-luau-expert`、`roblox-security-audit`、`qianxing-agent` | 只取原则、数值、判据、案例与审视清单，落地另配平台技能 | 不假装有脚本、生成器、平台 API 或真机验证 |
+| 经验 `experience` | `skills[]`，10 项 | `game-design-theory`、`motion-design`、`level-design`、`game-ui-ux`、`game-feel`、`code-review`、`roblox-luau-expert`、`roblox-security-audit`、`qianxing-agent`、`ponytail` | 只取原则、数值、判据、案例与审视清单，落地另配平台技能 | 不假装有脚本、生成器、平台 API 或真机验证 |
 | 库外依赖 `externals[]` | 独立段 | `rea`（MCP，missing）、`snowluma-onebot`（服务，ready）、`qianxing-platform`（平台，unverified） | 先看 `status` 再接入，`ready` 才可直接用 | 不把库外能力写成本库技能，不虚构已接入 |
 
 `experience` 类没有任何脚本；它们的落地路径写在各自 SKILL.md 里（多为“配合平台技能”）。`externals` 的 `status`：`ready` 已探活可用、`unverified` 未核实、`missing` 未接入。
@@ -61,6 +61,7 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 报错、没效果、偶发失败、根因 | `systematic-debugging` | 加目标平台工程技能 |
 | 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox`（外部） | 先检查本机可用性和验收状态；不强行启动 GUI |
 | 代码审查、回归风险 | `code-review`（经验） | 不因审查擅自修改代码 |
+| 过度设计、代码臃肿、想用最小改动、YAGNI、懒人模式；审查/审计/技术债 | `ponytail`（经验） | 只约束改法规模与精简度；风险审查加 `code-review`，定位根因加 `systematic-debugging`，千星实现另加平台技能 |
 | 技能文档、去重、合并、资料库整理、把项目经验写入技能 | `skill-manager` | 维护真源与引用；普通项目总结不触发技能修改 |
 | 沟通风格、我的意思是、你理解错了；优化提示词/系统提示词 | `user-intent-alignment` | 理解纠正先修当前任务；明确要求时才交付提示词；按长期授权校准有证据的偏好，普通“对话/继续”不启动复盘 |
 | QQ 机器人表情包/贴纸、自定义表情上架、表情发不出去 | `qq-sticker-pack` | 美术画风走 `design`；千星平台图片资产走 `miliastra-ui`；发送链路排错可加 `systematic-debugging` |

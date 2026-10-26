@@ -148,7 +148,7 @@ class RoutingTests(unittest.TestCase):
         kinds = {row['name']: row['kind'] for row in data['skills']}
         self.assertEqual(set(kinds.values()), {'skill', 'external', 'experience'})
         self.assertEqual(sum(1 for v in kinds.values() if v == 'skill'), 16)
-        self.assertEqual(sum(1 for v in kinds.values() if v == 'experience'), 9)
+        self.assertEqual(sum(1 for v in kinds.values() if v == 'experience'), 10)
         self.assertEqual(sum(1 for v in kinds.values() if v == 'external'), 1)
         for name, kind in kinds.items():
             if kind != 'experience':
@@ -182,6 +182,16 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(result['externals'][0]['status'], 'ready')
         self.assertIn('qq-sticker-pack', result['externals'][0]['used_by'])
         self.assertEqual(route.lookup('千星编辑器怎么打开')['externals'][0]['status'], 'unverified')
+
+    def test_ponytail_experience_route(self):
+        for query in ('用 ponytail 模式写这个功能', '这段代码过度设计了，帮我精简', 'YAGNI 一下'):
+            with self.subTest(query=query):
+                result = route.lookup(query)
+                self.assertEqual(result['candidates'][0]['skill'], 'ponytail')
+                self.assertEqual(result['candidates'][0]['kind'], 'experience')
+        for query in ('整理技能入口', '千星 UI 布局', '生成表情包'):
+            with self.subTest(query=query):
+                self.assertNotIn('ponytail', self.names(query))
 
     def test_bug_with_engine(self):
         names = self.names('千星 Lua require 报错')

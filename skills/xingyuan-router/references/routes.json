@@ -637,6 +637,29 @@
         "动态表情包",
         "动图"
       ]
+    },
+    {
+      "name": "ponytail",
+      "kind": "experience",
+      "purpose": "懒惰资深开发准则（Ponytail，MIT）：最小完整改动、不为将来写代码、保住验证与安全；含 review/audit/debt/gain 参考",
+      "platform": "general",
+      "keywords": [
+        "ponytail",
+        "懒人模式",
+        "懒惰资深",
+        "最简方案",
+        "最小改动",
+        "最小完整改动",
+        "yagni",
+        "过度设计",
+        "代码臃肿",
+        "精简代码",
+        "少写代码",
+        "lazy senior",
+        "smallest change",
+        "over-engineering",
+        "技术债"
+      ]
     }
   ],
   "gaps": [

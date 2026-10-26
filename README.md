@@ -8,6 +8,8 @@ ChatGPT × Codex 的私有共享知识、技能和任务交接仓库。
 
 2026-10-26 收录 [whalechan-image-character](skills/whalechan-image-character/SKILL.md) 与 [whalechan-image-comic](skills/whalechan-image-comic/SKILL.md)，用于 DeepSeek 鲸鱼娘立绘、人设与漫画表情。来源、版本和分层授权见各包 UPSTREAM.md；保留完整依赖素材，安装不调用生图接口。
 
+2026-10-27 收录 [ponytail](skills/ponytail/SKILL.md)：上游 `DietrichGebert/ponytail`（MIT，commit `09c434a`）的“懒惰资深开发”准则，按**经验类**收录（`kind: experience`），6 个上游技能合并为 1 条索引 + 5 份 references。只取文档，不含 hooks、脚本与插件机制；来源与改动见 [NOTICE](skills/ponytail/NOTICE.md)。
+
 ## 唯一真源与维护方式
 
 **本仓库 main 的 skills/ 是用户共享技能的唯一正式真源。** 电脑上的仓库克隆用于编辑，客户端技能目录仅作为安装副本；完整约束见 [Agent 规则](AGENTS.md)。

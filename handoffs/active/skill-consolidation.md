@@ -5,6 +5,18 @@
 当前状态：主动技能选择规则已发布并安装，路由与安装校验通过；REA 归属已修正、三类能力已区分；新技能录用守则已落地并推送。
 下一步：在后续实际任务中检验主动选用效果；下一次录入新技能时按录用守则走一遍并记录实际卡点。
 
+## Ponytail 收录（2026-10-27）
+
+按新守则走一遍真实录入，验证守则可执行：
+
+- 来源：`DietrichGebert/ponytail`（GitHub，MIT，Copyright 2026 DietrichGebert），固定 commit `09c434ab73ca43761c5d8b0c5d341926c2fba710`，`git clone --depth 1` 取得；未执行上游 hooks/脚本/安装器。
+- 类别判定：上游 6 个技能全部**无脚本**、无平台 API，产出是改法建议与审查报告 → `kind: experience`（不是 skill）。不写 `requires`，不进 `externals`。
+- 收录范围：6 个上游 SKILL.md（核心 + review/audit/debt/gain/help）、上游 `LICENSE`（存 `LICENSE-MIT`）。**未收录** `hooks/`、`scripts/`、`.claude-plugin`、各编辑器插件目录、`commands/*.toml`、`i18n/`、`benchmarks/`、图片资源。
+- 结构决定：6 个独立技能合并为 1 条索引 + 5 份 `references/*.md`（去掉 frontmatter、加来源行），避免同一套准则在索引里重复占 6 条；核心 SKILL.md 保留上游英文规则原文，另加中文的何时用、档位、变体入口、分工、自检、不承诺。改动见 [skills/ponytail/NOTICE.md](../../skills/ponytail/NOTICE.md)。
+- 索引：`routes.json` 加 `ponytail`（experience、general、15 个关键词含 ponytail/懒人模式/过度设计/YAGNI/技术债等）；入口快速表加一行标（经验）；三类表 experience 9→10。
+- 验证：全量 `python -B -m unittest discover -s scripts/tests -p 'test_*.py'` **91 项 OK（1 skipped）**（新增 `test_ponytail_experience_route` 正反例）；`verify_skills.py` PASSED（28 个 SKILL.md、本地引用 139）。路由实测「用 ponytail 模式写这个功能」「这段代码过度设计了」「YAGNI 一下」均命中 ponytail，且「整理技能入口」「千星 UI 布局」「生成表情包」不误触发。
+- [ ] 未完成：上游宣传的代码量/成本/速度收益未复测，本库不作为能力证据；客户端加载与真实编码任务中的效果未验证。
+
 ## 新技能录用守则（2026-10-27）
 
 录入前的旧规则是散的：AGENTS「关键词入口联动维护」只说必须同步入口，`xingyuan-router` 的维护表按“变更类型”列要求，`skill-manager` 第 4–5 步提来源/许可与 kind，`local-skill-sync.md` 第 3 步管导入，但**没有一条规则在写索引之前先判定类别**，也没写“什么情况不该建技能”。本次补齐为单一守则：
