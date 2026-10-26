@@ -216,6 +216,19 @@ class RoutingTests(unittest.TestCase):
             with self.subTest(query=query):
                 self.assertNotIn('skill-manager', self.names(query))
 
+    def test_prompt_refinement_merged_route(self):
+        for query in ('帮我优化这个提示词', '把这些纠正整理成提示词',
+                      '给客服写系统提示词', '给机器人写文字人设提示词',
+                      '优化 prompt', 'prompt optimization', '$prompt-optimizer'):
+            with self.subTest(query=query):
+                names = self.names(query)
+                self.assertEqual(names[0], 'user-intent-alignment')
+                self.assertNotIn('prompt-optimizer', names)
+        for query in ('千星角色对话系统', '继续', '优化千星按钮布局',
+                      '训练语言模型权重', '帮我总结文章'):
+            with self.subTest(query=query):
+                self.assertNotIn('user-intent-alignment', self.names(query))
+
     def test_route_rows_have_meaningful_fields(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         for row in data['skills']:

@@ -501,7 +501,7 @@
     },
     {
       "name": "user-intent-alignment",
-      "purpose": "本用户沟通风格、上下文指代与局部纠正对齐；按长期授权基于新证据主动修订并同步",
+      "purpose": "理解短句与纠正、按证据主动校准；按需诊断提示词并将要求提炼成完整可用指令",
       "platform": "general",
       "keywords": [
         "沟通风格",
@@ -517,7 +517,19 @@
         "user intent alignment",
         "communication style",
         "自动修订沟通技能",
-        "自动更新沟通习惯"
+        "自动更新沟通习惯",
+        "优化提示词",
+        "提示词优化",
+        "优化这个提示词",
+        "改写提示词",
+        "整理成提示词",
+        "系统提示词",
+        "文字人设提示词",
+        "优化 prompt",
+        "prompt 优化",
+        "prompt optimization",
+        "prompt optimizer",
+        "prompt-optimizer"
       ]
     },
     {

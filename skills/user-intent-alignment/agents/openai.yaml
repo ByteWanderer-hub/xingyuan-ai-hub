@@ -1,4 +1,4 @@
 interface:
-  display_name: "沟通与意图对齐"
-  short_description: "理解你的上下文、短句与局部纠正，保留已确认条件并减少反复解释"
-  default_prompt: "使用 $user-intent-alignment，结合当前上下文理解我的意思，保留已确认条件并继续完成任务。"
+  display_name: "意图对齐与提示词优化"
+  short_description: "理解短句与纠正、保留已确认条件，按需将要求整理成可直接使用的提示词"
+  default_prompt: "使用 $user-intent-alignment，理解当前上下文并保留已确认条件；如果我要求优化提示词，就交付可直接使用的完整版本。"
