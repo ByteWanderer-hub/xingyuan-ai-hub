@@ -24,6 +24,14 @@
 - [x] 已完成：`~/.agents/skills` 原有 8 项设计技能、`~/.dsh/skills` 原有 7 项 DSH 技能未改动，仅新增联接。
 - [ ] 未完成：Codex / Claude Code 是否实际扫描各自的 `skills` 目录未做端到端验证（仅验证联接可读与内容一致）；如需把其余共享技能也铺开，按需逐个联接，不批量灌入以免污染各端技能清单。
 
+## 跨会话记忆仓库（2026-10-27）
+
+- [x] 已完成：核查仓库与 QQ bot 侧是否有可复用实现——`memory/` 原为空白模板；QQ 侧记忆是 SnowLuma 内置 `qq_memory_*` 工具（实现不在本机源码内），`qq-bridge` 只做 MCP 代理，无可直接移植的代码。因此按本仓库既有约定自建。
+- [x] 已完成：新增 [memory.py](../../memory/memory.py)（标准库 CLI：briefing/add/search/list/promote/revoke/stats/rebuild）与 [README](../../memory/README.md)（字段、命令、写入纪律）；数据 `entries.jsonl` 与视图 `INDEX.md` 由 [.gitignore](../../memory/.gitignore) 排除，**默认只留本机**，避免个人信息进远端。
+- [x] 已完成：规则写入本机四份全局指令（`~/.codex/AGENTS.md`、`~/.agents/AGENTS.md`、`~/.claude/CLAUDE.md`、`~/.dsh/AGENTS.md`）与工程 `AGENTS.md` 的「跨会话记忆」章节；DSH 侧已实测注入生效。
+- [x] 已完成：以三条真实条目验收（agent 规则共用、git 需走代理、项目仓库来源），briefing/search/rebuild 输出符合预期。
+- [ ] 未完成：Codex / Claude 侧的自动取摘要行为未端到端验证；记忆容量增长后的检索策略（当前为关键词子串匹配）未做规模测试。
+
 
 ## 同步复核（2026-10-27）
 
