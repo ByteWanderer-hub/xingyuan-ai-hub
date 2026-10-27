@@ -6,7 +6,8 @@
 
 | 路径 | 作用 | 是否入库 |
 | --- | --- | --- |
-| `memory.py` | 读写入口（Python 标准库，无依赖） | 入库 |
+| `mem.cmd` | **推荐入口**：Windows 包装，自动切 UTF-8（解决 GBK 报错），DSH / Codex 直接调用 | 入库 |
+| `memory.py` | 读写实现（Python 标准库，无依赖） | 入库 |
 | `entries.jsonl` | 数据本体，一行一条，追加写 | **默认不入库**（见 `.gitignore`） |
 | `INDEX.md` | 由 `rebuild` 生成的人读视图 | 默认不入库 |
 | `README.md` | 本说明 | 入库 |

@@ -31,6 +31,9 @@
 - [x] 已完成：规则写入本机四份全局指令（`~/.codex/AGENTS.md`、`~/.agents/AGENTS.md`、`~/.claude/CLAUDE.md`、`~/.dsh/AGENTS.md`）与工程 `AGENTS.md` 的「跨会话记忆」章节；DSH 侧已实测注入生效。
 - [x] 已完成：以三条真实条目验收（agent 规则共用、git 需走代理、项目仓库来源），briefing/search/rebuild 输出符合预期。
 - [ ] 未完成：Codex / Claude 侧的自动取摘要行为未端到端验证；记忆容量增长后的检索策略（当前为关键词子串匹配）未做规模测试。
+- [x] 已完成（2026-10-27）：加 `mem.cmd` 包装（自动 `chcp 65001` + `PYTHONUTF8=1`），修掉 Windows GBK 下 ✓ 字符导致的 `UnicodeEncodeError`；`memory.py` 增加 stdout/stderr 编码兜底。从 `C:\Windows` 等任意目录调用已验证。
+- [x] 已完成：四份全局指令与工程 `AGENTS.md` 的记忆章节改为「会话第一件事：跑 briefing」，并给出 `mem.cmd` 与 `INDEX.md` 两级兜底。
+- [x] 已完成：写入 3 条长期条目（项目概况、汇报偏好、记忆入口），`rebuild` 生成 7 条索引，briefing 在任意 cwd 输出正常。
 
 
 ## 同步复核（2026-10-27）

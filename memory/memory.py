@@ -235,6 +235,14 @@ def cmd_rebuild(a):
 
 
 def main():
+    # Windows 控制台默认 GBK，中文与符号会抛 UnicodeEncodeError；尽量切到 UTF-8。
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            enc = (stream.encoding or "").lower().replace("-", "")
+            if enc != "utf8":
+                stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     p = argparse.ArgumentParser(description="共享记忆仓库")
     sub = p.add_subparsers(dest="cmd")
 
