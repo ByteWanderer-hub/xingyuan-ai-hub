@@ -1,10 +1,20 @@
 # 原电脑技能同步规则
 
 日期：2026-10-23（北京时间）。
-最后更新：2026-10-26（北京时间）。
-状态：主动技能入口修订已发布并安装，工程副本和安装校验通过；其他事项见原记录。
-下一步：按已有长期授权在后续有证据的反馈中继续校准；本轮技能维护完成，实际交流效果仍待验证。
+最后更新：2026-10-27（北京时间）。
+状态：技能库快进到 adea402 并同步安装副本（3 项更新 + 2 项新增），校验与路由抽查通过；28 条新经验条目未安装，用到时按缺失提示安装。
+下一步：按已有长期授权在后续有证据的反馈中继续校准；未安装条目与新技能的实调用效果待后续任务验证。
 触发：用户回到原电脑，在可访问本地文件和 Git 的会话要求“同步星愿/星缘资料库”时执行。不是定时任务，不在用户离线时自动运行。
+
+
+## 技能库同步至 adea402（2026-10-27）
+
+- [x] 已完成：远端 `main` 由 `1d07a8a` 快进到 `adea402ff654bd5d09449a7fbe43881c6e7d9ed1`（12 个提交、105 个文件），工作树干净、本地无领先提交，未使用 reset/clean。内容主体为 Matt Pocock 技能集（29 项进库，`code-review` 并入既有技能）、`ponytail` 经验条目、[录用守则](../../skills/skill-manager/references/admission.md) 与外部依赖「缺失即提示安装」规则。
+- [x] 已完成：安装副本更新 3 项（`xingyuan-router` 4 文件、`skill-manager` 2 文件、`code-review` 2 文件），新增 2 项 `kind: skill`（`diagnosing-bugs`、`wizard`，各 3 文件）；按「不因全库存在就启用无关技能」，其余 28 条经验/技能留在仓库，由路由引用，用到时按缺失提示安装。
+- [x] 已完成：安装前整目录备份 443 个文件至 `D:/xingyuan-ai-hub-backups/20261027-skill-sync-adea402/skills-before`，回收件数一致；未改动用户级 Host 副本、游戏产物与地图。
+- [x] 已完成：验证 —— `verify_skills.py --root . --installed <工程 .agents/skills>` 通过（57 个 SKILL.md、结构/不可变素材、安装清单与逐文件哈希 passed）；`scripts/tests` 93 项单元测试 OK；`route.py` 抽查「性能回归／生成向导／懒人模式」分别命中 `diagnosing-bugs`／`wizard`／`ponytail`。
+- [x] 已完成：客户端技能目录已刷新，新装 `diagnosing-bugs` 与 `wizard` 出现在可用技能清单中（发现层证据）。
+- [ ] 未完成：28 条未安装条目在真实任务中的调用效果、Codex 实际发现、插件/编辑器与真机均未验证；`wizard` 附带的 `template.sh` 与 `diagnosing-bugs` 的 `hitl-loop.template.sh` 未执行。
 
 
 ## 主动技能入口同步（2026-10-26）
