@@ -14,6 +14,24 @@ SPEC.loader.exec_module(route)
 
 
 class RoutingTests(unittest.TestCase):
+    def test_code_optimization_aliases(self):
+        for query in ('代码优化', '我不是有代码优化技能吗？你去看看啊',
+                      '我说的是代码优化技能', '优化代码', '代码精简', '代码简化',
+                      'code optimization', 'code-optimization', 'code simplification'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'ponytail')
+                self.assertNotIn('performance-optimization', self.names(query))
+
+    def test_code_optimization_boundaries(self):
+        for query in ('气体动画优化', '优化提示词', '优化游戏角色技能伤害',
+                      '游戏加载慢', '千星切关卡很卡'):
+            with self.subTest(query=query):
+                self.assertNotIn('ponytail', self.names(query))
+        names = self.names('千星 Lua 代码优化，游戏加载慢')
+        self.assertIn('ponytail', names)
+        self.assertIn('performance-optimization', names)
+        self.assertIn('miliastra-code', names)
+
     def names(self, query, platform='auto'):
         return [x['skill'] for x in route.lookup(query, platform)['candidates']]
 

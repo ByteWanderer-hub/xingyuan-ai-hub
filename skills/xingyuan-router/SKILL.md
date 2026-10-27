@@ -14,6 +14,8 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 5. **简述后执行。** 首次使用时简要说明选了哪些技能及用途，随即完成任务；不向用户抛出选技能问卷，不逐项展示排除清单。只要求找技能时交付路径与理由，不擅自执行其业务流程；没有适用技能则直接处理。只有影响正确性的真实信息缺口才集中澄清；加载技能不授予部署、发送、安装或其他范围外权限。
 6. **随证据重评。** 用户新增问题、实现转入排错/性能、设计转入平台落地或原方法反复失败时，在下一步实质操作前检查是否需要补充/更换技能。单纯状态查询或同范围续做不重复读取整套文件，不让“按需加载”变成等待用户指定技能。
 
+**代码优化与性能优化的分界：** 用户说「代码优化／优化代码／代码精简／code optimization」时，候选为 `ponytail`，检查消除重复与复用；卡顿、掉帧、帧耗时才主选 `performance-optimization`；两类目标同时存在可组合。用户明确纠正“我说的是代码优化技能”时，立即按纠正检索，不沿用上文卡顿话题。架构/模块职责改进再按需加 `improve-codebase-architecture`。若候选 `available:false`，表示使用目录未安装，先查已知共享真源，不能因此说仓库没有该技能；读取真源或按已有授权定向安装，不全量安装。仅查询技能不授权业务重构。
+
 可选检索：运行 `python scripts/route.py "包含已确认平台与当前问题的任务摘要"`，或用脚本绝对路径并传 `--platform qianxing` 等已知平台。脚本只返回关键词候选，不理解完整上下文、不执行技能；零命中、排序、否定词和混合任务均须结合技能描述人工判断。
 
 ### 选择示例
@@ -61,7 +63,7 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 报错、没效果、偶发失败、根因 | `systematic-debugging` | 加目标平台工程技能 |
 | 本地软件、文件夹比较、二进制查看、局域网传文件、虚拟主播配置 | `desktop-toolbox`（外部） | 先检查本机可用性和验收状态；不强行启动 GUI |
 | 代码审查、回归风险 | `code-review`（经验） | 不因审查擅自修改代码 |
-| 过度设计、代码臃肿、想用最小改动、YAGNI、懒人模式；审查/审计/技术债 | `ponytail`（经验） | 只约束改法规模与精简度；风险审查加 `code-review`，定位根因加 `systematic-debugging`，千星实现另加平台技能 |
+| 代码优化、优化代码、代码精简、code optimization、过度设计、代码臃肿、YAGNI、懒人模式；审查/审计/技术债 | `ponytail`（经验） | 约束改法规模、消除重复和复用；性能测量加 `performance-optimization`，风险审查加 `code-review`，千星实现另加平台技能 |
 | TDD、规格、拆票、实现、PR、分诊、复盘、架构改进 | `tdd` `to-spec` `to-tickets` `implement` `implement-spec` `pr` `triage` `retro` `improve-codebase-architecture`（经验） | 工程流；先 `setup-matt-pocock-skills` 配好 issue tracker；千星实现另加平台技能 |
 | 拷问需求、追问决策、调研、教、交接、给 agent 写文档 | `grilling` `grill-me` `grill-with-docs` `research` `teach` `handoff` `writing-for-agents`（经验） | 打磨思路与文档，不产出平台实现 |
 | 难查缺陷、性能回归的诊断循环 | `diagnosing-bugs` | 与 `systematic-debugging` 叠加或二选一，定位仍要取证 |

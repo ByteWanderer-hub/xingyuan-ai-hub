@@ -1,6 +1,6 @@
 ---
 name: ponytail
-description: 懒惰资深开发模式（Ponytail，MIT）：用最小完整改动解决问题，并在回复末尾用一两行说明跳过了什么、风险是什么。用于写代码、修 bug、重构、选依赖、审查改动，或用户说 ponytail、懒人模式、最简方案、YAGNI、过度设计、代码臃肿时；档位 lite / full / ultra。属经验类准则，不含脚本、生成器或平台 API。
+description: 代码优化与精简（Ponytail，MIT）：消除重复、复用现有实现，用最小完整改动解决问题。用于代码优化、优化代码、代码简化、code optimization、写代码、修 bug、重构、选依赖、审查改动，或用户说 ponytail、懒人模式、YAGNI、过度设计、代码臃肿时。属经验类准则，不含脚本、生成器或平台 API；实测卡顿与帧耗时另配 performance-optimization。
 license: MIT
 ---
 
@@ -12,6 +12,7 @@ license: MIT
 
 - 写新代码、修 bug、重构、选依赖、审查一次改动。
 - 用户说 ponytail、「懒人模式」「最简方案」「YAGNI」「过度设计」「代码臃肿」，或抱怨实现太重。
+- 用户说「代码优化」「优化代码」「代码精简」「代码简化」或 code optimization，先按本技能检查重复逻辑、现有实现复用与改动规模；若明确要改善耗时/掉帧，同时用 performance-optimization 取证。这里只询问技能时，解释入口与用途，不自动审查或重构全库。
 
 不用：以“少写”为理由砍掉安全与可访问性、跳过必要的测试或验收；纯文档整理；需要平台 API 与真机验证的千星实现（那些走 `miliastra-*`）。
 

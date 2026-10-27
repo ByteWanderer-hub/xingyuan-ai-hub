@@ -8,6 +8,7 @@
   2. 5 份变体去掉 YAML frontmatter，加一行来源与“Claude Code 专属命令不适用”的说明；正文未改写。
   3. 本库 SKILL.md 的规则段落保留上游英文原文，另加中文的何时用、档位、变体入口、与其他技能分工、自检与不承诺。
   4. 清洗：未收录 `.claude-plugin`、`hooks`、`scripts`、`package.json`、`benchmarks`、`i18n` 与任何图片资源；不含 npm 包名、更新命令或 Band 等 Claude Code 专属内容（`references/help.md` 中相关段落保留原样，仅作上下文）。
+  5. 2026-10-28：在本库 description、适用场景与路由补充「代码优化／代码精简」等自然语言别名，区分代码精简和性能测量；上游英文规则与许可不变。
 - 许可：MIT，Copyright (c) 2026 DietrichGebert，全文见 `LICENSE-MIT`。再分发与修改需保留该许可与版权声明。
 - 分类：`kind: experience`。依据是本目录无任何可执行脚本、无平台 API、产出是改法建议与审查报告，不是可自动核对工件；因此不登记 `requires`，也不进入 `externals`。
 - 未验证：上游宣传的代码量/成本/速度收益；本库未复测。上游 176k+ star、趋势排名等只作来源背景，不作为能力证据。
