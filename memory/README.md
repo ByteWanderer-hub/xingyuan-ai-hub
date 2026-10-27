@@ -33,16 +33,20 @@
 ## 常用命令
 
 ```bash
-python memory.py briefing --scope machine      # 会话开始的摘要
-python memory.py search 代理                    # 关键词检索
-python memory.py add --kind decision --scope project:qxqy_AI --text "……" --tags 仓库,规则
-python memory.py add --kind preference --text "……" --confidence pending   # 未确认
-python memory.py promote m-20261027-001        # 转正
-python memory.py revoke  m-20261027-001        # 撤销（保留记录）
-python memory.py list --kind gotcha            # 按类型列
-python memory.py stats                         # 统计
-python memory.py rebuild                       # 重建 INDEX.md
+mem.cmd briefing --scope machine        # 会话开始：默认只给最近 5 条（省上下文）
+mem.cmd briefing --all                  # 需要时看全部
+mem.cmd briefing --ids                  # 带编号（转正/撤销用）
+mem.cmd search 代理                      # 关键词检索
+mem.cmd add --kind decision --scope project:qxqy_AI --text "……" --tags 仓库,规则
+mem.cmd add --kind preference --text "……" --confidence pending   # 未确认
+mem.cmd promote m-20261027-001          # 转正
+mem.cmd revoke  m-20261027-001          # 撤销（保留记录）
+mem.cmd list --kind gotcha               # 按类型列
+mem.cmd stats                            # 统计
+mem.cmd rebuild                          # 重建 INDEX.md
 ```
+
+> 上下文预算：briefing 默认 5 条、每条一句话；`text` 超过 80 字会提示压缩（建议 ≤60 字），细节放 `--detail`。
 
 ## 写入纪律
 

@@ -95,6 +95,8 @@ def cmd_add(a):
     if not e["text"]:
         print("拒绝：text 为空", file=sys.stderr)
         return 2
+    if len(e["text"]) > 80:
+        print(f"提示：text {len(e['text'])} 字，摘要会占上下文；建议压到 60 字内，细节放 --detail。", file=sys.stderr)
     entries.append(e)
     write_all(entries)
     print(f"已记录 {e['id']}（{KIND_LABEL[e['kind']]}/{e['scope']}，{e['confidence']}）")
@@ -124,20 +126,19 @@ def cmd_search(a):
 
 def cmd_briefing(a):
     entries = [e for e in iter_entries() if e.get("status") != "revoked"]
-    if a.scope and a.scope != "all":
-        entries = [e for e in entries if e.get("scope") in (a.scope, "machine") or a.scope == "machine"]
+    if a.scope and a.scope not in ("all", "machine"):
+        entries = [e for e in entries if e.get("scope") in (a.scope, "machine")]
     entries.sort(key=lambda x: x.get("ts", ""), reverse=True)
     conf = [e for e in entries if e.get("confidence") == "confirmed"]
     pend = [e for e in entries if e.get("confidence") != "confirmed"]
-    print(f"# 共享记忆摘要（{len(conf)} 条已确认 / {len(pend)} 条待确认）")
-    for e in conf[: a.limit]:
-        print(short(e))
-    if pend:
-        print("-- 待确认（用 promote <id> 转正）--")
-        for e in pend[: max(3, a.limit // 3)]:
-            print(short(e))
+    limit = 9999 if a.all else a.limit
+    shown = conf[:limit]
+    print(f"记忆 {len(shown)}/{len(conf)} 条｜待确认 {len(pend)}｜--all 看全部，--ids 带编号")
+    for e in shown:
+        tail = f"  `{e['id']}`" if a.ids else ""
+        print(f"- {KIND_LABEL.get(e.get('kind'), e.get('kind'))}：{e.get('text', '')}{tail}")
     if not entries:
-        print("（记忆库为空：重要决定用 memory.py add 记录）")
+        print("（空库：用 mem.cmd add 记录）")
     return 0
 
 
@@ -248,7 +249,9 @@ def main():
 
     b = sub.add_parser("briefing", help="会话开始时的摘要")
     b.add_argument("--scope", default="machine")
-    b.add_argument("--limit", type=int, default=20)
+    b.add_argument("--limit", type=int, default=5)
+    b.add_argument("--all", action="store_true", help="列出全部已确认条目")
+    b.add_argument("--ids", action="store_true", help="带上条目编号（转正/撤销时用）")
     b.set_defaults(func=cmd_briefing)
 
     ad = sub.add_parser("add", help="新增一条记忆")
