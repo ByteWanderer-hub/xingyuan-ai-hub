@@ -62,6 +62,14 @@ class RoutingTests(unittest.TestCase):
                 self.assertNotIn('tiantangzhimen-gia', self.names(query))
         self.assertNotIn('miliastra-ui', self.names('Unity 2D 控件'))
 
+    def test_qianxing_basic_shape_composition(self):
+        for query in ('千星拼图，只用100001到100006', '千星基础形状组合，减少碎片'):
+            with self.subTest(query=query):
+                self.assertEqual(self.names(query)[0], 'miliastra-ui')
+        for query in ('网页拼图小游戏', 'Unity 基础形状拼图', '把旅行照片拼图'):
+            with self.subTest(query=query):
+                self.assertNotIn('miliastra-ui', self.names(query))
+
     def test_qianxing_ui_ux_workflow(self):
         for query in ('优化我千星的 UI /UX技能', '千星 UI/UX 从需求到试玩',
                       '千星分区布局与控件选型', '千星控件组状态绑定',
