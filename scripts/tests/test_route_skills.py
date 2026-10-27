@@ -19,7 +19,8 @@ class RoutingTests(unittest.TestCase):
                       '我说的是代码优化技能', '优化代码', '代码精简', '代码简化',
                       'code optimization', 'code-optimization', 'code simplification'):
             with self.subTest(query=query):
-                self.assertEqual(self.names(query)[0], 'ponytail')
+                self.assertIn('ponytail', self.names(query))
+                self.assertIn('improve-codebase-architecture', self.names(query))
                 self.assertNotIn('performance-optimization', self.names(query))
 
     def test_code_optimization_boundaries(self):
@@ -27,10 +28,22 @@ class RoutingTests(unittest.TestCase):
                       '游戏加载慢', '千星切关卡很卡'):
             with self.subTest(query=query):
                 self.assertNotIn('ponytail', self.names(query))
+                self.assertNotIn('improve-codebase-architecture', self.names(query))
         names = self.names('千星 Lua 代码优化，游戏加载慢')
         self.assertIn('ponytail', names)
         self.assertIn('performance-optimization', names)
         self.assertIn('miliastra-code', names)
+
+    def test_everyday_code_pair(self):
+        for query in ('写代码', '编写代码', '修改代码', '改代码',
+                      '帮我写代码实现这个功能', '还有修改代码时',
+                      'write code', 'modify code', 'edit code', '千星 Lua 修改代码'):
+            with self.subTest(query=query):
+                self.assertTrue({'ponytail', 'improve-codebase-architecture'} <= set(self.names(query)))
+        for query in ('修改图片', '写文案', '优化动画', '解释这段代码'):
+            with self.subTest(query=query):
+                self.assertNotIn('ponytail', self.names(query))
+                self.assertNotIn('improve-codebase-architecture', self.names(query))
 
     def names(self, query, platform='auto'):
         return [x['skill'] for x in route.lookup(query, platform)['candidates']]

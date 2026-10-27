@@ -4,15 +4,16 @@
 - 收录范围：上游 `skills/engineering`（20）、`skills/productivity`（7）、`skills/misc`（4）共 **31 个技能**；其中 `git-guardrails-claude-code` 因硬绑 Claude Code 的 `.claude/settings.json` hook、在本环境无法执行，已于 2026-10-27 移出，现保留 **29 个**（1 个合并进 `code-review`）。
 - 未收录：`skills/in-progress`（7 个未完成）、`skills/deprecated`（空）、`.claude-plugin/`、`scripts/`（仓库级）、`package.json`/`package-lock.json`、`CHANGELOG.md`、`docs/`、`SCOPE.md`/`CLAUDE.md` 等仓库级文档。
 - 处理方式：
-  1. 29 个技能**原样复制**到 `skills/<name>/`（含各自 `references/`、模板与脚本），未改正文与 frontmatter；`git-guardrails-claude-code` 已移出。
+  1. 29 个技能初次**原样复制**到 `skills/<name>/`（含各自 `references/`、模板与脚本）；`git-guardrails-claude-code` 已移出。后续本库适配见下项，历史sha256清单保留为导入基线。
   2. 上游 `code-review` 与本库同名条目**合并**：正文存为 `skills/code-review/references/matt-pocock.md`，本库 SKILL.md 加一行指路，避免同名两份正文分叉。
   3. 上游根 `LICENSE` 存为 `skills/MATT_POCOCK_LICENSE`。
+  4. 2026-10-28 按用户要求适配 improve-codebase-architecture：增加日常写/优化/修改代码的局部检查模式，更新description并移除disable-model-invocation；完整上游流程仅用于明确架构审查，避免小改自动扩大为全库报告。上游正文和许可保留。
 - 分类：29 个条目中 `diagnosing-bugs`、`wizard` 带可执行脚本/模板，判 `kind: skill`；其余 27 个为方法/流程文档，判 `kind: experience`。判定依据见 [录用守则](skill-manager/references/admission.md)。
 - 已知边界：
   - `setup-pre-commit`、`migrate-to-shoehorn` 面向 Node 工具链，`wizard` 依赖 bash；在本库只是文案与模板，不视为已在本机可用。
   - `setup-matt-pocock-skills` 会改项目的 issue tracker 配置，属写操作，执行前须确认目标仓库。
   - 上游宣传的收益与基准不在本库证据范围。
-- 更新方式：上游有新提交时按 commit 差异重做本文件与目录，不手工改已导入正文。
+- 更新方式：上游有新提交时按 commit 差异核对本文件与目录；本库适配须明确记录并保留来源/许可，不静默改写已导入正文。
 
 ## 验证证据（2026-10-27，零网络、零安装、零模型调用）
 

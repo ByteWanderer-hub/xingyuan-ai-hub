@@ -1,10 +1,17 @@
 ---
 name: improve-codebase-architecture
-description: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
-disable-model-invocation: true
+description: 写代码、优化代码、修改代码时与 ponytail 一起检查受影响模块的职责、接口、复用与验证边界；小改只做局部检查。明确要求架构审查时，扫描深化机会、提供 HTML 报告，再讨论所选方案。Supports write code, modify code, code optimization and deepening opportunities.
 ---
 
 # Improve Codebase Architecture
+
+## 本库调用方式
+
+按用户长期要求，写代码、优化代码、修改代码时均与 `ponytail` 配合使用，无需用户点名。常规任务只检查本次涉及的实现、调用方和测试：职责是否清晰、现有接口能否复用、修改是否让复杂度扩散；没有实际问题就按原结构完成，不为调用技能制造重构。词汇与原则参考 [codebase-design](../codebase-design/SKILL.md)。仅查技能或解释代码不自动修改业务。
+
+下方上游完整流程（全库探索、子代理、HTML 报告及方案追问）仅在用户要求架构审查/架构改进时执行，不是每次小改的前置关卡。普通实现使用上述局部检查即可；不得借架构检查改变已经确认的玩法或视觉标准。
+
+2026-10-28 本库适配：新增上述日常调用范围，更新 description 并移除仅手动调用标记；上游流程保留。来源与修改说明见 [收录说明](../MATT_POCOCK_SKILLS.md)。
 
 Surface architectural friction and propose **deepening opportunities**: refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.
 
