@@ -124,20 +124,52 @@ def cmd_search(a):
     return 0
 
 
+def parse_ts(e):
+    try:
+        return datetime.strptime(e.get("ts", ""), "%Y-%m-%dT%H:%M:%S%z")
+    except ValueError:
+        return None
+
+
+def score(e, want_scope, q=""):
+    """相关度：范围匹配 > 类型权重 > 新鲜度 > 简短度。"""
+    s = 0.0
+    if e.get("scope") == want_scope:
+        s += 3.0
+    kind = e.get("kind")
+    s += {"decision": 1.2, "gotcha": 1.2, "preference": 0.8}.get(kind, 0.3)
+    ts = parse_ts(e)
+    if ts:
+        days = max(0.0, (datetime.now(TZ) - ts).total_seconds() / 86400.0)
+        s += max(0.0, 4.0 - days / 14.0)
+    text = e.get("text", "")
+    if len(text) > 40:
+        s -= (len(text) - 40) / 100.0
+    if q and match(e, q):
+        s += 2.0
+    return s
+
+
 def cmd_briefing(a):
+    want = a.scope or "machine"
     entries = [e for e in iter_entries() if e.get("status") != "revoked"]
-    if a.scope and a.scope not in ("all", "machine"):
-        entries = [e for e in entries if e.get("scope") in (a.scope, "machine")]
-    entries.sort(key=lambda x: x.get("ts", ""), reverse=True)
-    conf = [e for e in entries if e.get("confidence") == "confirmed"]
-    pend = [e for e in entries if e.get("confidence") != "confirmed"]
+    if want == "all":
+        pool = entries
+    else:
+        pool = [e for e in entries if e.get("scope") in (want, "machine")]
+    if a.q:
+        pool = [e for e in pool if match(e, a.q)]
+    conf = [e for e in pool if e.get("confidence") == "confirmed"]
+    pend = [e for e in pool if e.get("confidence") != "confirmed"]
+    conf.sort(key=lambda x: (score(x, want, a.q or ""), x.get("ts", "")), reverse=True)
     limit = 9999 if a.all else a.limit
     shown = conf[:limit]
-    print(f"记忆 {len(shown)}/{len(conf)} 条｜待确认 {len(pend)}｜--all 看全部，--ids 带编号")
+    head = f"记忆 {len(shown)}/{len(conf)}｜待确认 {len(pend)}"
+    print(head + "｜--all 全部，--ids 编号" + ("｜q=" + a.q if a.q else ""))
     for e in shown:
         tail = f"  `{e['id']}`" if a.ids else ""
         print(f"- {KIND_LABEL.get(e.get('kind'), e.get('kind'))}：{e.get('text', '')}{tail}")
-    if not entries:
+    if not pool:
         print("（空库：用 mem.cmd add 记录）")
     return 0
 
@@ -252,6 +284,7 @@ def main():
     b.add_argument("--limit", type=int, default=5)
     b.add_argument("--all", action="store_true", help="列出全部已确认条目")
     b.add_argument("--ids", action="store_true", help="带上条目编号（转正/撤销时用）")
+    b.add_argument("--q", default="", help="按关键词加权（同时过滤）")
     b.set_defaults(func=cmd_briefing)
 
     ad = sub.add_parser("add", help="新增一条记忆")
