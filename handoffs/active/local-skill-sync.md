@@ -16,6 +16,14 @@
 - [x] 已完成：记录本机推送需带系统代理（`git -c http.proxy=http://127.0.0.1:17891`），否则直连超时。
 - [ ] 未完成：任务卡在实际对话中的效果（是否误触发、是否过度提问）未验证，按后续使用反馈调整。
 
+## 机器级规则共享（2026-10-27）
+
+- [x] 已完成：按用户要求把任务前置规则铺到本机四类 agent 的全局指令：`~/.codex/AGENTS.md`、`~/.agents/AGENTS.md`、`~/.claude/CLAUDE.md`、`~/.dsh/AGENTS.md`（后两个由 DSH 实际注入验证生效）。四个文件此前均不存在，未覆盖任何既有内容，无需备份。
+- [x] 已完成：技能副本改为**目录联接**而非复制：`~/.codex/skills`、`~/.agents/skills`、`~/.claude/skills`、`~/.dsh/skills` 下的 `user-intent-alignment` 均指向 `D:\xingyuan-ai-hub\skills\user-intent-alignment`，四处 SKILL.md 与真源 SHA-256 一致；改真源即全端同步，不产生漂移。
+- [x] 已完成：工程 `AGENTS.md` 同步为自包含四步版（不依赖技能加载），提交 `0e47f72` 推送，远端 main 核实一致；Codex Cloud 可读到。
+- [x] 已完成：`~/.agents/skills` 原有 8 项设计技能、`~/.dsh/skills` 原有 7 项 DSH 技能未改动，仅新增联接。
+- [ ] 未完成：Codex / Claude Code 是否实际扫描各自的 `skills` 目录未做端到端验证（仅验证联接可读与内容一致）；如需把其余共享技能也铺开，按需逐个联接，不批量灌入以免污染各端技能清单。
+
 
 ## 同步复核（2026-10-27）
 
