@@ -74,6 +74,7 @@ description: 设计或调整千星奇域 UI/UX：需求拆解、分区布局、�
 
 ## 6. 实现参考
 
+- 控件成本、重复刷新、动画实际绘制减量及UI数据存档超限：读 [千星2D UI优化经验](references/control-cost-benchmark.md)，区分实机计时、离线调用量和实际文件大小；不把池减半当绘制减半。
 - 整屏或联动布局：按 [实现流程](references/design-guide.md#implementation) 记录必要的素材、坐标、层序和数据归属；明确的小改直接实施，不强制草图审批。
 - 消息延迟、渲染归属或跨脚本显示问题：[数据归属](references/ui-data-ownership.md)。
 - 对话/黑幕/选项、手柄导航与打字机：[已运行对话工程](../miliastra-code/references/dialog-template-patterns.md)。
