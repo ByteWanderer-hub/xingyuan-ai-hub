@@ -4,6 +4,8 @@
 
 ## 先确定能测什么
 
+千星2D控件选型、池复用、显隐/激活切换和逐控件动画，按需读[图片与文本控件实机成本经验](../../miliastra-ui/references/control-cost-benchmark.md)：包含765/1530控件的72阶段测试、两轮反序数据与视觉失败边界。数值以该页为唯一正文；优先作为目标地图A/B假设，不把文本序列化较小或隐藏后的满帧当成运行更省、零开销的证据。
+
 实际实现前读相邻 [miliastra-code](../../miliastra-code/SKILL.md)，按项目 `annotations.lua` → 现有 API 参考确认类型、签名和时钟口径。仓库 [API 参考](../../miliastra-code/references/api-client-ui.md) 记载 `OnUpdate(dt)` 为脚本逐帧回调且不受关卡时停影响，`OnLevelUpdate` 受时停影响；这不证明 `dt` 是最终显示器呈现时间。需核对单位、暂停/切后台及夹取行为，不把回调 dt 统计称作 GPU 耗时或已呈现帧率。
 
 `os.clock` 在现有参考的允许列表内，但通常表示进程 CPU 时间，平台语义和精度仍需核实；不能直接作为 GPU 或端到端 wall-clock 计时器。没有经核实的高精度时钟时，分区 CPU 耗时标 unknown，用调用计数、工作量计数与 A/B 实验继续定位。不编造 `GetGPUTime`、`GetDrawCalls`、分配计数器或强制 GC 接口。
