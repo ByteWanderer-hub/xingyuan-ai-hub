@@ -30,6 +30,7 @@ description: 千星奇域客户端 UI 的动效与粒子：按意图选「补间
 实现细节按已核实的工程口径，别照本文件臆造 API 名：
 
 - 控件创建、几何、颜色、层序：[api-client-ui.md](../miliastra-code/references/api-client-ui.md)
+- 整组渐入渐出先核对[父级透明度实机经验](../miliastra-ui/references/control-cost-benchmark.md)：父图片颜色Alpha不等于子树整体Alpha；容器候选字段返回nil不代表已执行修改。当前采用已核实的子控件颜色更新时，缓存原色并统计真实setter数量，不能将库的groupAlpha封装当成原生父级单字段。
 - 逐帧与 Tween 的写法：[frame-animation.md](../miliastra-code/references/frame-animation.md)
 - 粒子池的历史实现：[vfx-particles-and-budget.md](../miliastra-code/references/vfx-particles-and-budget.md)、[case-extreme-particles.md](../miliastra-code/references/case-extreme-particles.md)；当前测量与预算边界见 [性能适配](../performance-optimization/references/miliastra.md)，不套用历史数量作为上限。
 - 每帧预算与分帧：[l2-07-frame-budget.md](../miliastra-code/references/iron-rules-l2/l2-07-frame-budget.md)
