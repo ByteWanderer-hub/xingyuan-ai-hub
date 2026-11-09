@@ -87,7 +87,7 @@ class VerificationTests(unittest.TestCase):
     def test_local_pass_keeps_external_capabilities_unverified(self):
         result = self.verify()
         self.assertEqual(result["status"], "passed", result["errors"])
-        self.assertEqual(len(result["skills"]), 10)
+        self.assertEqual(len(result["skills"]), len(verifier.CORE_SKILLS))
         self.assertEqual(result["image_catalog"]["entries"], 1)
         self.assertEqual(result["scope"]["offline_selftests"], "not_run")
         for name in ("codex_discovery", "editor_plugin", "game_runtime"):
@@ -98,13 +98,22 @@ class VerificationTests(unittest.TestCase):
             self.skill(name)
         result = self.verify()
         self.assertEqual(result["status"], "passed", result["errors"])
-        self.assertEqual(len(result["skills"]), 14)
+        self.assertEqual(len(result["skills"]), len(verifier.CORE_SKILLS) + 4)
 
-    def test_missing_core_skill_is_a_failure(self):
-        shutil.rmtree(self.root / "skills/game-feel")
-        result = self.verify()
-        self.assertIn("missing_core_skill", self.codes(result))
-        self.assertEqual(result["structure_validation"], "failed")
+    def test_missing_each_core_skill_is_a_failure(self):
+        for name in verifier.CORE_SKILLS:
+            with self.subTest(skill=name):
+                path = self.root / "skills" / name / "SKILL.md"
+                original = path.read_bytes()
+                path.unlink()
+                try:
+                    result = self.verify()
+                    self.assertIn("missing_core_skill", self.codes(result))
+                    self.assertEqual(result["structure_validation"], "failed")
+                    self.assertEqual([name], [error["path"] for error in result["errors"]
+                                              if error["code"] == "missing_core_skill"])
+                finally:
+                    path.write_bytes(original)
 
     def test_missing_empty_or_non_scalar_metadata_is_rejected(self):
         for metadata in ("name: game-feel", "name: game-feel\ndescription: ''",

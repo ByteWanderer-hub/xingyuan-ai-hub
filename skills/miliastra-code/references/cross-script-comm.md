@@ -65,7 +65,7 @@ game.FindClientUIRoot(nodeName) → ClientUIBaseControl   按名字查 UI 根控
 ```
 
 ⇒ **两个脚本都能拿到同一个"根"** ⇒ 在根下面按名字找到**同一个文本框** ⇒ 就能互传字符串 ✓
-（这也是本域**唯一有真机先例**的跨脚本通道 —— `case-detectives-6scripts.md` 的 6 脚本工程用的就是它）
+（`case-detectives-6scripts.md` 的 6 脚本工程使用这条通道，但并非唯一方案：本文 §5 记录了目标 Script 的 `Invoke`；较新范例和证据边界见 [对话工程 §3](dialog-template-patterns.md#3-脚本通信与职责)。）
 
 ### 落地形状
 

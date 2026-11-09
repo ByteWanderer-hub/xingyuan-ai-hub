@@ -35,8 +35,8 @@ miliastra_code {op:"preflight", dir:"<只放可部署产物的目录>"}
 
 | ✅ 它查 | ⛔ 它**不查**（还得自己跑） |
 |---|---|
-| Lua **真语法**（fengari 真编译，报错带行号） | 作用域（漏 `local` / 声明晚于使用）→ `tools/check-lua-scope.mjs` |
-| 结构配对 | 风格基线 → `tools/check-lua-style.mjs --baseline` |
+| Lua **真语法**（fengari 真编译，报错带行号） | 作用域（漏 `local` / 声明晚于使用）→ `scripts/gates/check-lua-scope.mjs` |
+| 结构配对 | 风格基线 → `scripts/gates/check-lua-style.mjs --baseline` |
 | 全局写（真机运行期给全局赋值不生效） | 类型 / 运行时语义 |
 | 图片有图源（`IMAGE_WITHOUT_SOURCE`） | 平台 UI 铁律 → `miliastra_code {op:"lint-ui"}` |
 
@@ -71,8 +71,8 @@ miliastra_code {op:"deploy", level:"<关卡ID>", file:"<活文件名>", source:"
 ```
 
 - ⚠️ **`level` 不传 = 写"当前关卡"**，而**换图会改掉"当前关卡"** ⇒ 实测事故：在 A 图 deploy 把 B 图的同名活文件覆盖了 ✗
-- ⚠️ **多脚本工程 `file` 不传 = 按"最近改动"挑** ⇒ 曾把 `input.lua` 的内容写进 `view.lua` ✗
-- **批量**：`files:[{file,source},…]`（**`files` 参数在 schema 里没有但实现了** ⇒ 只能"猜"出来，见 §6）
+- **部署按名字选目标，不按最近改动猜**：`file` > `source` 同名活文件 > 目录唯一活文件；仍有歧义则拒绝并列候选。多脚本工程仍显式传 `file`。
+- **批量**：`files:[{file,source},…]` 已在当前 schema 中；任一失败整体回滚。
 - **看回执的 `dest`** 再往下走 ✓
 
 ### 1.4 存盘之后、试玩之前
@@ -101,7 +101,7 @@ miliastra_health {op:"sha", all:true, mirror:"<工作区镜像目录>"}
 
 ## 2. 生成器：`miliastra_gen` 的四个 op
 
-**共同点**：都是**离线生成**、零平台 API、**不写任何文件** ⇒ 产出交给你自己落盘/接入 ✓
+**共同点**：都是**离线生成**、零平台 API；不传 `saveTo` 时返回正文，传绝对路径 `saveTo` 可原子落盘并回摘要。生成不等于部署或接入。
 **共同点 2**：交接值（模板索引 / 容器索引）**它会先自动读当前关卡的 `.gil`**，
 **只有唯一候选才采用**；拿不到就**报错点名**（`needsHandover[]`）—— **绝不编** ✓
 
@@ -186,7 +186,7 @@ miliastra_health {op:"handover", action:"set", handover:{container:…, imageTem
 |---|---|---|
 | 1 | **`step {dt:N}` 只跳时钟、不补跑中间逻辑** | 我以为"推进 16 秒"，结果 `time` 跳到 18.13s 但 `frame` 只有 65、日志全挤在一个时间戳、HP 只掉十几点 ⇒ **试了 4 次才明白**。**要长流程用 `bind` 的 `runForMs`**（那是真跑） |
 | 2 | **`bind` 的 `settleSec` 与 `runForMs` 同时给，以 `runForMs` 为准** | 回执里 `runMode` 会明说；别以为两个都生效 |
-| 3 | **`files:[…]` 批量部署实现了，但 schema 里没有** | 我猜了三次参数名才投成 9 个文件；回执 `mode:"multi"` 是成功标志 |
+| 3 | **旧版本曾缺批量部署参数说明；当前 schema 已有 `files`** | 使用 `files:[{file,source},…]`，检查整体结果与逐项目标；不能只凭 `mode:"multi"` 断言部署成功 |
 | 4 | **`op=deploy` 的 lint 现在会真编译**（fengari）—— 但要看 `lintChecks`/`lintSkips` 自述边界 | 早期它**不查语法**却没有任何限定语 ⇒ "deploy 成功"被我误当成"语法正确"（栽 3 次） |
 | 5 | **`preflight` 的 `ok:null` = 判不了**，不是通过 | `unverified[]` 里的项（`<size=N>` / 4bit / 图元真机渲染）一律 `ok:null` ⇒ **别读成绿灯** |
 | 6 | **交接值随换图变化** ⇒ 每次 `deploy` 显式 `level` | 事故：在 A 图 deploy 覆盖了 B 图同名活文件（靠自动备份+`op=restore` 救回） |
@@ -206,4 +206,4 @@ miliastra_health {op:"handover", action:"set", handover:{container:…, imageTem
 > **改完先过工作区门禁（作用域 + 风格两道，见 SKILL.md §8）→ 再 `preflight`（含真语法）→ 模拟器 `bind runForMs`（看控件数+首错）→ `deploy`（显式 level+file）
 > → 编辑器存盘 → `sha all:true` 确认三方一致 → 人点试玩 → `log op=errors` 取证。**
 >
-> 这套里**只有"存盘"和"点试玩"必须人做**，其余都能自动 ✓
+> 编辑器内**建容器、存控件模板、挂载脚本、存盘与点试玩都必须人做**，没有 UI 自动化通道；其余仅在相应工具、交接值和授权齐备时自动执行。

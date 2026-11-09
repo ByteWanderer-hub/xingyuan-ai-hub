@@ -59,7 +59,7 @@ description: 千星奇域客户端 UI 的动效与粒子：按意图选「补间
 - 每帧不新建控件、不重建整棵树；静态美术建一次后复用。
 - OnUpdate 里必须 pcall（[R1-onupdate-pcall.md](../miliastra-code/references/iron-rules/R1-onupdate-pcall.md)）；不泄漏全局。
 - 文件体积按 [R11-file-size.md](../miliastra-code/references/iron-rules/R11-file-size.md)；纯 Lua 有门禁，动效别把文件堆爆。
-- 文字高度 ≥ 字号×1.4（[R12-text-height.md](../miliastra-code/references/iron-rules/R12-text-height.md)）——**缩放/呼吸动效作用在文字上时同样成立**，别把字挤扁。
+- 文字高度须同时满足 `h ≥ 字号×1.4` 与 `h ≥ 字号+16`（[R12-text-height.md](../miliastra-code/references/iron-rules/R12-text-height.md)）——**缩放/呼吸动效作用在文字上时同样成立**，别把字挤扁。
 - 常规界面布局沿用项目栅格、字号与间距；曲线、门转轴、裁切和透视使用实际几何，不能为凑整把相接边界拆开。
 - 颜色按目标 API 的签名、分量范围和序列化格式写；RGBA 函数、ARGB 整数与 CSS 字符串不可混用，不能统一假定 alpha 的位置。
 
@@ -89,7 +89,7 @@ description: 千星奇域客户端 UI 的动效与粒子：按意图选「补间
 | 越跑越慢 | 控件泄漏（退页没销毁） | 只销毁自己拥有的；核对前后控件数 |
 | 手感"飘" | 反馈延迟、距离/时长失衡或落点不清 | 核对首次反馈、速度曲线和终态；不能仅凭 ease-in 或超过 400ms 定错 |
 | 弹窗"软" | 没有过冲也没有位移方向感 | 加 5–10% 过冲或 8–16px 位移 |
-| 文字抖/糊 | 动效缩放了文字控件 | 动容器，不动字体；高度守住字号×1.4 |
+| 文字抖/糊 | 动效缩放了文字控件 | 动容器，不动字体；高度同时守住 `h ≥ 字号×1.4` 与 `h ≥ 字号+16` |
 | 粒子"糊成一团" | 发射太密、颜色超出调色板 | 降 rate，限定 5 色以内，能量饱和·物质去饱和 |
 | 颜色不对 | 分量范围/顺序错、旧缓存或重复透明叠加 | 按实际 API 核对首帧颜色与合成结果；颜色来自定稿参数 |
 

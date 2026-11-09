@@ -182,7 +182,7 @@ b = "善恶　　善良 = 不该抓；邪恶 = 该抓（爪牙、叛徒）\n"
 | 门禁 | 本轮真抓到的 |
 |---|---|
 | `scripts/lua-check.mjs scope` | **闭包读到 nil**：`sfxStart` 差点写在 `sfx` 之前（一点按钮就崩）；助手函数顺序 / 前向声明都是它的判据 |
-| `miliastra_code op=lint-ui` | 新控件**高度 44 不是 8 的倍数**（改成 48）；字号档位；`h ≥ fontSize × 1.4`（不满足 ⇒ 该控件**一个像素都不画**） |
+| `miliastra_code op=lint-ui` | 新控件**高度 44 不是 8 的倍数**（改成 48）；字号档位；`h ≥ fontSize × 1.4` 且 `h ≥ fontSize + 16`（不满足有真机整条不画风险） |
 
 ---
 

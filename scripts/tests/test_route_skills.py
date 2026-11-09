@@ -221,7 +221,8 @@ class RoutingTests(unittest.TestCase):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         externals = {e['name']: e for e in data['externals']}
         self.assertEqual(set(externals), {'snowluma-onebot', 'rea', 'mcp-snowluma',
-                                          'mcp-snowluma-host', 'mcp-web-search-safe'})
+                                          'mcp-snowluma-host', 'mcp-web-search-safe',
+                                          'dsh-miliastra', 'genshin-miliastra-mcp', 'genshin-ts'})
         for name, ext in externals.items():
             with self.subTest(external=name):
                 self.assertIn(ext['kind'], {'mcp', 'service', 'platform', 'software'})
@@ -239,6 +240,40 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(result['externals'][0]['status'], 'ready')
         self.assertIn('qq-sticker-pack', result['externals'][0]['used_by'])
         self.assertEqual(route.lookup('千星编辑器怎么打开')['externals'], [])
+
+    def test_miliastra_dependency_readiness_is_not_inherited(self):
+        for query, skill in [('千星 Lua 修改代码', 'miliastra-code'),
+                             ('千星 UI 布局', 'miliastra-ui'),
+                             ('千星 UI 动效', 'miliastra-motion')]:
+            with self.subTest(query=query):
+                result = route.lookup(query)
+                candidate = next(c for c in result['candidates'] if c['skill'] == skill)
+                self.assertIn('dsh-miliastra', candidate['requires'])
+                ext = next(e for e in result['externals'] if e['name'] == 'dsh-miliastra')
+                self.assertIn(skill, ext['required_by'])
+                self.assertEqual(ext['status'], 'unverified')
+                self.assertEqual(ext['matched'], [])
+                self.assertNotIn('genshin-ts', [e['name'] for e in result['externals']])
+        for query, name in [('8itlab', 'genshin-miliastra-mcp'), ('genshin-ts', 'genshin-ts')]:
+            result = route.lookup(query)
+            ext = next(e for e in result['externals'] if e['name'] == name)
+            self.assertEqual(ext['status'], 'unverified')
+            self.assertEqual(ext['required_by'], [])
+        self.assertEqual(route.lookup('普通网页 UI 布局')['externals'], [])
+
+    def test_miliastra_external_provenance(self):
+        data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
+        for ext in data['externals']:
+            if ext['name'] not in {'dsh-miliastra', 'genshin-miliastra-mcp', 'genshin-ts'}:
+                continue
+            with self.subTest(external=ext['name']):
+                output = next(e for e in route.lookup(ext['name'])['externals']
+                              if e['name'] == ext['name'])
+                for key in ('source', 'version', 'license', 'prerequisites', 'integration'):
+                    self.assertTrue(ext[key].strip())
+                    self.assertEqual(output[key], ext[key])
+                self.assertTrue(ext['source'].startswith('https://github.com/'))
+                self.assertEqual(ext['status'], 'unverified')
 
     def test_ponytail_experience_route(self):
         for query in ('用 ponytail 模式写这个功能', '这段代码过度设计了，帮我精简', 'YAGNI 一下'):

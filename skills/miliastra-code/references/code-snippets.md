@@ -332,7 +332,7 @@ end
 ```bash
 node scripts/lua-check.mjs scope <文件>                                   # 作用域（声明在后面的 local ✓）
 node scripts/lua-check.mjs style <文件或目录> --baseline <基线.json>                        # 风格（error 必过 + 不许比基线差 ✓）
-miliastra_code op=lint-ui                                 # 动过界面才跑：画在哪=点哪算 / 8 倍数 / 字号档 / 行高 ≥ 字号×1.4 ✓
+miliastra_code op=lint-ui                                 # 动过界面才跑：画在哪=点哪算 / 8 倍数 / 字号档 / h ≥ 字号×1.4 且 h ≥ 字号+16 ✓
 ```
 
 ⚠️ **`preflight` 的两个已知误报（别为它们改代码）**：

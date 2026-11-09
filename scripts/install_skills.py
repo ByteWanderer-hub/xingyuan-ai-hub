@@ -26,6 +26,7 @@ DEFAULT_SKILLS = (
     "miliastra-bb", "miliastra-code", "miliastra-ui", "miliastra-motion",
     "motion-design", "performance-optimization", "qianxing-agent",
     "qianxing-auto-delivery", "systematic-debugging",
+    "ponytail", "improve-codebase-architecture", "codebase-design",
 )
 _HASH = re.compile(r"[0-9a-f]{64}\Z")
 _REVISION = re.compile(r"(?:[0-9a-f]{40}|[0-9a-f]{64})\Z")
@@ -440,7 +441,8 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     selection = parser.add_mutually_exclusive_group()
     selection.add_argument("--all", action="store_true", help="Select every source skill")
-    selection.add_argument("--skill", action="append", metavar="NAME", help="Select a skill; repeatable")
+    selection.add_argument("--skill", action="append", metavar="NAME",
+                           help="Replace the default selection with named skills; repeatable")
     parser.add_argument("--scope", choices=("repo", "user"), default="repo")
     parser.add_argument("--target", type=Path, help="Override the destination skill directory")
     parser.add_argument("--apply", action="store_true", help="Apply; default is a read-only preview")

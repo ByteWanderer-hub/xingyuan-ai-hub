@@ -98,9 +98,9 @@ Markdown 链接相对此文件；正文代码中的 `references/`、`scripts/` �
 
 > 违反/改进参考 → [`references/iron-rules/R11-file-size.md`](iron-rules/R11-file-size.md)
 
-### R12　文本控件高度必须容得下字号（`h ≥ 字号 × 1.4`）
+### R12　文本控件高度必须容得下字号（`h ≥ 字号 × 1.4` 且 `h ≥ 字号 + 16`）
 - 容不下行高 ⇒ **整条一个像素都不画**（不裁切、不报错，**只有真机暴露**）。
-- 审查动作：`node tools/check-ui-contract.mjs` 第 ④ 条（自动配对 `add(... "txt",x,y,w,h)` ↔ `setFont` / `.c.fontSize`）。
+- 审查动作：技能自带 `node scripts/gates/check-ui-rules.mjs <脚本.lua>`（位于 `miliastra-ui`）；工程适用时另跑 `tools/check-ui-contract.mjs`。仅静态字面量可配对，变量与运行时渲染仍待验证。
 
 > 违反/改进参考 → [`references/iron-rules/R12-text-height.md`](iron-rules/R12-text-height.md)
 
@@ -314,7 +314,7 @@ end
 | **"这张图都干了啥 / 谁身上挂着哪张图 / 什么时候跑"** | **节点图能力读取** | ★ [`references/node-graph-capabilities.md`](node-graph-capabilities.md)（区地图 / 挂载判据 / 入口事件） |
 | "要模板索引 / 容器索引 / 资产 ID" | **交接** | §3 按需交接；能自动读的先读（`miliastra_map op=clientui` / `miliastra_sim op=handover`） |
 | **"按名字找不到控件 / 名字对但设不了字段 / 作者把块做成了模板引用"** | **控件名与探测** | ★ [`references/control-name-and-probe.md`](control-name-and-probe.md)（三种控件来源形态 · 候选+**字段探测** · `SCAN_TREE` 诊断 · `.gil` 反查名字与父 id） |
-| **"两个脚本怎么传数据 / 界面关了数据就丢 / 跨脚本调用没反应"** | **跨脚本通信** | ★ [`references/cross-script-comm.md`](cross-script-comm.md)（**只走控件黑板**；`GetScript` / `Invoke` 两次真机证伪；`game.GetClientUIRoots()` 拿同一个根） |
+| **"两个脚本怎么传数据 / 界面关了数据就丢 / 跨脚本调用没反应"** | **跨脚本通信** | ★ [`references/cross-script-comm.md`](cross-script-comm.md)（控件黑板是一种方案；先取得实际挂载目标 Script，再对它 `Invoke`；补充证据与回调协作见 [对话工程](dialog-template-patterns.md#3-脚本通信与职责)，不以未抛错或调用数当业务成功） |
 | "改完能不能上 / 该试玩了" | **交付闸门** | 按 **§8 门禁流程**走完（含 `deploy` → 编辑器存盘 → `match:true` → 人试玩） |
 
 <a id="catalog"></a>
@@ -330,8 +330,8 @@ end
 | `readme.md`（官方包内守则） | `references/guardrails.md` | ✅ 原文照录（有 1 处本地改动，见账本） |
 | 官方《客户端控件 API 文档》 | `references/api-client-ui.md`（1127 行，接口全带签名） | ✅ 见 §6 |
 | 官方《千星沙箱客户端脚本使用指南》 | `references/usage-guide/千星沙箱客户端脚本使用指南.md` | ✅ 正文在；34 张配图已剥离 |
-| 图片资产数据标注 | `assets/asset-catalog.md`（1543 条索引，可 rg）或插件 `miliastra_asset op=catalog` | ⚠️ 原始 JSON 已移出技能 |
-| `annotations.lua`（随项目给的 API 签名） | 千星域项目工作区 | ⚠️ 本机无 → 退用 `api-client-ui.md`，见 §6 |
+| 图片资产数据标注 | `assets/asset-catalog.md`（1543 条索引）、`assets/Image_sample_by_id.json`（离线数据）或插件 `miliastra_asset op=catalog` | ✅ JSON 随技能携带；离线检索可用 `node scripts/search-assets.mjs <关键词>` |
+| `annotations.lua`（随项目给的 API 签名） | 当前目标项目工作区；不随技能安装自动迁移 | 先定位并读取当前项目版本；缺失才退用历史 `api-client-ui.md` 并标注版本未核实，见 §6 |
 | `levelScript.lua` | 千星域项目工作区 | AI 的**唯一落点** |
 | `API/Tools/ReconstructPixelArt.py`、`ValidatePixelArtLua.py` | 本机**没有** → 按 `pixel-reconstruction.md` §1.4 任务内自建 | ❌ |
 | 来源 / 哈希 / 许可账本（含空壳导出 `api-client-ui-outline.md` 的留痕说明） | `references/api-doc-sources.md` | ✅ |
@@ -350,7 +350,7 @@ end
 | 编辑器配置 SOP（容器/模板/多脚本/黑板） | `references/editor-setup-sop.md` |
 | 引擎实测边界清单（编号事实表；含 #44~47：模板引用 / 名字≠控件 / cursor 方法不通用 / 状态子控件可缺） | `references/engine-boundaries.md` |
 | ★ **控件名怎么定**（三种来源形态 · 候选+**字段探测** · `SCAN_TREE` · `.gil` 反查名字与父 id · `MOCK_MODE` 假数据） | `references/control-name-and-probe.md` |
-| ★ **跨脚本通信**（唯一正解=**控件黑板**；`GetScript`/`Invoke` 为何不行；常驻脚本保管+重发模式） | `references/cross-script-comm.md` |
+| ★ **跨脚本通信**（控件黑板、挂载点匹配与目标 Script 的 `Invoke`；常驻脚本保管+重发模式） | `references/cross-script-comm.md`；较新范例与证据边界见 [对话工程 §3](dialog-template-patterns.md#3-脚本通信与职责) |
 | ★ 可照抄的代码片段（变量/信号/提前布点/直推） | `references/code-snippets.md` |
 | 黑板 → 自定义变量 + 服务器信号（完整案例） | `references/blackboard-to-variable-signal.md` |
 | 数据口径（四种基础类型 / 列表优先 / 关卡实体=数据库） | `references/variables-and-signals.md` |
@@ -377,7 +377,7 @@ end
 
 **硬要求（守则 §3）**：具体类型/函数/字段/枚举/参数/返回值**一律以当前 API 文档为准**；README、旧脚本、示例、模型记忆用于定位；用户确认可运行且已读源码的范例可补充运行写法证据，但不替代 API 类型/签名，不把未走到的分支当实测。查不到就标 `unknown` 并停止依赖它的实现——**禁止猜**。
 
-依据优先级：**项目工作区的 `annotations.lua`（若存在，它是当前版本）→ `references/api-client-ui.md` → 冲突时以工作区文件为准并记进报告**。
+依据优先级：**当前目标项目的 `annotations.lua`（先核对来源/版本，不以文件存在就断言最新）→ `references/api-client-ui.md`（历史回退）→ 冲突时以已确认的项目版本为准并记进报告**。
 
 > ⚠️ **已核出的真实差异**：原官方技能 `lua-control-frame-animation` 写的是 `script:EnableTick(enabled)`，
 > 而 API 文档中是 **`script:EnableUpdate(enabled: boolean)`**，**没有 `EnableTick`**。
@@ -424,7 +424,7 @@ end
 | 1 | **作用域**（R2 / R3 / L2-05） | `node tools/check-lua-scope.mjs [--map <地图>]` | **候选代码变化时运行，复用同 SHA 有效结果** |
 | 1b | **全局赋值自查**（R2 专项） | `node tools/scan-lua-globals.mjs [--map <地图>]` | 动过**标志位 / 缓存 / 累加器**时（真机上"写全局"不生效，实测刷出 13 983 行日志） |
 | 2 | **风格**（R1/R4/R5/R6/R11） | `node tools/check-lua-style.mjs --map <地图>`（看现状）｜**`--baseline` = 卡"不许比基线差"**（本图有基线时） | **候选代码变化时运行，复用同 SHA 有效结果**（error 必过） |
-| 3 | **UI 契约**（R12） | `node tools/check-ui-contract.mjs` | **动过界面 / 布局 / 字号**才跑（画在哪=点哪算 · 8 的倍数 · 字号档 · `h ≥ 字号×1.4`） |
+| 3 | **UI 契约**（R12） | `node tools/check-ui-contract.mjs` | **动过界面 / 布局 / 字号**才跑（画在哪=点哪算 · 8 的倍数 · 字号档 · `h ≥ 字号×1.4` 且 `h ≥ 字号+16`） |
 | 4 | **构建**（R9） | `node tools/build-main.mjs --map <地图>` | **改过构建片段**才跑（字段契约 + 关卡表断言，不合格**拒绝落盘**） |
 | 5 | **插件真语法** | `miliastra_code {op:"preflight", dir:"<只放可部署产物的目录>"}` | `deploy` 前；覆盖范围以当前版本回执为准，不替代项目规定的独立作用域/风格/UI 门禁 |
 | 6 | **平台 UI 铁律** | `miliastra_code {op:"lint-ui"}` | 动过界面时，与第 3 道并行看 |

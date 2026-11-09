@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+from contextlib import redirect_stdout
 import importlib.util
+import io
 import json
 from pathlib import Path
 import tempfile
@@ -48,6 +50,48 @@ class InstallerTests(unittest.TestCase):
         if self.target.parent.exists():
             self.assertEqual([], list(self.target.parent.glob(".xingyuan-install-*")))
             self.assertFalse((self.target.parent / f".{self.target.name}.xingyuan-install.lock").exists())
+
+    def test_default_selection_is_complete_and_matches_verifier_core(self):
+        spec = importlib.util.spec_from_file_location("default_verifier", SCRIPT.with_name("verify_skills.py"))
+        verifier = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(verifier)
+        self.assertEqual(17, len(installer.DEFAULT_SKILLS))
+        self.assertEqual(17, len(set(installer.DEFAULT_SKILLS)))
+        self.assertTrue({"ponytail", "improve-codebase-architecture", "codebase-design"}
+                        <= set(installer.DEFAULT_SKILLS))
+        self.assertEqual(installer.DEFAULT_SKILLS, verifier.CORE_SKILLS)
+
+    def test_cli_preview_defaults_targets_and_explicit_selection(self):
+        for name in installer.DEFAULT_SKILLS:
+            self.skill(name)
+        user_home = self.base / "user"
+        repo_target = self.repo / ".agents" / "skills"
+        cases = (
+            ([], repo_target, installer.DEFAULT_SKILLS),
+            (["--scope", "user"], user_home / ".agents" / "skills", installer.DEFAULT_SKILLS),
+            (["--scope", "user", "--target", str(self.target)], self.target, installer.DEFAULT_SKILLS),
+            (["--skill", "alpha"], repo_target, ["alpha"]),
+            (["--skill", "alpha", "--skill", "game-feel"], repo_target, ["alpha", "game-feel"]),
+        )
+        for argv, target, names in cases:
+            with self.subTest(argv=argv), redirect_stdout(io.StringIO()), \
+                    patch.object(installer, "__file__", str(self.repo / "scripts/install_skills.py")), \
+                    patch.object(installer.Path, "home", return_value=user_home), \
+                    patch.object(installer, "_git_state", return_value=(None, None)), \
+                    patch.object(installer, "plan_install", wraps=installer.plan_install) as plan, \
+                    patch.object(installer, "apply_plan") as apply:
+                self.assertEqual(0, installer.main(argv))
+                self.assertEqual((self.repo, target, names), plan.call_args.args)
+                apply.assert_not_called()
+                self.assertFalse(target.exists(), "preview must not create a destination")
+
+    def test_selected_install_retains_previously_managed_skills(self):
+        self.install("alpha")
+        self.skill("beta")
+        plan = self.install("beta")
+        self.assertEqual({"beta": "ADDED"}, plan.actions)
+        self.assertEqual({"alpha", "beta"}, set(plan.manifest["skills"]))
+        self.assertTrue((self.target / "alpha" / "SKILL.md").is_file())
 
     def test_preview_fresh_install_and_unrelated_skill_preservation(self):
         plan = self.plan()

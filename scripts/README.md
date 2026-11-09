@@ -5,7 +5,7 @@
 ## 安装与更新
 
 ```bash
-python3 -B scripts/install_skills.py                 # 只预览，默认 11 项（统一入口 + 10 项迁入技能）
+python3 -B scripts/install_skills.py                 # 只预览，默认 17 项
 python3 -B scripts/install_skills.py --apply         # 写入本仓库 .agents/skills
 python3 -B scripts/install_skills.py --scope user    # 预览 ~/.agents/skills
 python3 -B scripts/install_skills.py --scope user --apply
@@ -18,7 +18,9 @@ python3 -B scripts/install_skills.py --skill miliastra-code --skill miliastra-ui
 python3 -B scripts/install_skills.py --all
 ```
 
-`--target` 覆盖 `--scope` 的默认路径。`--all` 包含仓库全部 15 项技能；默认的 11 项见 [技能索引](../skills/README.md)。所有写入都需要 `--apply`。源文件及来源版本信息均未变化时，重复安装不写入文件；仅来源版本信息变化时可更新安装清单。
+默认目标是本仓库的 `.agents/skills`，不是调用命令时所在工程；`--scope user` 改为用户的 `~/.agents/skills`，显式 `--target` 优先于两者。`--all` 选择当前仓库全部技能，不固定总数；默认 17 项由 [安装器 DEFAULT_SKILLS](install_skills.py) 定义，包含日常代码组合 `ponytail`、`improve-codebase-architecture` 及其参考 `codebase-design`，其余可选项见 [技能索引](../skills/README.md)。`--skill` 可重复并**替代默认选择，不是追加**；以前已受管的其他技能保留，不会因本次未选中而卸载。
+
+所有写入都需要 `--apply`。源文件及来源版本信息均未变化时，重复安装不写入文件；仅来源版本信息变化时可更新安装清单。换机的运行环境、工具和工程依赖另按 [千星 2D 跨机清单](../docs/qianxing-2d-portability.md) 恢复。
 
 安装器在目标中维护 `.xingyuan-ai-hub-install.json`，记录仓库、Git revision、技能源是否有未提交改动以及逐文件 SHA-256。每次更新先验证所有已管理技能：本地修改、删除、额外文件/目录、未管理同名目录、符号链接或损坏清单都会中止写入。无关技能目录保留；不提供强制覆盖选项。要保留本地修改，应先将修改合并回 `skills/` 真源，再由人处理旧副本冲突。
 
@@ -39,7 +41,7 @@ python3 -B scripts/verify_skills.py --installed .agents/skills
 python3 -B scripts/verify_skills.py --root /path/to/hub --installed /path/to/project/.agents/skills
 ```
 
-校验器检查必需技能、`SKILL.md` 的名称/描述和重复名称、Markdown 本地目标、迁移关键素材，以及可选安装副本的清单和文件哈希。退出码 `0` 仅代表这些本地检查通过，`1` 表示发现错误，`2` 表示参数错误。
+校验器将默认 17 项全部列为必需技能（与安装器默认集合的一致性由回归测试锁定），检查 `SKILL.md` 的名称/描述和重复名称、Markdown 本地目标、迁移关键素材，以及可选安装副本的清单和文件哈希。退出码 `0` 仅代表这些本地检查通过，`1` 表示发现错误，`2` 表示参数错误。
 
 边界：元数据检查不是完整 YAML 解析；链接检查不覆盖代码块、行内代码、裸文本路径或标题锚点，也不验证网络链接。项目外依赖、Codex 实际发现、插件与编辑器、真机试玩保持 `not_verified`。离线自测需单独执行，不会由校验器冒称已运行。
 

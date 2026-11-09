@@ -4,6 +4,7 @@
     {
       "name": "miliastra-code",
       "kind": "skill",
+      "requires": ["dsh-miliastra"],
       "purpose": "千星脚本、API、服务端节点图转写、原位注入与工程实现",
       "platform": "qianxing",
       "keywords": [
@@ -32,6 +33,7 @@
     {
       "name": "miliastra-ui",
       "kind": "skill",
+      "requires": ["dsh-miliastra"],
       "purpose": "千星 UI/UX 需求、布局、控件选型、模板、多端适配、绑定与试玩；统一极简风、几何省控件经验及纯图片控件 GIA/Lua",
       "platform": "qianxing",
       "keywords": [
@@ -108,6 +110,7 @@
     {
       "name": "miliastra-motion",
       "kind": "skill",
+      "requires": ["dsh-miliastra"],
       "purpose": "千星 UI 动效与 UI 粒子：时长/缓动/编排/状态反馈的数值口径，以及粒子池与预算",
       "platform": "qianxing",
       "keywords": [
@@ -1124,6 +1127,51 @@
     }
   ],
   "externals": [
+    {
+      "name": "dsh-miliastra",
+      "display": "DSH 千星工具链（dsh-miliastra）",
+      "kind": "software",
+      "status": "unverified",
+      "purpose": "千星技能中部署、存档读取、模拟器、素材与日志工具的外部实现；纯文档阅读和仓库自带离线门禁不依赖插件。",
+      "source": "https://github.com/LoktLin/dsh-miliastra",
+      "version": "0.8.0",
+      "license": "GPL-3.0-only",
+      "prerequisites": "该版本 manifest 声明 Node >=20.0.0、DSH >=0.1.2-rc.1；原神/编辑器和目标工程另行准备。",
+      "integration": "安装到实际 DSH profile 并启用其 bundle；新会话核对 miliastra_* schema。安装 skill 不会安装本插件。",
+      "note": "2026-11-09 只读核对本机 manifest 为0.8.0、DSH运行时manifest为0.2.2-rc.1，当前会话已注册miliastra_*工具；本轮未运行游戏取证，换机仍为unverified。版本号是观察值，不是锁定推荐或完整兼容性证明。",
+      "keywords": ["dsh-miliastra", "miliastra_health", "miliastra_sim", "miliastra_code", "千星工具链"],
+      "install": "从 https://github.com/LoktLin/dsh-miliastra 或经核验的DSH插件目录获取对应版本，按上游README和manifest安装/启用；检查engines与工具schema，再按换机指南分层验收。不复制旧profile凭据，不跳过版本限制。"
+    },
+    {
+      "name": "genshin-miliastra-mcp",
+      "display": "genshin-miliastra MCP（8itlab，可选）",
+      "kind": "mcp",
+      "status": "unverified",
+      "purpose": "另一套独立的千星MCP；按任务需要提供存档与节点资料等能力，不是dsh-miliastra的别名或纯客户端2D Lua开发的必装项。",
+      "source": "https://github.com/8itlab/genshin-miliastra-mcp",
+      "version": "0.1.0",
+      "license": "MIT",
+      "prerequisites": "该版本manifest声明Node >=22.12.0；截图/OCR等可选能力另需上游Python依赖与构建产物。",
+      "integration": "在实际客户端单独注册MCP并核对tools/list和get_capabilities；保持MILIASTRA_ALLOW_LIVE_WRITE=0，未经授权不调用桌面输入或自动试玩。",
+      "note": "2026-11-09只读核对本机manifest为0.1.0、依赖genshin-ts 0.2.2。2026-11-02接入记录曾验证握手和工具发现，本轮未重新握手/操控游戏，不继承为新机器ready。上游存在的自动化能力不改变本工程人点试玩与部署授权边界。",
+      "keywords": ["genshin-miliastra", "genshin-miliastra-mcp", "8itlab"],
+      "install": "从 https://github.com/8itlab/genshin-miliastra-mcp 按上游固定版本/锁文件安装并构建，再单独配置MCP；先读workflow/platform-rules、doctor与能力清单。配置注册、工具发现、实际运行和真机验收分别记录。"
+    },
+    {
+      "name": "genshin-ts",
+      "display": "Genshin-TS（可选节点图编译器）",
+      "kind": "software",
+      "status": "unverified",
+      "purpose": "TypeScript到千星节点图的编译/注入工具；只在节点图转写工作中按项目采用，不是客户端2D Lua的运行时或默认安装依赖。",
+      "source": "https://github.com/josStorer/genshin-ts",
+      "version": "0.2.2",
+      "license": "MIT",
+      "prerequisites": "按所选版本上游manifest与项目lockfile准备Node/npm环境；不能把本机Node24观察值当最低版本。",
+      "integration": "沿用工程锁定编译器和配置；新工具的独立依赖不能替换现有工程编译器。编译候选与副本检查通过后，仍需独立审查注入和真机行为。",
+      "note": "2026-11-09只读核对8itlab工具独立node_modules中的genshin-ts为0.2.2；未为本任务编译或注入地图。不代表所有项目均使用该版本。",
+      "keywords": ["genshin-ts", "gsts", "节点图编译器"],
+      "install": "来源 https://github.com/josStorer/genshin-ts ；只在任务确需节点图编译时按工程lockfile和对应版本文档安装。不得仅因新版本可用而升级、替换或重编已有图。"
+    },
     {
       "name": "snowluma-onebot",
       "display": "SnowLuma / NapCat OneBot 网关",

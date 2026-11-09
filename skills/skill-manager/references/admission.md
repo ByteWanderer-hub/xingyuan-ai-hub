@@ -61,6 +61,15 @@
 
 同一套顺序适用于任何库外 MCP、桥接网关、编辑器与外部软件；新增 `externals` 条目必须同时写 `install`，否则视为未完成。
 
+### 跨机依赖登记与证据边界
+
+- 登记工具时写清 `source`（上游URL）、`version`（固定版本或unknown及原因）、`license`、`prerequisites`、`integration`；不把依赖描述复制成库内技能或把必需包写成可选。只登记元信息不等于复制/再分发外部软件获得许可，素材与私有工程许可另审。
+- `requires` 描述调用该技能外部工具路径所需条件，不是安装器自动解决依赖的指令；纯阅读/独立离线步骤仍可做。可选工具明确标可选，不挂到每个技能的硬依赖上。
+- 区分仓库真源、远端已发布、安装副本SHA一致、客户端实际发现、外部工具发现与运行、目标工程依赖、真机验收。`source_dirty=true` 不证明远端已有草稿，安装成功不证明插件已安装。
+- `ready` 必须有环境/时间/版本/实际调用证据；换机不继承。版本manifest只证明声明的版本与约束，工具名/入口存在只证明发现；未复测保留 `unverified`，不要把未知写成missing或ready。
+- 交接可分别记录 `evidence_source=documented|provided_unverified|observed|inferred|unknown` 与 `device_status=passed|failed|pending|not_required`。前者是证据来源，后者是目标机验收；历史观察不自动变为目标机passed。无需相关能力则not_required，不为清单全绿执行无关/越权步骤。
+- 外部工具即使支持自动注入、桌面输入或试玩，也不会授予本工程原本禁止的行为；接口发现、写权限、作者地图确认、备份/部署与原生验收保持分离。千星换机实例见 [迁移指南](https://github.com/ByteWanderer-hub/xingyuan-ai-hub/blob/main/docs/qianxing-2d-portability.md)（完整克隆内为 `docs/qianxing-2d-portability.md`，不随技能副本安装）。
+
 ## 六、完成定义（缺一项不算录用完成）
 
 - 索引里 `kind` 明确；`experience` 无脚本；`externals` 有 `status`、有 `install`（来源 + 前置 + 接入方式），且被 `requires` 正确引用。

@@ -35,6 +35,8 @@ node scripts/gates/check-lua-scope.mjs --selftest    # 各门自带正反例自�
 | `_paths.mjs` | 🔧 依赖 | 路径解析（**技能版含可携带性补丁**，见下） |
 | `lualint.mjs` | 🔧 依赖 | 注释 / 字符串剥离器（来自插件包 `lib/lualint.mjs`） |
 
+上述 `check-ui-contract.mjs` 是历史工程门禁说明，不表示旧实现已同步 `h ≥ 字号+16`。当前高度须同时满足 `h ≥ 字号×1.4` 与 `h ≥ 字号+16`；便携检查使用 `miliastra-ui/scripts/gates/check-ui-rules.mjs`。
+
 ## 与工作区版的差异：**只有三处**（判据零改动）
 
 1. **`_paths.mjs`：自动进入"显式文件模式"** —— 本目录下没有 `案子/` 时，不再要求地图目录存在，各门照常用**传进去的文件 / 目录**判。

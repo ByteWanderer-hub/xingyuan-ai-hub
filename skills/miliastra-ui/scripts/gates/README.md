@@ -19,7 +19,7 @@ node scripts/gates/check-ui-rules.mjs --selftest                      # 正反�
 | 代号 | 档 | 铁律 | 判据 |
 |---|---|---|---|
 | `FONT_SIZE_OFF_SCALE` | **error** | UI3 | 字号字面量不在白名单 `64 / 52 / 28 / 22` |
-| `TEXT_H_TOO_SMALL` | **error** | UI3 | 文本框 `h < ceil(字号 × 1.4)`（**真机整条一个像素都不画**，模拟器不模拟） |
+| `TEXT_H_TOO_SMALL` | **error** | UI3 | 文本框 `h < max(ceil(字号 × 1.4), 字号 + 16)`；两条须同时满足，未满足有真机整条不画风险，模拟器不模拟 |
 | `GRID_OFF_8` | warn | UI2 | `x/y/w/h` 字面量不是 8 的倍数 |
 | `RAW_COLOR` | warn | UI4 | 颜色三元组不在语义色表（§3.2） |
 | `SWEEP_WITHOUT_WHITELIST` | warn | UI5 | 遍历兄弟控件做隐藏/清理但没有白名单条件（会误伤别的脚本的热区） |

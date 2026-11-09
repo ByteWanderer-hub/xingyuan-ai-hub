@@ -2,7 +2,7 @@
 
 ChatGPT × Codex 的私有共享知识、技能和任务交接仓库。
 
-千星奇域的 10 项来源技能已完整迁入；本仓库另保留 4 项辅助技能，新增 [关键词统一入口](skills/xingyuan-router/SKILL.md)。2026-10-23 补入 `miliastra-motion`（千星 UI 动效与 UI 粒子的数值口径与预算）与 `motion-design`（第三方动效原则参考，LottieFiles MIT，原样收录）。迁移证据见 [迁移状态](skills/QIANXING_MIGRATION_STATUS.md)，当前进度和下一步见 [千星就绪检查](handoffs/active/qianxing-readiness.md)。
+千星奇域的 10 项来源技能已完整迁入；当前默认安装组合为 17 项，包含 [关键词统一入口](skills/xingyuan-router/SKILL.md)、千星开发／设计／动效及日常代码辅助技能，不代表全库总数。2026-10-23 补入 `miliastra-motion`（千星 UI 动效与 UI 粒子的数值口径与预算）与 `motion-design`（第三方动效原则参考，LottieFiles MIT，原样收录）。迁移证据见 [迁移状态](skills/QIANXING_MIGRATION_STATUS.md)，当前进度和下一步见 [千星就绪检查](handoffs/active/qianxing-readiness.md)。
 
 2026-10-25 新增 [performance-optimization](skills/performance-optimization/SKILL.md)（上游 Apache-2.0 的中文校正版），涵盖游戏卡顿/帧耗时分析、CPU 渲染提交与 GPU 区分、对象池/预算及千星测量边界。
 
@@ -37,7 +37,7 @@ ChatGPT × Codex 的私有共享知识、技能和任务交接仓库。
 # 1. 只读检查技能、引用和原始素材
 python3 -B scripts/verify_skills.py
 
-# 2. 预览默认 14 项技能（入口 + 13 项）将安装到哪里、改动哪些文件
+# 2. 预览默认 17 项技能将安装到哪里、改动哪些文件
 python3 -B scripts/install_skills.py
 
 # 3. 执行安装到当前仓库 .agents/skills
@@ -47,14 +47,16 @@ python3 -B scripts/install_skills.py --apply
 python3 -B scripts/verify_skills.py --installed .agents/skills
 ```
 
-在另一个游戏工程使用时，安装目标应是那个工程的 `.agents/skills`：
+默认目标是**技能仓库自身**的 `.agents/skills`，不是调用命令时所在的游戏工程。在另一个游戏工程使用时，应显式指定那个工程的 `.agents/skills`：
 
 ```bash
 python3 -B scripts/install_skills.py --target /path/to/game-project/.agents/skills
 python3 -B scripts/install_skills.py --target /path/to/game-project/.agents/skills --apply
 ```
 
-也可用 `--scope user` 安装到用户的 `~/.agents/skills`，或用 `--skill 名称` 选择技能。目标中已有未管理的同名技能或本地改动时，安装器会拒绝覆盖并指出冲突。更新操作沿用“预览 → 安装 → 检查”，详见 [维护脚本](scripts/README.md)。
+也可用 `--scope user` 安装到用户的 `~/.agents/skills`；显式 `--target` 优先于 scope。`--skill 名称` 可重复，**替代默认 17 项选择，不是追加默认项**；它不会卸载以前已受管的其他技能。默认组合已包含 `ponytail`、`improve-codebase-architecture` 和 `codebase-design`。目标中已有未管理的同名技能或本地改动时，安装器会拒绝覆盖并指出冲突。更新操作沿用“预览 → 安装 → 检查”，详见 [维护脚本](scripts/README.md)。
+
+换机继续千星 2D 开发，按 [跨机开发与验收清单](docs/qianxing-2d-portability.md) 分别恢复技能、运行环境、外部工具和项目依赖；拉取或安装技能不等于插件可用、地图迁移或真机通过。
 
 Codex 的技能发现位置参考[官方技能文档](https://learn.chatgpt.com/docs/build-skills)。文件安装通过后，仍需在实际 Codex 会话确认技能被发现；仓库访问不会自动安装 ChatGPT 插件或建立两端共享记忆。
 

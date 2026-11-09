@@ -104,8 +104,8 @@ function checkText(src) {
                     const fm = win.match(/fontSize\s*=\s*(\d+)|SetFontSize\s*\(\s*(\d+)|setFont\s*\(\s*(\d+)/);
                     if (fm) {
                         const fv = Number(fm[1] ?? fm[2] ?? fm[3]);
-                        const need = Math.ceil(fv * 1.4);
-                        if (h < need) push('TEXT_H_TOO_SMALL', 'error', n, 'UI3', `文本框 h=${h} < 字号 ${fv} × 1.4 = ${need} ⇒ **真机整条一个像素都不画**（模拟器不模拟）`);
+                        const need = Math.max(Math.ceil(fv * 1.4), fv + 16);
+                        if (h < need) push('TEXT_H_TOO_SMALL', 'error', n, 'UI3', `文本框 h=${h} < max(ceil(${fv} × 1.4), ${fv} + 16) = ${need} ⇒ 不满足行高双约束，真机有整条不画风险（模拟器不模拟）`);
                     }
                 }
             } else {
@@ -134,8 +134,8 @@ if (selftest) {
     ].join('\n');
     const good = [
         'local THEME = { font = { title = 52 }, color = { text = Color(245, 240, 234) } }',
-        'local t = add(c, "txt", 32, 40, 480, 96, "标题")',        // 8 的倍数 + 96 >= 52*1.4=73
-        't.c.fontSize = THEME.font.title',
+        'local t = add(c, "txt", 32, 40, 480, 96, "标题")',        // 8 的倍数 + 96 >= max(ceil(52*1.4),52+16)
+        't.c.fontSize = 52',                                   // 字面量让本例实际检查行高
         't.c.imageColor = THEME.color.text',
         'panel:GetChild("光标检测区域").showCursor = true',
     ].join('\n');
@@ -145,7 +145,22 @@ if (selftest) {
     const miss = want.filter((r) => !bRules.has(r));
     console.log(`自检坏样本：命中 ${b.hits.length} 处，规则覆盖 ${[...bRules].join('/')}，判不了 ${b.unjudged} 处`);
     console.log(`自检好样本：命中 ${g.hits.length} 处${g.hits.length ? '（' + g.hits.map((h) => h.rule + ':' + h.msg).join(' | ') + '）' : ''}`);
-    if (miss.length || g.hits.length) { console.error(`❌ 自检未通过（缺规则：${miss.join('/') || '无'}；好样本误报 ${g.hits.length}）`); process.exit(1); }
+    const heightCases = [
+        [22, 38, false], [22, 37, true],
+        [28, 44, false], [28, 43, true],
+        [52, 73, false], [52, 72, true],
+        [64, 90, false], [64, 89, true],
+        [22, 32, true], [28, 40, true],        // 比例够，但 font + 16 不够
+        [64, 88, true],                       // font + 16 够，但比例不够
+    ];
+    const heightFailures = heightCases.filter(([font, h, wantError]) => {
+        const src = `local t = add(c, "txt", 32, 40, 480, ${h}, "标题")\nt.c.fontSize = ${font}`;
+        const hasError = checkText(src).hits.some((hit) => hit.kind === 'TEXT_H_TOO_SMALL' && hit.level === 'error');
+        return hasError !== wantError;
+    });
+    console.log(`行高双约束自检：${heightCases.length - heightFailures.length}/${heightCases.length} 通过（仅断言行高，不把栅格警告算误报）`);
+    if (heightFailures.length) console.error(`行高失败样本 [font,h,wantError]：${JSON.stringify(heightFailures)}`);
+    if (miss.length || g.hits.length || heightFailures.length) { console.error(`❌ 自检未通过（缺规则：${miss.join('/') || '无'}；好样本误报 ${g.hits.length}；行高失败 ${heightFailures.length}）`); process.exit(1); }
     console.log('自检通过 ✓');
     process.exit(0);
 }

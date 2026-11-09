@@ -16,7 +16,7 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 
 **日常代码任务固定组合：** 按用户长期要求，写代码、优化代码、修改代码时均加载 `ponytail` + `improve-codebase-architecture`，不必出现技能名或“架构”字样；“修这个函数／给脚本补逻辑”等实际涉及代码变更的接续请求也按语义选用。前者检查消除重复与复用，后者检查受影响模块的职责和接口；小改仅做局部检查，不自动启动全库探索、子代理、HTML报告或方案追问。平台实现另加对应技能；卡顿、掉帧、帧耗时加 `performance-optimization`，不得用它替代这两个技能。用户纠正后立即重评，不沿用上文话题。若候选 `available:false`，先查已知真源或按已有授权定向安装，不能因此说仓库没有。仅查询技能或解释代码不授权业务重构。
 
-可选检索：运行 `python scripts/route.py "包含已确认平台与当前问题的任务摘要"`，或用脚本绝对路径并传 `--platform qianxing` 等已知平台。脚本只返回关键词候选，不理解完整上下文、不执行技能；零命中、排序、否定词和混合任务均须结合技能描述人工判断。
+可选检索：在本技能目录运行 `python scripts/route.py "包含已确认平台与当前问题的任务摘要"`（仓库根则用 `python skills/xingyuan-router/scripts/route.py` 并补任务摘要），或用脚本绝对路径并传 `--platform qianxing` 等已知平台。脚本只返回关键词候选，不理解完整上下文、不执行技能；零命中、排序、否定词和混合任务均须结合技能描述人工判断。
 
 ### 选择示例
 
@@ -37,9 +37,9 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 技能 `skill` | `skills[]`，18 项 | 千星实现、需求边界、交付编排、调试、性能、QQ 表情包、图像配方、技能维护；另含 Matt Pocock 的 `diagnosing-bugs`/`wizard`（带脚本模板） | 读 SKILL.md 按步骤执行，产出并验证 | 不把参考条目当实现步骤；有 `requires` 的先核验外部依赖 |
 | 外部工具清单 `external` | `skills[]`，1 项 `desktop-toolbox` | 本机桌面软件的选择与核对 | 先按清单核验安装/可启动/功能验收状态再用 | 不把“已安装”当成“已验收”，不臆测 GUI 与连通性 |
 | 经验 `experience` | `skills[]`，37 项 | 原有 10 项（含 `code-review`、`ponytail` 等）+ Matt Pocock 技能集 27 项（见下方专节） | 只取原则、数值、判据、案例与审视清单，落地另配平台技能 | 不假装有脚本、生成器、平台 API 或真机验证 |
-| 库外依赖 `externals[]` | 独立段 | `snowluma-onebot`（服务，ready，已探活）、`rea`（MCP，missing，缺失时提示安装，不装就不用） | 先看 `status`：`ready` 可直接用，`missing` 先提示安装并等确认 | 不把库外能力写成本库技能，不虚构已接入 |
+| 库外依赖 `externals[]` | 独立段，8 项 | DSH 千星工具链；可选 8itlab MCP / Genshin-TS；SnowLuma 网关与 3 个桥；REA | 先核验当前电脑、profile、版本与任务所需能力；`missing` 先提示安装并等确认 | 不把依赖登记、历史 `ready` 或安装成功当成新电脑已接入/已验收 |
 
-`experience` 类没有可执行流程（个别技能只带 1 个模板脚本时才判 `skill`）。`externals` 的 `status`：`ready` 已探活可用、`unverified` 未核实、`missing` 未接入。
+`experience` 类没有可执行流程（个别技能只带 1 个模板脚本时才判 `skill`）。`externals` 的 `status`：`ready` 仅表示 note 所记环境与时刻曾探活、`unverified` 未核实当前可用性、`missing` 已知未接入；换机均须重测。代码/UI/动效候选的 `requires` 会一并出现在检索结果，不需要用户知道插件名。这里的依赖是调用工具时的条件，不阻止阅读技能或运行独立离线门禁；可选 MCP/节点图编译器不作为纯 2D Lua 的硬依赖。跨机安装、版本证据与项目交接按 [换机指南](https://github.com/ByteWanderer-hub/xingyuan-ai-hub/blob/main/docs/qianxing-2d-portability.md)（完整克隆内为 `docs/qianxing-2d-portability.md`；只安装技能不会携带仓库根文档） 逐层核对。
 
 ## 快速表
 

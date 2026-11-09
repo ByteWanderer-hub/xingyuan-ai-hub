@@ -22,10 +22,14 @@ import sys
 from urllib.parse import unquote, urlsplit
 
 
+# Must match install_skills.DEFAULT_SKILLS; regression-tested across both scripts.
 CORE_SKILLS = (
+    "xingyuan-router",
     "game-design-theory", "game-feel", "game-ui-ux", "level-design",
-    "miliastra-bb", "miliastra-code", "miliastra-ui", "qianxing-agent",
+    "miliastra-bb", "miliastra-code", "miliastra-ui", "miliastra-motion",
+    "motion-design", "performance-optimization", "qianxing-agent",
     "qianxing-auto-delivery", "systematic-debugging",
+    "ponytail", "improve-codebase-architecture", "codebase-design",
 )
 CRITICAL_ASSETS = (
     "skills/miliastra-code/assets/Image_sample_by_id.json",

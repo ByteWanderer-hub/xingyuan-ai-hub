@@ -53,12 +53,17 @@ def lookup(query, platform='auto'):
     externals = []
     for ext in data.get('externals', []):
         hits = [k for k in ext['keywords'] if matches(text, k)]
-        if not hits:
+        # Required tools must remain visible even when a task uses no tool name.
+        required_by = sorted(row['skill'] for row in results
+                             if ext['name'] in row['requires'])
+        if not hits and not required_by:
             continue
         externals.append({'name': ext['name'], 'display': ext['display'], 'kind': ext['kind'],
                           'status': ext['status'], 'purpose': ext['purpose'], 'note': ext['note'],
                           'install': ext.get('install', ''),
-                          'matched': hits,
+                          **{key: ext[key] for key in ('source', 'version', 'license',
+                                                      'prerequisites', 'integration') if key in ext},
+                          'matched': hits, 'required_by': required_by,
                           'used_by': sorted(n for n, row in names.items()
                                             if ext['name'] in row.get('requires', []))})
     warnings = [g['message'] for g in data['gaps'] if any(matches(text, k) for k in g['keywords'])]
@@ -69,7 +74,7 @@ def lookup(query, platform='auto'):
                 label, ext['display'], ext['purpose']))
         else:
             warnings.append('外部{0}：{1}（{2}）。{3} 先核验本机是否已接入；缺失则提示用户安装：{4} '
-                            '用户不安装、或装后仍不可用 → 本次不执行，也不用别的技能冒充。'.format(
+                            '用户不安装、或装后仍不可用 → 本次不执行该外部能力，也不用别的技能冒充；不阻止独立的文档阅读或离线检查。'.format(
                                 label, ext['display'], ext['status'], ext['purpose'],
                                 ext.get('install') or ext['note']))
     if platform == 'unknown':
