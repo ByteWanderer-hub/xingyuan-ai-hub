@@ -81,6 +81,17 @@ class RoutingTests(unittest.TestCase):
         self.assertIn('whalechan-image-comic', names)
         self.assertIn('qq-sticker-pack', names)
 
+    def test_qianxing_server_nodegraph_transcription(self):
+        for query in ('千星服务端节点图转写', 'Miliastra genshin-ts',
+                      '千星原位注入已有图', '千星代码注入测试图'):
+            with self.subTest(query=query):
+                self.assertIn('miliastra-code', self.names(query))
+        self.assertIn('miliastra-code', self.names('genshin-ts 编译', 'qianxing'))
+        for query in ('Web TypeScript 节点图转写', '数据库 SQL 注入排查',
+                      'Unity 服务端节点图', '网页代码注入'):
+            with self.subTest(query=query):
+                self.assertNotIn('miliastra-code', self.names(query))
+
     def test_qianxing_assets(self):
         self.assertEqual(self.names('千星找图片图标素材')[0], 'miliastra-ui')
         self.assertNotIn('qianxing-auto-delivery', self.names('千星找图片图标素材'))

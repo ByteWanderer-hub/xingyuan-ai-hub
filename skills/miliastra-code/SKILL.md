@@ -1,9 +1,9 @@
 ---
 name: miliastra-code
-description: 开发、排障、验证和部署千星奇域客户端 Lua 脚本。用于千星脚本与平台 API 问题；普通 Lua 和指令维护不触发。
+description: 开发、排障、验证和部署千星奇域客户端 Lua 脚本及服务端节点图，涵盖节点图转写、编译与原位注入。普通 Lua、Web TypeScript 和指令维护不触发。
 ---
 
-# 千星客户端 Lua
+# 千星客户端 Lua 与服务端节点图
 
 ## 0. 范围与完成
 
@@ -39,6 +39,7 @@ description: 开发、排障、验证和部署千星奇域客户端 Lua 脚本�
 
 | 任务 | 读取 |
 |---|---|
+| 服务端节点图转写、genshin-ts 编译或已有图原位注入 | [服务端节点图转写与原位注入](references/server-nodegraph-transcription.md)；先核目标与外部工具版本 |
 | 新玩法需要确定脚本、容器或数据契约 | [架构评估](references/project-architecture-assessment.md) 的相关部分；明确小改不重做规划 |
 | 多挂载脚本、对话/黑幕/选项、require、Tween、复杂变量 | [已运行对话工程](references/dialog-template-patterns.md)，区分来源确认与本轮实测 |
 | 控件名、模板引用或字段读不到 | [控件名与探测](references/control-name-and-probe.md) |

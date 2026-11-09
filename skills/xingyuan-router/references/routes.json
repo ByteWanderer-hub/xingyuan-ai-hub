@@ -4,7 +4,7 @@
     {
       "name": "miliastra-code",
       "kind": "skill",
-      "purpose": "千星脚本、API、节点图与工程实现",
+      "purpose": "千星脚本、API、服务端节点图转写、原位注入与工程实现",
       "platform": "qianxing",
       "keywords": [
         "千星脚本",
@@ -12,6 +12,11 @@
         "levelscript",
         "api",
         "节点图",
+        "服务端节点图",
+        "节点图转写",
+        "genshin-ts",
+        "代码注入",
+        "原位注入",
         "变量",
         "信号",
         "黑板",
