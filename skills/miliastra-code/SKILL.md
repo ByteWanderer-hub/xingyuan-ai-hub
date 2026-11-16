@@ -43,7 +43,8 @@ description: 开发、排障、验证和部署千星奇域客户端 Lua 脚本�
 | 新玩法需要确定脚本、容器或数据契约 | [架构评估](references/project-architecture-assessment.md) 的相关部分；明确小改不重做规划 |
 | 多挂载脚本、对话/黑幕/选项、require、Tween、复杂变量 | [已运行对话工程](references/dialog-template-patterns.md)，区分来源确认与本轮实测 |
 | 控件名、模板引用或字段读不到 | [控件名与探测](references/control-name-and-probe.md) |
-| 跨脚本通信 | [通信参考](references/cross-script-comm.md)；涉及已运行对话工程时同时核对上一条的修正 |
+| 服务端变量声明、ID 域、字典工作簿或跨端信号 | [变量与信号](references/variables-and-signals.md) |
+| 跨脚本通信、加载握手或成长存档 | [通信参考](references/cross-script-comm.md)；涉及已运行对话工程时同时核对上一条的修正 |
 | 粒子与性能预算 | [粒子与预算](references/vfx-particles-and-budget.md) |
 | 用户明确要求帧动画/像素重建 | [帧动画](references/frame-animation.md) / [像素重建](references/pixel-reconstruction.md)，遵守工作区素材与图片限制 |
 | 视觉布局或素材检索 | `miliastra-ui`；需求有实质歧义才用 `miliastra-bb` |

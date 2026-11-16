@@ -82,6 +82,7 @@ description: 设计或调整千星奇域 UI/UX：需求拆解、分区布局、�
 - 整屏或联动布局：按 [实现流程](references/design-guide.md#implementation) 记录必要的素材、坐标、层序和数据归属；明确的小改直接实施，不强制草图审批。
 - 消息延迟、渲染归属或跨脚本显示问题：[数据归属](references/ui-data-ownership.md)。
 - 对话/黑幕/选项、手柄导航与打字机：[已运行对话工程](../miliastra-code/references/dialog-template-patterns.md)。
+- 动态网格定位、世界目标投影：[原生定位与镂空](references/ui-ux-workflow.md#原生定位与镂空)。
 - 网格换算：[网格计算](references/grid-calculator.md)；复用整屏样本：[侦探 UI 案例](references/case-detectives-ui.md)。
 - 仅在用户明确要求或素材确不适配时参考 [程序背景](references/procedural-background.md)，不默认生成图片或像素拼图。
 
