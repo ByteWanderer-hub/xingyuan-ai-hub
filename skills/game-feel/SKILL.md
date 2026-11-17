@@ -6,7 +6,9 @@ description: >
   feedback — as engine-neutral techniques that pair with the detected engine's tween,
   particle, and camera APIs. Use when the user mentions game feel, juice, "make it feel
   good/punchy", screen shake, hit stop, screen freeze, easing, squash and stretch, impact
-  frames, or feedback/polish on hits, jumps, pickups, and deaths.
+  frames, or feedback/polish on hits, jumps, pickups, and deaths. Also use for
+  游戏体感、视觉反馈、预警反馈，或从游戏视频分析可读性与反馈编排；基于时间点证据
+  提炼方法，不把录像分析冒充输入延迟测量、玩法实现或原作素材复刻。
 ---
 
 # Game feel (juice)
@@ -37,11 +39,12 @@ engine shader skill. For the concrete tween/particle node APIs, use the engine a
 
 ## Core principle: feedback is layered and exaggerated
 
-One satisfying hit is usually **5–8 tiny responses firing together** within ~100 ms: a sound,
-a particle burst, a brief hit-stop, a flash, a knockback, a small screen shake, and a number
-popping up. Each is cheap; stacked, they read as "impact". Two rules keep it from becoming a
-mess: **(1)** exaggerate *briefly* and return to rest (juice is transient, not a new resting
-state); **(2)** scale juice to event importance — a footstep is not a boss death.
+A hit can combine sound, a particle burst, hit-stop, flash, knockback, shake, or a number
+pop. These are options, not a required stack: **5–8 channels / ~100 ms is not a universal
+threshold or a measurement from a reference video**. Start with the minimum channels that
+communicate the event. **(1)** Exaggerate briefly and return to rest; **(2)** scale feedback
+to event importance; **(3)** preserve readable actors and cues. More layers do not by
+themselves prove better feel, acceptable cost, or accessibility.
 
 ## Core workflow
 
@@ -60,6 +63,25 @@ state); **(2)** scale juice to event importance — a footstep is not a boss dea
 7. **Verify by playing and watching.** Trigger the event repeatedly; confirm the feedback
    fires, returns to rest, and is not nauseating or input-blocking. Report what you observed
    (does shake decay? does input still register during hit-stop?).
+
+## 从游戏录像借鉴反馈（不是测量真实体感）
+
+将录像视为表现证据，不视为源码、操作实验或可再分发素材。需要时间点案例、
+预示/释放/恢复、统一图形词汇与低干扰对比时，按需读
+[录像反馈案例与迁移配方](references/video-feedback-case.md)。本技能仍是经验参考，
+不附带视频下载器、解码器、引擎实现或玩家实验。
+
+- 先记录实际可读范围：只有页面/字幕、静态帧、密集帧序列，还是连续音画；
+  为观察附时间点，分开 `observed`、`author-described`、`inferred`、`unverified`。
+  不可读取就请求片段，不能用标题或推荐语代替画面观察。
+- 先问事件表达什么，再考虑特效：主体是否可追踪、预示和释放是否可区分、
+  临时强调是否回落。提炼信息职责与编排，不复刻原作图腾、角色、音乐或整段关卡。
+- 录像扩环不等于镜头缩放，亮色不等于伤害生效，停画面不等于设计 hit-stop，
+  均匀抽帧不能证明音乐同步或闪光安全；视频重试也不是新阶段。
+- 参数写成待调起点，不冒充逐帧测量或目标平台验证。反馈绑定已确认事件，
+  不擅改碰撞、输入窗口、运动数值或判定；发现此类需求另配机制实现。
+- 输出：事件/目标 → 时间点与证据等级 → 信息职责 → 原创反馈方案 → 实现依赖
+  → 验证/未知项。实际操作、连续音画、性能与可访问性分别验证；不要承诺同等体感。
 
 ## Patterns
 

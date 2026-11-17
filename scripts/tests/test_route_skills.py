@@ -45,6 +45,18 @@ class RoutingTests(unittest.TestCase):
                 self.assertNotIn('ponytail', self.names(query))
                 self.assertNotIn('improve-codebase-architecture', self.names(query))
 
+    def test_game_feel_video_feedback_scope(self):
+        for query in ('提炼这个游戏体感效果', '游戏视频反馈分析',
+                      '已有动作加视觉反馈', '预警反馈如何更清楚'):
+            with self.subTest(query=query):
+                self.assertIn('game-feel', self.names(query))
+        for query in ('下载这个B站视频', '总结视频剧情', '修改跳跃高度和土狼时间'):
+            with self.subTest(query=query):
+                self.assertNotIn('game-feel', self.names(query))
+        result = route.lookup('游戏体感效果')
+        item = next(x for x in result['candidates'] if x['skill'] == 'game-feel')
+        self.assertEqual(item['kind'], 'experience')
+
     def names(self, query, platform='auto'):
         return [x['skill'] for x in route.lookup(query, platform)['candidates']]
 

@@ -297,7 +297,7 @@
     {
       "name": "game-feel",
       "kind": "experience",
-      "purpose": "已有动作的打击感与反馈",
+      "purpose": "已有动作的打击感、视觉反馈与录像中的反馈编排经验",
       "platform": "general",
       "keywords": [
         "打击感",
@@ -308,6 +308,10 @@
         "缓动",
         "挤压拉伸",
         "反馈润色",
+        "游戏体感",
+        "视觉反馈",
+        "预警反馈",
+        "游戏视频反馈分析",
         "hit stop",
         "hit-stop",
         "screen shake",
