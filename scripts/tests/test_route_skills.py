@@ -214,7 +214,7 @@ class RoutingTests(unittest.TestCase):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         kinds = {row['name']: row['kind'] for row in data['skills']}
         self.assertEqual(set(kinds.values()), {'skill', 'external', 'experience'})
-        self.assertEqual(sum(1 for v in kinds.values() if v == 'skill'), 18)
+        self.assertEqual(sum(1 for v in kinds.values() if v == 'skill'), 19)
         self.assertEqual(sum(1 for v in kinds.values() if v == 'experience'), 37)
         self.assertEqual(sum(1 for v in kinds.values() if v == 'external'), 1)
         for name, kind in kinds.items():
@@ -459,7 +459,7 @@ class RoutingTests(unittest.TestCase):
         for row in data['skills']:
             with self.subTest(skill=row['name']):
                 self.assertTrue(row['purpose'].strip())
-                self.assertIn(row['platform'], {'general', 'ugc', 'qianxing', 'roblox'})
+                self.assertIn(row['platform'], {'general', 'ugc', 'qianxing', 'roblox', 'eggy'})
                 self.assertIsInstance(row['keywords'], list)
                 self.assertGreater(len(row['keywords']), 0)
                 self.assertTrue(all(isinstance(k, str) and k.strip() == k and k for k in row['keywords']))
@@ -468,7 +468,7 @@ class RoutingTests(unittest.TestCase):
     def test_each_indexed_keyword_can_reach_its_target(self):
         data = json.loads((route.SKILL_DIR/'references/routes.json').read_text(encoding='utf-8'))
         for row in data['skills']:
-            platform = row['platform'] if row['platform'] in {'qianxing', 'roblox'} else 'other'
+            platform = row['platform'] if row['platform'] in {'qianxing', 'roblox', 'eggy'} else 'other'
             for keyword in row['keywords']:
                 with self.subTest(skill=row['name'], keyword=keyword):
                     self.assertIn(row['name'], self.names(keyword, platform))

@@ -1,6 +1,7 @@
 {
   "version": 1,
   "skills": [
+    {"name": "eggy-api", "kind": "skill", "purpose": "蛋仔工坊 Lua 接口检索与联调", "platform": "eggy", "keywords": ["蛋仔", "eggy", "eggitor", "lua", "api"]},
     {
       "name": "miliastra-code",
       "kind": "skill",

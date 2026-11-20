@@ -23,7 +23,9 @@ def lookup(query, platform='auto'):
     if platform == 'auto':
         detected = []
         # Handle common explicit platform exclusions; complex prose still needs review.
-        context = re.sub(r'(?:不要|不用|不是|不做|非)\s*(?:roblox|luau|千星|miliastra|qianxing|godot|unity|unreal)', '', text)
+        context = re.sub(r'(?:不要|不用|不是|不做|非)\s*(?:蛋仔派对|蛋仔|eggy|eggitor|roblox|luau|千星|miliastra|qianxing|godot|unity|unreal)', '', text)
+        if any(matches(context, k) for k in ('蛋仔', 'eggy', 'eggitor')):
+            detected.append('eggy')
         if any(matches(context, k) for k in ('roblox', 'luau')):
             detected.append('roblox')
         if any(matches(context, k) for k in ('千星', 'miliastra', 'qianxing', '天堂之门')):
@@ -91,7 +93,7 @@ def lookup(query, platform='auto'):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('query')
-    parser.add_argument('--platform', choices=['auto', 'qianxing', 'roblox', 'other', 'unknown'], default='auto')
+    parser.add_argument('--platform', choices=['auto', 'eggy', 'qianxing', 'roblox', 'other', 'unknown'], default='auto')
     args = parser.parse_args()
     print(json.dumps(lookup(args.query, args.platform), ensure_ascii=False, indent=2))
 
