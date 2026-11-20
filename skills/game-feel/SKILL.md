@@ -179,6 +179,10 @@ func feedback(event_pos: Vector2, tier: String) -> void:
 
 遇到“只改节奏”“差异看不出来”、星级结算、循环相位分析，读 [开源节拍案例与常速验收](references/open-motion-timing.md)。按源码取峰值与间隔，按项目动作单独验收。
 
+## 动效改版范围
+
+默认按体验目标自由改版，可调整布局、元素、动作路径、节奏、光效、粒子、镜头和声音。逐项遵守用户明确指定的保留条件。只有用户明确要求只改节奏或同义限制时，才锁定其余维度并按时间轴重排。一次任务的限制只在该任务内沿用。
+
 ## References
 
 - For the trauma-shake math, easing-curve cheat sheet (which ease for pop vs settle), knockback
