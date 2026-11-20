@@ -57,7 +57,7 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 | 玩法、玩家动机、叙事、好不好玩 | `game-design-theory`（经验） | 空间安排加 `level-design` |
 | 关卡、白盒、动线、节奏、可达性 | `level-design`（经验） | 千星落地前核对实际工程能力 |
 | 游戏卡顿、掉帧、渲染优化、帧耗时、Draw Call、GC 尖峰 | `performance-optimization` | 千星测量边界读其 references/miliastra.md；Lua/API 加 `miliastra-code`，动效加 `miliastra-motion`；刻意 hit-stop 仍走 `game-feel` |
-| 打击感、顿帧、震动、缓动、juice；游戏体感、视觉反馈、预警反馈、游戏视频反馈分析 | `game-feel`（经验） | 录像先核对时间点证据；引擎技能实现 API，不是移动控制器、视频下载器或完整关卡复刻 |
+| 打击感、顿帧、震动、缓动、juice；游戏体感、视觉反馈、预警反馈、游戏视频反馈分析、开源动效节奏拆解、只改节奏 | `game-feel`（经验） | 录像先核对时间点证据；引擎技能实现 API，不是移动控制器、视频下载器或完整关卡复刻 |
 | 通用动效原则、时长/缓动表、迪士尼动画原则（第三方参考） | `motion-design`（经验） | 只提供平台无关的原则与数值；千星落地加 `miliastra-motion` |
 | 通用 HUD、安全区、焦点导航、多端适配 | `game-ui-ux`（经验） | 明确千星时以 `miliastra-ui` 为主，本技能补充原理 |
 | 报错、没效果、偶发失败、根因 | `systematic-debugging` | 加目标平台工程技能 |

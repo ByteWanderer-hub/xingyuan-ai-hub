@@ -7,7 +7,7 @@ description: >
   particle, and camera APIs. Use when the user mentions game feel, juice, "make it feel
   good/punchy", screen shake, hit stop, screen freeze, easing, squash and stretch, impact
   frames, or feedback/polish on hits, jumps, pickups, and deaths. Also use for
-  游戏体感、视觉反馈、预警反馈，或从游戏视频分析可读性与反馈编排；基于时间点证据
+  游戏体感、视觉反馈、预警反馈、开源动效节奏拆解、保持元素不变只改节奏，或从游戏视频分析可读性与反馈编排；基于时间点证据
   提炼方法，不把录像分析冒充输入延迟测量、玩法实现或原作素材复刻。
 ---
 
@@ -174,6 +174,10 @@ func feedback(event_pos: Vector2, tier: String) -> void:
   accessibility option.
 - **Feedback that blocks input** (long freeze, un-cancelable animation) hurts responsiveness.
   Keep juice short and let input buffer through it.
+
+## 开源动效节奏拆解与保布局重排
+
+遇到“只改节奏”“差异看不出来”、星级结算、循环相位分析，读 [开源节拍案例与常速验收](references/open-motion-timing.md)。按源码取峰值与间隔，按项目动作单独验收。
 
 ## References
 
