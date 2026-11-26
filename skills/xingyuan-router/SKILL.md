@@ -125,7 +125,7 @@ description: 星愿/星缘资料库任务技能入口。开始或接续本库覆
 - 千星对话/黑幕/选项/打字机：读 `miliastra-code` 后按其对话工程参考继续。
 - 千星静态资产包、资产 ID 对照图：读 `miliastra-ui/references/static-image-pack.md`，使用只读脚本按 ID/用途查询和检查几何元数据；不把图片索引视为控件创建模板，不自动重传原始资产。
 - 千星统一极简风、几何剪纸参考、节省控件的画风分析：读 [极简风与几何造型经验](../miliastra-ui/references/paper-cut-low-control-art.md)。本用户最新选择为统一极简风、1000控件以内，原剪纸绘本分析作为参考保留。它是现有 UI 技能内的经验，不新增同义技能；设计预算不冒充实测数量，不以风格简单推断性能。普通绘本插画和网页极简设计不进入千星流程。
-- 参考图重建、按圈选小改、图片转 GIA/Lua：读 `miliastra-ui` 的 `references/client-template-gia.md`。仅图片控件可走通用输出，不要求指定地图；加入其他控件或玩法才按地图适配。区分预览、离线 GIA 与 Lua 创建模块，不把图片文件本身当可导入资源，不为通用美术或其他地图误启《天堂之门》专用流程。
+- 千星拆图、图元拟合或减少碎片拼接，读 [拆图与图元拟合](../miliastra-ui/references/client-template-gia.md#拆图与图元拟合)。同篇按任务提供圈选小改、同源预览和图片控件 GIA/Lua 输出流程。纯图片可通用输出；加入其他控件或玩法时按目标地图适配，仅《天堂之门》完整关卡使用其专用技能。
 - GIL/GIA、节点图：先读 `miliastra-code` 的 `references/node-graph-capabilities.md` 与 `references/plugin-toolbox.md` 的相关能力。仓库未包含通用地图 GIA 生成器；素材样例不等于生成工具。千星服务端节点图转写或原位注入另读[服务端节点图转写与原位注入](../miliastra-code/references/server-nodegraph-transcription.md)。genshin-ts 仅为该流程的可选外部编译器。
 - **库外依赖（MCP / 网关 / 平台）统一规则。** 索引 `externals[]` 里每条都带 `status`（ready / unverified / missing）和 `install`（来源 + 前置 + 接入方式）。用到时按固定顺序：① 核验本机是否已接入（命令在不在 PATH、MCP 是否在 profile 配置里），不凭“应该装过”判断；② `missing` / `unverified` 或核验失败 → 提示用户安装，把 `install` 里的来源与前置一次说清，然后等用户决定；③ 用户不安装、或装后仍不可用 → **本次不执行**该能力，不假装执行、不用相邻技能冒充（例如别用 `systematic-debugging` 冒充逆向）、不把未发生的结果写进正文或交接；④ 实测通过才把 `status` 改为 `ready` 并记录 handoff。
 - 当前 `externals[]`（状态均为 2026-10-27 本机实测，换机要重测）：

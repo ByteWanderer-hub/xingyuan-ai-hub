@@ -117,10 +117,12 @@ class RoutingTests(unittest.TestCase):
         self.assertNotIn('miliastra-ui', self.names('Unity 2D 控件'))
 
     def test_qianxing_basic_shape_composition(self):
-        for query in ('千星拼图，只用100001到100006', '千星基础形状组合，减少碎片'):
+        for query in ('千星拼图，只用100001到100006', '千星基础形状组合，减少碎片',
+                      '千星拆图', '千星图元拟合', '千星减少碎片拼接'):
             with self.subTest(query=query):
                 self.assertEqual(self.names(query)[0], 'miliastra-ui')
-        for query in ('网页拼图小游戏', 'Unity 基础形状拼图', '把旅行照片拼图'):
+        for query in ('网页拼图小游戏', 'Unity 基础形状拼图', '把旅行照片拼图',
+                      '网页拆图', 'Unity 图元拟合', '拟合数学曲线'):
             with self.subTest(query=query):
                 self.assertNotIn('miliastra-ui', self.names(query))
 
