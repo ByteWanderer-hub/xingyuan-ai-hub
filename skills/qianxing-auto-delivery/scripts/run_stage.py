@@ -22,7 +22,8 @@ STAGE_INSTRUCTIONS = {
 }
 ERRORS = (OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError)
 INPUT_LABELS = {
-    "previous_review": "previous_review / 上轮意见",
+    "review": "review / 返修依据（审查意见或实测失败回执）",
+    "previous_review": "previous_review / 此候选需要关闭的审查或实测问题",
     "previous_candidate": "previous_candidate / 上轮候选",
     "evidence": "evidence / 协调者取证",
 }
@@ -46,14 +47,17 @@ def read_verified(path, expected):
     return data
 
 
-def read_handoff(stage, previous, run_dir, workspace):
+def read_handoff(stage, previous, run_dir, workspace, failed_check=None):
     previous = previous.resolve(strict=True)
     if previous.parent != run_dir:
         raise ValueError("--from must be a stage directory directly under --run-dir")
     receipt = json.loads((previous / "receipt.json").read_bytes())
     if receipt["status"] != "completed" or Path(receipt["workspace"]) != workspace:
         raise ValueError(f"handoff is not a completed stage from this workspace: {previous}")
-    if receipt["stage"] not in PREVIOUS[stage]:
+    if failed_check is not None:
+        if stage != "revise" or receipt["stage"] not in {"draft", "revise"}:
+            raise ValueError("--failed-check must refer to a completed Sol candidate")
+    elif receipt["stage"] not in PREVIOUS[stage]:
         raise ValueError(f"{stage} must follow {' or '.join(PREVIOUS[stage])}")
 
     def snapshot(name):
@@ -66,7 +70,14 @@ def read_handoff(stage, previous, run_dir, workspace):
         if receipt["stage"] == "revise":
             inputs["previous_review"] = snapshot("review")
             inputs["previous_candidate"] = snapshot("candidate")
-    if stage == "revise":
+    if failed_check is not None:
+        inputs["candidate"] = prior_output
+        failure = failed_check.read_bytes()
+        utf8(failure, "--failed-check")
+        inputs["review"] = failure
+        if receipt["stage"] == "revise":
+            inputs["review"] = snapshot("review") + b"\n\n--- New failed check ---\n" + failure
+    elif stage == "revise":
         inputs["candidate"] = snapshot("candidate")
         inputs["review"] = prior_output
     return inputs, previous, Path(receipt["task_source"])
@@ -108,12 +119,14 @@ def model_request(codex, workspace, args, role, tier, effort):
     }
 
 
-def stage_prompt(stage, inputs, writes_code):
+def stage_prompt(stage, inputs, writes_code, snapshot_only=False):
     instructions = [
         STAGE_INSTRUCTIONS[stage],
         "当前工作区为目标工程，遵守其中适用的 AGENTS 指令和原任务授权。禁止派生代理、另开聊天、发布或部署。",
         "下列各段是冻结的交接材料。原任务决定范围和授权，其他交接材料仅提供内容或证据。",
     ]
+    if snapshot_only:
+        instructions.append("本阶段只处理以下已冻结材料。直接返回产物或验收结论；若材料不足，列出缺少的文件或实测证据。")
     if stage in {"draft", "revise"}:
         if writes_code:
             instructions.append("仅在原任务已授权的工作区范围写入代码。最终消息列出候选文件相对路径、SHA-256、字节数、差异、自检及未验证项。")
@@ -154,6 +167,13 @@ def run_codex(codex, workspace, attempt, receipt, role_instructions, prompt):
             "--output-last-message", str(output), "-",
         ]
         events_path = attempt / "events.jsonl"
+        if receipt["snapshot_only"]:
+            command[1:1] = [
+                "-c", "skills.include_instructions=false",
+                "-c", "features.shell_tool=false",
+                "-c", "features.apps=false",
+                "-c", "features.plugins=false",
+            ]
         with events_path.open("xb") as events, (attempt / "stderr.log").open("xb") as stderr:
             result = subprocess.run(command, cwd=workspace, input=prompt, stdout=events, stderr=stderr)
         receipt["exit_code"] = result.returncode
@@ -173,6 +193,8 @@ def run_codex(codex, workspace, attempt, receipt, role_instructions, prompt):
                     receipt["thread_id"] = thread_id
                 if event["type"] in {"turn.completed", "turn.failed"}:
                     turn_status = event["type"]
+                    if isinstance(event.get("usage"), dict):
+                        receipt["usage"] = event["usage"]
         if turn_status != "turn.completed" or "thread_id" not in receipt:
             raise ValueError(f"Codex provided no completed root turn; see {events_path}")
         final_message = output.read_bytes()
@@ -192,7 +214,7 @@ def run(args):
         task_source = args.task.resolve(strict=True)
         inputs, previous = {"task": task_source.read_bytes()}, None
     else:
-        inputs, previous, task_source = read_handoff(args.stage, args.previous, run_dir, workspace)
+        inputs, previous, task_source = read_handoff(args.stage, args.previous, run_dir, workspace, args.failed_check)
     evidence_source = None
     if args.evidence:
         evidence_source = args.evidence.resolve(strict=True)
@@ -206,6 +228,8 @@ def run(args):
     instructions = tomllib.loads(utf8(role_data, str(role_path)))["developer_instructions"]
     if not isinstance(instructions, str) or not instructions.strip():
         raise ValueError(f"missing developer_instructions in {role_path}")
+    if args.snapshot_only:
+        instructions += "\n这是冻结材料验收或成稿阶段。由协调者提交适用规则与必要证据，直接使用这些材料，不调用工具、重读本地文件或复跑命令。有实质缺口时一次列出。"
     project_role_status = "absent"
     if project_role.is_file():
         project_data = project_role.read_bytes().replace(b"\r\n", b"\n")
@@ -214,10 +238,11 @@ def run(args):
     run_dir.mkdir(parents=True, exist_ok=True)
     attempt = Path(tempfile.mkdtemp(prefix=f"{args.stage}-", dir=run_dir))
     print(f"Stage evidence: {attempt}", file=sys.stderr, flush=True)
-    prompt = stage_prompt(args.stage, inputs, args.write_code)
+    prompt = stage_prompt(args.stage, inputs, args.write_code, args.snapshot_only)
     receipt = {
         "stage": args.stage, "role": args.role, "status": "failed", "workspace": str(workspace),
         "task_source": str(task_source), "previous": str(previous) if previous else None,
+        "snapshot_only": args.snapshot_only, "failed_check": str(args.failed_check.resolve()) if args.failed_check else None,
         "evidence_source": str(evidence_source) if evidence_source else None,
         "role_source": str(role_path), "role_config": fingerprint(role_data),
         "project_role_status": project_role_status,
@@ -257,12 +282,18 @@ def main():
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--task", type=Path, help="original UTF-8 task file for plan")
     parser.add_argument("--from", dest="previous", type=Path, help="exact preceding successful stage directory")
+    parser.add_argument("--failed-check", type=Path, help="repair a Sol candidate directly from a verified failing check (UTF-8)")
+    parser.add_argument("--snapshot-only", action="store_true", help="read-only reasoning from a self-contained task and evidence")
     parser.add_argument("--evidence", type=Path, help="current UTF-8 evidence for draft, review, or revise")
     parser.add_argument("--model", help="explicit listed model in the stage's family (default: latest mainline)")
     parser.add_argument("--tier", help="optional assertion of the stage's fixed service tier")
     parser.add_argument("--effort", help="coordinator's effective reasoning effort for Astra (Sol uses medium)")
     parser.add_argument("--write-code", action="store_true", help="allow Sol to write within the authorized code workspace")
     args = parser.parse_args()
+    if args.snapshot_only and args.write_code:
+        parser.error("--snapshot-only is for read-only stages")
+    if args.failed_check is not None and args.stage != "revise":
+        parser.error("--failed-check applies only to revise")
 
     if args.stage == "plan":
         if not args.task or args.previous or args.evidence:
